@@ -1,0 +1,25 @@
+{
+  "manifest_version": 2,
+  "name": "Polska Ciasteczkowa Zgoda",
+  "description": "Automatycznie zgadza się na politykę ciasteczek/RODO na stronach dostępnych w języku polskim.",
+  "version": "1.0",
+  "content_scripts": [
+    {
+      "matches": [
+        "http://*.f1racing.pl/*",
+        "https://www.tumblr.com/privacy/consent?redirect*",
+        "https://sportowefakty.wp.pl/*",
+        "https://www.wirtualnemedia.pl/*",
+        "http://www.gry.pl/*",
+        "https://vivaldi.com/pl/*",
+        "https://guce.oath.com/collectConsent*",
+        "https://www.unileverfoodsolutions.pl/*",
+        "https://downdetector.pl/*",
+        "https://www.hiszpanskidlapolakow.com/*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ]
+}
+
