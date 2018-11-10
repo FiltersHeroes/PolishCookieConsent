@@ -1,0 +1,13 @@
+{
+ "addons": {
+  "{PolishCookieConsentExt@polishannoyancefilters.netlify.com}": {
+   "updates": [
+    {
+     "version": "1.0",
+     "applications": { "gecko": { "strict_min_version": "56.0" } },
+     "update_link": "https://github.com/PolishFiltersTeam/PolishCookieConsent/releases/download/v1.0/PolishCookieConsent.xpi"
+    }
+   ]
+  }
+ }
+} 

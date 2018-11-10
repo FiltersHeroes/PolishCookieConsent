@@ -1,0 +1,11 @@
+{
+  "extensionName":{
+    "message":"Polska Ciasteczkowa Zgoda",
+    "description":"extension name."
+  },
+  "extensionDescription":{
+    "message":"Automatycznie zgadza się na politykę ciasteczek/RODO na stronach dostępnych w języku polskim.",
+    "description":"description."
+  }
+}
+ 

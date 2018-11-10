@@ -1,0 +1,11 @@
+{
+  "extensionName":{
+    "message":"Polish Cookie Consent",
+    "description":"extension name."
+  },
+  "extensionDescriptionc":{
+    "message":"Automatically agrees to cookie policy/GDPR on pages available in Polish.",
+    "description":"description."
+  }
+}
+ 

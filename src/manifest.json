@@ -1,8 +1,15 @@
 {
   "manifest_version": 2,
-  "name": "Polska Ciasteczkowa Zgoda",
-  "description": "Automatycznie zgadza się na politykę ciasteczek/RODO na stronach dostępnych w języku polskim.",
+  "name": "__MSG_extensionName__",
+  "description": "__MSG_extensionDescription__",
   "version": "1.0",
+  "default_locale": "en",
+  "applications": {
+    "gecko": {
+      "id": "PolishCookieConsentExt@polishannoyancefilters.netlify.com",
+      "update_url": "https://raw.githubusercontent.com/PolishFiltersTeam/PolishCookieConsent/master/updates/updates.json"
+    }
+  },
   "content_scripts": [
     {
       "matches": [
