@@ -1,6 +1,6 @@
 {
  "addons": {
-  "{PolishCookieConsentExt@polishannoyancefilters.netlify.com}": {
+  "PolishCookieConsentExt@polishannoyancefilters.netlify.com": {
    "updates": [
     {
      "version": "1.0.1",
