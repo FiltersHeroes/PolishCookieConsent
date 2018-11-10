@@ -14,9 +14,9 @@ Rozszerzenie automatycznie zgadzające się na politykę ciasteczek/RODO na stro
 
 ### **II. Chrome/Chromium/Vivaldi/(Chr)Opera**
 1. Pobierz najnowszy plik zip z [https://github.com/PolishFiltersTeam/PolishCookieConsent/releases/latest](https://github.com/PolishFiltersTeam/PolishCookieConsent/releases/latest).
-2. Uutwórz nowy katalog **Rozszerzenia**.
+2. Utwórz nowy katalog **Rozszerzenia**.
 3. Wypakuj archiwum zip do katalogu **Rozszerzenia**.
-4. Wpisz do paska adresu `chrome://extensions`. i potwierdź Enterem.
+4. Wpisz do paska adresu `chrome://extensions` i potwierdź <kbd>Enterem</kbd>.
 5. Włącz tryb programisty.
 6. Kliknij **załaduj rozpakowane** i wskaż katalog, w którym wypakowałeś(aś) rozszerzenie i wciśnij OK.
 7. Gotowe!
