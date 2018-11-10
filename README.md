@@ -9,7 +9,8 @@ Rozszerzenie automatycznie zgadzające się na politykę ciasteczek/RODO na stro
 
 ## **Jak zainstalować?**
 ### **I. Firefox/Waterfox**
-Pobierz najnowszy plik xpi z [https://github.com/PolishFiltersTeam/PolishCookieConsent/releases/latest](https://github.com/PolishFiltersTeam/PolishCookieConsent/releases/latest) i kliknij **zezwól**, by zainstalować. Aktualizacje powinny być automatyczne, więc nie trzeba będzie znowu wchodzić na stronę i pobierać jak będzie nowa wersja.
+1. Pobierz najnowszy plik xpi z [https://github.com/PolishFiltersTeam/PolishCookieConsent/releases/latest](https://github.com/PolishFiltersTeam/PolishCookieConsent/releases/latest) i kliknij **zezwól**, by zainstalować. 
+2. Aktualizacje powinny być automatyczne, więc nie trzeba będzie znowu wchodzić na stronę i pobierać jak będzie nowa wersja.
 
 ### **II. Chrome/Chromium/Vivaldi/(Chr)Opera**
 1. Pobierz najnowszy plik zip z [https://github.com/PolishFiltersTeam/PolishCookieConsent/releases/latest](https://github.com/PolishFiltersTeam/PolishCookieConsent/releases/latest).
