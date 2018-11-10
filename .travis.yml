@@ -1,0 +1,25 @@
+dist: trusty
+language: node_js
+node_js:
+- 8.9.1
+if: tag IS present
+before_script:
+- npm install --global web-ext
+script:
+- "./make_scripts/make_chromium.sh"
+- "./make_scripts/make_firefox.sh"
+- cd ..
+before_deploy:
+- git config --global user.email "PolishJarvis@int.pl"
+- git config --global user.name "PolishJarvis"
+deploy:
+  provider: releases
+  api_key:
+    secure: I+YAMyJkuGyFO/bzvN2Y9bd8iOYFN9KHnjb/ClrDvrOpwb9XLiM+61qaceIk/0uk3uSu5ZCbdbeEyUHAQ9G+M1C1oZt+wQ6tEMDpxKrOm8tEPK2RQJXwuyUVcUrrwu4/qzFtLBjWhspeIClJrDXQRSoi+kjPIssiZF55GI7sZXu+oZzXn6ixQJuY0bXclSfQYqO9MUeIzAs4DME5jK6qGsEAlSUg/jlYhmngxNVD4EqfJDfgXJQFvLtlvvKUSurLHzPQCPI2xUmD9bnUpQFrHe9jFhI7D8c/y0Tg9Buck847OfaW0dRaHTcB8RdAdq5H+nI8Ne0k7B78pvMKQPep0WuGkjBUY3hAMO8Y86gLfyXFgP7f1iknhJJ8y4bADDuW8lc4C59RZsSoo1v4fsMIyl5lFrVxzDvfoDs1DptXO7VWzrOVP+vouNldojn2/jsjigrFLlJwOogKBedfT6COLazQ6U2ObvjCxutgOzo/9/D9TL8hbALReZ8hePU12IliHCHpbvyzbnDPpgo9Zs3g8hkAONqXT848Iqcc3BiRkdplmKCjehzFOZblRw9tTksy9cgJxKOApA6fyUwgZmEI2lO9VKYfzgWwXuiPgtB+RtNRgfWk1GRfXj75cwZdlFOYOycpx9z+eZbSKMccE0wMSFgdx74+Ee6fgsNSl4A3oF8=
+  file: 
+    - PolishCookieConsent_chromium.zip
+    - PolishCookieConsent_firefox.xpi
+  on:
+    repo: PolishFiltersTeam/NewTest
+    tags: true
+  skip_cleanup: true
