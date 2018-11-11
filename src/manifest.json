@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "__MSG_extensionName__",
   "description": "__MSG_extensionDescription__",
-  "version": "1.0.1",
+  "version": "1.1",
   "default_locale": "en",
   "applications": {
     "gecko": {
@@ -22,7 +22,8 @@
         "https://guce.oath.com/collectConsent*",
         "https://www.unileverfoodsolutions.pl/*",
         "https://downdetector.pl/*",
-        "https://www.hiszpanskidlapolakow.com/*"
+        "https://www.hiszpanskidlapolakow.com/*",
+        "https://www.espedytor.pl/*"
       ],
       "js": ["content.js"],
       "run_at": "document_start"

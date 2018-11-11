@@ -8,7 +8,6 @@ before_script:
 script:
 - "./make_scripts/make_chromium.sh"
 - "./make_scripts/make_firefox.sh"
-- cd ..
 before_deploy:
 - git config --global user.email "PolishJarvis@int.pl"
 - git config --global user.name "PolishJarvis"
@@ -17,12 +16,12 @@ deploy:
   api_key:
     secure: I+YAMyJkuGyFO/bzvN2Y9bd8iOYFN9KHnjb/ClrDvrOpwb9XLiM+61qaceIk/0uk3uSu5ZCbdbeEyUHAQ9G+M1C1oZt+wQ6tEMDpxKrOm8tEPK2RQJXwuyUVcUrrwu4/qzFtLBjWhspeIClJrDXQRSoi+kjPIssiZF55GI7sZXu+oZzXn6ixQJuY0bXclSfQYqO9MUeIzAs4DME5jK6qGsEAlSUg/jlYhmngxNVD4EqfJDfgXJQFvLtlvvKUSurLHzPQCPI2xUmD9bnUpQFrHe9jFhI7D8c/y0Tg9Buck847OfaW0dRaHTcB8RdAdq5H+nI8Ne0k7B78pvMKQPep0WuGkjBUY3hAMO8Y86gLfyXFgP7f1iknhJJ8y4bADDuW8lc4C59RZsSoo1v4fsMIyl5lFrVxzDvfoDs1DptXO7VWzrOVP+vouNldojn2/jsjigrFLlJwOogKBedfT6COLazQ6U2ObvjCxutgOzo/9/D9TL8hbALReZ8hePU12IliHCHpbvyzbnDPpgo9Zs3g8hkAONqXT848Iqcc3BiRkdplmKCjehzFOZblRw9tTksy9cgJxKOApA6fyUwgZmEI2lO9VKYfzgWwXuiPgtB+RtNRgfWk1GRfXj75cwZdlFOYOycpx9z+eZbSKMccE0wMSFgdx74+Ee6fgsNSl4A3oF8=
   file:
-  - PolishCookieConsent_chromium.zip
-  - PolishCookieConsent_firefox.xpi
-  on:
-    repo: PolishFiltersTeam/NewTest
-    tags: true
+    - "PolishCookieConsent_chromium.zip"
+    - "PolishCookieConsent_firefox.xpi"
   skip_cleanup: true
+  on:
+    repo: PolishFiltersTeam/PolishCookieConsent
+    tags: true
 env:
   global:
   - secure: LSdDDsjei1w/wMVtZAJqU/U/JF/yuEpBpZx0ziwfrLOj7YowycyzXtL9XE5jJ6+ENJJeZ62e+0HW+bRs/nIpvor64HmkpReUSbtx0pcBhoEZADlHW5P1A0TJTOdGsNYs2t1h+PIsL/k9UPig8Xjhd0y2JuET40CKLTHi1HtGaNzHPVIEOGbpdhJ8AD14x+WMfQ99EhSSJmlEJBXzzngICQjDXYJo+dn+dxMhluN3hzsgfm4lKY1y342TfRibxh0RoiXRzI/dbZtVTnm+dwCLFUBKtTu9LfgtTGfmzroFXqtXJKIJ/eNobiKUN2J9vB3X+oYWtOHJ1GIBEP0nP2LUT1hzfD4i6TDPEl0sjzhcx9DXQCwMx+aYRMgP1WeZ0e4bNA80+/i00ItDyEk+oW2T4IDxkf5otWcQrL+aL4UZ+jNFuMBrkJLumCZ6zETSf5s7fbJlIxmFH00kjEYZS6xV31MMLYyIuirYEoraqE7BNq9XWbzFiIEj11BaDrIzVpFBliD2xBbN6/HUjIhogEKiqTmCl/kVocpQSjp+ftCJqYE7txlkWw5p5f1SexMaRtxBUFHjpO8fFJW8aq0lAX9QpLygk3UirEx+1mRM9yJtwYQh5g2DMxckeCTdbrFMUpOJbR+D8eSNgwl+5DMeS0U28WVKT1P9OGR2i71QxuJse7s=

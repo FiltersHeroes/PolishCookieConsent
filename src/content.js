@@ -111,3 +111,12 @@ if(url.match(/hiszpanskidlapolakow.com/))
         }
     }, 10);
 }
+
+if(url.match(/espedytor.pl/))
+{
+    if (document.cookie.indexOf("zgodaRODO=") == -1)
+    {
+        document.cookie = "zgodaRODO=true; expires=Thu, 18 Dec 2023 12:00:00 UTC;";
+        location.reload();
+    }
+}
