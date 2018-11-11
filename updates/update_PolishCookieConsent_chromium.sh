@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# v1.0
+# v1.0.1
 
-cat > /tmp/PolishCookieConsent_chromium_update << 'EOF'
+cat > /tmp/update_PolishCookieConsent_chromium << 'EOF'
 #!/bin/sh
 NEW_VERSION=$(curl --silent "https://api.github.com/repos/PolishFiltersTeam/PolishCookieConsent/releases/latest" |grep '"tag_name":'|sed -E 's/.*"([^"]+)".*/\1/' | awk '{gsub("v", "");print}')
 
