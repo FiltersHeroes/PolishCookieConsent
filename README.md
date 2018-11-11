@@ -9,16 +9,16 @@ Rozszerzenie automatycznie zgadzające się na politykę ciasteczek/RODO na stro
 
 ## **Jak zainstalować?**
 ### **I. Firefox/Waterfox**
-1. Pobierz najnowszy plik xpi z [https://github.com/PolishFiltersTeam/PolishCookieConsent/releases/latest](https://github.com/PolishFiltersTeam/PolishCookieConsent/releases/latest) i kliknij **zezwól**, by zainstalować. 
+1. Pobierz najnowszy plik xpi z [https://github.com/PolishFiltersTeam/PolishCookieConsent/releases/latest](https://github.com/PolishFiltersTeam/PolishCookieConsent/releases/latest) i kliknij **zezwól**, by zainstalować.
 2. Gotowe! Aktualizacje powinny być automatyczne, więc nie trzeba będzie znowu wchodzić na stronę i pobierać jak będzie nowa wersja.
 
 ### **II. Chrome/Chromium/Vivaldi/(Chr)Opera**
 1. Pobierz najnowszy plik zip z [https://github.com/PolishFiltersTeam/PolishCookieConsent/releases/latest](https://github.com/PolishFiltersTeam/PolishCookieConsent/releases/latest).
-2. Utwórz nowy katalog **Rozszerzenia**.
-3. Wypakuj archiwum zip do katalogu **Rozszerzenia**.
+2. Utwórz nowy katalog **Rozszerzenia**, a w nim katalog **PolishCookieConsent**.
+3. Wypakuj archiwum zip do katalogu **PolishCookieConsent**.
 4. Wpisz do paska adresu `chrome://extensions` i potwierdź <kbd>Enterem</kbd>.
 5. Włącz tryb programisty.
 6. Kliknij **załaduj rozpakowane**, potem wskaż katalog, w którym wypakowałeś(aś) rozszerzenie i kliknij **OK**.
 7. Gotowe!
 
-**Uwaga! W tym przypadku niestety aktualizacje muszą być przeprowadzane ręcznie (pobierz, wypakuj, nadpisz pliki i zrestartuj przeglądarkę).**
+**Uwaga! W tym przypadku niestety aktualizacje muszą być przeprowadzane ręcznie (pobierz, wypakuj, nadpisz pliki i zrestartuj przeglądarkę). Jednakże w przypadku posiadania jakiejś dystrybucji Linuksa można też skorzystać ze [skryptu](update_PolishCookieConsent_chromium.sh), który dodaje automatyczne cotygodniowe sprawdzanie i instalowanie aktualizacji.**
