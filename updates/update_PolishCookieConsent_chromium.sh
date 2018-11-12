@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# v1.0.1
+# v1.0.2
 
 cat > /tmp/update_PolishCookieConsent_chromium << 'EOF'
 #!/bin/sh
@@ -16,6 +16,7 @@ if [ $NEW_VERSION>$OLD_VERSION ]; then
     cd $(xdg-user-dir DOWNLOAD)
     wget https://github.com/PolishFiltersTeam/PolishCookieConsent/releases/download/v${NEW_VERSION}/PolishCookieConsent_chromium.zip -P ./PolishCookieConsent_v$NEW_VERSION/
     unzip -o ./PolishCookieConsent_v$NEW_VERSION/PolishCookieConsent_chromium.zip -d ~/Rozszerzenia/PolishCookieConsent
+    rm -rf ./PolishCookieConsent_v$NEW_VERSION
     export DISPLAY=:0.0
     notify-send 'Sukces' 'Rozszerzenie Polska Ciasteczkowa Zgoda zostało zaktualizowane. Proszę zrestartować przeglądarkę.'
 fi;
