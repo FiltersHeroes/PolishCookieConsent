@@ -8,11 +8,11 @@ Rozszerzenie automatycznie zgadzające się na politykę ciasteczek/RODO na stro
 
 
 ## **Jak zainstalować?**
-### **I. Firefox/Waterfox**
+### **I. ![Firefox](https://cdnjs.cloudflare.com/ajax/libs/browser-logos/45.10.0/firefox/firefox_24x24.png) Firefox/![Waterfox](https://cdnjs.cloudflare.com/ajax/libs/browser-logos/45.10.0/waterfox/waterfox_24x24.png) Waterfox**
 1. Pobierz najnowszy plik xpi z [https://github.com/PolishFiltersTeam/PolishCookieConsent/releases/latest](https://github.com/PolishFiltersTeam/PolishCookieConsent/releases/latest) i kliknij **zezwól**, by zainstalować.
 2. Gotowe! Aktualizacje powinny być automatyczne, więc nie trzeba będzie znowu wchodzić na stronę i pobierać jak będzie nowa wersja.
 
-### **II. Chrome/Chromium/Vivaldi/(Chr)Opera**
+### **II. ![Chrome](https://cdnjs.cloudflare.com/ajax/libs/browser-logos/45.10.0/chrome/chrome_24x24.png) Chrome/![Chromium](https://cdnjs.cloudflare.com/ajax/libs/browser-logos/45.10.0/chromium/chromium_24x24.png) Chromium/![Vivaldi](https://cdnjs.cloudflare.com/ajax/libs/browser-logos/45.10.0/vivaldi/vivaldi_24x24.png) Vivaldi/![Vivaldi](https://cdnjs.cloudflare.com/ajax/libs/browser-logos/45.10.0/opera/opera_24x24.png) (Chr)Opera**
 1. Pobierz najnowszy plik zip z [https://github.com/PolishFiltersTeam/PolishCookieConsent/releases/latest](https://github.com/PolishFiltersTeam/PolishCookieConsent/releases/latest).
 2. Utwórz nowy katalog **Rozszerzenia**, a w nim katalog **PolishCookieConsent**.
 3. Wypakuj archiwum zip do katalogu **PolishCookieConsent**.
