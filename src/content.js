@@ -120,3 +120,14 @@ if(url.match(/espedytor.pl/))
         location.reload();
     }
 }
+
+if(url.match(/wikia.com/))
+{
+    document.addEventListener("DOMContentLoaded", function(event) {
+        var btnYes = document.body.querySelector('[data-tracking-opt-in-accept="true"]');
+        if (btnYes)
+        {
+            btnYes.click();
+        }
+    });
+}

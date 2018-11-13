@@ -3,7 +3,7 @@
   "PolishCookieConsentExt@polishannoyancefilters.netlify.com": {
    "updates": [
     {
-     "version": "1.1",
+     "version": "1.2",
      "applications": { "gecko": { "strict_min_version": "56.0" } },
      "update_link": "https://github.com/PolishFiltersTeam/PolishCookieConsent/releases/download/v1.1/PolishCookieConsent_firefox.xpi"
     }

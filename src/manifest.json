@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "__MSG_extensionName__",
   "description": "__MSG_extensionDescription__",
-  "version": "1.1",
+  "version": "1.2",
   "default_locale": "en",
   "applications": {
     "gecko": {
@@ -23,7 +23,8 @@
         "https://www.unileverfoodsolutions.pl/*",
         "https://downdetector.pl/*",
         "https://www.hiszpanskidlapolakow.com/*",
-        "https://www.espedytor.pl/*"
+        "https://www.espedytor.pl/*",
+        "http://*.wikia.com/*"
       ],
       "js": ["content.js"],
       "run_at": "document_start"
