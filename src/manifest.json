@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "__MSG_extensionName__",
   "description": "__MSG_extensionDescription__",
-  "version": "1.2",
+  "version": "1.3",
   "default_locale": "en",
   "applications": {
     "gecko": {
@@ -24,7 +24,8 @@
         "https://downdetector.pl/*",
         "https://www.hiszpanskidlapolakow.com/*",
         "https://www.espedytor.pl/*",
-        "http://*.wikia.com/*"
+        "http://*.wikia.com/*",
+        "https://*.fandom.com/pl/*"
       ],
       "js": ["content.js"],
       "run_at": "document_start"

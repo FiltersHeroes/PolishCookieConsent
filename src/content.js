@@ -121,7 +121,7 @@ if(url.match(/espedytor.pl/))
     }
 }
 
-if(url.match(/wikia.com/))
+if(url.match(/wikia.com/) || url.match(/fandom.com/))
 {
     document.addEventListener("DOMContentLoaded", function(event) {
         var btnYes = document.body.querySelector('[data-tracking-opt-in-accept="true"]');
