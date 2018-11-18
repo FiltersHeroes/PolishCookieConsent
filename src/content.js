@@ -131,3 +131,14 @@ if(url.match(/wikia.com/) || url.match(/fandom.com/))
         }
     });
 }
+
+if(url.match(/odr.pl/))
+{
+    document.addEventListener("DOMContentLoaded", function(event) {
+        var btnYes = document.body.querySelector('.termsagree');
+        if (btnYes)
+        {
+            btnYes.click();
+        }
+    });
+}
