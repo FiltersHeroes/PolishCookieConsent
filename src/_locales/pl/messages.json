@@ -7,8 +7,8 @@
     "message":"Automatycznie akceptuje politykę ciasteczek/RODO na stronach dostępnych w języku polskim.",
     "description":"Description of extension."
   },
-  "reportIssue":{
-    "message":"Zgłoś problem"
+  "reportIssueOnGitHub":{
+    "message":"Zgłoś problem na GitHubie"
   },
   "sourceCode":{
     "message":"Kod źródłowy"
@@ -21,6 +21,9 @@
   },
   "changelog":{
     "message":"Lista zmian"
+  },
+  "reportIssueAnonymously":{
+    "message":"Zgłoś problem anonimowo"
   }
 }
 

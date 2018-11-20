@@ -7,8 +7,8 @@
     "message":"Automatically aceepts cookie policy/GDPR on pages available in Polish.",
     "description":"Description of extension."
   },
-  "reportIssue":{
-    "message":"Report an issue"
+  "reportIssueOnGitHub":{
+    "message":"Report an issue on GitHub"
   },
   "sourceCode":{
     "message":"Source code"
@@ -21,6 +21,9 @@
   },
   "changelog":{
     "message":"Changelog"
+  },
+  "reportIssueAnonymously":{
+    "message":"Report an issue anonymously"
   }
 }
 
