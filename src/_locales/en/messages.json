@@ -11,7 +11,7 @@
     "message":"Report an issue"
   },
   "sourceCode":{
-    "message":"Source Code"
+    "message":"Source code"
   },
   "license":{
     "message":"License"
@@ -20,7 +20,7 @@
     "message":"Credits"
   },
   "changelog":{
-    "message":"Lista zmian"
+    "message":"Changelog"
   }
 }
 
