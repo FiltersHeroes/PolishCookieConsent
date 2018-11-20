@@ -4,8 +4,23 @@
     "description":"extension name."
   },
   "extensionDescription":{
-    "message":"Automatically agrees to cookie policy/GDPR on pages available in Polish.",
-    "description":"description."
+    "message":"Automatically aceepts cookie policy/GDPR on pages available in Polish.",
+    "description":"Description of extension."
+  },
+  "reportIssue":{
+    "message":"Report an issue"
+  },
+  "sourceCode":{
+    "message":"Source Code"
+  },
+  "license":{
+    "message":"License"
+  },
+  "credits":{
+    "message":"Credits"
+  },
+  "changelog":{
+    "message":"Lista zmian"
   }
 }
- 
+

@@ -1,0 +1,49 @@
+body {
+    margin: 0px;
+    min-width: 250px;
+    width: auto;
+    font-family: sans-serif;
+    background-color: #FFFFFF;
+    user-select: none;
+}
+
+.title {
+    background-color: #6a4000;
+    color: #FFFFFF;
+    font-size: 15px;
+    text-align: center;
+    padding: 5px;
+}
+
+.title > p {
+    margin: 0px;
+}
+
+.wrapper {
+    padding: 6px;
+}
+
+.wrapper:hover {
+    background-color: #d8ad6a;
+}
+
+.wrapper > svg {
+    margin-right: 3px;
+    position: relative;
+    top: 1px;
+    width: 16px;
+}
+
+.wrapper > span {
+    font-size: 14px;
+    position: relative;
+    top: -2px;
+}
+
+.separator.dashed {
+    border-bottom: 1px dashed #974600;
+}
+
+.separator.solid {
+    border-bottom: 1px solid #8c5300;
+}
