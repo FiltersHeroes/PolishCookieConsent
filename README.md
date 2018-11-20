@@ -1,6 +1,6 @@
 # Polska Ciasteczkowa Zgoda
 
-Rozszerzenie automatycznie zgadzające się na politykę ciasteczek/RODO na stronach dostępnych w języku polskim.
+Rozszerzenie automatycznie akceptujące politykę ciasteczek/RODO na stronach dostępnych w języku polskim.
 
 [![GitHub Releases](https://img.shields.io/github/downloads/PolishFiltersTeam/PolishCookieConsent/latest/total.svg)](https://github.com/PolishFiltersTeam/PolishCookieConsent/releases/latest)
 
