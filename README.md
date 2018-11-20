@@ -28,4 +28,5 @@ Rozszerzenie automatycznie zgadzające się na politykę ciasteczek/RODO na stro
 Polska Ciasteczkowa Zgoda korzysta z otwartoźródłowego kodu następujących projektów (wg. kolejności alfabetycznej):
 
 [erosman/HTML-Internationalization](https://github.com/erosman/HTML-Internationalization)
+
 [primer/octicons](https://github.com/primer/octicons/)
