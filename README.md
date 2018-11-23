@@ -8,11 +8,11 @@ Rozszerzenie automatycznie akceptujące politykę ciasteczek/RODO na stronach do
 
 
 ## **Jak zainstalować?**
-### **I. ![Firefox](https://cdnjs.cloudflare.com/ajax/libs/browser-logos/45.10.0/firefox/firefox_24x24.png)Firefox/![Waterfox](https://cdnjs.cloudflare.com/ajax/libs/browser-logos/45.10.0/waterfox/waterfox_24x24.png)Waterfox**
+### **I. ![Firefox][Firefox]Firefox/![Waterfox][Waterfox]Waterfox**
 1. Pobierz najnowszy plik xpi z [https://github.com/PolishFiltersTeam/PolishCookieConsent/releases/latest](https://github.com/PolishFiltersTeam/PolishCookieConsent/releases/latest) i kliknij **zezwól**, by zainstalować.
 2. Gotowe! Aktualizacje powinny być automatyczne, więc nie trzeba będzie znowu wchodzić na stronę i pobierać jak będzie nowa wersja.
 
-### **II. ![Chrome](https://cdnjs.cloudflare.com/ajax/libs/browser-logos/45.10.0/chrome/chrome_24x24.png)Chrome/![Chromium](https://cdnjs.cloudflare.com/ajax/libs/browser-logos/45.10.0/chromium/chromium_24x24.png)Chromium/![Vivaldi](https://cdnjs.cloudflare.com/ajax/libs/browser-logos/45.10.0/vivaldi/vivaldi_24x24.png)Vivaldi/![Vivaldi](https://cdnjs.cloudflare.com/ajax/libs/browser-logos/45.10.0/opera/opera_24x24.png)(Chr)Opera**
+### **II. ![Chrome][Chrome]Chrome/![Chromium][Chromium]Chromium/![Vivaldi][Vivaldi]Vivaldi/![Opera][Opera](Chr)Opera/![Cent][Cent]Cent /![Yandex][Yandex]Yandex**
 1. Pobierz najnowszy plik zip z [https://github.com/PolishFiltersTeam/PolishCookieConsent/releases/latest](https://github.com/PolishFiltersTeam/PolishCookieConsent/releases/latest).
 2. Utwórz nowy katalog **Rozszerzenia**, a w nim katalog **PolishCookieConsent**.
 3. Wypakuj archiwum zip do katalogu **PolishCookieConsent**.
@@ -22,6 +22,15 @@ Rozszerzenie automatycznie akceptujące politykę ciasteczek/RODO na stronach do
 7. Gotowe!
 
 **Uwaga! W tym przypadku niestety aktualizacje muszą być przeprowadzane ręcznie (pobierz, wypakuj, nadpisz pliki i zrestartuj przeglądarkę). Jednakże w przypadku posiadania jakiejś dystrybucji Linuksa można też skorzystać ze [skryptu](https://raw.githubusercontent.com/PolishFiltersTeam/PolishCookieConsent/master/updates/update_PolishCookieConsent_chromium.sh), który dodaje automatyczne cotygodniowe sprawdzanie i instalowanie aktualizacji.**
+
+[Firefox]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/46.1.0/firefox/firefox_24x24.png "Firefox"
+[Waterfox]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/46.1.0/waterfox/waterfox_24x24.png "Waterfox"
+[Chrome]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/46.1.0/chrome/chrome_24x24.png "Chromium"
+[Chromium]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/46.1.0/chromium/chromium_24x24.png "Chrome"
+[Vivaldi]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/46.1.0/vivaldi/vivaldi_24x24.png "Vivaldi"
+[Opera]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/46.1.0/opera/opera_24x24.png "Opera"
+[Cent]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/46.1.0/cent/cent_24x24.png "Cent Browser"
+[Yandex]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/46.1.0/yandex/yandex_24x24.png "Yandex Browser"
 
 ## **Podziękowania**
 
