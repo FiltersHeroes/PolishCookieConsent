@@ -142,3 +142,14 @@ if(url.match(/odr.pl/))
         }
     });
 }
+
+if(url.match(/drogerium.pl/) || url.match(/wylecz.to/))
+{
+    document.addEventListener("DOMContentLoaded", function(event) {
+        var btnYes = document.body.querySelector('#accept-targeting-disclaimer-button');
+        if (btnYes)
+        {
+            btnYes.click();
+        }
+    });
+}

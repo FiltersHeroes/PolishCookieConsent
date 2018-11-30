@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "__MSG_extensionName__",
   "description": "__MSG_extensionDescription__",
-  "version": "1.5",
+  "version": "1.6",
   "default_locale": "en",
   "icons": {
     "16": "icons/icon16.png",
@@ -42,7 +42,9 @@
         "https://www.espedytor.pl/*",
         "http://*.wikia.com/*",
         "https://*.fandom.com/pl/*",
-        "http://odr.pl/*"
+        "http://odr.pl/*",
+        "https://drogerium.pl/*",
+        "https://wylecz.to/*"
       ],
       "js": ["content.js"],
       "run_at": "document_start"
