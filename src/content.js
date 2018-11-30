@@ -1,3 +1,16 @@
+function clickInteractive(element)
+{
+    var readyStateCheckInterval = setInterval(function() {
+        if (document.readyState === "interactive") {
+            var btnYes = document.querySelector(element);
+            if (btnYes)
+            {
+                btnYes.click();
+            }
+        }
+    }, 10);
+}
+
 var url = location.href;
 
 if(url.match(/http:\/\/f1racing.pl/))
@@ -18,13 +31,7 @@ if(url.match(/http:\/\/www.f1racing.pl/))
 
 if(url.match(/tumblr.com\/privacy\/consent/))
 {
-    document.addEventListener("DOMContentLoaded", function(event) {
-        var btnYes = document.body.querySelector(".btn.yes");
-        if (btnYes)
-        {
-            btnYes.click();
-        }
-    });
+    clickInteractive('.btn.yes');
 }
 
 if(url.match(/sportowefakty.wp.pl/) || url.match(/wirtualnemedia.pl/))
@@ -64,37 +71,17 @@ if(url.match(/vivaldi.com/))
 
 if(url.match(/guce.oath.com\/collectConsent/))
 {
-    document.addEventListener("DOMContentLoaded", function(event) {
-        var consentbtn = document.body.querySelector(".btn.agree");
-        if (consentbtn)
-        {
-            consentbtn.click();
-        }
-    });
+    clickInteractive('.btn.agree');
 }
 
 if(url.match(/unileverfoodsolutions.pl/))
 {
-    var readyStateCheckInterval = setInterval(function() {
-        if (document.readyState === "interactive") {
-            var btnYes = document.body.querySelector(".evidon-barrier-acceptbutton");
-            if (btnYes)
-            {
-                btnYes.click();
-            }
-        }
-    }, 10);
+    clickInteractive('.evidon-barrier-acceptbutton');
 }
 
 if(url.match(/downdetector.pl/))
 {
-    document.addEventListener("DOMContentLoaded", function(event) {
-        var btnYes = document.body.querySelector("#consentButton");
-        if (btnYes)
-        {
-            btnYes.click();
-        }
-    });
+    clickInteractive('#consentButton');
 }
 
 if(url.match(/hiszpanskidlapolakow.com/))
@@ -123,33 +110,15 @@ if(url.match(/espedytor.pl/))
 
 if(url.match(/wikia.com/) || url.match(/fandom.com/))
 {
-    document.addEventListener("DOMContentLoaded", function(event) {
-        var btnYes = document.body.querySelector('[data-tracking-opt-in-accept="true"]');
-        if (btnYes)
-        {
-            btnYes.click();
-        }
-    });
+    clickInteractive('[data-tracking-opt-in-accept="true"]');
 }
 
 if(url.match(/odr.pl/))
 {
-    document.addEventListener("DOMContentLoaded", function(event) {
-        var btnYes = document.body.querySelector('.termsagree');
-        if (btnYes)
-        {
-            btnYes.click();
-        }
-    });
+    clickInteractive('.termsagree');
 }
 
 if(url.match(/drogerium.pl/) || url.match(/wylecz.to/))
 {
-    document.addEventListener("DOMContentLoaded", function(event) {
-        var btnYes = document.body.querySelector('#accept-targeting-disclaimer-button');
-        if (btnYes)
-        {
-            btnYes.click();
-        }
-    });
+    clickInteractive('#accept-targeting-disclaimer-button');
 }
