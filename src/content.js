@@ -42,9 +42,14 @@ if(url.match(/sportowefakty.wp.pl/) || url.match(/wirtualnemedia.pl/))
 {
     var readyStateCheckInterval = setInterval(function() {
         if (document.readyState === "complete") {
-            var cookieConsent = document.querySelectorAll('.twitter-tweet /deep/ .Interstitial'), i;
-            for (i = 0; i < cookieConsent.length; ++i) {
-                cookieConsent[i].remove();
+            var shadowHost = document.querySelectorAll('.twitter-tweet'), i;
+            var cookieConsent = document.querySelector('.twitter-tweet').shadowRoot.querySelector('.Interstitial');
+            if(cookieConsent)
+            {
+                for (i=0; i<shadowHost.length; ++i)
+                {
+                    shadowHost[i].shadowRoot.querySelector('.Interstitial').remove();
+                }
             }
         }
     }, 1000);
