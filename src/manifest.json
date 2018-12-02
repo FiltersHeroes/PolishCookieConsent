@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "__MSG_extensionName__",
   "description": "__MSG_extensionDescription__",
-  "version": "1.6",
+  "version": "1.7",
   "default_locale": "en",
   "icons": {
     "16": "icons/icon16.png",
@@ -29,22 +29,8 @@
   "content_scripts": [
     {
       "matches": [
-        "http://*.f1racing.pl/*",
-        "https://www.tumblr.com/privacy/consent?redirect*",
-        "https://sportowefakty.wp.pl/*",
-        "https://www.wirtualnemedia.pl/*",
-        "http://www.gry.pl/*",
-        "https://vivaldi.com/pl/*",
-        "https://guce.oath.com/collectConsent*",
-        "https://www.unileverfoodsolutions.pl/*",
-        "https://downdetector.pl/*",
-        "https://www.hiszpanskidlapolakow.com/*",
-        "https://www.espedytor.pl/*",
-        "http://*.wikia.com/*",
-        "https://*.fandom.com/pl/*",
-        "http://odr.pl/*",
-        "https://drogerium.pl/*",
-        "https://wylecz.to/*"
+        "http://*/*",
+        "https://*/*"
       ],
       "js": ["content.js"],
       "run_at": "document_start"

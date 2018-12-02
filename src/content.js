@@ -11,21 +11,25 @@ function clickInteractive(element)
     }, 10);
 }
 
-var url = location.href;
-
-if(url.match(/http:\/\/f1racing.pl/))
+function bakeCookie(cookieName, cookieValue, expiresDays)
 {
-    if (document.cookie.indexOf("x-id-cookie-yes=") == -1)
+    if (document.cookie.indexOf(cookieName+"=") == -1)
     {
-        window.location = "http://f1racing.pl/x-set-cookie" + location.pathname;
+        var d = new Date();
+        d.setTime(d.getTime() + (expiresDays*24*60*60*1000));
+        var expires = "expires="+ d.toUTCString();
+        document.cookie = cookieName + "=" + cookieValue + ";" + expires + ";path=/";
+        location.reload();
     }
 }
 
-if(url.match(/http:\/\/www.f1racing.pl/))
+var url = location.href;
+
+if(url.match(/http:\/\/f1racing.pl/) || url.match(/http:\/\/www.f1racing.pl/))
 {
-    if (document.cookie.indexOf("x-id-cookie-yes=") == -1)
+    if(document.cookie.indexOf("x-id-cookie-yes=") == -1)
     {
-        window.location = "http://www.f1racing.pl/x-set-cookie" + location.pathname;
+        window.location = "/x-set-cookie" + location.pathname;
     }
 }
 
@@ -50,7 +54,6 @@ if(url.match(/gry.pl/))
 {
     var readyStateCheckInterval = setInterval(function() {
         if (document.readyState === "complete") {
-
             var btnYes = document.body.querySelector('div[class*="app_gdpr"] button[class*="intro_acceptAll"]');
             if (document.cookie.indexOf("euconsent=") == -1)
             {
@@ -62,11 +65,7 @@ if(url.match(/gry.pl/))
 
 if(url.match(/vivaldi.com/))
 {
-    if (document.cookie.indexOf("acceptedCookies=") == -1)
-    {
-        document.cookie = "acceptedCookies=true; path=/;";
-        location.reload();
-    }
+    bakeCookie("acceptedCookies", "true", "365");
 }
 
 if(url.match(/guce.oath.com\/collectConsent/))
@@ -101,11 +100,7 @@ if(url.match(/hiszpanskidlapolakow.com/))
 
 if(url.match(/espedytor.pl/))
 {
-    if (document.cookie.indexOf("zgodaRODO=") == -1)
-    {
-        document.cookie = "zgodaRODO=true; expires=Thu, 18 Dec 2023 12:00:00 UTC;";
-        location.reload();
-    }
+    bakeCookie("zgodaRODO", "true", "365");
 }
 
 if(url.match(/wikia.com/) || url.match(/fandom.com/))
@@ -121,4 +116,19 @@ if(url.match(/odr.pl/))
 if(url.match(/drogerium.pl/) || url.match(/wylecz.to/))
 {
     clickInteractive('#accept-targeting-disclaimer-button');
+}
+
+if(url.match(/pfm.pl/))
+{
+    clickInteractive('#NeucaCookieConsent .btn-primary');
+}
+
+if(url.match(/rodobox.io/) || url.match(/totalnareklama.pl/))
+{
+    clickInteractive('#_rdbxAcceptAllBtn');
+}
+
+if(url=="https://powiatkamienski.pl/")
+{
+    window.location = "https://powiatkamienski.pl/aktualnosci.dhtml";
 }
