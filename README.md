@@ -23,10 +23,10 @@ Rozszerzenie automatycznie akceptujące politykę ciasteczek/RODO na stronach do
 
 **Uwaga! W tym przypadku niestety aktualizacje muszą być przeprowadzane ręcznie (pobierz, wypakuj, nadpisz pliki i zrestartuj przeglądarkę). Jednakże w przypadku posiadania jakiejś dystrybucji Linuksa można też skorzystać ze [skryptu](https://raw.githubusercontent.com/PolishFiltersTeam/PolishCookieConsent/master/updates/update_PolishCookieConsent_chromium.sh), który dodaje automatyczne cotygodniowe sprawdzanie i instalowanie aktualizacji.**
 
-[Firefox]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/46.1.0/firefox/firefox_24x24.png "Firefox"
+[Firefox]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/46.1.0/firefox/firefox_24x24.png "Mozilla Firefox"
 [Waterfox]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/46.1.0/waterfox/waterfox_24x24.png "Waterfox"
-[Chrome]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/46.1.0/chrome/chrome_24x24.png "Chromium"
-[Chromium]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/46.1.0/chromium/chromium_24x24.png "Chrome"
+[Chrome]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/46.1.0/chrome/chrome_24x24.png "Google Chrome"
+[Chromium]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/46.1.0/chromium/chromium_24x24.png "Chromium"
 [Vivaldi]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/46.1.0/vivaldi/vivaldi_24x24.png "Vivaldi"
 [Opera]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/46.1.0/opera/opera_24x24.png "Opera"
 [Cent]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/46.1.0/cent/cent_24x24.png "Cent Browser"
