@@ -1,14 +1,14 @@
 #!/bin/bash
 
-# v1.0.3
+# v1.0.4
 
 cat > /tmp/update_PolishCookieConsent_chromium << 'EOF'
 #!/bin/sh
-NEW_VERSION=$(curl --silent "https://api.github.com/repos/PolishFiltersTeam/PolishCookieConsent/releases/latest" |grep '"tag_name":'|sed -E 's/.*"([^"]+)".*/\1/' | awk '{gsub("v", "");print}')
+NEW_VERSION=$(curl --silent "https://api.github.com/repos/PolishFiltersTeam/PolishCookieConsent/releases/latest" | grep '"tag_name":'|sed -E 's/.*"([^"]+)".*/\1/' | awk '{gsub("v", "");print}')
 
 PATH_EXT=~/Rozszerzenia/PolishCookieConsent
 
-OLD_VERSION=$(cat $PATH_EXT/manifest.json | grep '"version":'|sed -E 's/.*"([^"]+)".*/\1/')
+OLD_VERSION=$(cat $PATH_EXT/manifest.json | grep '"version":' | sed -E 's/.*"([^"]+)".*/\1/')
 
 if (( $(echo "$NEW_VERSION $OLD_VERSION" | awk '{print ($1 > $2)}') )); then
     export DISPLAY=:0.0
@@ -20,6 +20,7 @@ if (( $(echo "$NEW_VERSION $OLD_VERSION" | awk '{print ($1 > $2)}') )); then
     export DISPLAY=:0.0
     notify-send 'Sukces' 'Rozszerzenie Polska Ciasteczkowa Zgoda zostało zaktualizowane. Proszę zrestartować przeglądarkę.'
 else
+    export DISPLAY=:0.0
     notify-send 'Informacja' 'Aktualnie nie ma nowszej wersji rozszerzenia Polska Ciasteczkowa Zgoda'
 fi;
 EOF
