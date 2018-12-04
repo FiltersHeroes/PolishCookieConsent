@@ -1,7 +1,7 @@
-dist: trusty
+dist: xenial
 language: node_js
 node_js:
-- 8.9.1
+- 10
 if: tag IS present
 before_script:
 - npm install --global web-ext
