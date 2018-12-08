@@ -27,9 +27,9 @@ Jednakże w przypadku posiadania jakiejś dystrybucji **Linuksa** można też sk
 
 A jeśli macie **Windowsa**, to również możecie pobrać podobny [skrypt](https://raw.githubusercontent.com/PolishFiltersTeam/PolishCookieConsent/master/updates/update_PolishCookieConsent_chromium.ps1), a następnie uruchomić **Windows PowerShell (5.1+)** oraz przeciągnąć i upuścić plik ze skryptem w wolne pole okna tego programu i wcisnąć <kbd>Enter</kbd>. Oczywiście w takim przypadku, katalog **Rozszerzenia** powinien być w katalogu domowym (C:\Users\NazwaUżytkownika\\) albo ścieżka do rozszerzenia powinna zostać zmieniona w skrypcie.
 
-Wymaganą wersje **PowerShell 5.1** dla Windows **7** i Windows **8.1** można pobrać z:  
-[https://www.microsoft.com/en-us/download/details.aspx?id=54616](https://www.microsoft.com/en-us/download/details.aspx?id=54616)  
-Instalacja wymaga po zakończeniu ponownego uruchomiwnia systemu.
+Wymaganą wersję **PowerShell 5.1** dla Windows **7** i Windows **8.1** można pobrać z:
+[https://www.microsoft.com/en-us/download/details.aspx?id=54616](https://www.microsoft.com/en-us/download/details.aspx?id=54616)
+Po zakończeniu instalacji wymagane jest ponowne uruchomienie systemu.
 
 [Firefox]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/46.1.0/firefox/firefox_24x24.png "Mozilla Firefox"
 [Waterfox]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/46.1.0/waterfox/waterfox_24x24.png "Waterfox"
