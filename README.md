@@ -23,9 +23,9 @@ Rozszerzenie automatycznie akceptujące politykę ciasteczek/RODO na stronach do
 
 **Uwaga! W tym przypadku niestety aktualizacje muszą być przeprowadzane ręcznie (pobierz, wypakuj, nadpisz pliki i zrestartuj przeglądarkę).**
 
-Jednakże w przypadku posiadania jakiejś dystrybucji Linuksa można też skorzystać ze [skryptu](https://raw.githubusercontent.com/PolishFiltersTeam/PolishCookieConsent/master/updates/update_PolishCookieConsent_chromium.sh), który dodaje automatyczne cotygodniowe sprawdzanie i instalowanie aktualizacji.
+Jednakże w przypadku posiadania jakiejś dystrybucji **Linuksa** można też skorzystać ze [skryptu](https://raw.githubusercontent.com/PolishFiltersTeam/PolishCookieConsent/master/updates/update_PolishCookieConsent_chromium.sh), który dodaje automatyczne cotygodniowe sprawdzanie i instalowanie aktualizacji.
 
-A jeśli macie Windowsa, to również możecie pobrać podobny [skrypt](https://raw.githubusercontent.com/PolishFiltersTeam/PolishCookieConsent/master/updates/update_PolishCookieConsent_chromium.ps1), a następnie uruchomić Windows PowerShell (5.1+) oraz przeciągnąć i upuścić plik ze skryptem w wolne pole okna tego programu i wcisnąć <kbd>Enter</kbd>.
+A jeśli macie **Windowsa**, to również możecie pobrać podobny [skrypt](https://raw.githubusercontent.com/PolishFiltersTeam/PolishCookieConsent/master/updates/update_PolishCookieConsent_chromium.ps1), a następnie uruchomić **Windows PowerShell (5.1+)** oraz przeciągnąć i upuścić plik ze skryptem w wolne pole okna tego programu i wcisnąć <kbd>Enter</kbd>.
 
 [Firefox]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/46.1.0/firefox/firefox_24x24.png "Mozilla Firefox"
 [Waterfox]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/46.1.0/waterfox/waterfox_24x24.png "Waterfox"
