@@ -25,7 +25,17 @@ Rozszerzenie automatycznie akceptujące politykę ciasteczek/RODO na stronach do
 
 Jednakże w przypadku posiadania jakiejś dystrybucji **Linuksa** można też skorzystać ze [skryptu](https://raw.githubusercontent.com/PolishFiltersTeam/PolishCookieConsent/master/updates/update_PolishCookieConsent_chromium.sh), który dodaje automatyczne cotygodniowe sprawdzanie i instalowanie aktualizacji. Oczywiście w takim przypadku, katalog **Rozszerzenia** powinien być w katalogu domowym (/home/nazwa_użytkownika/) albo ścieżka do rozszerzenia powinna zostać zmieniona w skrypcie.
 
-A jeśli macie **Windowsa**, to również możecie pobrać podobny [skrypt](https://raw.githubusercontent.com/PolishFiltersTeam/PolishCookieConsent/master/updates/update_PolishCookieConsent_chromium.ps1), a następnie uruchomić **Windows PowerShell (5.1+)** oraz przeciągnąć i upuścić plik ze skryptem w wolne pole okna tego programu i wcisnąć <kbd>Enter</kbd>. Oczywiście w takim przypadku, katalog **Rozszerzenia** powinien być w katalogu domowym (C:\Users\NazwaUżytkownika\\) albo ścieżka do rozszerzenia powinna zostać zmieniona w skrypcie.
+A jeśli masz **Windowsa**, to również możesz skorzystać z podobnego skryptu. Aby to zrobić, należy uruchomić **Windows PowerShell (w wersji min. 5.1)**, a następnie w jego pole wpisać:
+
+---
+
+```powershell
+Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy remotesigned
+Set-ExecutionPolicy remotesigned
+Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/PolishFiltersTeam/PolishCookieConsent/master/updates/update_PolishCookieConsent_chromium.ps1'))
+```
+
+ i wcisnąć <kbd>Enter</kbd>. Oczywiście w takim przypadku, katalog **Rozszerzenia** powinien być w katalogu domowym (C:\Users\NazwaUżytkownika\\) albo ścieżka do rozszerzenia powinna zostać zmieniona w skrypcie.
 
 Wymaganą wersję **PowerShell 5.1** dla Windows **7** i Windows **8.1** można pobrać z:
 [https://www.microsoft.com/en-us/download/details.aspx?id=54616](https://www.microsoft.com/en-us/download/details.aspx?id=54616).
