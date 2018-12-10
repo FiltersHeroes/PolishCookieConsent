@@ -23,7 +23,7 @@ Rozszerzenie automatycznie akceptujące politykę ciasteczek/RODO na stronach do
 
 **Uwaga! W tym przypadku niestety aktualizacje muszą być przeprowadzane ręcznie (pobierz, wypakuj, nadpisz pliki i zrestartuj przeglądarkę).**
 
-Jednakże w przypadku posiadania jakiejś dystrybucji **Linuksa** można też skorzystać ze [skryptu](https://raw.githubusercontent.com/PolishFiltersTeam/PolishCookieConsent/master/updates/update_PolishCookieConsent_chromium.sh), który dodaje automatyczne cotygodniowe sprawdzanie i instalowanie aktualizacji. Oczywiście w takim przypadku, katalog **Rozszerzenia** powinien być w katalogu domowym (/home/nazwa_użytkownika/) albo ścieżka do rozszerzenia powinna zostać zmieniona w skrypcie.
+Jednakże w przypadku posiadania jakiejś dystrybucji **Linuksa** można też skorzystać ze [skryptu](https://raw.githubusercontent.com/PolishFiltersTeam/PolishCookieConsent/master/updates/update_PolishCookieConsent_chromium.sh), który dodaje automatyczne cotygodniowe sprawdzanie i instalowanie aktualizacji. Oczywiście w takim przypadku, katalog **Rozszerzenia** powinien być w katalogu domowym (`/home/nazwa_użytkownika/`) albo ścieżka do rozszerzenia powinna zostać zmieniona w skrypcie.
 
 A jeśli masz **Windowsa**, to również możesz skorzystać z podobnego skryptu. Aby to zrobić, należy uruchomić **Windows PowerShell (w wersji min. 5.1)**, a następnie w jego pole wpisać:
 
