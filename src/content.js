@@ -116,7 +116,7 @@ if(url.match(/espedytor.pl/))
     bakeCookie("zgodaRODO", "true", "365");
 }
 
-if(url.match(/wikia.com/))
+if(url.match(/wikia.com/) || url.match(/fandom.com/))
 {
     clickInteractive('[data-tracking-opt-in-accept="true"]');
 }
