@@ -23,6 +23,14 @@ function bakeCookie(cookieName, cookieValue, expiresDays)
     }
 }
 
+function addToStorage(storageElement, storageValue)
+{
+    if (localStorage.getItem(storageElement) === undefined || localStorage.getItem(storageElement) === null)
+    {
+        localStorage.setItem(storageElement, storageValue);
+    }
+}
+
 var url = location.href;
 
 if(url.match(/http:\/\/f1racing.pl/) || url.match(/http:\/\/www.f1racing.pl/))
@@ -108,7 +116,7 @@ if(url.match(/espedytor.pl/))
     bakeCookie("zgodaRODO", "true", "365");
 }
 
-if(url.match(/wikia.com/) || url.match(/fandom.com/))
+if(url.match(/wikia.com/))
 {
     clickInteractive('[data-tracking-opt-in-accept="true"]');
 }
@@ -118,7 +126,7 @@ if(url.match(/odr.pl/))
     clickInteractive('.termsagree');
 }
 
-if(url.match(/drogerium.pl/) || url.match(/wylecz.to/))
+if(url.match(/drogerium.pl/) || url.match(/wylecz.to/) || url.match(/budujmase.pl/))
 {
     clickInteractive('#accept-targeting-disclaimer-button');
 }
@@ -136,4 +144,9 @@ if(url.match(/rodobox.io/) || url.match(/totalnareklama.pl/))
 if(url=="https://powiatkamienski.pl/")
 {
     window.location = "https://powiatkamienski.pl/aktualnosci.dhtml";
+}
+
+if(url.match(/gry.lotto.pl/))
+{
+    addToStorage("rodoConfirmation", true);
 }
