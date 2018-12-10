@@ -35,7 +35,7 @@ Set-ExecutionPolicy remotesigned
 Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/PolishFiltersTeam/PolishCookieConsent/master/updates/update_PolishCookieConsent_chromium.ps1'))
 ```
 
- i wcisnąć <kbd>Enter</kbd>. Oczywiście w takim przypadku, katalog **Rozszerzenia** powinien być w katalogu domowym (C:\Users\NazwaUżytkownika\\) albo ścieżka do rozszerzenia powinna zostać zmieniona w skrypcie.
+ i wcisnąć <kbd>Enter</kbd>. Oczywiście w takim przypadku, katalog **Rozszerzenia** powinien być w katalogu domowym (`C:\Users\NazwaUżytkownika\`) albo ścieżka do rozszerzenia powinna zostać zmieniona w skrypcie.
 
 Wymaganą wersję **PowerShell 5.1** dla Windows **7** i Windows **8.1** można pobrać z:
 [https://www.microsoft.com/en-us/download/details.aspx?id=54616](https://www.microsoft.com/en-us/download/details.aspx?id=54616).
