@@ -150,3 +150,8 @@ if(url.match(/gry.lotto.pl/))
 {
     addToStorage("rodoConfirmation", true);
 }
+
+if(url.match(/totalcasino.pl/))
+{
+    addToStorage("gdpr_popup", true);
+}
