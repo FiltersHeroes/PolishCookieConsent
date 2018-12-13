@@ -4,7 +4,7 @@
 
 cat > /tmp/update_PolishCookieConsent_chromium << 'EOF'
 #!/bin/sh
-USER_HOME=$(getent passwd $SUDO_USER | grep home | cut -d: -f6)
+USER_HOME=$(getent passwd $SUDO_USER | grep /home/ | cut -d: -f6)
 
 NEW_VERSION=$(curl --silent "https://api.github.com/repos/PolishFiltersTeam/PolishCookieConsent/releases/latest" | grep '"tag_name":'|sed -E 's/.*"([^"]+)".*/\1/' | awk '{gsub("v", "");print}')
 
