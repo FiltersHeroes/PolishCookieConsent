@@ -27,7 +27,7 @@ Jednakże w przypadku posiadania jakiejś dystrybucji **Linuksa** można też sk
 
 A jeśli masz **Windowsa**, to masz 2 możliwości:
 
-a) Możesz pobrać i zainstalować program aktualizujący z [github.com/PolishFiltersTeam/PolishCookieConsentUpdater.Net/releases/download/v1.0/PolishCookieConsentUpdater_setup.exe](https://github.com/PolishFiltersTeam/PolishCookieConsentUpdater.Net/releases/download/v1.0/PolishCookieConsentUpdater_setup.exe). Po jego zainstalowaniu powinien on co tydzień sam się włączać i aktualizować. Jednakże w takim przypadku wszystkie pliki rozszerzenia powinny znajdować się w (`C:\Users\NazwaUżytkownika\Rozszerzenia\PolishCookieConsent`) albo należy utworzyć plik `install.txt` w ścieżce, w której aktualizator został zainstalowany i wpisać w nim ścieżkę do zainstalowanego rozszerzenia.
+a) Możesz pobrać i zainstalować program aktualizujący z [github.com/PolishFiltersTeam/PolishCookieConsentUpdater/releases/download/v1.0/PolishCookieConsentUpdater_setup.exe](https://github.com/PolishFiltersTeam/PolishCookieConsentUpdater/releases/download/v1.0/PolishCookieConsentUpdater_setup.exe). Po jego zainstalowaniu powinien on co tydzień sam się włączać i aktualizować. Jednakże w takim przypadku wszystkie pliki rozszerzenia powinny znajdować się w (`C:\Users\NazwaUżytkownika\Rozszerzenia\PolishCookieConsent`) albo należy utworzyć plik `install.txt` w ścieżce, w której aktualizator został zainstalowany i wpisać w nim ścieżkę do zainstalowanego rozszerzenia.
 Do poprawnego działania aktualizatora wymagany jest min. **Windows 7** i **.NET.Framework 4.5.2** (jeżeli brak, to sam powinien się doinstalować).
 
 b) Możesz skorzystać ze skryptu. Aby to zrobić, należy uruchomić **Windows PowerShell (w wersji min. 5.1)**, a następnie w jego pole wpisać:
