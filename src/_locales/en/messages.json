@@ -22,8 +22,8 @@
   "changelog":{
     "message":"Changelog"
   },
-  "reportIssueAnonymously":{
-    "message":"Report an issue anonymously"
+  "reportIssueWithoutLogin":{
+    "message":"Report an issue without logging in"
   }
 }
 
