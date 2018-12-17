@@ -33,17 +33,75 @@ function addToStorage(storageElement, storageValue)
 
 var url = location.href;
 
+var clickInteractiveMatchers = [
+    {
+        'urlRegex': [/tumblr.com\/privacy\/consent/],
+        'selector': '.btn.yes'
+    },
+    {
+        'urlRegex': [/guce.oath.com\/collectConsent/],
+        'selector': '.btn.agree'
+    },
+    {
+        'urlRegex': [/unileverfoodsolutions.pl/],
+        'selector': '.evidon-barrier-acceptbutton'
+    },
+    {
+        'urlRegex': [/downdetector.pl/],
+        'selector': '#consentButton'
+    },
+    {
+        'urlRegex': [
+            /wikia.com/,
+            /fandom.com/
+        ],
+        'selector': '[data-tracking-opt-in-accept="true"]'
+    },
+    {
+        'urlRegex': [/odr.pl/],
+        'selector': '.termsagree'
+    },
+    {
+        'urlRegex': [
+            /drogerium.pl/,
+            /wylecz.to/,
+            /budujmase.pl/
+        ],
+        'selector': '#accept-targeting-disclaimer-button'
+    },
+    {
+        'urlRegex': [/pfm.pl/],
+        'selector': '#NeucaCookieConsent .btn-primary'
+    },
+    {
+        'urlRegex': [
+            /rodobox.io/,
+            /totalnareklama.pl/
+        ],
+        'selector': '#_rdbxAcceptAllBtn'
+    }
+];
+
+function clickInteractiveIterator() {
+    for (var i = 0; i < clickInteractiveMatchers.length; ++i) {
+        var matcher = clickInteractiveMatchers[i];
+        for (var j = 0; j < matcher.urlRegex.length; ++j) {
+            if (url.match(matcher.urlRegex[j])) {
+                clickInteractive(matcher.selector);
+                return;
+            }
+        }
+    }
+}
+clickInteractiveIterator();
+
+
 if(url.match(/http:\/\/f1racing.pl/) || url.match(/http:\/\/www.f1racing.pl/))
 {
     if(document.cookie.indexOf("x-id-cookie-yes=") == -1)
     {
         window.location = "/x-set-cookie" + location.pathname;
     }
-}
-
-if(url.match(/tumblr.com\/privacy\/consent/))
-{
-    clickInteractive('.btn.yes');
 }
 
 if(url.match(/sportowefakty.wp.pl/) || url.match(/wirtualnemedia.pl/))
@@ -81,21 +139,6 @@ if(url.match(/vivaldi.com/))
     bakeCookie("acceptedCookies", "true", "365");
 }
 
-if(url.match(/guce.oath.com\/collectConsent/))
-{
-    clickInteractive('.btn.agree');
-}
-
-if(url.match(/unileverfoodsolutions.pl/))
-{
-    clickInteractive('.evidon-barrier-acceptbutton');
-}
-
-if(url.match(/downdetector.pl/))
-{
-    clickInteractive('#consentButton');
-}
-
 if(url.match(/hiszpanskidlapolakow.com/))
 {
     var readyStateCheckInterval = setInterval(function() {
@@ -114,31 +157,6 @@ if(url.match(/hiszpanskidlapolakow.com/))
 if(url.match(/espedytor.pl/))
 {
     bakeCookie("zgodaRODO", "true", "365");
-}
-
-if(url.match(/wikia.com/) || url.match(/fandom.com/))
-{
-    clickInteractive('[data-tracking-opt-in-accept="true"]');
-}
-
-if(url.match(/odr.pl/))
-{
-    clickInteractive('.termsagree');
-}
-
-if(url.match(/drogerium.pl/) || url.match(/wylecz.to/) || url.match(/budujmase.pl/))
-{
-    clickInteractive('#accept-targeting-disclaimer-button');
-}
-
-if(url.match(/pfm.pl/))
-{
-    clickInteractive('#NeucaCookieConsent .btn-primary');
-}
-
-if(url.match(/rodobox.io/) || url.match(/totalnareklama.pl/))
-{
-    clickInteractive('#_rdbxAcceptAllBtn');
 }
 
 if(url=="https://powiatkamienski.pl/")
