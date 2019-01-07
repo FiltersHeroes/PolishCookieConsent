@@ -124,6 +124,7 @@ bakeCookie("acceptedCookies", "true", "365", "vivaldi.com");
 bakeCookie("zgodaRODO", "true", "365", "espedytor.pl");
 bakeCookie('gdpr-accepted', '{"ga":true,"facebook":true,"disqus":true}', '365', 'hiszpanskidlapolakow.com');
 bakeCookie('CookieConsent', 'true', '365', 'action.com');
+bakeCookie('cookie_notice_accepted', 'true', '365', 'muzotakt.pl');
 addToStorage("rodoConfirmation", "true", "gry.lotto.pl");
 addToStorage("gdpr_popup", "true", "totalcasino.pl");
 redirect("/x-set-cookie", "true", "f1racing.pl", "x-id-cookie-yes=");
