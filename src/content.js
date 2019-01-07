@@ -46,6 +46,20 @@ function clickComplete(element, urlArg, cookieName)
     }
 }
 
+function clickTimeout(element, urlArg)
+{
+    if(getUrlCondition(urlArg))
+    {
+        setTimeout(function() {
+            var btnYes = document.querySelector(element);
+            if (btnYes)
+            {
+                btnYes.click();
+            }
+        }, 500);
+    }
+}
+
 function bakeCookie(cookieName, cookieValue, expiresDays, urlArg)
 {
     if(getUrlCondition(urlArg))
@@ -112,12 +126,12 @@ function removeFromShadow(shadowHostArg, element, urlArg)
 }
 
 clickInteractive('.btn.yes', 'tumblr.com\/privacy\/consent');
-clickInteractive('.btn[name="agree"]', 'guce.oath.com\/collectConsent');
+clickTimeout('.btn[name="agree"]', 'guce.oath.com\/collectConsent');
 clickInteractive('.evidon-barrier-acceptbutton', 'unileverfoodsolutions.pl');
 clickInteractive('#consentButton', 'downdetector.pl');
 clickInteractive('[data-tracking-opt-in-accept="true"]', 'wikia.com|fandom.com');
 clickInteractive('.termsagree', 'odr.pl');
-clickInteractive('#accept-targeting-disclaimer-button', 'drogerium.pl|wylecz.to|budujmase.pl');
+bakeCookie('rodoHfM', 'true', '365', 'drogerium.pl|wylecz.to|budujmase.pl');
 clickInteractive('#NeucaCookieConsent .btn-primary', 'pfm.pl');
 clickInteractive('#_rdbxAcceptAllBtn', 'rodobox.io|totalnareklama.pl');
 bakeCookie("acceptedCookies", "true", "365", "vivaldi.com");
