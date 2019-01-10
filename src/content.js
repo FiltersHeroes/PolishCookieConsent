@@ -46,6 +46,22 @@ function clickComplete(element, urlArg, cookieName)
     }
 }
 
+function clickCompleteText(element, text, urlArg)
+{
+    if(getUrlCondition(urlArg))
+    {
+        var readyStateCheckInterval = setInterval(function() {
+            if (document.readyState === "complete") {
+                var btnYes = document.evaluate("//"+element+"[contains(text(),"+"'"+text+"'"+")]", document  || document, null, XPathResult.ANY_TYPE, null).iterateNext();
+                if (btnYes)
+                {
+                    btnYes.click();
+                }
+            }
+        }, 10);
+    }
+}
+
 function clickTimeout(element, urlArg)
 {
     if(getUrlCondition(urlArg))
@@ -144,3 +160,4 @@ redirect("/x-set-cookie", "true", "f1racing.pl", "x-id-cookie-yes=");
 redirect("/aktualnosci.dhtml", "", "=https://powiatkamienski.pl/");
 clickComplete('div[class*="app_gdpr"] button[class*="intro_acceptAll"]', "gry.pl", "euconsent");
 removeFromShadow(".twitter-tweet", ".Interstitial", "sportowefakty.wp.pl|wirtualnemedia.pl");
+clickCompleteText("button", "PRZECHODZ", "wp.pl");
