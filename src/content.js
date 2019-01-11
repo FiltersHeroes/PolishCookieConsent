@@ -127,13 +127,16 @@ function removeFromShadow(shadowHostArg, element, urlArg)
     {
         var readyStateCheckInterval = setInterval(function() {
             if (document.readyState === "complete") {
-                var shadowHost = document.querySelectorAll(shadowHostArg), i;
-                var cookieConsent = document.querySelector(shadowHostArg).shadowRoot.querySelector(element);
-                if(cookieConsent)
+                var shadowHost = document.querySelectorAll(shadowHostArg);
+                if(shadowHost[0])
                 {
-                    for (i=0; i<shadowHost.length; ++i)
+                    var cookieConsent = document.querySelector(shadowHostArg).shadowRoot.querySelector(element);
+                    if(cookieConsent)
                     {
-                        shadowHost[i].shadowRoot.querySelector(element).remove();
+                        for (var i=0; i<shadowHost.length; ++i)
+                        {
+                            shadowHost[i].shadowRoot.querySelector(element).remove();
+                        }
                     }
                 }
             }
