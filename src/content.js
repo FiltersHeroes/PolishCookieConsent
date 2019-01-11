@@ -24,6 +24,7 @@ function clickInteractive(element, urlArg)
                 if (btnYes)
                 {
                     btnYes.click();
+                    clearInterval(readyStateCheckInterval);
                 }
             }
         }, 10);
@@ -34,7 +35,7 @@ function clickComplete(element, urlArg, cookieName)
 {
     if(getUrlCondition(urlArg))
     {
-        var readyStateCheckInterval = setInterval(function() {
+        document.onreadystatechange = function () {
             if (document.readyState === "complete") {
                 var btnYes = document.querySelector(element);
                 if (document.cookie.indexOf(cookieName+"=") == -1)
@@ -42,7 +43,7 @@ function clickComplete(element, urlArg, cookieName)
                     btnYes.click();
                 }
             }
-        }, 10);
+        }
     }
 }
 
@@ -50,7 +51,7 @@ function clickCompleteText(element, text, urlArg)
 {
     if(getUrlCondition(urlArg))
     {
-        var readyStateCheckInterval = setInterval(function() {
+        document.onreadystatechange = function () {
             if (document.readyState === "complete") {
                 var btnYes = document.evaluate("//"+element+"[contains(text(),"+"'"+text+"'"+")]", document  || document, null, XPathResult.ANY_TYPE, null).iterateNext();
                 if (btnYes)
@@ -58,7 +59,7 @@ function clickCompleteText(element, text, urlArg)
                     btnYes.click();
                 }
             }
-        }, 10);
+        }
     }
 }
 
@@ -138,6 +139,7 @@ function removeFromShadow(shadowHostArg, element, urlArg)
                             shadowHost[i].shadowRoot.querySelector(element).remove();
                         }
                     }
+                    clearInterval(readyStateCheckInterval);
                 }
             }
         }, 1000);
@@ -148,7 +150,7 @@ clickInteractive('.btn.yes', 'tumblr.com\/privacy\/consent');
 clickTimeout('.btn[name="agree"]', 'guce.oath.com\/collectConsent');
 clickInteractive('.evidon-barrier-acceptbutton', 'unileverfoodsolutions.pl');
 clickInteractive('#consentButton', 'downdetector.pl');
-clickInteractive('[data-tracking-opt-in-accept="true"]', 'wikia.com|fandom.com');
+bakeCookie("tracking-opt-in-status", "accepted", "365", 'wikia.com|fandom.com');
 clickInteractive('.termsagree', 'odr.pl');
 bakeCookie('rodoHfM', 'true', '365', 'drogerium.pl|wylecz.to|budujmase.pl');
 clickInteractive('#NeucaCookieConsent .btn-primary', 'pfm.pl');
