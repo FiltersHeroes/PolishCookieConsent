@@ -148,7 +148,7 @@ function removeFromShadow(shadowHostArg, element, urlArg)
 
 clickInteractive('.btn.yes', 'tumblr.com\/privacy\/consent');
 clickTimeout('.btn[name="agree"]', 'guce.oath.com\/collectConsent');
-clickInteractive('.evidon-barrier-acceptbutton', 'unileverfoodsolutions.pl|downdetector.pl');
+clickInteractive('.evidon-barrier-acceptbutton', 'downdetector.pl|unileverfoodsolutions.pl');
 bakeCookie("tracking-opt-in-status", "accepted", "365", 'wikia.com|fandom.com');
 clickInteractive('.termsagree', 'odr.pl');
 bakeCookie('rodoHfM', 'true', '365', 'drogerium.pl|wylecz.to|budujmase.pl');
