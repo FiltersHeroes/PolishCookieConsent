@@ -15,4 +15,4 @@ for (var i = 0; i < wrapper.length; i++) {
 }
 
 var manifest = chrome.runtime.getManifest();
-document.querySelector(".title > p").innerHTML += " "+manifest.version;
+document.querySelector(".title > p").textContent += " "+manifest.version;
