@@ -52,13 +52,13 @@ function clickCompleteText(element, text, urlArg)
     if(getUrlCondition(urlArg))
     {
         document.onreadystatechange = function () {
-            if (document.readyState === "complete") {
-                var btnYes = document.evaluate("//"+element+"[contains(text(),"+"'"+text+"'"+")]", document  || document, null, XPathResult.ANY_TYPE, null).iterateNext();
-                if (btnYes)
-                {
-                    btnYes.click();
-                }
-            }
+                setTimeout(function() {
+                    var btnYes = document.evaluate("//"+element+"[contains(text(),"+"'"+text+"'"+")]", document  || document, null, XPathResult.ANY_TYPE, null).iterateNext();
+                    if (btnYes)
+                    {
+                        btnYes.click();
+                    }
+                }, 500);
         }
     }
 }
