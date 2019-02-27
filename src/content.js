@@ -166,4 +166,4 @@ redirect("/x-set-cookie", "true", "f1racing.pl", "x-id-cookie-yes=");
 redirect("/aktualnosci.dhtml", "", "=https://powiatkamienski.pl/");
 clickComplete('div[class*="app_gdpr"] button[class*="intro_acceptAll"]', "gry.pl", "euconsent");
 removeFromShadow(".twitter-tweet", ".Interstitial", "sportowefakty.wp.pl|wirtualnemedia.pl");
-clickCompleteText("button", "PRZECHODZ", "wp.pl|homebook.pl|forum.dobreprogramy.pl");
+clickCompleteText("button", "PRZECHODZ", "wp.pl|homebook.pl|dobreprogramy.pl");
