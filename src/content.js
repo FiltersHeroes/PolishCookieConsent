@@ -146,24 +146,25 @@ function removeFromShadow(shadowHostArg, element, urlArg)
     }
 }
 
-clickInteractive('.btn.yes', 'tumblr.com\/privacy\/consent');
-clickTimeout('.btn[name="agree"]', 'guce.oath.com\/collectConsent');
-clickInteractive('.evidon-barrier-acceptbutton', 'downdetector.pl|unileverfoodsolutions.pl');
-bakeCookie("tracking-opt-in-status", "accepted", "365", 'wikia.com|fandom.com');
-clickInteractive('.termsagree', 'odr.pl');
-bakeCookie('rodoHfM', 'true', '365', 'drogerium.pl|wylecz.to|budujmase.pl');
-clickInteractive('#NeucaCookieConsent .btn-primary', 'pfm.pl');
-clickInteractive('#_rdbxAcceptAllBtn', 'rodobox.io|totalnareklama.pl');
+addToStorage("gdpr_popup", "true", "totalcasino.pl");
+addToStorage("rodoConfirmation", "true", "gry.lotto.pl");
 bakeCookie("acceptedCookies", "true", "365", "vivaldi.com");
+bakeCookie("gdpr", "1", "365", "sklep.visionexpress.pl");
+bakeCookie("tracking-opt-in-status", "accepted", "365", 'wikia.com|fandom.com');
 bakeCookie("zgodaRODO", "true", "365", "espedytor.pl");
-bakeCookie('gdpr-accepted', '{"ga":true,"facebook":true,"disqus":true}', '365', 'hiszpanskidlapolakow.com');
 bakeCookie('CookieConsent', 'true', '365', 'action.com');
+bakeCookie('gdpr-accepted', '{"ga":true,"facebook":true,"disqus":true}', '365', 'hiszpanskidlapolakow.com');
 bakeCookie('num26GDPR', 'ACCEPTED', '365', 'n26.com');
 bakeCookie('regulationsAccepted', 'true', '365', 'mapy.geoportal.gov.pl');
-addToStorage("rodoConfirmation", "true", "gry.lotto.pl");
-addToStorage("gdpr_popup", "true", "totalcasino.pl");
-redirect("/x-set-cookie", "true", "f1racing.pl", "x-id-cookie-yes=");
-redirect("/aktualnosci.dhtml", "", "=https://powiatkamienski.pl/");
+bakeCookie('rodoHfM', 'true', '365', 'drogerium.pl|wylecz.to|budujmase.pl');
 clickComplete('div[class*="app_gdpr"] button[class*="intro_acceptAll"]', "gry.pl", "euconsent");
-removeFromShadow(".twitter-tweet", ".Interstitial", "sportowefakty.wp.pl|wirtualnemedia.pl");
 clickCompleteText("button", "PRZECHODZ", "wp.pl|homebook.pl|dobreprogramy.pl");
+clickInteractive('#NeucaCookieConsent .btn-primary', 'pfm.pl');
+clickInteractive('#_rdbxAcceptAllBtn', 'rodobox.io|totalnareklama.pl');
+clickInteractive('.btn.yes', 'tumblr.com\/privacy\/consent');
+clickInteractive('.evidon-barrier-acceptbutton', 'downdetector.pl|unileverfoodsolutions.pl');
+clickInteractive('.termsagree', 'odr.pl');
+clickTimeout('.btn[name="agree"]', 'guce.oath.com\/collectConsent');
+redirect("/aktualnosci.dhtml", "", "=https://powiatkamienski.pl/");
+redirect("/x-set-cookie", "true", "f1racing.pl", "x-id-cookie-yes=");
+removeFromShadow(".twitter-tweet", ".Interstitial", "sportowefakty.wp.pl|wirtualnemedia.pl");
