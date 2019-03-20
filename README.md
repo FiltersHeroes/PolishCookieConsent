@@ -20,7 +20,8 @@ Rozszerzenie automatycznie akceptujące politykę ciasteczek/RODO na stronach do
 4. Otwórz swoją przeglądarkę, a następnie wpisz do paska adresu `chrome://extensions` i potwierdź <kbd>Enterem</kbd>.
 5. Włącz tryb programisty.
 6. Kliknij **załaduj rozpakowane**, potem wskaż katalog, w którym wypakowałeś(aś) rozszerzenie i kliknij **OK**.
-7. Gotowe!
+7. Wyłącz tryb programisty.
+8. Gotowe!
 
 #### b) ![Linux][Linux] Linux
 1. Pobierz najnowszego Konserwatora Polskiej Ciasteczkowej Zgody z [github.com/PolishFiltersTeam/PolishCookieConsentMaintenance/releases/download/v1.3/PolishCookieConsentMaintenance.linux-x86_64.xz.run](https://github.com/PolishFiltersTeam/PolishCookieConsentMaintenance/releases/download/v1.3/PolishCookieConsentMaintenance.linux-x86_64.xz.run), zrób ten plik wykonywalnym i uruchom go w terminalu z ścieżki, w której chcesz mieć Konserwatora (zostanie tam utworzony katalog **PolishCookieConsentMaintenance**).
@@ -31,7 +32,8 @@ Rozszerzenie automatycznie akceptujące politykę ciasteczek/RODO na stronach do
 6. Otwórz swoją przeglądarkę, a następnie wpisz do paska adresu `chrome://extensions` i potwierdź <kbd>Enterem</kbd>.
 7. Włącz tryb programisty.
 8. Kliknij **załaduj rozpakowane**, potem wskaż katalog, w którym wypakowałeś(aś) rozszerzenie i kliknij **OK**.
-9. Gotowe!
+9. Wyłącz tryb programisty.
+10. Gotowe!
 
 #### c) Inne systemy
 1. Pobierz najnowszy plik zip z [github.com/PolishFiltersTeam/PolishCookieConsent/releases/latest](https://github.com/PolishFiltersTeam/PolishCookieConsent/releases/latest).
