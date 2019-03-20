@@ -15,8 +15,8 @@ Rozszerzenie automatycznie akceptujące politykę ciasteczek/RODO na stronach do
 ### **II. ![Chrome][Chrome]Chrome/![Chromium][Chromium]Chromium/![Vivaldi][Vivaldi]Vivaldi/![Opera][Opera](Chr)Opera/![Cent][Cent]Cent /![Yandex][Yandex]Yandex**
 #### a) ![Windows][Windows] Windows
 1. Pobierz najnowszego Konserwatora Polskiej Ciasteczkowej Zgody z [github.com/PolishFiltersTeam/PolishCookieConsentMaintenance/releases/download/v1.3/PolishCookieConsentMaintenance.win64.exe](https://github.com/PolishFiltersTeam/PolishCookieConsentMaintenance/releases/download/v1.3/PolishCookieConsentMaintenance.win64.exe) i uruchom instalator.
-2. Po zakończeniu instalacji, uruchom Konserwatora.
-3. Wybierz ścieżkę, gdzie chcesz zainstalować rozszerzenie i kliknij pobierz i wypakuj.
+2. Po zakończeniu instalacji uruchom Konserwatora.
+3. Wybierz ścieżkę, gdzie chcesz zainstalować rozszerzenie i kliknij **pobierz i wypakuj**.
 4. Otwórz swoją przeglądarkę, a następnie wpisz do paska adresu `chrome://extensions` i potwierdź <kbd>Enterem</kbd>.
 5. Włącz tryb programisty.
 6. Kliknij **załaduj rozpakowane**, potem wskaż katalog, w którym wypakowałeś(aś) rozszerzenie i kliknij **OK**.
@@ -26,10 +26,12 @@ Rozszerzenie automatycznie akceptujące politykę ciasteczek/RODO na stronach do
 1. Pobierz najnowszego Konserwatora Polskiej Ciasteczkowej Zgody z [github.com/PolishFiltersTeam/PolishCookieConsentMaintenance/releases/download/v1.3/PolishCookieConsentMaintenance.linux-x86_64.xz.run](https://github.com/PolishFiltersTeam/PolishCookieConsentMaintenance/releases/download/v1.3/PolishCookieConsentMaintenance.linux-x86_64.xz.run), zrób ten plik wykonywalnym i uruchom go w terminalu z ścieżki, w której chcesz mieć Konserwatora (zostanie tam utworzony katalog **PolishCookieConsentMaintenance**).
 2. Jeśli chcesz przewinąć licencję do końca, naciśnij <kbd>q</kbd>, a jesli chcesz dalej przeczytać, to wciśnij <kbd>Enter</kbd>, a następnie <kbd>y</kbd>, by zaakceptować licencję.
 3. Wciśnij <kbd>1</kbd>, jesli chcesz mieć automatyczne cotygodniowe aktualizacje. Jednakże aby to działało poprawnie, cron powinien być zainstalowany i włączony (np. w Manjaro Linux należy zainstalować pakiet **cronie**, a następnie wpisać do konsoli `systemctl enable --now cronie.service` i wykonać punkty 2-3 z [forum.manjaro.org/t/how-to-create-a-cron-job-in-manjaro/105](https://forum.manjaro.org/t/how-to-create-a-cron-job-in-manjaro/105)).
-4. Otwórz swoją przeglądarkę, a następnie wpisz do paska adresu `chrome://extensions` i potwierdź <kbd>Enterem</kbd>.
-5. Włącz tryb programisty.
-6. Kliknij **załaduj rozpakowane**, potem wskaż katalog, w którym wypakowałeś(aś) rozszerzenie i kliknij **OK**.
-7. Gotowe!
+4. Po zakończeniu instalacji uruchom Konserwatora.
+5. Wybierz ścieżkę, gdzie chcesz zainstalować rozszerzenie i kliknij **pobierz i wypakuj**.
+6. Otwórz swoją przeglądarkę, a następnie wpisz do paska adresu `chrome://extensions` i potwierdź <kbd>Enterem</kbd>.
+7. Włącz tryb programisty.
+8. Kliknij **załaduj rozpakowane**, potem wskaż katalog, w którym wypakowałeś(aś) rozszerzenie i kliknij **OK**.
+9. Gotowe!
 
 #### c) Inne systemy
 1. Pobierz najnowszy plik zip z [github.com/PolishFiltersTeam/PolishCookieConsent/releases/latest](https://github.com/PolishFiltersTeam/PolishCookieConsent/releases/latest).
