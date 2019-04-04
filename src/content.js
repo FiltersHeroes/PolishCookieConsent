@@ -122,30 +122,6 @@ function redirect(redirectPoint, pathName, urlArg, cookieName)
     }
 }
 
-function removeFromShadow(shadowHostArg, element, urlArg)
-{
-    if(getUrlCondition(urlArg))
-    {
-        var readyStateCheckInterval = setInterval(function() {
-            if (document.readyState === "complete") {
-                var shadowHost = document.querySelectorAll(shadowHostArg);
-                if(shadowHost[0])
-                {
-                    var cookieConsent = document.querySelector(shadowHostArg).shadowRoot.querySelector(element);
-                    if(cookieConsent)
-                    {
-                        for (var i=0; i<shadowHost.length; ++i)
-                        {
-                            shadowHost[i].shadowRoot.querySelector(element).remove();
-                        }
-                    }
-                    clearInterval(readyStateCheckInterval);
-                }
-            }
-        }, 1000);
-    }
-}
-
 addToStorage("gdpr_popup", "true", "totalcasino.pl");
 addToStorage("rodoConfirmation", "true", "gry.lotto.pl");
 bakeCookie("acceptedCookies", "true", "365", "vivaldi.com");
@@ -169,4 +145,3 @@ clickInteractive(".termsagree", "odr.pl");
 clickTimeout('.btn[name="agree"]', "guce.oath.com\/collectConsent");
 redirect("/aktualnosci.dhtml", "", "=https://powiatkamienski.pl/");
 redirect("/x-set-cookie", "true", "f1racing.pl", "x-id-cookie-yes=");
-removeFromShadow(".twitter-tweet", ".Interstitial", "sportowefakty.wp.pl|wirtualnemedia.pl");
