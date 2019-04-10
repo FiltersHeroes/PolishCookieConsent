@@ -16,7 +16,7 @@ workflows:
   version: 2
   workflow:
     jobs:
-      - build:
+      - publish:
           filters:
             tags:
               only: /.*/
