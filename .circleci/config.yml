@@ -5,13 +5,11 @@ jobs:
     - image: circleci/golang:1-node
     steps:
     - checkout
-    - run:
-          command: |
-            go get github.com/tcnksm/ghr
-            npm install --global @wext/shipit
-            ./make_scripts/make_chromium.sh
-            ./make_scripts/make_firefox.sh
-            ghr -t ${GH_TOKEN} -u PolishJarvis -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} -delete ${CIRCLE_TAG} ./src/web-ext-artifacts
+    - run: go get github.com/tcnksm/ghr
+    - run: sudo npm install --global @wext/shipit
+    - run: ./make_scripts/make_chromium.sh
+    - run: ./make_scripts/make_firefox.sh
+    - run: ghr -t ${GH_TOKEN} -u PolishJarvis -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} -delete ${CIRCLE_TAG} ./src/web-ext-artifacts
 workflows:
   version: 2
   workflow:
