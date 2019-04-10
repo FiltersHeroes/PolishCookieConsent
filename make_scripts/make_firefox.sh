@@ -4,5 +4,9 @@
 sciezka=$(dirname "$0")
 
 cd $sciezka/../src
-web-ext sign --api-key=${API_KEY} --api-secret=${API_SECRET}
+
+shipit firefox ./
+
+if [ -f ./web-ext-artifacts/polish_cookie_consent-*.xpi ]; then
 mv ./web-ext-artifacts/polish_cookie_consent-*.xpi ../PolishCookieConsent_firefox.xpi
+fi

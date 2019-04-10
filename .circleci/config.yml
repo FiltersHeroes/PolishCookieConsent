@@ -1,0 +1,25 @@
+version: 2
+jobs:
+  publish:
+    docker:
+    - image: golang:1-node
+    steps:
+    - checkout
+    - run:
+          command: |
+            go get github.com/tcnksm/ghr
+            npm install --global @wext/shipit
+            ./make_scripts/make_chromium.sh
+            ./make_scripts/make_firefox.sh
+            ghr -t ${GH_TOKEN} -u PolishJarvis -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} -delete ${CIRCLE_TAG} ./src/web-ext-artifacts
+workflows:
+  version: 2
+  workflow:
+    jobs:
+      - build:
+          filters:
+            tags:
+              only: /.*/
+            branches:
+              ignore: /.*/
+          context: org-global
