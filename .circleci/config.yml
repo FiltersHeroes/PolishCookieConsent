@@ -2,7 +2,7 @@ version: 2
 jobs:
   publish:
     docker:
-    - image: golang:1-node
+    - image: circleci/golang:1-node
     steps:
     - checkout
     - run:
