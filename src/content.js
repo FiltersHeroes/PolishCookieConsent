@@ -124,6 +124,7 @@ function redirect(redirectPoint, pathName, urlArg, cookieName)
 
 addToStorage("gdpr_popup", "true", "totalcasino.pl");
 addToStorage("rodoConfirmation", "true", "gry.lotto.pl");
+addToStorage("rodoConfirmation2", "true", "gry.lotto.pl");
 bakeCookie("acceptedCookies", "true", "365", "vivaldi.com");
 bakeCookie("acceptRodoSie", "hide", "365", "login.e-dowod.gov.pl");
 bakeCookie("gdpr", "1", "365", "sklep.visionexpress.pl");
