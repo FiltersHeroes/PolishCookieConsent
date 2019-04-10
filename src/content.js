@@ -142,6 +142,6 @@ clickInteractive("#_rdbxAcceptAllBtn", "rodobox.io|totalnareklama.pl");
 clickInteractive(".btn.yes", "tumblr.com\/privacy\/consent");
 clickInteractive(".evidon-barrier-acceptbutton", "downdetector.pl|unileverfoodsolutions.pl");
 clickInteractive(".termsagree", "odr.pl");
-clickTimeout('.btn[name="agree"]', "guce.oath.com\/collectConsent");
+clickTimeout('.btn[name="agree"]', "guce.oath.com\/collectConsent|consent.yahoo.com\/collectConsent");
 redirect("/aktualnosci.dhtml", "", "=https://powiatkamienski.pl/");
 redirect("/x-set-cookie", "true", "f1racing.pl", "x-id-cookie-yes=");
