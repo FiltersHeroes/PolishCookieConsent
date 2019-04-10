@@ -2,14 +2,12 @@ version: 2
 jobs:
   publish:
     docker:
-    - image: circleci/golang:1-node
+    - image: circleci/golang:latest-node
     steps:
     - checkout
     - run: go get github.com/tcnksm/ghr
-    - run: sudo npm install --global @wext/shipit
-    - run: ./make_scripts/make_chromium.sh
-    - run: ./make_scripts/make_firefox.sh
-    - run: ghr -t ${GH_TOKEN} -u PolishJarvis -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} -delete ${CIRCLE_TAG} ./src/web-ext-artifacts
+    - run: npm set prefix=/home/circleci/npm && echo 'export PATH=$HOME/circleci/npm/bin:$PATH' >> /home/circleci/.bashrc && npm install @babel/core && npm install ajv && npm install @wext/shipit && ./make_scripts/make_chromium.sh && ./make_scripts/make_firefox.sh
+    - run: ghr -t ${GH_TOKEN} -u PolishFiltersTeam -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} -delete ${CIRCLE_TAG} ./src/web-ext-artifacts
 workflows:
   version: 2
   workflow:
