@@ -5,4 +5,4 @@ sciezka=$(dirname "$0")
 
 cd $sciezka/../src
 
-npx shipit firefox ./
+npx web-ext-submit
