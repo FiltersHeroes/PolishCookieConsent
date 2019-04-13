@@ -9,8 +9,8 @@ Rozszerzenie automatycznie akceptujące politykę ciasteczek/RODO na stronach do
 
 ## **Jak zainstalować?**
 ### **I. ![Firefox][Firefox]Firefox/![Waterfox][Waterfox]Waterfox**
-1. Pobierz najnowszy plik xpi z [https://github.com/PolishFiltersTeam/PolishCookieConsent/releases/latest](https://github.com/PolishFiltersTeam/PolishCookieConsent/releases/latest) i kliknij **zezwól**, by zainstalować.
-2. Gotowe! Aktualizacje powinny być automatyczne, więc nie trzeba będzie znowu wchodzić na stronę i pobierać jak będzie nowa wersja.
+1. Pobierz najnowszą wersję rozszerzenia z [AMO](https://addons.mozilla.org/pl/firefox/addon/polish-cookie-consent/) i kliknij **dodaj**, by zainstalować.
+2. Gotowe!
 
 ### **II. ![Chrome][Chrome]Chrome/![Chromium][Chromium]Chromium/![Vivaldi][Vivaldi]Vivaldi/![Opera][Opera](Chr)Opera/![Cent][Cent]Cent /![Yandex][Yandex]Yandex**
 #### a) ![Windows][Windows] Windows
@@ -21,7 +21,7 @@ Rozszerzenie automatycznie akceptujące politykę ciasteczek/RODO na stronach do
 5. Włącz tryb programisty.
 6. Kliknij **załaduj rozpakowane**, potem wskaż katalog, w którym wypakowałeś(aś) rozszerzenie i kliknij **OK**.
 7. Wyłącz tryb programisty.
-8. Gotowe!
+8. Gotowe! Aktualizacje powinny być automatycznie instalowane co tydzień.
 
 #### b) ![Linux][Linux] Linux
 1. Pobierz najnowszego Konserwatora Polskiej Ciasteczkowej Zgody z [github.com/PolishFiltersTeam/PolishCookieConsentMaintenance/releases/download/v1.3/PolishCookieConsentMaintenance.linux-x86_64.xz.run](https://github.com/PolishFiltersTeam/PolishCookieConsentMaintenance/releases/download/v1.3/PolishCookieConsentMaintenance.linux-x86_64.xz.run), zrób ten plik wykonywalnym i uruchom go w terminalu z ścieżki, w której chcesz mieć Konserwatora (zostanie tam utworzony katalog **PolishCookieConsentMaintenance**).
