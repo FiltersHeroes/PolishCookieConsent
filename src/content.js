@@ -128,6 +128,7 @@ addToStorage("rodoConfirmation2", "true", "gry.lotto.pl");
 bakeCookie("acceptedCookies", "true", "365", "vivaldi.com");
 bakeCookie("acceptRodoSie", "hide", "365", "login.e-dowod.gov.pl");
 bakeCookie("gdpr", "1", "365", "sklep.visionexpress.pl");
+bakeCookie("hm_gdpr_read", "true", "365", "www2.hm.com");
 bakeCookie("tracking-opt-in-status", "accepted", "365", "wikia.com|fandom.com");
 bakeCookie("zgodaRODO", "true", "365", "espedytor.pl");
 bakeCookie("CookieConsent", "true", "365", "action.com");
