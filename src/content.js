@@ -142,7 +142,8 @@ clickCompleteText("button", "PRZECHODZ", "abczdrowie.pl|autokult.pl|dobramama.pl
 clickInteractive("#NeucaCookieConsent .btn-primary", "pfm.pl");
 clickInteractive("#_rdbxAcceptAllBtn", "rodobox.io|totalnareklama.pl");
 clickInteractive(".btn.yes", "tumblr.com\/privacy\/consent");
-clickInteractive(".evidon-barrier-acceptbutton", "downdetector.pl|unileverfoodsolutions.pl");
+clickInteractive(".evidon-barrier-acceptbutton", "unileverfoodsolutions.pl");
+clickInteractive("#consentButton", "downdetector.pl");
 clickInteractive(".termsagree", "odr.pl");
 clickTimeout('.btn[name="agree"]', "guce.oath.com\/collectConsent|consent.yahoo.com\/collectConsent");
 redirect("/aktualnosci.dhtml", "", "=https://powiatkamienski.pl/");
