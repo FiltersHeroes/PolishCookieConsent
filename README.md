@@ -4,7 +4,7 @@ Rozszerzenie automatycznie akceptujące politykę ciasteczek/RODO na stronach do
 
 GitHub Releases: [![GitHub Releases](https://img.shields.io/github/downloads/PolishFiltersTeam/PolishCookieConsent/latest/total.svg  "GitHub Releases")](https://github.com/PolishFiltersTeam/PolishCookieConsent/releases/latest "GitHub Releases") [![GitHub All Releases](https://img.shields.io/github/downloads/PolishFiltersTeam/PolishCookieConsent/total.svg?colorB=blue "GitHub All Releases")](https://github.com/PolishFiltersTeam/PolishCookieConsent/releases "GitHub All Releases")
 
-Moz://a Store: ![Moz://a AMO version](https://img.shields.io/amo/v/polish-cookie-consent.svg "Moz://a AMO version") ![Firefox week download](https://img.shields.io/amo/dw/polish-cookie-consent.svg "Firefox week download")
+Addons.mozilla.org (Firefox Add-ons): ![Moz://a AMO version](https://img.shields.io/amo/v/polish-cookie-consent.svg "Moz://a AMO version") ![Firefox week download](https://img.shields.io/amo/dw/polish-cookie-consent.svg "Firefox week download")
 ![Firefox users](https://img.shields.io/amo/users/polish-cookie-consent.svg "Firefox week users")
 
 Chrome Web Store: ![Chrome Web Store version](https://img.shields.io/chrome-web-store/v/bniijddcmabghibaojbkbnngbedopbno.svg "Chrome Web Store version") ![Chromium users](https://img.shields.io/chrome-web-store/users/bniijddcmabghibaojbkbnngbedopbno.svg "Chromium users")
