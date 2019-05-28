@@ -18,9 +18,8 @@ Rozszerzenie automatycznie akceptujące politykę ciasteczek/RODO na stronach do
 2. Gotowe :tada: !
 
 ### **III. ![Opera][Opera](Chr)Opera**
-1. Zainstaluj **Install Chrome Extensions** z [Opera Addons](https://addons.opera.com/pl/extensions/details/install-chrome-extensions/) (kliknij **dodaj**)
-2. Zainstaluj najnowszą wersję rozszerzenia z [CWS](https://chrome.google.com/webstore/detail/polish-cookie-consent/bniijddcmabghibaojbkbnngbedopbno) (kliknij **dodaj**, a następnie **ok** i **zainstaluj**).
-3. Gotowe :tada: !
+1. Zainstaluj najnowszą wersję rozszerzenia z [OA](https://addons.opera.com/pl/extensions/details/polish-cookie-consent/) (kliknij **dodaj**).
+2. Gotowe :tada: !
 
 
 [Firefox]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/46.1.0/firefox/firefox_24x24.png "Mozilla Firefox"
