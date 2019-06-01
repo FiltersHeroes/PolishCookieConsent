@@ -24,14 +24,14 @@ Chrome Web Store: ![Chrome Web Store version](https://img.shields.io/chrome-web-
 2. Gotowe :tada: !
 
 
-[Firefox]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/46.1.0/firefox/firefox_24x24.png "Mozilla Firefox"
-[Waterfox]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/46.1.0/waterfox/waterfox_24x24.png "Waterfox"
-[Chrome]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/46.1.0/chrome/chrome_24x24.png "Google Chrome"
-[Chromium]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/46.1.0/chromium/chromium_24x24.png "Chromium"
-[Vivaldi]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/46.1.0/vivaldi/vivaldi_24x24.png "Vivaldi"
-[Opera]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/46.1.0/opera/opera_24x24.png "Opera"
-[Cent]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/46.1.0/cent/cent_24x24.png "Cent Browser"
-[Yandex]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/46.1.0/yandex/yandex_24x24.png "Yandex Browser"
+[Firefox]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/51.0.17/firefox/firefox_24x24.png "Mozilla Firefox"
+[Waterfox]: https://raw.githubusercontent.com/MrAlex94/Waterfox/master/browser/branding/unofficial/default24.png "Waterfox"
+[Chrome]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/51.0.17/chrome/chrome_24x24.png "Google Chrome"
+[Chromium]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/51.0.17/chromium/chromium_24x24.png "Chromium"
+[Vivaldi]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/51.0.17/vivaldi/vivaldi_24x24.png "Vivaldi"
+[Opera]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/51.0.17/opera/opera_24x24.png "Opera"
+[Cent]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/51.0.17/cent/cent_24x24.png "Cent Browser"
+[Yandex]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/51.0.17/yandex/yandex_24x24.png "Yandex Browser"
 [Kiwi]: https://raw.githubusercontent.com/scribblemaniac/browser-logos/41d6542b2d122f5b65d8f259cf5ffbdb3b89831d/src/kiwi/kiwi_24x24.png "Kiwi Browser"
 
 
