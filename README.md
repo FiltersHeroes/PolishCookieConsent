@@ -14,7 +14,7 @@ Chrome Web Store: ![Chrome Web Store version](https://img.shields.io/chrome-web-
 1. Zainstaluj najnowszą wersję rozszerzenia z [AMO](https://addons.mozilla.org/pl/firefox/addon/polish-cookie-consent/) (kliknij dwukrotnie **dodaj**).
 2. Gotowe :tada: !
 
-### **II. ![Chrome][Chrome]Chrome/![Chromium][Chromium]Chromium/![Vivaldi][Vivaldi]Vivaldi/![Cent][Cent]Cent/![Yandex][Yandex]Yandex**
+### **II. ![Chrome][Chrome]Chrome/![Chromium][Chromium]Chromium/![Vivaldi][Vivaldi]Vivaldi/![Cent][Cent]Cent/![Yandex][Yandex]Yandex/![Kiwi][Kiwi]Kiwi**
 1. Zainstaluj najnowszą wersję rozszerzenia z [CWS](https://chrome.google.com/webstore/detail/polish-cookie-consent/bniijddcmabghibaojbkbnngbedopbno)
 (kliknij dwukrotnie **dodaj**).
 2. Gotowe :tada: !
@@ -32,6 +32,7 @@ Chrome Web Store: ![Chrome Web Store version](https://img.shields.io/chrome-web-
 [Opera]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/46.1.0/opera/opera_24x24.png "Opera"
 [Cent]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/46.1.0/cent/cent_24x24.png "Cent Browser"
 [Yandex]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/46.1.0/yandex/yandex_24x24.png "Yandex Browser"
+[Kiwi]: https://raw.githubusercontent.com/scribblemaniac/browser-logos/41d6542b2d122f5b65d8f259cf5ffbdb3b89831d/src/kiwi/kiwi_24x24.png "Kiwi Browser"
 
 
 ## **Podziękowania**
