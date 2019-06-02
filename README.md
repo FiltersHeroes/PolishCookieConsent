@@ -2,12 +2,12 @@
 
 Rozszerzenie automatycznie akceptujące politykę ciasteczek/RODO na stronach dostępnych w języku polskim. Stanowi ono uzupełnienie **Polskich Filtrów Rodo-Ciasteczkowych**.
 
-Addons.mozilla.org (Firefox Add-ons): [![Moz://a AMO version](https://img.shields.io/amo/v/polish-cookie-consent.svg "Moz://a AMO version")](https://addons.mozilla.org/pl/firefox/addon/polish-cookie-consent/ "Moz://a AMO version") ![Firefox week download](https://img.shields.io/amo/dw/polish-cookie-consent.svg "Firefox week download")
-![Firefox users](https://img.shields.io/amo/users/polish-cookie-consent.svg "Firefox week users")
+Addons.mozilla.org: [![Moz://a AMO version](https://img.shields.io/amo/v/polish-cookie-consent.svg?label=AMO "Moz://a AMO version")](https://addons.mozilla.org/pl/firefox/addon/polish-cookie-consent/ "Moz://a AMO version") ![Firefox week download](https://img.shields.io/amo/dw/polish-cookie-consent.svg?label=pobrań "Firefox week download")
+![Firefox users](https://img.shields.io/amo/users/polish-cookie-consent.svg?label=użytkowników "Firefox week users")
 
-Chrome Web Store: [![Chrome Web Store version](https://img.shields.io/chrome-web-store/v/bniijddcmabghibaojbkbnngbedopbno.svg "Chrome Web Store version")](https://chrome.google.com/webstore/detail/polish-cookie-consent/bniijddcmabghibaojbkbnngbedopbno?hl=pl "Chrome Web Store version") ![Chromium users](https://img.shields.io/chrome-web-store/users/bniijddcmabghibaojbkbnngbedopbno.svg "Chromium users")
+Chrome Web Store: [![Chrome Web Store version](https://img.shields.io/chrome-web-store/v/bniijddcmabghibaojbkbnngbedopbno.svg?label=CWS "Chrome Web Store version")](https://chrome.google.com/webstore/detail/polish-cookie-consent/bniijddcmabghibaojbkbnngbedopbno?hl=pl "Chrome Web Store version") ![Chromium users](https://img.shields.io/chrome-web-store/users/bniijddcmabghibaojbkbnngbedopbno.svg?label=użytkowników "Chromium users")
 
-Opera Addons: [![Opera addons version](https://img.shields.io/badge/Opera%20addons-1.33.1-%23007ec6.svg "Opera addons version")](https://addons.opera.com/pl/extensions/details/polish-cookie-consent/ "Opera addons version")
+Opera Addons: [![Opera addons version](https://img.shields.io/badge/OA-v1.33.1-%23007ec6.svg "Opera addons version")](https://addons.opera.com/pl/extensions/details/polish-cookie-consent/ "Opera addons version")
 
 ## **Jak zainstalować?**
 ### **I. ![Firefox][Firefox]Firefox/![Waterfox][Waterfox]Waterfox**
