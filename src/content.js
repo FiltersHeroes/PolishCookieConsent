@@ -138,7 +138,7 @@ bakeCookie("num26GDPR", "ACCEPTED", "365", "n26.com");
 bakeCookie("regulationsAccepted", "true", "365", "mapy.geoportal.gov.pl");
 bakeCookie("rodoHfM", "true", "365", "drogerium.pl|wylecz.to|budujmase.pl");
 clickComplete('div[class*="app_gdpr"] button[class*="intro_acceptAll"]', "gry.pl", "euconsent");
-clickCompleteText("button", "PRZECHODZ", "abczdrowie.pl|allani.pl|autokult.pl|dobramama.pl|dobreprogramy.pl|domodi.pl|echirurgia.pl|fotoblogia.pl|gadzetomania.pl|homebook.pl|jejswiat.pl|kafeteria.pl|kafeteria.tv|komorkomania.pl|luxlux.pl|medycyna24.pl|mixer.pl|money.pl|nocowanie.pl|o2.pl|open.fm|parenting.pl|pinger.pl|pogodnie.pl|pudelek.pl|pytamy.pl|smaczneblogi.pl|samosia.pl|smog.pl|snobka.pl|superauto24.com|testwiedzy.pl|wp.pl");
+clickCompleteText("button", "PRZECHODZ", "abczdrowie.pl|allani.pl|autokult.pl|dobramama.pl|dobreprogramy.pl|domodi.pl|echirurgia.pl|fotoblogia.pl|gadzetomania.pl|homebook.pl|jejswiat.pl|kafeteria.pl|kafeteria.tv|kardiolo.pl|komorkomania.pl|luxlux.pl|medycyna24.pl|mixer.pl|money.pl|nocowanie.pl|nerwica.com|o2.pl|open.fm|parenting.pl|pinger.pl|pogodnie.pl|pudelek.pl|pudelek.tv|pudelekx.pl|pytamy.pl|smaczneblogi.pl|samosia.pl|smog.pl|snobka.pl|superauto24.com|testwiedzy.pl|wp.pl");
 clickInteractive("#NeucaCookieConsent .btn-primary", "pfm.pl");
 clickInteractive("#_rdbxAcceptAllBtn", "rodobox.io|totalnareklama.pl");
 clickInteractive(".btn.yes", "tumblr.com\/privacy\/consent");
