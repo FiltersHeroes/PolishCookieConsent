@@ -5,7 +5,7 @@
     {
      "version": "1.30.2",
      "applications": { "gecko": { "strict_min_version": "56.0" } },
-     "update_link": "https://github.com/PolishFiltersTeam/PolishCookieConsent/releases/download/v1.30.2/PolishCookieConsent_firefox.xpi"
+     "update_link": "https://addons.mozilla.org/firefox/downloads/latest/polish-cookie-consent/addon-latest.xpi"
     }
    ]
   }
