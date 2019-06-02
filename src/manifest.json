@@ -20,7 +20,7 @@
       "32": "icons/icon32.png"
     }
   },
-  "browser_specific_settings": {
+  "applications": {
     "gecko": {
       "id": "PolishCookieConsentExt@polishannoyancefilters.netlify.com"
     }

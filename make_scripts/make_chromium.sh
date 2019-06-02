@@ -4,7 +4,7 @@
 sciezka=$(dirname "$0")
 
 cd $sciezka/../src
-jq 'del(.browser_specific_settings)' manifest.json > manifest.json.temp
+jq 'del(.applications)' manifest.json > manifest.json.temp
 rm -r manifest.json
 mv manifest.json.temp manifest.json
 
