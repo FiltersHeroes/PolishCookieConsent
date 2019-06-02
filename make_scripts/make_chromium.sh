@@ -8,8 +8,8 @@ jq 'del(.applications)' manifest.json > manifest.json.temp
 rm -r manifest.json
 mv manifest.json.temp manifest.json
 
-if [ -d $sciezka/../src/web-ext-artifacts ]; then
-    rm -rvf ./web-ext-artifacts;
+if [ -d "./web-ext-artifacts" ]; then
+    rm -rvf ./web-ext-artifacts
 fi
 
 npx shipit chrome ./
