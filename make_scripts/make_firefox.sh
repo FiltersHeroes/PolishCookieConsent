@@ -5,8 +5,18 @@ sciezka=$(dirname "$0")
 
 cd $sciezka/../src
 
-#npx web-ext-submit
+npx web-ext-submit
+
+if [ -d "./web-ext-artifacts" ]; then
+    rm -rvf ./web-ext-artifacts
+fi
+
+cd ..
+
 zip -r PolishCookieConsent_firefox.xpi *
 
-mkdir ./web-ext-artifacts
-mv ./PolishCookieConsent_firefox.xpi ./web-ext-artifacts
+if [ ! -d "./artifacts" ]; then
+    mkdir ./artifacts
+fi
+
+mv ./PolishCookieConsent_firefox.xpi ./artifacts
