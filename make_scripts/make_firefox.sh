@@ -11,12 +11,12 @@ if [ -d "./web-ext-artifacts" ]; then
     rm -rvf ./web-ext-artifacts
 fi
 
-cd ..
-
 zip -r PolishCookieConsent_firefox.xpi *
+
+cd ..
 
 if [ ! -d "./artifacts" ]; then
     mkdir ./artifacts
 fi
 
-mv ./PolishCookieConsent_firefox.xpi ./artifacts
+mv ./src/PolishCookieConsent_firefox.xpi ./artifacts

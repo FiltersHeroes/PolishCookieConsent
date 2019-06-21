@@ -14,12 +14,12 @@ fi
 
 npx shipit chrome ./
 
-cd ..
-
 zip -r PolishCookieConsent_chromium.zip *
+
+cd ..
 
 if [ ! -d "./artifacts" ]; then
     mkdir ./artifacts
 fi
 
-mv ./PolishCookieConsent_chromium.zip ./artifacts
+mv ./src/PolishCookieConsent_chromium.zip ./artifacts
