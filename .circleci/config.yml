@@ -7,7 +7,7 @@ jobs:
     - checkout
     - run: go get github.com/tcnksm/ghr
     - run: npm set prefix=/home/circleci/npm && echo 'export PATH=$HOME/circleci/npm/bin:$PATH' >> /home/circleci/.bashrc && npm install web-ext-submit @wext/shipit && ./make_scripts/make_firefox.sh && ./make_scripts/make_chromium.sh
-    - run: ghr -t ${GH_TOKEN} -u PolishFiltersTeam -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} -delete ${CIRCLE_TAG} ./src/web-ext-artifacts
+    - run: ghr -t ${GH_TOKEN} -u PolishFiltersTeam -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} -delete ${CIRCLE_TAG} ./artifacts
 workflows:
   version: 2
   workflow:
