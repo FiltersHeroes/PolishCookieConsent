@@ -8,11 +8,11 @@ jq 'del(.applications)' manifest.json > manifest.json.temp
 rm -r manifest.json
 mv manifest.json.temp manifest.json
 
-if [ -d "./web-ext-artifacts" ]; then
-    rm -rvf ./web-ext-artifacts
-fi
+# if [ -d "./web-ext-artifacts" ]; then
+#     rm -rvf ./web-ext-artifacts
+# fi
 
 npx shipit chrome ./
 zip -r PolishCookieConsent_chromium.zip *
-mkdir ./web-ext-artifacts
+#mkdir ./web-ext-artifacts
 mv ./PolishCookieConsent_chromium.zip ./web-ext-artifacts
