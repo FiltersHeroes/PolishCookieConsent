@@ -7,7 +7,7 @@ Addons.mozilla.org: [![Moz://a AMO version](https://img.shields.io/amo/v/polish-
 
 Chrome Web Store: [![Chrome Web Store version](https://img.shields.io/chrome-web-store/v/bniijddcmabghibaojbkbnngbedopbno.svg?label=CWS "Chrome Web Store version")](https://chrome.google.com/webstore/detail/polish-cookie-consent/bniijddcmabghibaojbkbnngbedopbno?hl=pl "Chrome Web Store version") ![Chromium users](https://img.shields.io/chrome-web-store/users/bniijddcmabghibaojbkbnngbedopbno.svg?label=użytkowników "Chromium users")
 
-Opera Addons: [![Opera addons version](https://img.shields.io/badge/OA-v1.35.0-%23007ec6.svg "Opera addons version")](https://addons.opera.com/pl/extensions/details/polish-cookie-consent/ "Opera addons version")
+Opera Addons: [![Opera addons version](https://img.shields.io/badge/OA-v1.36.0-%23007ec6.svg "Opera addons version")](https://addons.opera.com/pl/extensions/details/polish-cookie-consent/ "Opera addons version")
 
 ## **Jak zainstalować?**
 ### **I. ![Firefox][Firefox]Firefox/![Waterfox][Waterfox]Waterfox**
