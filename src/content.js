@@ -138,7 +138,7 @@ bakeCookie("inforCookieWallCacheVal", "15", "365", "forum.infor.pl");
 bakeCookie("num26GDPR", "ACCEPTED", "365", "n26.com");
 bakeCookie("regulationsAccepted", "true", "365", "mapy.geoportal.gov.pl");
 bakeCookie("rodoHfM", "true", "365", "drogerium.pl|wylecz.to|budujmase.pl");
-bakeCookie("rodoHfM", "true", "365", " laziska.com.pl|m-ce.pl|mojbytom.pl|mojegliwice.pl|mojekatowice.pl|mojmikolow.pl|orzesze.com.pl|piekaryslaskie.com.pl|pyskowice.com.pl|rudaslaska.com.pl|rybnicki.com|siemianowice.net.pl|sosnowiecki.pl|swiony.pl|wodzislaw.com.pl|zabrze.com.pl|zory.com.pl|silesia.info.pl");
+bakeCookie("rodo", "accept", "365", " laziska.com.pl|m-ce.pl|mojbytom.pl|mojegliwice.pl|mojekatowice.pl|mojmikolow.pl|orzesze.com.pl|piekaryslaskie.com.pl|pyskowice.com.pl|rudaslaska.com.pl|rybnicki.com|siemianowice.net.pl|sosnowiecki.pl|swiony.pl|wodzislaw.com.pl|zabrze.com.pl|zory.com.pl|silesia.info.pl");
 bakeCookie("notice_gdpr_prefs", "0,1,2,3:", "365", "wunderground.com");
 bakeCookie("notice_poptime", "1533920400000", "365", "wunderground.com");
 bakeCookie("__rppl_rodo_agrmnt", "%7B%22u%22%3A%22%22%2C%22t%22%3A1561121871557%2C%22c%22%3A%221%22%7D", "365", "rp.pl|parkiet.com");
