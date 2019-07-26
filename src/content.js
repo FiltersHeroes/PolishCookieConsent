@@ -134,7 +134,7 @@ bakeCookie("tracking-opt-in-status", "accepted", "365", "wikia.com|fandom.com");
 bakeCookie("zgodaRODO", "true", "365", "espedytor.pl");
 bakeCookie("CookieConsent", "true", "365", "action.com");
 bakeCookie("gdpr-accepted", '{"ga":true,"facebook":true,"disqus":true}', "365", "hiszpanskidlapolakow.com");
-bakeCookie("inforCookieWallCacheVal", "15", "365", "forum.infor.pl");
+bakeCookie("inforCookieWallCacheVal", "15", "365", "infor.pl");
 bakeCookie("num26GDPR", "ACCEPTED", "365", "n26.com");
 bakeCookie("regulationsAccepted", "true", "365", "mapy.geoportal.gov.pl");
 bakeCookie("rodoHfM", "true", "365", "drogerium.pl|wylecz.to|budujmase.pl");
