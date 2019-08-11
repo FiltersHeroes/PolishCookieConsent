@@ -51,14 +51,12 @@ function clickCompleteText(element, text, urlArg)
 {
     if(getUrlCondition(urlArg))
     {
-        document.onreadystatechange = function () {
-            setTimeout(function() {
-                var btnYes = document.evaluate("//"+element+"[contains(text(),"+"'"+text+"'"+")]", document  || document, null, XPathResult.ANY_TYPE, null).iterateNext();
-                if (btnYes)
-                {
-                    btnYes.click();
-                }
-            }, 500);
+        window.onload = () => {
+            var btnYes = document.evaluate("//"+element+"[contains(text(), "+'"'+text+'"'+")]", document, null, XPathResult.ANY_TYPE, null).iterateNext();
+            if (btnYes)
+            {
+                btnYes.click();
+            }
         }
     }
 }
