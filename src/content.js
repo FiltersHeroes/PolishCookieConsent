@@ -14,20 +14,33 @@ function getUrlCondition(urlArg)
     return condition;
 }
 
-function clickInteractive(element, urlArg)
+function clickInteractive(element, urlArg, cookieName)
 {
     if(getUrlCondition(urlArg))
     {
-        var readyStateCheckInterval = setInterval(function() {
+        document.onreadystatechange = function () {
             if (document.readyState === "interactive") {
-                var btnYes = document.querySelector(element);
-                if (btnYes)
-                {
-                    btnYes.click();
-                    clearInterval(readyStateCheckInterval);
-                }
+                var counter = 0;
+                (function checkIfElemExists() {
+                    var btnYes = document.querySelector(element);
+                    var condition;
+                    if (cookieName)
+                    {
+                        condition = document.cookie.indexOf(cookieName+"=") == -1;
+                    }
+                    else
+                    {
+                        condition = counter < 10
+                    }
+                    if (btnYes == null && condition) {
+                        window.requestAnimationFrame(checkIfElemExists);
+                        counter++;
+                    } else if (btnYes) {
+                        btnYes.click()
+                    }
+                })()
             }
-        }, 10);
+        }
     }
 }
 
@@ -52,11 +65,16 @@ function clickCompleteText(element, text, urlArg)
     if(getUrlCondition(urlArg))
     {
         window.onload = () => {
-            var btnYes = document.evaluate("//"+element+"[contains(text(), "+'"'+text+'"'+")]", document, null, XPathResult.ANY_TYPE, null).iterateNext();
-            if (btnYes)
-            {
-                btnYes.click();
-            }
+            var counter = 0;
+            (function checkIfElemExists() {
+                var btnYes = document.evaluate("//"+element+"[contains(text(), "+'"'+text+'"'+")]", document, null, XPathResult.ANY_TYPE, null).iterateNext();
+                if (counter < 100 && btnYes == null) {
+                    window.requestAnimationFrame(checkIfElemExists);
+                    counter++;
+                } else if (btnYes) {
+                    btnYes.click()
+                }
+            })()
         }
     }
 }
@@ -142,8 +160,7 @@ bakeCookie("notice_poptime", "1533920400000", "365", "wunderground.com");
 bakeCookie("__rppl_rodo_agrmnt", "%7B%22u%22%3A%22%22%2C%22t%22%3A1561121871557%2C%22c%22%3A%221%22%7D", "365", "rp.pl|parkiet.com");
 clickComplete('div[class*="app_gdpr"] button[class*="intro_acceptAll"]', "gry.pl", "euconsent");
 clickCompleteText("button", "PRZECHODZ", "abczdrowie.pl|allani.pl|autokult.pl|dobramama.pl|dobreprogramy.pl|domodi.pl|echirurgia.pl|fotoblogia.pl|gadzetomania.pl|homebook.pl|jejswiat.pl|kafeteria.pl|kafeteria.tv|kardiolo.pl|komorkomania.pl|luxlux.pl|medycyna24.pl|mixer.pl|money.pl|nocowanie.pl|nerwica.com|o2.pl|open.fm|parenting.pl|pinger.pl|pogodnie.pl|pudelek.pl|pudelek.tv|pudelekx.pl|pytamy.pl|smaczneblogi.pl|samosia.pl|smog.pl|snobka.pl|superauto24.com|testwiedzy.pl|wp.pl");
-clickInteractive("#NeucaCookieConsent .btn-primary", "pfm.pl");
-clickInteractive("#_rdbxAcceptAllBtn", "rodobox.io|totalnareklama.pl");
+clickInteractive("#_rdbxAcceptAllBtn", "rodobox.io|totalnareklama.pl", "rodobox");
 clickInteractive(".btn.yes", "tumblr.com\/privacy\/consent");
 clickInteractive(".evidon-barrier-acceptbutton", "unileverfoodsolutions.pl|downdetector.pl");
 clickInteractive(".termsagree", "odr.pl");
