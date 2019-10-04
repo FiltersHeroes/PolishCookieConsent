@@ -83,13 +83,14 @@ function clickTimeout(element, urlArg)
 {
     if(getUrlCondition(urlArg))
     {
-        setTimeout(function() {
+        (function checkIfElemExists() {
             var btnYes = document.querySelector(element);
-            if (btnYes)
-            {
-                btnYes.click();
+            if (btnYes == null) {
+                window.requestAnimationFrame(checkIfElemExists);
+            } else if (btnYes) {
+                btnYes.click()
             }
-        }, 500);
+        })()
     }
 }
 
