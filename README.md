@@ -25,7 +25,7 @@ Opera Addons: [![Opera addons version](https://img.shields.io/badge/OA-v1.39.1-%
 
 
 [Firefox]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/51.0.17/firefox/firefox_24x24.png "Mozilla Firefox"
-[Waterfox]: https://raw.githubusercontent.com/MrAlex94/Waterfox/master/browser/branding/unofficial/default24.png "Waterfox"
+[Waterfox]: https://raw.githubusercontent.com/MrAlex94/Waterfox/classic/browser/branding/unofficial/default24.png "Waterfox"
 [Chrome]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/51.0.17/chrome/chrome_24x24.png "Google Chrome"
 [Chromium]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/51.0.17/chromium/chromium_24x24.png "Chromium"
 [Vivaldi]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/51.0.17/vivaldi/vivaldi_24x24.png "Vivaldi"
