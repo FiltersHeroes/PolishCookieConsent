@@ -147,7 +147,7 @@ bakeCookie("acceptRodoSie", "hide", "365", "login.e-dowod.gov.pl");
 bakeCookie("euConsent", "1", "365", "virustotal.com");
 bakeCookie("gdpr", "1", "365", "sklep.visionexpress.pl");
 bakeCookie("hm_gdpr_read", "true", "365", "www2.hm.com");
-bakeCookie("tracking-opt-in-status", "accepted", "365", "wikia.com|fandom.com");
+bakeCookie("tracking-opt-in-status", "accepted", "365", "wikia.com|wikia.org|fandom.com");
 bakeCookie("zgodaRODO", "true", "365", "espedytor.pl");
 bakeCookie("CookieConsent", "true", "365", "action.com");
 bakeCookie("gdpr-accepted", '{"ga":true,"facebook":true,"disqus":true}', "365", "hiszpanskidlapolakow.com");
