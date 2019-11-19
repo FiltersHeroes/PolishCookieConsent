@@ -23,14 +23,14 @@ Opera Addons: [![Opera addons version](https://img.shields.io/badge/OA-v1.39.1-%
 2. Gotowe :tada: !
 
 
-[Firefox]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/51.0.17/firefox/firefox_24x24.png "Mozilla Firefox"
+[Firefox]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/58.1.3/firefox/firefox_24x24.png "Mozilla Firefox"
 [Waterfox]: https://raw.githubusercontent.com/MrAlex94/Waterfox/classic/browser/branding/unofficial/default24.png "Waterfox"
-[Chrome]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/51.0.17/chrome/chrome_24x24.png "Google Chrome"
-[Chromium]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/51.0.17/chromium/chromium_24x24.png "Chromium"
-[Vivaldi]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/51.0.17/vivaldi/vivaldi_24x24.png "Vivaldi"
-[Opera]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/51.0.17/opera/opera_24x24.png "Opera"
-[Cent]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/46.1.0/cent/cent_24x24.png "Cent Browser"
-[Yandex]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/51.0.17/yandex/yandex_24x24.png "Yandex Browser"
+[Chrome]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/58.1.3/chrome/chrome_24x24.png "Google Chrome"
+[Chromium]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/58.1.3/chromium/chromium_24x24.png "Chromium"
+[Vivaldi]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/58.1.3/vivaldi/vivaldi_24x24.png "Vivaldi"
+[Opera]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/58.1.3/opera/opera_24x24.png "Opera"
+[Cent]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/48.0.4/cent/cent_24x24.png "Cent Browser"
+[Yandex]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/58.1.3/yandex/yandex_24x24.png "Yandex Browser"
 [Kiwi]: https://raw.githubusercontent.com/scribblemaniac/browser-logos/41d6542b2d122f5b65d8f259cf5ffbdb3b89831d/src/kiwi/kiwi_24x24.png "Kiwi Browser"
 
 
