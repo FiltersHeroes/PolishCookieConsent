@@ -41,3 +41,9 @@ Polska Ciasteczkowa Zgoda korzysta z otwartoźródłowego kodu następujących p
 * [erosman/HTML-Internationalization](https://github.com/erosman/HTML-Internationalization)
 
 * [primer/octicons](https://github.com/primer/octicons/)
+
+* [piroor/webextensions-lib-l10n](https://github.com/piroor/webextensions-lib-l10n)
+
+* [Dogfalo/materialize](https://github.com/Dogfalo/materialize)
+
+* [google/material-design-icons](https://github.com/google/material-design-icons)

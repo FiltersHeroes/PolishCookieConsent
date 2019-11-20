@@ -109,13 +109,13 @@ function bakeCookie(cookieName, cookieValue, expiresDays, urlArg)
     }
 }
 
-function addToStorage(storageElement, storageValue, urlArg)
+function addToStorage(storageKey, storageValue, urlArg)
 {
     if(getUrlCondition(urlArg))
     {
-        if (localStorage.getItem(storageElement) === undefined || localStorage.getItem(storageElement) === null)
+        if (localStorage.getItem(storageKey) === undefined || localStorage.getItem(storageKey) === null)
         {
-            localStorage.setItem(storageElement, storageValue);
+            localStorage.setItem(storageKey, storageValue);
         }
     }
 }
@@ -169,4 +169,73 @@ clickInteractive(".termsagree", "odr.pl");
 clickTimeout('.btn[name="agree"]', "guce.oath.com\/collectConsent|consent.yahoo.com\/collectConsent");
 redirect("/aktualnosci.dhtml", "", "=https://powiatkamienski.pl/");
 redirect("/x-set-cookie", "true", "f1racing.pl", "x-id-cookie-yes=");
-redirect("/home.html", "", "=http://centrumkomputerowe.eu/");
+
+chrome.storage.local.get('userFilters', function (result) {
+    var filters = result.userFilters.split("\n");
+    for (var i = 0; i < filters.length ; i++){
+        var filter = filters[i];
+        if(filter != "" || filter.match(/^!/) || typeof filter !== 'undefined')
+        {
+            var urlArg = filter.split('(')[0];
+            var jsfunc = filter.split("(")[1].split(",")[0];
+
+            if(jsfunc == "clickInteractive" || jsfunc == "clickComplete" || jsfunc == "clickCompleteText" || jsfunc == "addToStorage") {
+                var element = filter.split("(")[1].split(", ")[1];
+                var arg2 = filter.split("(")[1].split(", ")[2].replace(")", "");
+                if (jsfunc == "clickInteractive"){
+                    var cookieName = arg2;
+                    clickInteractive(element, urlArg, cookieName);
+                }
+                else if (jsfunc == "clickComplete"){
+                    var cookieName = arg2;
+                    clickComplete(element, urlArg, cookieName);
+                }
+                else if (jsfunc == "clickCompleteText"){
+                    var text = arg2;
+                    clickCompleteText(element, text, urlArg);
+                }
+                else if (jsfunc == "addToStorage"){
+                    var storageKey = element;
+                    var storageValue = arg2;
+                    addToStorage(storageKey, storageValue, urlArg);
+                }
+            }
+            else if (jsfunc == "clickTimeout"){
+                var element = filter.split("(")[1].split(", ")[1].replace(")", "");
+                clickTimeout(element, urlArg);
+            }
+            else if (jsfunc == "bakeCookie" || jsfunc == "redirect"){
+                var arg = filter.split("(")[1].split(", ")[1];
+                var arg2 = filter.split("(")[1].split(", ")[2];
+                var arglen = filter.split("(")[1].split(", ").length;
+
+                if(arglen == 4)
+                {
+                    var arg3 = filter.split("(")[1].split(", ")[3].replace(")", "");
+                }
+
+                if (jsfunc == "bakeCookie"){
+                    var cookieName = arg;
+                    var cookieValue = arg2;
+                    var expiresDays = arg3;
+                    bakeCookie(cookieName, cookieValue, expiresDays, urlArg);
+                }
+                else if (jsfunc == "redirect"){
+                    var redirectPoint = arg;
+                    var pathName = arg2;
+                    if(arglen == 4)
+                    {
+                        var cookieName = arg3;
+                        redirect(redirectPoint, pathName, urlArg, cookieName);
+                    }
+                    else
+                    {
+                        pathName = arg2.replace(")", "");
+                        redirect(redirectPoint, pathName, urlArg);
+                    }
+                }
+
+            }
+        }
+    }
+});

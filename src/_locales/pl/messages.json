@@ -24,6 +24,33 @@
   },
   "reportIssueWithoutLogin":{
     "message":"Zgłoś problem bez logowania się"
+  },
+  "save":{
+    "message":"Zapisz"
+  },
+  "ageHelp":{
+    "message":"Niektóre strony wymagają odpowiedniego wieku, więc jeśli chcesz, by RODO na takich stronach było akceptowane, to musisz podać ile masz lat."
+  },
+  "age":{
+    "message":"Wiek"
+  },
+  "controlPanel":{
+    "message":"Panel sterowania"
+  },
+  "myFilters":{
+    "message":"Moje filtry"
+  },
+  "mfHelp":{
+    "message":"Jeden filtr zgodny ze"
+  },
+  "mfHelp2":{
+    "message":"składnią PCZ"
+  },
+  "mfHelp3":{
+    "message":"na linię. Wiersze poprzedzone wykrzyknikiem będą pomijane."
+  },
+  "about":{
+    "message":"O rozszerzeniu"
   }
 }
 

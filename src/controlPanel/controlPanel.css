@@ -1,0 +1,52 @@
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url(../thirdparty/MaterialIcons-Regular.woff2) format('woff2');
+}
+
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;  /* Preferred icon size */
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+
+    /* Support for Chrome. */
+    text-rendering: optimizeLegibility;
+
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+}
+
+#my-filters {
+    margin-top: 10px;
+}
+
+.input-field textarea:focus + label {
+    color: #6d4c41 !important;
+}
+
+.input-field textarea:focus {
+    border-color: #d8ad6a !important;
+    box-shadow: 0 1px 0 0 #d8ad6a !important;
+}
+
+[type="checkbox"]:checked + span:not(.lever):before {
+    border-right: 2px solid #d8ad6a !important;
+    border-bottom: 2px solid #d8ad6a !important;
+}
+
+body {
+    font-size: 14px;
+}
+
+#about .col {
+    margin-top: 10px;
+}

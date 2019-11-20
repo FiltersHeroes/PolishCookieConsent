@@ -24,6 +24,33 @@
   },
   "reportIssueWithoutLogin":{
     "message":"Report an issue without logging in"
+  },
+  "save":{
+    "message":"Save"
+  },
+  "ageHelp":{
+    "message":"Some sites require an appropriate age, so if you want the GDPR to be accepted on such sites, then you must state how old you are."
+  },
+  "age":{
+    "message":"Age"
+  },
+  "controlPanel":{
+    "message":"Control Panel"
+  },
+  "myFilters":{
+    "message":"My filters"
+  },
+  "mfHelp":{
+    "message":"One filter compatible with"
+  },
+  "mfHelp2":{
+    "message":"PCC syntax"
+  },
+  "mfHelp3":{
+    "message":"per line. Lines prefixed with exclamation mark will be ignored."
+  },
+  "about":{
+    "message":"About"
   }
 }
 
