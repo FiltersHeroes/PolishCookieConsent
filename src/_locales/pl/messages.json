@@ -1,7 +1,7 @@
 {
   "extensionName":{
     "message":"Polska Ciasteczkowa Zgoda",
-    "description":"extension name."
+    "description":"Extension name."
   },
   "extensionDescription":{
     "message":"Automatycznie akceptuje politykę ciasteczek/RODO na stronach dostępnych w języku polskim.",
@@ -51,6 +51,29 @@
   },
   "about":{
     "message":"O rozszerzeniu"
+  },
+  "whitelist":{
+    "message":"Biała lista"
+  },
+  "whitelistHelp":{
+    "message":"Lista wszystkich stron, na których rozszerzenie powinno zostać wyłączone. Jeden adres strony bez protokołu na linię."
+  },
+  "popupDisable":{
+    "message":"Wyłącz rozszerzenie na $HOSTNAME$",
+    "placeholders": {
+      "hostname": {
+        "content": "$1",
+        "example": "domain.com"
+      }
+    }
+  },
+  "popupEnable":{
+    "message":"Włącz rozszerzenie na $HOSTNAME$",
+    "placeholders": {
+      "hostname": {
+        "content": "$1",
+        "example": "domain.com"
+      }
+    }
   }
 }
-

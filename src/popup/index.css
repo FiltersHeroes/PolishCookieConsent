@@ -21,6 +21,8 @@ body {
 
 .wrapper {
     padding: 6px;
+    display: flex;
+    align-items: center;
 }
 
 .wrapper:hover {
@@ -36,8 +38,8 @@ body {
 
 .wrapper > span {
     font-size: 14px;
-    position: relative;
     top: -2px;
+    margin-left: 3px;
 }
 
 .separator.dashed {
@@ -46,4 +48,8 @@ body {
 
 .separator.solid {
     border-bottom: 1px solid #8c5300;
+}
+
+.wrapper-switch, .separator-switch {
+    display: none;
 }

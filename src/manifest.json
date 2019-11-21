@@ -40,6 +40,6 @@
     "page": "controlPanel/controlPanel.html",
     "open_in_tab": true
   },
-  "permissions": ["storage"]
+  "permissions": ["storage", "tabs"]
 }
 

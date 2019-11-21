@@ -25,10 +25,6 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
-#my-filters {
-    margin-top: 10px;
-}
-
 .input-field textarea:focus + label {
     color: #6d4c41 !important;
 }
@@ -47,6 +43,6 @@ body {
     font-size: 14px;
 }
 
-#about .col {
+#about, #whitelist, #my-filters {
     margin-top: 10px;
 }

@@ -1,11 +1,11 @@
-function saveOptions(e) {
+function saveFilters(e) {
   e.preventDefault();
   chrome.storage.local.set({
     userFilters: document.querySelector("#userFilters").value
   });
 }
 
-function restoreOptions() {
+function restoreFilters() {
   chrome.storage.local.get(['userFilters'], function(result) {
     if(result.userFilters)
     {
@@ -16,8 +16,8 @@ function restoreOptions() {
 }
 
 
-document.addEventListener("DOMContentLoaded", restoreOptions);
-document.querySelector("form").addEventListener("submit", saveOptions);
+document.addEventListener("DOMContentLoaded", restoreFilters);
+document.querySelector("#my-filters form").addEventListener("submit", saveFilters);
 
 document.addEventListener('DOMContentLoaded', function() {
   M.Sidenav.init(document.querySelectorAll('.sidenav'));
@@ -59,3 +59,23 @@ for (var i = 0; i < btns.length; i++) {
 
 document.querySelector("#about .extensionInfo").textContent += " "+chrome.runtime.getManifest().version;
 
+
+function saveWhitelist(e) {
+  e.preventDefault();
+  chrome.storage.local.set({
+    whitelist: document.querySelector("#user-whitelist").value
+  });
+}
+
+function restoreWhitelist() {
+  chrome.storage.local.get(['whitelist'], function(result) {
+    if(result.whitelist)
+    {
+      document.querySelector("#user-whitelist").value = result.whitelist;
+    }
+    M.textareaAutoResize(document.querySelector("#user-whitelist"));
+  });
+}
+
+document.addEventListener("DOMContentLoaded", restoreWhitelist);
+document.querySelector("#whitelist form").addEventListener("submit", saveWhitelist);

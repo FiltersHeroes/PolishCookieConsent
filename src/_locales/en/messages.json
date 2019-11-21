@@ -1,7 +1,7 @@
 {
   "extensionName":{
     "message":"Polish Cookie Consent",
-    "description":"extension name."
+    "description":"Extension name."
   },
   "extensionDescription":{
     "message":"Automatically accepts cookie policy/GDPR on pages available in Polish.",
@@ -51,6 +51,29 @@
   },
   "about":{
     "message":"About"
+  },
+  "whitelist":{
+    "message":"Whitelist"
+  },
+  "whitelistHelp":{
+    "message":"List of all websites on which the extension should be disabled. One website address without protocol per line."
+  },
+  "popupDisable":{
+    "message":"Disable extension on $HOSTNAME$",
+    "placeholders": {
+      "hostname": {
+        "content": "$1",
+        "example": "domain.com"
+      }
+    }
+  },
+  "popupEnable":{
+    "message":"Enable extension on $HOSTNAME$",
+    "placeholders": {
+      "hostname": {
+        "content": "$1",
+        "example": "domain.com"
+      }
+    }
   }
 }
-
