@@ -1,28 +1,5 @@
-@font-face {
-    font-family: 'Material Icons';
-    font-style: normal;
-    font-weight: 400;
-    src: url(../thirdparty/MaterialIcons-Regular.woff2) format('woff2');
-}
-
-.material-icons {
-    font-family: 'Material Icons';
-    font-weight: normal;
-    font-style: normal;
-    font-size: 24px;  /* Preferred icon size */
-    display: inline-block;
-    line-height: 1;
-    text-transform: none;
-    letter-spacing: normal;
-    word-wrap: normal;
-    white-space: nowrap;
-    direction: ltr;
-
-    /* Support for Chrome. */
-    text-rendering: optimizeLegibility;
-
-    /* Support for Firefox. */
-    -moz-osx-font-smoothing: grayscale;
+.material-icon svg {
+    fill: white;
 }
 
 .input-field textarea:focus + label {
@@ -45,4 +22,44 @@ body {
 
 #about, #whitelist, #my-filters {
     margin-top: 10px;
+}
+
+button .material-icon {
+    margin-top: 2px;
+}
+
+.apply {
+    background-image: url(../thirdparty/check.svg);
+}
+
+li .material-icon
+{
+    display: flex;
+}
+
+.hide-on-med-and-down .material-icon img {
+    filter: invert(1);
+}
+
+.sidenav li > a > i.material-icon {
+    margin-right: 15px !important;
+}
+
+.brand-logo img{
+    margin-top: 5px;
+}
+
+@media only screen and (max-width: 668px) {
+    textarea{
+        padding-top: 25px !important;
+    }
+}
+
+.aboutIcon {
+    float: left;
+    margin-right: 5px;
+}
+
+div.list ul.browser-default {
+    margin-top: 2px !important;
 }

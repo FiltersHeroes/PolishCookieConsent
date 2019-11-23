@@ -3,6 +3,7 @@ function saveFilters(e) {
   chrome.storage.local.set({
     userFilters: document.querySelector("#userFilters").value
   });
+  document.querySelector("#my-filters button").disabled = true;
 }
 
 function restoreFilters() {
@@ -57,7 +58,7 @@ for (var i = 0; i < btns.length; i++) {
   });
 }
 
-document.querySelector("#about .extensionInfo").textContent += " "+chrome.runtime.getManifest().version;
+document.querySelector("#about .extensionInfo").textContent = chrome.i18n.getMessage("extensionName")+" "+chrome.runtime.getManifest().version;
 
 
 function saveWhitelist(e) {
@@ -65,6 +66,7 @@ function saveWhitelist(e) {
   chrome.storage.local.set({
     whitelist: document.querySelector("#user-whitelist").value
   });
+  document.querySelector("#whitelist button").disabled = true;
 }
 
 function restoreWhitelist() {
@@ -79,3 +81,35 @@ function restoreWhitelist() {
 
 document.addEventListener("DOMContentLoaded", restoreWhitelist);
 document.querySelector("#whitelist form").addEventListener("submit", saveWhitelist);
+
+document.querySelector("title").textContent = chrome.i18n.getMessage("extensionName") + " - " + chrome.i18n.getMessage("controlPanel");
+
+document.querySelector("#my-filters textarea").addEventListener('input', function()
+{
+  chrome.storage.local.get(["userFilters"], function(result) {
+    var element = document.querySelector("#my-filters textarea");
+    if(element.value == result.userFilters)
+    {
+      document.querySelector("#my-filters button").disabled = true;
+    }
+    else
+    {
+      document.querySelector("#my-filters button").disabled = false;
+    }
+  });
+});
+
+document.querySelector("textarea#user-whitelist").addEventListener('input', function()
+{
+  chrome.storage.local.get(["whitelist"], function(result) {
+    var element = document.querySelector("textarea#user-whitelist");
+    if(element.value == result.whitelist)
+    {
+      document.querySelector("#whitelist button").disabled = true;
+    }
+    else
+    {
+      document.querySelector("#whitelist button").disabled = false;
+    }
+  });
+});

@@ -38,12 +38,10 @@ Opera Addons: [![Opera addons version](https://img.shields.io/badge/OA-v1.39.1-%
 
 Polska Ciasteczkowa Zgoda korzysta z otwartoźródłowego kodu następujących projektów (wg. kolejności alfabetycznej):
 
-* [erosman/HTML-Internationalization](https://github.com/erosman/HTML-Internationalization)
+* [TinyWebEx/Localizer](https://github.com/TinyWebEx/Localizer)
 
-* [primer/octicons](https://github.com/primer/octicons/)
-
-* [piroor/webextensions-lib-l10n](https://github.com/piroor/webextensions-lib-l10n)
+* [google/material-design-icons](https://github.com/google/material-design-icons)
 
 * [Dogfalo/materialize](https://github.com/Dogfalo/materialize)
 
-* [google/material-design-icons](https://github.com/google/material-design-icons)
+* [primer/octicons](https://github.com/primer/octicons/)

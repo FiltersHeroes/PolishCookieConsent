@@ -25,8 +25,8 @@
   "reportIssueWithoutLogin":{
     "message":"Report an issue without logging in"
   },
-  "save":{
-    "message":"Save"
+  "apply":{
+    "message":"Apply changes"
   },
   "ageHelp":{
     "message":"Some sites require an appropriate age, so if you want the GDPR to be accepted on such sites, then you must state how old you are."
@@ -41,13 +41,16 @@
     "message":"My filters"
   },
   "mfHelp":{
-    "message":"One filter compatible with"
+    "message":"One filter compatible with $PCCsyntax$ per line. Lines prefixed with exclamation mark will be ignored.",
+    "placeholders": {
+      "PCCsyntax": {
+        "content": "$1",
+        "example": "<a href=\"https://polishannoyancefilters.netlify.com/cookieconsentsyntax/\" target=\"_blank\" rel=\"noopener\">PCC syntax</a>"
+      }
+    }
   },
-  "mfHelp2":{
+  "PCCsyntax": {
     "message":"PCC syntax"
-  },
-  "mfHelp3":{
-    "message":"per line. Lines prefixed with exclamation mark will be ignored."
   },
   "about":{
     "message":"About"
@@ -75,5 +78,31 @@
         "example": "domain.com"
       }
     }
+  },
+  "externalDepends":{
+    "message":"External dependencies:"
+  },
+  "by":{
+    "message":"by"
+  },
+  "byAnd":{
+    "message":"$Project$ by $author$ and $contributors$",
+    "placeholders": {
+      "project": {
+        "content": "$1",
+        "example": "<a href=\"https://github.com/TinyWebEx/Localizer\">Localizer</a>"
+      },
+      "author": {
+        "content": "$2",
+        "example": "<a href=\"https://github.com/rugk\">rugk</a>"
+      },
+      "contributors": {
+        "content": "$3",
+        "example": "<a href=\"https://raw.githubusercontent.com/TinyWebEx/Localizer/master/CONTRIBUTORS\">contributors</a>"
+      }
+    }
+  },
+  "contributors":{
+    "message":"contributors"
   }
 }

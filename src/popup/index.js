@@ -40,6 +40,17 @@ chrome.tabs.query({active:true,currentWindow:true},function(tabs){
           });
         }
       }
+      else
+      {
+        document.querySelector(".switch").textContent = chrome.i18n.getMessage("popupDisable", hostname);
+        document.querySelector(".switch").addEventListener("click", function() {
+          chrome.storage.local.get('whitelist', function(result) {
+            chrome.storage.local.set({
+              whitelist: hostname
+            });
+          });
+        });
+      }
     });
     document.querySelector(".wrapper-switch").style.display = "flex";
     document.querySelector(".separator-switch").style.display = "block";

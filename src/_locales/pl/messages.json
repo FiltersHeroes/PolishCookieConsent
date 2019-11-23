@@ -25,8 +25,8 @@
   "reportIssueWithoutLogin":{
     "message":"Zgłoś problem bez logowania się"
   },
-  "save":{
-    "message":"Zapisz"
+  "apply":{
+    "message":"Zastosuj zmiany"
   },
   "ageHelp":{
     "message":"Niektóre strony wymagają odpowiedniego wieku, więc jeśli chcesz, by RODO na takich stronach było akceptowane, to musisz podać ile masz lat."
@@ -41,13 +41,16 @@
     "message":"Moje filtry"
   },
   "mfHelp":{
-    "message":"Jeden filtr zgodny ze"
+    "message":"Jeden filtr zgodny ze $PCCsyntax$ na linię. Wiersze poprzedzone wykrzyknikiem będą pomijane.",
+    "placeholders": {
+      "PCCsyntax": {
+        "content": "$1",
+        "example": "<a href=\"https://polishannoyancefilters.netlify.com/cookieconsentsyntax/\" target=\"_blank\" rel=\"noopener\">PCC syntax</a>"
+      }
+    }
   },
-  "mfHelp2":{
+  "PCCsyntax": {
     "message":"składnią PCZ"
-  },
-  "mfHelp3":{
-    "message":"na linię. Wiersze poprzedzone wykrzyknikiem będą pomijane."
   },
   "about":{
     "message":"O rozszerzeniu"
@@ -75,5 +78,31 @@
         "example": "domain.com"
       }
     }
+  },
+  "externalDepends":{
+    "message":"Zewnętrzne zależności:"
+  },
+  "by":{
+    "message":"autorstwa"
+  },
+  "byAnd":{
+    "message":"$Project$ autorstwa $author$ i $contributors$",
+    "placeholders": {
+      "project": {
+        "content": "$1",
+        "example": "<a href=\"https://github.com/TinyWebEx/Localizer\">Localizer</a>"
+      },
+      "author": {
+        "content": "$2",
+        "example": "<a href=\"https://github.com/rugk\">rugk</a>"
+      },
+      "contributors": {
+        "content": "$3",
+        "example": "<a href=\"https://raw.githubusercontent.com/TinyWebEx/Localizer/master/CONTRIBUTORS\">contributors</a>"
+      }
+    }
+  },
+  "contributors":{
+    "message":"współtwórców"
   }
 }
