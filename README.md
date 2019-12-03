@@ -9,6 +9,8 @@ Chrome Web Store: [![Chrome Web Store version](https://img.shields.io/chrome-web
 
 Opera Addons: [![Opera addons version](https://img.shields.io/badge/OA-v1.39.1-%23007ec6.svg "Opera addons version")](https://addons.opera.com/pl/extensions/details/polish-cookie-consent/ "Opera addons version")
 
+Whale Store: [![Whale Store version](https://img.shields.io/badge/WS%20🐳%20-v1.41.1-%23007ec6.svg "Whale Store 🐳 version")](https://store.whale.naver.com/detail/micngbppijeajicgilihpkkbkgibmjhb?hl=pl)
+
 ## **Jak zainstalować?**
 ### **I. ![Firefox][Firefox]Firefox/![Waterfox][Waterfox]Waterfox**
 1. Zainstaluj najnowszą wersję rozszerzenia z [AMO](https://addons.mozilla.org/pl/firefox/addon/polish-cookie-consent/) (kliknij dwukrotnie **dodaj**).
