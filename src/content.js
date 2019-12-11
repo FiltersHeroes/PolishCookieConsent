@@ -151,11 +151,27 @@ function userFilters()
                     var jsfunc = filter.split("(")[1].split(",")[0];
 
                     if(jsfunc == "clickInteractive" || jsfunc == "clickComplete" || jsfunc == "clickCompleteText" || jsfunc == "addToStorage") {
-                        var element = filter.split("(")[1].split(", ")[1];
-                        var arg2 = filter.split("(")[1].split(", ")[2].replace(")", "");
+                        var arglen = filter.split("(")[1].split(", ").length;
+                        if(arglen == 2 )
+                        {
+                            var element = filter.split("(")[1].split(", ")[1].replace(")", "");
+                        }
+                        else
+                        {
+                            var element = filter.split("(")[1].split(", ")[1];
+                            var arg2 = filter.split("(")[1].split(", ")[2].replace(")", "");
+                        }
+
                         if (jsfunc == "clickInteractive"){
-                            var cookieName = arg2;
-                            clickInteractive(element, urlArg, cookieName);
+                            if(arglen == 3 )
+                            {
+                                var cookieName = arg2;
+                                clickInteractive(element, urlArg, cookieName);
+                            }
+                            else
+                            {
+                                clickInteractive(element, urlArg);
+                            }
                         }
                         else if (jsfunc == "clickComplete"){
                             var cookieName = arg2;
@@ -225,11 +241,27 @@ function cookieBaseFilters()
                     var jsfunc = filter.split("(")[1].split(",")[0];
 
                     if(jsfunc == "clickInteractive" || jsfunc == "clickComplete" || jsfunc == "clickCompleteText" || jsfunc == "addToStorage") {
-                        var element = filter.split("(")[1].split(", ")[1];
-                        var arg2 = filter.split("(")[1].split(", ")[2].replace(")", "");
+                        var arglen = filter.split("(")[1].split(", ").length;
+                        if(arglen == 2 )
+                        {
+                            var element = filter.split("(")[1].split(", ")[1].replace(")", "");
+                        }
+                        else
+                        {
+                            var element = filter.split("(")[1].split(", ")[1];
+                            var arg2 = filter.split("(")[1].split(", ")[2].replace(")", "");
+                        }
+
                         if (jsfunc == "clickInteractive"){
-                            var cookieName = arg2;
-                            clickInteractive(element, urlArg, cookieName);
+                            if(arglen == 3 )
+                            {
+                                var cookieName = arg2;
+                                clickInteractive(element, urlArg, cookieName);
+                            }
+                            else
+                            {
+                                clickInteractive(element, urlArg);
+                            }
                         }
                         else if (jsfunc == "clickComplete"){
                             var cookieName = arg2;
