@@ -1,0 +1,36 @@
+! Polska Baza Ciasteczkowa
+! Polish Cookie Base
+! Version: 2019.12.11.0
+! Expires: 7
+! Copyright © 2019 Polish Filters Team
+!
+!
+totalcasino.pl(addToStorage, gdpr_popup, true)
+gry.lotto.pl(addToStorage, rodoConfirmation, true)
+gry.lotto.pl(addToStorage, rodoConfirmation2, true)
+vivaldi.com(bakeCookie, acceptedCookies, true, 365)
+login.e-dowod.gov.pl(bakeCookie, acceptRodoSie, hide, 365)
+virustotal.com(bakeCookie, euConsent, 1, 365)
+sklep.visionexpress.pl(bakeCookie, gdpr, 1, 365)
+www2.hm.com(bakeCookie, hm_gdpr_read, true, 365)
+wikia.com|wikia.org|fandom.com(bakeCookie, tracking-opt-in-status, accepted, 365)
+espedytor.pl(bakeCookie, zgodaRODO, true, 365)
+action.com(bakeCookie, CookieConsent, true, 365)
+hiszpanskidlapolakow.com(bakeCookie, gdpr-accepted, '{"ga":true,"facebook":true,"disqus":true}', 365)
+infor.pl(bakeCookie, inforCookieWallCacheVal, 15, 365)
+n26.com(bakeCookie, num26GDPR, ACCEPTED, 365)
+mapy.geoportal.gov.pl(bakeCookie, regulationsAccepted, true, 365)
+drogerium.pl|wylecz.to|budujmase.pl(bakeCookie, rodoHfM, true, 365)
+laziska.com.pl|m-ce.pl|mojbytom.pl|mojegliwice.pl|mojekatowice.pl|mojmikolow.pl|orzesze.com.pl|piekaryslaskie.com.pl|pyskowice.com.pl|rudaslaska.com.pl|rybnicki.com|siemianowice.net.pl|sosnowiecki.pl|swiony.pl|wodzislaw.com.pl|zabrze.com.pl|zory.com.pl|silesia.info.pl(bakeCookie, rodo, accept, 365)
+wunderground.com(bakeCookie, notice_gdpr_prefs, 0,1,2,3:, 365)
+wunderground.com(bakeCookie, notice_poptime, 1533920400000, 365)
+vice.com(bakeCookie, _vice_cmp_modal_viewed, true, 365)
+gry.pl(clickComplete, div[class*="app_gdpr"] button[class*="intro_acceptAll"], euconsent)
+abczdrowie.pl|allani.pl|autokult.pl|dobramama.pl|dobreprogramy.pl|domodi.pl|echirurgia.pl|fotoblogia.pl|gadzetomania.pl|homebook.pl|jejswiat.pl|kafeteria.pl|kafeteria.tv|kardiolo.pl|komorkomania.pl|luxlux.pl|medycyna24.pl|mixer.pl|money.pl|nocowanie.pl|nerwica.com|o2.pl|open.fm|parenting.pl|pinger.pl|pogodnie.pl|pudelek.pl|pudelek.tv|pudelekx.pl|pytamy.pl|smaczneblogi.pl|samosia.pl|smog.pl|snobka.pl|so-magazyn.pl|superauto24.com|testwiedzy.pl|wp.pl(clickCompleteText, button, PRZECHODZ)
+rodobox.io|totalnareklama.pl(clickInteractive, #_rdbxAcceptAllBtn, rodobox)
+tumblr.com\/privacy\/consent(clickInteractive, .btn.yes)
+unileverfoodsolutions.pl|downdetector.pl(clickInteractive, .evidon-barrier-acceptbutton)
+odr.pl(clickInteractive, .termsagree)
+guce.oath.com\/collectConsent|consent.yahoo.com\/collectConsent(clickTimeout, .btn[name="agree"])
+=https://powiatkamienski.pl/(redirect, /aktualnosci.dhtml, false)
+f1racing.pl(redirect, /x-set-cookie, true, x-id-cookie-yes=)
