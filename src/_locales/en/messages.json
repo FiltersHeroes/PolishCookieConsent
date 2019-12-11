@@ -104,5 +104,17 @@
   },
   "contributors":{
     "message":"contributors"
+  },
+  "cookieBaseVersion":{
+    "message":"Cookie base version:"
+  },
+  "cookieBase":{
+    "message":"Cookie base"
+  },
+  "updateCookieBase":{
+    "message":"Update cookie base"
+  },
+  "showCookieBase":{
+    "message":"Show cookie base"
   }
 }

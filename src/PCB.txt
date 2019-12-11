@@ -1,7 +1,6 @@
 ! Polska Baza Ciasteczkowa
 ! Polish Cookie Base
 ! Version: 2019.12.11.0
-! Expires: 7
 ! Copyright © 2019 Polish Filters Team
 !
 !

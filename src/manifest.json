@@ -40,6 +40,10 @@
     "page": "controlPanel/controlPanel.html",
     "open_in_tab": true
   },
-  "permissions": ["storage", "tabs"]
+  "permissions": ["storage", "tabs", "alarms"],
+  "background": {
+    "scripts": ["update.js"]
+  },
+  "short_name": "PCC"
 }
 

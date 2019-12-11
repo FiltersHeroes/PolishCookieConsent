@@ -22,7 +22,7 @@ document.querySelector("#my-filters form").addEventListener("submit", saveFilter
 
 document.addEventListener('DOMContentLoaded', function() {
   M.Sidenav.init(document.querySelectorAll('.sidenav'));
-  document.querySelector("div#my-filters").hidden = "";
+  document.querySelector("div#cookie-base").hidden = "";
 });
 
 
@@ -113,3 +113,51 @@ document.querySelector("textarea#user-whitelist").addEventListener('input', func
     }
   });
 });
+
+function updateVersion() {
+  chrome.storage.local.get(['cookieBase'], function(result) {
+    if(result.cookieBase)
+    {
+      var cookieBaseLine = result.cookieBase.split("\n");
+      for (var i=0; i<cookieBaseLine.length; i++) {
+        if (cookieBaseLine[i].match("Version"))
+        {
+          document.querySelector(".cBV").textContent += " " + cookieBaseLine[i].split(":")[1].trim();
+        }
+      }
+    }
+  });
+}
+
+document.addEventListener("DOMContentLoaded", updateVersion);
+
+document.querySelector("#showCookieBase").addEventListener("click", function() {
+  var cookieBaseContent = document.querySelector("#cookieBaseContent");
+  chrome.storage.local.get(['cookieBase'], function(result) {
+    if(result.cookieBase)
+    {
+      cookieBaseContent.textContent = result.cookieBase;
+      cookieBaseContent.hidden = "";
+      M.textareaAutoResize(cookieBaseContent);
+    }
+  });
+})
+
+document.querySelector("#updateCookieBase").addEventListener("click", function() {
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', 'https://raw.githubusercontent.com/PolishFiltersTeam/PolishCookieConsent/master/src/PCB.txt', true);
+
+  xhr.responseType = 'text';
+
+  xhr.onload = function () {
+    if (xhr.readyState === xhr.DONE) {
+      if (xhr.status === 200) {
+        chrome.storage.local.set({
+          cookieBase: xhr.responseText
+        });
+      }
+      location.reload();
+    }
+  };
+  xhr.send(null);
+})

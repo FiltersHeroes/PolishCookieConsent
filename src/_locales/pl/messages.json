@@ -104,5 +104,17 @@
   },
   "contributors":{
     "message":"współtwórców"
+  },
+  "cookieBaseVersion":{
+    "message":"Wersja bazy ciasteczkowej:"
+  },
+  "cookieBase":{
+    "message":"Baza ciasteczkowa"
+  },
+  "updateCookieBase":{
+    "message":"Aktualizuj bazę ciasteczkową"
+  },
+  "showCookieBase":{
+    "message":"Pokaż bazę ciasteczkową"
   }
 }

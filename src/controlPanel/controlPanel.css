@@ -63,3 +63,7 @@ li .material-icon
 div.list ul.browser-default {
     margin-top: 2px !important;
 }
+
+#cookieBaseContent {
+    margin-top: 10px;
+}
