@@ -162,7 +162,7 @@ function pcc() {
     bakeCookie("_vice_cmp_modal_viewed", "true", "365", "vice.com");
     bakeCookie("__rppl_rodo_agrmnt", "%7B%22u%22%3A%22%22%2C%22t%22%3A" + Date.now() + "%2C%22c%22%3A%221%22%7D", "365", "rp.pl|parkiet.com");
     clickComplete('div[class*="app_gdpr"] button[class*="intro_acceptAll"]', "gry.pl", "euconsent");
-    clickCompleteText("button", "PRZECHODZ", "abczdrowie.pl|allani.pl|autokult.pl|dobramama.pl|dobreprogramy.pl|domodi.pl|echirurgia.pl|fotoblogia.pl|gadzetomania.pl|homebook.pl|jejswiat.pl|kafeteria.pl|kafeteria.tv|kardiolo.pl|komorkomania.pl|luxlux.pl|medycyna24.pl|mixer.pl|money.pl|nocowanie.pl|nerwica.com|o2.pl|open.fm|parenting.pl|pinger.pl|pogodnie.pl|pudelek.pl|pudelek.tv|pudelekx.pl|pytamy.pl|smaczneblogi.pl|samosia.pl|smog.pl|snobka.pl|superauto24.com|testwiedzy.pl|wp.pl");
+    clickCompleteText("button", "PRZECHODZ", "abczdrowie.pl|allani.pl|autokult.pl|dobramama.pl|dobreprogramy.pl|domodi.pl|echirurgia.pl|fotoblogia.pl|gadzetomania.pl|homebook.pl|jejswiat.pl|kafeteria.pl|kafeteria.tv|kardiolo.pl|komorkomania.pl|luxlux.pl|medycyna24.pl|mixer.pl|money.pl|nocowanie.pl|nerwica.com|o2.pl|open.fm|parenting.pl|pinger.pl|pogodnie.pl|pudelek.pl|pudelek.tv|pudelekx.pl|pytamy.pl|smaczneblogi.pl|samosia.pl|smog.pl|snobka.pl|so-magazyn.pl|superauto24.com|testwiedzy.pl|wp.pl");
     clickInteractive("#_rdbxAcceptAllBtn", "rodobox.io|totalnareklama.pl", "rodobox");
     clickInteractive(".btn.yes", "tumblr.com\/privacy\/consent");
     clickInteractive(".evidon-barrier-acceptbutton", "unileverfoodsolutions.pl|downdetector.pl");
