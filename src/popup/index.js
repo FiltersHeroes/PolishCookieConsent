@@ -26,6 +26,7 @@ chrome.tabs.query({active:true,currentWindow:true},function(tabs){
                 whitelist: result.whitelist.replace(hostname, "").replace(/^\s*[\r\n]/gm,"").trim()
               });
             });
+            location.reload();
           });
         }
         else
@@ -37,6 +38,7 @@ chrome.tabs.query({active:true,currentWindow:true},function(tabs){
                 whitelist: result.whitelist + "\n" + hostname
               });
             });
+            location.reload();
           });
         }
       }
@@ -49,6 +51,7 @@ chrome.tabs.query({active:true,currentWindow:true},function(tabs){
               whitelist: hostname
             });
           });
+          location.reload();
         });
       }
     });
