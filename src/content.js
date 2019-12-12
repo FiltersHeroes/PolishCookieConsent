@@ -127,14 +127,14 @@ function redirect(redirectPoint, pathName, urlArg, cookieName)
     {
         if(document.cookie.indexOf(cookieName) == -1)
         {
-            if(pathName=="true")
-            {
-                window.location = redirectPoint + location.pathname;
-            }
-            else
-            {
-                window.location = redirectPoint;
-            }
+                if(pathName=="true")
+                {
+                    window.location = "/" + redirectPoint + location.pathname;
+                }
+                else
+                {
+                    window.location = "/" + redirectPoint;
+                }
         }
     }
 }
