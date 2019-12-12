@@ -22,39 +22,31 @@ document.querySelector("#my-filters form").addEventListener("submit", saveFilter
 
 document.addEventListener('DOMContentLoaded', function() {
   M.Sidenav.init(document.querySelectorAll('.sidenav'));
+  M.Tabs.init(document.querySelector('#mobile-menu'))
+  M.Tabs.init(document.querySelector('#tabs'))
   document.querySelector("div#cookie-base").hidden = "";
 });
 
 
 var btns = document.querySelectorAll(".nav-wrapper #tabs li");
 
-// Add the active class to the current/clicked tab and show appropriate content
+// Add the active class to the current/clicked tab
 for (var i = 0; i < btns.length; i++) {
   btns[i].addEventListener("click", function() {
     var current = document.querySelector(".nav-wrapper #tabs li.active");
-    current.className = current.className.replace("active", "");
-    this.className += "active";
-    document.querySelector(this.querySelector("a").getAttribute("href")).hidden = "";
-    var notActive = document.querySelectorAll(".nav-wrapper #tabs li:not(.active) a");
-    for (var j = 0; j < notActive.length; j++) {
-      document.querySelector(notActive[j].getAttribute("href")).hidden = "true";
-    }
+    current.classList.remove("active");
+    this.classList.add("active");
   });
 }
 
 btns = document.querySelectorAll("#mobile-menu li");
 
-// Add the active class to the current/clicked mobile tab and show appropriate content
+// Add the active class to the current/clicked mobile tab
 for (var i = 0; i < btns.length; i++) {
   btns[i].addEventListener("click", function() {
     var current = document.querySelector("#mobile-menu li.active");
-    current.className = current.className.replace("active", "");
-    this.className += "active";
-    document.querySelector(this.querySelector("a").getAttribute("href")).hidden = "";
-    var notActive = document.querySelectorAll("#mobile-menu li:not(.active) a");
-    for (var j = 0; j < notActive.length; j++) {
-      document.querySelector(notActive[j].getAttribute("href")).hidden = "true";
-    }
+    current.classList.remove("active");
+    this.classList.add("active");
   });
 }
 
