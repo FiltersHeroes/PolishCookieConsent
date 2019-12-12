@@ -1,6 +1,6 @@
 ! Polska Baza Ciasteczkowa
 ! Polish Cookie Base
-! Version: 2019.12.11.0
+! Version: 2019.12.12.0
 ! Copyright © 2019 Polish Filters Team
 !
 !
@@ -33,3 +33,4 @@ odr.pl(clickInteractive, .termsagree)
 guce.oath.com\/collectConsent|consent.yahoo.com\/collectConsent(clickTimeout, .btn[name="agree"])
 =https://powiatkamienski.pl/(redirect, /aktualnosci.dhtml, false)
 f1racing.pl(redirect, /x-set-cookie, true, x-id-cookie-yes=)
+parkiet.com|rp.pl(clickCompleteText, *[@id="rodo-popup"]//button, Zapisz)
