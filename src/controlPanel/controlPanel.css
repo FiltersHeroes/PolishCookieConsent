@@ -2,58 +2,10 @@
     fill: white;
 }
 
-.input-field textarea:focus + label {
-    color: #6d4c41 !important;
-}
-
-.input-field textarea:focus {
-    border-color: #d8ad6a !important;
-    box-shadow: 0 1px 0 0 #d8ad6a !important;
-}
-
-[type="checkbox"]:checked + span:not(.lever):before {
-    border-right: 2px solid #d8ad6a !important;
-    border-bottom: 2px solid #d8ad6a !important;
-}
-
-body {
-    font-size: 14px;
-}
-
-#about, #whitelist, #my-filters {
-    margin-top: 10px;
-}
-
-button .material-icon {
-    margin-top: 2px;
-}
-
 .apply {
     background-image: url(../thirdparty/check.svg);
 }
 
-li .material-icon
-{
-    display: flex;
-}
-
-.hide-on-med-and-down .material-icon img {
-    filter: invert(1);
-}
-
-.sidenav li > a > i.material-icon {
-    margin-right: 15px !important;
-}
-
-.brand-logo img{
-    margin-top: 5px;
-}
-
-@media only screen and (max-width: 668px) {
-    textarea{
-        padding-top: 25px !important;
-    }
-}
 
 .aboutIcon {
     float: left;
@@ -64,6 +16,158 @@ div.list ul.browser-default {
     margin-top: 2px !important;
 }
 
-#cookieBaseContent {
-    margin-top: 10px;
+.mui-tabs__bar > li:not(.mui--is-active) > a {
+    color: white !important;
+}
+
+.mui-tabs__bar > li.mui--is-active {
+    border-color: #d8ad6a !important;
+}
+
+.mui-tabs__bar > li.mui--is-active > a {
+    color: #d8ad6a !important;
+}
+
+button {
+    color: white !important;
+}
+
+.appbar {
+    margin-bottom: 15px;
+    min-height: 52px;
+}
+
+.mui-textfield > input:focus, .mui-textfield > textarea:focus {
+    border-color: #d8ad6a !important;
+}
+
+.mui-textfield > input:focus ~ label, .mui-textfield > textarea:focus ~ label {
+    color: initial !important;
+}
+
+button .material-icon {
+    position: relative;
+    top: 3px;
+    left: 5px;
+}
+
+.mui-tabs__bar .material-icon img {
+    filter: invert(1);
+}
+
+.mui-tabs__bar .material-icon {
+    position: relative;
+    top: 5px;
+    right: 10px;
+}
+
+.mui-tabs__bar {
+    overflow-x: unset !important;
+}
+
+.mui-textfield textarea {
+    padding-top: 5px !important;
+    overflow: hidden !important;
+    resize: none !important;
+}
+
+nav a {
+    color: white;
+}
+
+nav .sidedrawer-toggle {
+    margin: 10px 15px;
+}
+
+#sidedrawer-brand {
+    padding-left: 20px;
+}
+
+#sidedrawer ul {
+    list-style: none;
+}
+
+#sidedrawer > ul {
+    padding-left: 0px;
+}
+
+#sidedrawer > ul > li:first-child {
+    padding-top: 15px;
+}
+
+#sidedrawer strong {
+    display: block;
+    padding: 15px 22px;
+    cursor: pointer;
+}
+
+#sidedrawer strong:hover {
+    background-color: #E0E0E0;
+}
+
+#sidedrawer strong + ul > li {
+    padding: 6px 0px;
+}
+
+#sidedrawer {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 200px;
+    left: -200px;
+    overflow: auto;
+    z-index: 2;
+    background-color: #fff;
+    transition: transform 0.2s;
+    border-right: 1px solid black;
+}
+
+
+body:not(.hide-sidedrawer) #sidedrawer.active {
+    transform: translate(200px);
+}
+
+body.mui-scroll-lock {
+    margin-left: 200px;
+}
+
+body.mui-scroll-lock .js-show-sidedrawer, body:not(.mui-scroll-lock) .js-hide-sidedrawer, #mui-overlay {
+    display: none !important;
+}
+
+#sidedrawer ul {
+    padding-left: 0px;
+}
+
+.mobileMenu li a {
+    display: block;
+    padding: 15px 22px;
+    cursor: pointer;
+    text-decoration: none !important;
+    color: initial !important;
+}
+
+.mobileMenu li a:hover{
+    background-color: #E0E0E0;
+}
+
+.mui-form label {
+    white-space: normal !important;
+}
+
+@media only screen and (max-width: 650px)
+{
+    textarea
+    {
+        margin-top: 15px !important;
+    }
+}
+
+#sidedrawer .material-icon {
+    margin-right: 10px;
+}
+
+.mui-scroll-lock textarea
+{
+    margin-top: 15px !important;
 }

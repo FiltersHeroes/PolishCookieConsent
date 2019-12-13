@@ -49,6 +49,8 @@ Polska Ciasteczkowa Zgoda korzysta z otwartoźródłowego kodu następujących p
 
 * [google/material-design-icons](https://github.com/google/material-design-icons)
 
-* [Dogfalo/materialize](https://github.com/Dogfalo/materialize)
+* [muicss/mui](https://github.com/muicss/mui)
 
 * [primer/octicons](https://github.com/primer/octicons/)
+
+* [jackmoore/autosize](https://github.com/jackmoore/autosize)

@@ -12,7 +12,6 @@ function restoreFilters() {
     {
       document.querySelector("#userFilters").value = result.userFilters;
     }
-    M.textareaAutoResize(document.querySelector("#userFilters"));
   });
 }
 
@@ -21,10 +20,38 @@ document.addEventListener("DOMContentLoaded", restoreFilters);
 document.querySelector("#my-filters form").addEventListener("submit", saveFilters);
 
 document.addEventListener('DOMContentLoaded', function() {
-  M.Sidenav.init(document.querySelectorAll('.sidenav'));
-  M.Tabs.init(document.querySelector('#mobile-menu'))
-  M.Tabs.init(document.querySelector('#tabs'))
   document.querySelector("div#cookie-base").hidden = "";
+  var bodyEl = document.querySelector('body'),
+  sidedrawerEl = document.querySelector('#sidedrawer');
+
+
+  function showSidedrawer() {
+    // show overlay
+    var overlayEl = mui.overlay('on');
+
+    // show element
+    sidedrawerEl.appendChild(overlayEl);
+    setTimeout(function() {
+      sidedrawerEl.classList.add('active');
+      var desktopTabs = document.querySelectorAll('.mui-tabs__bar li a');
+      for(var i=0; i<desktopTabs.length; i++)
+      {
+        desktopTabs[i].setAttribute("data-mui-controls", "");
+      }
+    }, 20);
+  }
+
+
+  function hideSidedrawer() {
+    bodyEl.classList.remove('hide-sidedrawer');
+    bodyEl.classList.remove('mui-scroll-lock');
+    sidedrawerEl.classList.remove('active');
+    mui.overlay('off');
+  }
+
+
+  document.querySelector('.js-show-sidedrawer').addEventListener("click", showSidedrawer);
+  document.querySelector('.js-hide-sidedrawer').addEventListener("click", hideSidedrawer);
 });
 
 
@@ -67,7 +94,6 @@ function restoreWhitelist() {
     {
       document.querySelector("#user-whitelist").value = result.whitelist;
     }
-    M.textareaAutoResize(document.querySelector("#user-whitelist"));
   });
 }
 
@@ -129,8 +155,8 @@ document.querySelector("#showCookieBase").addEventListener("click", function() {
     if(result.cookieBase)
     {
       cookieBaseContent.textContent = result.cookieBase;
-      cookieBaseContent.hidden = "";
-      M.textareaAutoResize(cookieBaseContent);
+      document.querySelector(".cookieBaseContent").style = "";
+      autosize(document.querySelector('#cookieBaseContent'));
     }
   });
 })
@@ -152,4 +178,20 @@ document.querySelector("#updateCookieBase").addEventListener("click", function()
     }
   };
   xhr.send(null);
+})
+
+document.querySelector('.mui-tabs__bar [data-mui-controls="whitelist"]').addEventListener("mui.tabs.showend", function() {
+  autosize(document.querySelector('#user-whitelist'));
+})
+
+document.querySelector('.mui-tabs__bar [data-mui-controls="my-filters"]').addEventListener("mui.tabs.showend", function() {
+  autosize(document.querySelector('#userFilters'));
+})
+
+document.querySelector('#sidedrawer [data-mui-controls="whitelist"]').addEventListener("mui.tabs.showend", function() {
+  autosize(document.querySelector('#user-whitelist'));
+})
+
+document.querySelector('#sidedrawer [data-mui-controls="my-filters"]').addEventListener("mui.tabs.showend", function() {
+  autosize(document.querySelector('#userFilters'));
 })

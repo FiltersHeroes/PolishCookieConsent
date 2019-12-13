@@ -6,203 +6,240 @@
     <meta charset="utf-8">
     <title></title>
     <link rel="stylesheet" href="controlPanel.css" />
-    <link rel="stylesheet" href="../thirdparty/materialize.css" />
+    <link rel="stylesheet" href="../thirdparty/mui.css" />
+    <link rel="stylesheet" href="../thirdparty/mui-colors.css" />
 </head>
 
 <body>
     <nav>
-        <div class="nav-wrapper brown darken-1">
-            <div class="brand-logo right">
-                <img src="../icons/icon48.png">
-            </div>
-            <a data-target="mobile-menu" class="sidenav-trigger">
+        <div class="mui--bg-color-brown-600 appbar">
+            <a class="sidedrawer-toggle mui--hidden-md mui--hidden-lg mui--hidden-xl js-show-sidedrawer mui--pull-left">
                 <i class="material-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                        <path d="M0 0h24v24H0z" fill="none" />
-                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" /></svg>
-                    </i>
-                </a>
-                <ul class="left hide-on-med-and-down" id="tabs">
-                    <li class="active tab">
-                        <a href="#cookie-base" data-i18n="__MSG_cookieBase__" data-opt-i18n-keep-children>
-                            <i class="material-icon left">
-                                <img src="../thirdparty/update.svg">
-                            </i>
-                        </a>
-                    </li>
-                    <li class="tab">
-                        <a href="#my-filters" data-i18n="__MSG_myFilters__" data-opt-i18n-keep-children>
-                            <i class="material-icon left">
-                                <img src="../thirdparty/filter_list.svg">
-                            </i>
-                        </a>
-                    </li>
-                    <li class="tab">
-                        <a href="#whitelist" data-i18n="__MSG_whitelist__" data-opt-i18n-keep-children>
-                            <i class="material-icon left">
-                                <img src="../thirdparty/diff-ignored.svg">
-                            </i>
-                        </a>
-                    </li>
-                    <li class="tab">
-                        <a href="#about" data-i18n="__MSG_about__" data-opt-i18n-keep-children>
-                            <i class="material-icon left">
-                                <img src="../thirdparty/info.svg">
-                            </i>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-
-        <ul class="sidenav" id="mobile-menu">
-            <li class="active tab">
-                <a href="#cookie-base" data-i18n="__MSG_cookieBase__" data-opt-i18n-keep-children>
-                    <i class="material-icon left">
-                        <img src="../thirdparty/update.svg">
-                    </i>
-                </a>
-            </li>
-            <li class="tab">
-                <a href="#my-filters" data-i18n="__MSG_myFilters__" data-opt-i18n-keep-children>
-                    <i class="material-icon left">
-                        <img src="../thirdparty/filter_list.svg">
-                    </i>
-                </a>
-            </li>
-            <li class="tab">
-                <a href="#whitelist" data-i18n="__MSG_whitelist__" data-opt-i18n-keep-children>
-                    <i class="material-icon left">
-                        <img src="../thirdparty/diff-ignored.svg">
-                    </i>
-                </a>
-            </li>
-            <li class="tab">
-                <a href="#about" data-i18n="__MSG_about__" data-opt-i18n-keep-children>
-                    <i class="material-icon left">
-                        <img src="../thirdparty/info.svg">
-                    </i>
-                </a>
-            </li>
-        </ul>
-
-        <div id="cookie-base" class="row" hidden="true">
-            <div class="col s12">
-                <p class="cBV" data-i18n="__MSG_cookieBaseVersion__"></p>
-                <button class="btn waves-effect waves-light brown" id="showCookieBase"
-                data-i18n="__MSG_showCookieBase__" data-opt-i18n-keep-children>
-                <i class="material-icon right">
-                    <img src="../thirdparty/show.svg">
+                        <path d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
+                    </svg>
                 </i>
-            </button>
-            <button class="btn waves-effect waves-light brown" id="updateCookieBase" data-i18n="__MSG_updateCookieBase__"
-            data-opt-i18n-keep-children>
-            <i class="material-icon right">
-                <img src="../thirdparty/update_btn.svg">
-            </i>
-        </button>
-        <textarea class="materialize-textarea" id="cookieBaseContent" hidden="" readonly></textarea>
-    </div>
-</div>
-
-<div id="my-filters" class="row" hidden="true">
-    <form class="col s12">
-        <div class="row">
-            <div class="input-field col s12">
-                <textarea placeholder="" id="userFilters" class="materialize-textarea"></textarea>
-                <label for="userFilters" data-i18n="__MSG_mfHelp__" data-opt-i18n-keep-children>
-                    <a href="https://polishannoyancefilters.netlify.com/cookieconsentsyntax/" target="_blank"
-                    rel="noopener" data-i18n="__MSG_PCCsyntax__"></a>
-                </label>
-                <button class="btn waves-effect waves-light brown" type="submit" data-i18n="__MSG_apply__"
-                data-opt-i18n-keep-children disabled="true">
-                <i class="material-icon right">
-                    <img src="../thirdparty/check.svg">
-                </i>
-            </button>
-        </div>
-    </div>
-</form>
-</div>
-
-<div id="about" class="row" hidden="true">
-    <div class="col">
-        <p class="extensionInfo"></p>
-        <p>
-            Copyright © 2019 Polish Filters Team
-        </p>
-        <p>
-            <i class="aboutIcon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd"
-                    d="M3 5h4v1H3V5zm0 3h4V7H3v1zm0 2h4V9H3v1zm11-5h-4v1h4V5zm0 2h-4v1h4V7zm0 2h-4v1h4V9zm2-6v9c0 .55-.45 1-1 1H9.5l-1 1-1-1H2c-.55 0-1-.45-1-1V3c0-.55.45-1 1-1h5.5l1 1 1-1H15c.55 0 1 .45 1 1zm-8 .5L7.5 3H2v9h6V3.5zm7-.5H9.5l-.5.5V12h6V3z" />
-                </svg>
-            </i>
-            <a data-i18n="__MSG_license__" href="https://github.com/PolishFiltersTeam/PolishCookieConsent/blob/master/LICENSE" target="_blank" rel="noopener"></a>
-        </p>
-        <p>
-            <a data-i18n="__MSG_sourceCode__" href="https://github.com/PolishFiltersTeam/PolishCookieConsent" target="_blank" rel="noopener">
             </a>
-            <i class="aboutIcon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 12 16">
-                    <path fill-rule="evenodd"
-                    d="M8.5 1H1c-.55 0-1 .45-1 1v12c0 .55.45 1 1 1h10c.55 0 1-.45 1-1V4.5L8.5 1zM11 14H1V2h7l3 3v9zM5 6.98L3.5 8.5 5 10l-.5 1L2 8.5 4.5 6l.5.98zM7.5 6L10 8.5 7.5 11l-.5-.98L8.5 8.5 7 7l.5-1z">
-                </path>
-            </svg>
-        </i>
-    </p>
-    <div class="list" data-i18n="__MSG_externalDepends__" data-opt-i18n-keep-children>
-        <i class="aboutIcon">
-            <svg width="20" height="20" viewBox="0 0 16 16" version="1.1" aria-hidden="true">
-                <path
-                d="M1 1h7.5l2 2H9L8 2H1v12h10v-1h1v1c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V2c0-.55.45-1 1-1zm9 6h3v1h-3V7zm2 2h-2v1h2V9zM8.583 4h4.375L15 6v5.429a.58.58 0 01-.583.571H8.583A.58.58 0 018 11.429V10h1v1h5V6.5L12.5 5H9v1H8V4.571A.58.58 0 018.583 4zM9.5 7H6.667V5l-4 3 4 3V9H9.5V7z">
-            </path>
-        </svg>
-    </i>
-    <ul class="browser-default">
-        <li data-opt-i18n-keep-children data-i18n="__MSG_byAnd__">
-            <a href="https://github.com/TinyWebEx/Localizer" target="_blank" rel="noopener">Localizer</a>
-            <a href="https://github.com/rugk" target="_blank" rel="noopener">rugk</a>
-            <a data-i18n="__MSG_contributors__"
-            href="https://raw.githubusercontent.com/TinyWebEx/Localizer/master/CONTRIBUTORS"
-            target="_blank" rel="noopener"></a>
-        </li>
-        <li data-i18n="__MSG_by__" data-opt-i18n-keep-children><a
-            href="https://github.com/google/material-design-icons" target="_blank"
-            rel="noopener">Material Design Icons </a> <a href="https://opensource.google/"
-            target="_blank" rel="noopener"> Google</a></li>
-            <li data-i18n="__MSG_by__" data-opt-i18n-keep-children><a
-                href="https://github.com/Dogfalo/materialize" target="_blank" rel="noopener">Materialize
-            </a> <a href="https://materializecss.com" target="_blank" rel="noopener"> Materialize</a></li>
-            <li data-i18n="__MSG_by__" data-opt-i18n-keep-children><a href="https://github.com/primer/octicons"
-                target="_blank" rel="noopener">Octicons </a> <a href="https://github.com/primer"
-                target="_blank" rel="noopener"> GitHub Inc.</a></li>
+            <a class="sidedrawer-toggle mui--hidden-md mui--hidden-lg mui--hidden-xl js-hide-sidedrawer mui--pull-left">
+                <i class="material-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
+                    </svg>
+                </i>
+            </a>
+            <div class="brand-logo mui--pull-right">
+                <img src="../icons/icon48.png">
+            </div>
+            <ul class="mui-tabs__bar mui--visible-md-block mui--visible-lg-block mui--visible-xl-block">
+                <li class="mui--is-active">
+                    <a data-mui-toggle="tab" data-mui-controls="cookie-base" data-i18n="__MSG_cookieBase__"
+                        data-opt-i18n-keep-children>
+                        <i class="material-icon mui--pull-left">
+                            <img src="../thirdparty/update.svg">
+                        </i>
+                    </a>
+                </li>
+                <li>
+                    <a data-mui-toggle="tab" data-mui-controls="my-filters" data-i18n="__MSG_myFilters__"
+                        data-opt-i18n-keep-children>
+                        <i class="material-icon mui--pull-left">
+                            <img src="../thirdparty/filter_list.svg">
+                        </i>
+                    </a>
+                </li>
+                <li>
+                    <a data-mui-toggle="tab" data-mui-controls="whitelist" data-i18n="__MSG_whitelist__"
+                        data-opt-i18n-keep-children>
+                        <i class="material-icon mui--pull-left">
+                            <img src="../thirdparty/diff-ignored.svg">
+                        </i>
+                    </a>
+                </li>
+                <li>
+                    <a data-mui-toggle="tab" data-mui-controls="about" data-i18n="__MSG_about__"
+                        data-opt-i18n-keep-children>
+                        <i class="material-icon mui--pull-left">
+                            <img src="../thirdparty/info.svg">
+                        </i>
+                    </a>
+                </li>
             </ul>
         </div>
-    </div>
-</div>
+    </nav>
 
-<div id="whitelist" class="row" hidden="true">
-    <form class="col s12">
-        <div class="row">
-            <div class="input-field col s12">
-                <textarea placeholder="" id="user-whitelist" class="materialize-textarea"></textarea>
-                <label for="user-whitelist" data-i18n="__MSG_whitelistHelp__">
-                </label>
-                <button class="btn waves-effect waves-light brown" type="submit" data-i18n="__MSG_apply__"
-                data-opt-i18n-keep-children disabled="true">
-                <i class="material-icon right">
-                    <img src="../thirdparty/check.svg">
-                </i>
-            </button>
+    <div id="sidedrawer" class="mui--no-user-select">
+        <ul>
+            <ul class="mobileMenu">
+                <li class="mui--is-active">
+                    <a data-mui-toggle="tab" data-mui-controls="cookie-base" data-i18n="__MSG_cookieBase__"
+                        data-opt-i18n-keep-children>
+                        <i class="material-icon mui--pull-left">
+                            <img src="../thirdparty/update.svg">
+                        </i>
+                    </a>
+                </li>
+                <li>
+                    <a data-mui-toggle="tab" data-mui-controls="my-filters" data-i18n="__MSG_myFilters__" data-opt-i18n-keep-children>
+                        <i class="material-icon mui--pull-left">
+                            <img src="../thirdparty/filter_list.svg">
+                        </i>
+                    </a>
+                </li>
+                <li>
+                    <a data-mui-toggle="tab" data-mui-controls="whitelist" data-i18n="__MSG_whitelist__" data-opt-i18n-keep-children>
+                        <i class="material-icon mui--pull-left">
+                            <img src="../thirdparty/diff-ignored.svg">
+                        </i>
+                    </a>
+                </li>
+                <li>
+                    <a data-mui-toggle="tab" data-mui-controls="about" data-i18n="__MSG_about__" data-opt-i18n-keep-children>
+                        <i class="material-icon mui--pull-left">
+                            <img src="../thirdparty/info.svg">
+                        </i>
+                    </a>
+                </li>
+            </ul>
+        </ul>
+    </div>
+
+    <div id="cookie-base" class="mui-row mui-tabs__pane mui--is-active" hidden="true">
+        <div class="mui-container-fluid">
+            <div class="mui-col-xs-12 mui-col-md-12">
+                <p class="cBV" data-i18n="__MSG_cookieBaseVersion__"></p>
+                <button class="mui-btn mui--bg-color-brown-600" id="showCookieBase" data-i18n="__MSG_showCookieBase__"
+                    data-opt-i18n-keep-children>
+                    <i class="material-icon">
+                        <img src="../thirdparty/show.svg">
+                    </i>
+                </button>
+                <button class="mui-btn mui--bg-color-brown-600" id="updateCookieBase"
+                    data-i18n="__MSG_updateCookieBase__" data-opt-i18n-keep-children>
+                    <i class="material-icon">
+                        <img src="../thirdparty/update_btn.svg">
+                    </i>
+                </button>
+                <div class="mui-textfield cookieBaseContent" style="visibility: hidden;">
+                    <textarea id="cookieBaseContent" readonly></textarea>
+                </div>
+            </div>
         </div>
     </div>
-</form>
-</div>
 
-<script type="module" src="../thirdparty/Localizer.js"></script>
-<script src="../thirdparty/materialize.js"></script>
-<script src="controlPanel.js"></script>
+    <div id="my-filters" class="mui-row mui-tabs__pane" hidden="true">
+        <div class="mui-container-fluid">
+            <form class="mui-col-xs-12 mui-col-md-12 mui-form">
+                <div class="mui-textfield">
+                    <textarea id="userFilters"></textarea>
+                    <label for="userFilters" data-i18n="__MSG_mfHelp__" data-opt-i18n-keep-children>
+                        <a href="https://polishannoyancefilters.netlify.com/cookieconsentsyntax/" target="_blank"
+                            rel="noopener" data-i18n="__MSG_PCCsyntax__"></a>
+                    </label>
+                </div>
+                <button class="mui-btn mui--bg-color-brown-600" type="submit" data-i18n="__MSG_apply__"
+                    data-opt-i18n-keep-children disabled="true">
+                    <i class="material-icon">
+                        <img src="../thirdparty/check.svg">
+                    </i>
+                </button>
+            </form>
+        </div>
+        </form>
+    </div>
+
+
+    <div id="whitelist" class="mui-row mui-tabs__pane" hidden="true">
+        <div class="mui-container-fluid">
+            <form class="mui-col-xs-12 mui-col-md-12 mui-form">
+                <div class="mui-textfield">
+                    <textarea id="user-whitelist"></textarea>
+                    <label for="user-whitelist" data-i18n="__MSG_whitelistHelp__">
+                    </label>
+                </div>
+                <button class="mui-btn mui--bg-color-brown-600" type="submit" data-i18n="__MSG_apply__"
+                    data-opt-i18n-keep-children disabled="true">
+                    <i class="material-icon">
+                        <img src="../thirdparty/check.svg">
+                    </i>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <div id="about" class="mui-row mui-tabs__pane" hidden="true">
+        <div class="mui-container-fluid">
+            <div class="mui-col-xs-12 mui-col-md-12">
+                <p class="extensionInfo"></p>
+                <p>
+                    Copyright © 2019 Polish Filters Team
+                </p>
+                <p>
+                    <i class="aboutIcon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M3 5h4v1H3V5zm0 3h4V7H3v1zm0 2h4V9H3v1zm11-5h-4v1h4V5zm0 2h-4v1h4V7zm0 2h-4v1h4V9zm2-6v9c0 .55-.45 1-1 1H9.5l-1 1-1-1H2c-.55 0-1-.45-1-1V3c0-.55.45-1 1-1h5.5l1 1 1-1H15c.55 0 1 .45 1 1zm-8 .5L7.5 3H2v9h6V3.5zm7-.5H9.5l-.5.5V12h6V3z" />
+                        </svg>
+                    </i>
+                    <a data-i18n="__MSG_license__"
+                        href="https://github.com/PolishFiltersTeam/PolishCookieConsent/blob/master/LICENSE"
+                        target="_blank" rel="noopener"></a>
+                </p>
+                <p>
+                    <a data-i18n="__MSG_sourceCode__" href="https://github.com/PolishFiltersTeam/PolishCookieConsent"
+                        target="_blank" rel="noopener">
+                    </a>
+                    <i class="aboutIcon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 12 16">
+                            <path fill-rule="evenodd"
+                                d="M8.5 1H1c-.55 0-1 .45-1 1v12c0 .55.45 1 1 1h10c.55 0 1-.45 1-1V4.5L8.5 1zM11 14H1V2h7l3 3v9zM5 6.98L3.5 8.5 5 10l-.5 1L2 8.5 4.5 6l.5.98zM7.5 6L10 8.5 7.5 11l-.5-.98L8.5 8.5 7 7l.5-1z">
+                            </path>
+                        </svg>
+                    </i>
+                </p>
+                <div class="list" data-i18n="__MSG_externalDepends__" data-opt-i18n-keep-children>
+                    <i class="aboutIcon">
+                        <svg width="20" height="20" viewBox="0 0 16 16" version="1.1" aria-hidden="true">
+                            <path
+                                d="M1 1h7.5l2 2H9L8 2H1v12h10v-1h1v1c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V2c0-.55.45-1 1-1zm9 6h3v1h-3V7zm2 2h-2v1h2V9zM8.583 4h4.375L15 6v5.429a.58.58 0 01-.583.571H8.583A.58.58 0 018 11.429V10h1v1h5V6.5L12.5 5H9v1H8V4.571A.58.58 0 018.583 4zM9.5 7H6.667V5l-4 3 4 3V9H9.5V7z">
+                            </path>
+                        </svg>
+                    </i>
+                    <ul class="browser-default">
+                        <li data-i18n="__MSG_by__" data-opt-i18n-keep-children><a
+                                href="https://www.muicss.com/" target="_blank" rel="noopener">MUI
+                            </a> <a href="https://github.com/muicss" target="_blank" rel="noopener"> MUI</a>
+                        </li>
+                        <li data-i18n="__MSG_by__" data-opt-i18n-keep-children><a
+                            href="http://www.jacklmoore.com/autosize/" target="_blank" rel="noopener">Autosize
+                        </a> <a href="http://www.jacklmoore.com/" target="_blank" rel="noopener"> Jack Moore</a>
+                        </li>
+                        <li data-opt-i18n-keep-children data-i18n="__MSG_byAnd__">
+                            <a href="https://github.com/TinyWebEx/Localizer" target="_blank"
+                                rel="noopener">Localizer</a>
+                            <a href="https://github.com/rugk" target="_blank" rel="noopener">rugk</a>
+                            <a data-i18n="__MSG_contributors__"
+                                href="https://raw.githubusercontent.com/TinyWebEx/Localizer/master/CONTRIBUTORS"
+                                target="_blank" rel="noopener"></a>
+                        </li>
+                        <li data-i18n="__MSG_by__" data-opt-i18n-keep-children><a
+                                href="https://github.com/google/material-design-icons" target="_blank"
+                                rel="noopener">Material Design Icons </a> <a href="https://opensource.google/"
+                                target="_blank" rel="noopener"> Google</a></li>
+                        <li data-i18n="__MSG_by__" data-opt-i18n-keep-children><a
+                                href="https://github.com/primer/octicons" target="_blank" rel="noopener">Octicons </a>
+                            <a href="https://github.com/primer" target="_blank" rel="noopener"> GitHub Inc.</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="../thirdparty/Localizer.js"></script>
+    <script src="../thirdparty/mui.js"></script>
+    <script src="../thirdparty/autosize.js"></script>
+    <script src="controlPanel.js"></script>
 
 </body>
 
