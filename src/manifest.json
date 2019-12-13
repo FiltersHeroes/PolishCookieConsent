@@ -44,6 +44,6 @@
   "background": {
     "scripts": ["update.js"]
   },
-  "short_name": "PCC"
+  "short_name": "__MSG_extensionShortName__"
 }
 

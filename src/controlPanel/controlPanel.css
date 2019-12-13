@@ -6,14 +6,9 @@
     background-image: url(../thirdparty/check.svg);
 }
 
-
 .aboutIcon {
     float: left;
     margin-right: 5px;
-}
-
-div.list ul.browser-default {
-    margin-top: 2px !important;
 }
 
 .mui-tabs__bar > li:not(.mui--is-active) > a {
@@ -156,4 +151,10 @@ body.mui-scroll-lock .js-show-sidedrawer, body:not(.mui-scroll-lock) .js-hide-si
 .mui-scroll-lock textarea
 {
     margin-top: 15px !important;
+}
+
+.appbar .mui--text-title
+{
+    margin-top: 7px;
+    color: white;
 }

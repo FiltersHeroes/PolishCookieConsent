@@ -116,5 +116,8 @@
   },
   "showCookieBase":{
     "message":"Show cookie base"
+  },
+  "extensionShortName":{
+    "message":"PCC"
   }
 }

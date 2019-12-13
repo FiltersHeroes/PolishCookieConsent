@@ -116,5 +116,8 @@
   },
   "showCookieBase":{
     "message":"Pokaż bazę ciasteczkową"
+  },
+  "extensionShortName":{
+    "message":"PCZ"
   }
 }
