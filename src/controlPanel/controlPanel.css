@@ -95,20 +95,6 @@ nav .sidedrawer-toggle {
     padding-top: 15px;
 }
 
-#sidedrawer strong {
-    display: block;
-    padding: 15px 22px;
-    cursor: pointer;
-}
-
-#sidedrawer strong:hover {
-    background-color: #E0E0E0;
-}
-
-#sidedrawer strong + ul > li {
-    padding: 6px 0px;
-}
-
 #sidedrawer {
     position: fixed;
     top: 0;
@@ -147,7 +133,7 @@ body.mui-scroll-lock .js-show-sidedrawer, body:not(.mui-scroll-lock) .js-hide-si
     color: initial !important;
 }
 
-.mobileMenu li a:hover{
+.mobileMenu li a:hover, .mobileMenu li.mui--is-active{
     background-color: #E0E0E0;
 }
 
