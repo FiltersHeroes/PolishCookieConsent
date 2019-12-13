@@ -938,7 +938,7 @@
           win = window,
           htmlEl = doc.documentElement,
           bodyEl = doc.body,
-          scrollBarWidth = getScrollBarWidth(),
+          scrollBarWidth = "0",
           cssProps,
           cssStr,
           x;
@@ -1003,30 +1003,6 @@
       }, 0);
     }
   }
-
-  /**
-   * Return scroll bar width.
-   */
-  var getScrollBarWidth = function() {
-    // check cache
-    if (_scrollBarWidth !== undefined) return _scrollBarWidth;
-
-    // calculate scroll bar width
-    var doc = document,
-        bodyEl = doc.body,
-        el = doc.createElement('div');
-
-    el.innerHTML = '<div style="width:50px;height:50px;position:absolute;' +
-      'left:-50px;top:-50px;overflow:auto;"><div style="width:1px;' +
-      'height:100px;"></div></div>';
-    el = el.firstChild;
-    bodyEl.appendChild(el);
-    _scrollBarWidth = el.offsetWidth - el.clientWidth;
-    bodyEl.removeChild(el);
-
-    return _scrollBarWidth;
-  }
-
 
   /**
    * requestAnimationFrame polyfilled
