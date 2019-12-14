@@ -103,7 +103,6 @@ nav .sidedrawer-toggle {
     border-right: 1px solid black;
 }
 
-
 body:not(.hide-sidedrawer) #sidedrawer.active {
     transform: translate(200px);
 }
@@ -112,7 +111,7 @@ body.mui-scroll-lock {
     margin-left: 200px;
 }
 
-body.mui-scroll-lock .js-show-sidedrawer, body:not(.mui-scroll-lock) .js-hide-sidedrawer, #mui-overlay {
+body.mui-scroll-lock .js-show-sidedrawer, body:not(.mui-scroll-lock) .js-hide-sidedrawer {
     display: none !important;
 }
 
@@ -157,4 +156,10 @@ body.mui-scroll-lock .js-show-sidedrawer, body:not(.mui-scroll-lock) .js-hide-si
 {
     margin-top: 7px;
     color: white;
+}
+
+body.mui-scroll-lock .mui-btn
+{
+    white-space: normal !important;
+    display: flex;
 }

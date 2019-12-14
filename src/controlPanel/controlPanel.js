@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var overlayEl = mui.overlay('on');
 
     // show element
-    sidedrawerEl.appendChild(overlayEl);
+    overlayEl.appendChild(sidedrawerEl);
     setTimeout(function() {
       sidedrawerEl.classList.add('active');
       var desktopTabs = document.querySelectorAll('.mui-tabs__bar li a');
