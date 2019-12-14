@@ -70,10 +70,6 @@ nav a {
     color: white;
 }
 
-nav .sidedrawer-toggle {
-    margin: 10px 15px;
-}
-
 #sidedrawer-brand {
     padding-left: 20px;
 }
@@ -143,6 +139,29 @@ body.mui-scroll-lock .js-show-sidedrawer, body:not(.mui-scroll-lock) .js-hide-si
     }
 }
 
+@media only screen and (max-width: 767px)
+{
+    .appbar {
+        display: flex;
+        align-items: center;
+    }
+
+    .sidedrawer-toggle {
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+
+    .mui--text-title {
+        color: white;
+        margin-bottom: 5px;
+    }
+
+    .brand-logo {
+        position: absolute;
+        right: 0;
+    }
+}
+
 #sidedrawer .material-icon {
     margin-right: 10px;
 }
@@ -150,12 +169,6 @@ body.mui-scroll-lock .js-show-sidedrawer, body:not(.mui-scroll-lock) .js-hide-si
 .mui-scroll-lock textarea
 {
     margin-top: 15px !important;
-}
-
-.appbar .mui--text-title
-{
-    margin-top: 7px;
-    color: white;
 }
 
 body.mui-scroll-lock .mui-btn

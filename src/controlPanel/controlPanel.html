@@ -30,11 +30,53 @@
                     </svg>
                 </i>
             </a>
-            <span class="mui--text-title mui--visible-xs-inline-block mui--visible-sm-inline-block" data-i18n="__MSG_extensionShortName__"></span>
+            <span class="mui--text-title mui--visible-xs-inline-block mui--visible-sm-inline-block"
+                data-i18n="__MSG_extensionShortName__"></span>
             <div class="brand-logo mui--pull-right">
                 <img src="../icons/icon48.png">
             </div>
-            <ul class="mui-tabs__bar mui--visible-md-block mui--visible-lg-block mui--visible-xl-block">
+            <div class="mui-container-fluid">
+                <ul class="mui-tabs__bar mui--visible-md-block mui--visible-lg-block mui--visible-xl-block">
+                    <li class="mui--is-active">
+                        <a data-mui-toggle="tab" data-mui-controls="cookie-base" data-i18n="__MSG_cookieBase__"
+                            data-opt-i18n-keep-children>
+                            <i class="material-icon mui--pull-left">
+                                <img src="../thirdparty/update.svg">
+                            </i>
+                        </a>
+                    </li>
+                    <li>
+                        <a data-mui-toggle="tab" data-mui-controls="my-filters" data-i18n="__MSG_myFilters__"
+                            data-opt-i18n-keep-children>
+                            <i class="material-icon mui--pull-left">
+                                <img src="../thirdparty/filter_list.svg">
+                            </i>
+                        </a>
+                    </li>
+                    <li>
+                        <a data-mui-toggle="tab" data-mui-controls="whitelist" data-i18n="__MSG_whitelist__"
+                            data-opt-i18n-keep-children>
+                            <i class="material-icon mui--pull-left">
+                                <img src="../thirdparty/diff-ignored.svg">
+                            </i>
+                        </a>
+                    </li>
+                    <li>
+                        <a data-mui-toggle="tab" data-mui-controls="about" data-i18n="__MSG_about__"
+                            data-opt-i18n-keep-children>
+                            <i class="material-icon mui--pull-left">
+                                <img src="../thirdparty/info.svg">
+                            </i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div id="sidedrawer" class="mui--no-user-select">
+        <ul>
+            <ul class="mobileMenu">
                 <li class="mui--is-active">
                     <a data-mui-toggle="tab" data-mui-controls="cookie-base" data-i18n="__MSG_cookieBase__"
                         data-opt-i18n-keep-children>
@@ -68,46 +110,10 @@
                     </a>
                 </li>
             </ul>
-        </div>
-    </nav>
-
-    <div id="sidedrawer" class="mui--no-user-select">
-        <ul>
-            <ul class="mobileMenu">
-                <li class="mui--is-active">
-                    <a data-mui-toggle="tab" data-mui-controls="cookie-base" data-i18n="__MSG_cookieBase__"
-                        data-opt-i18n-keep-children>
-                        <i class="material-icon mui--pull-left">
-                            <img src="../thirdparty/update.svg">
-                        </i>
-                    </a>
-                </li>
-                <li>
-                    <a data-mui-toggle="tab" data-mui-controls="my-filters" data-i18n="__MSG_myFilters__" data-opt-i18n-keep-children>
-                        <i class="material-icon mui--pull-left">
-                            <img src="../thirdparty/filter_list.svg">
-                        </i>
-                    </a>
-                </li>
-                <li>
-                    <a data-mui-toggle="tab" data-mui-controls="whitelist" data-i18n="__MSG_whitelist__" data-opt-i18n-keep-children>
-                        <i class="material-icon mui--pull-left">
-                            <img src="../thirdparty/diff-ignored.svg">
-                        </i>
-                    </a>
-                </li>
-                <li>
-                    <a data-mui-toggle="tab" data-mui-controls="about" data-i18n="__MSG_about__" data-opt-i18n-keep-children>
-                        <i class="material-icon mui--pull-left">
-                            <img src="../thirdparty/info.svg">
-                        </i>
-                    </a>
-                </li>
-            </ul>
         </ul>
     </div>
 
-    <div id="cookie-base" class="mui-row mui-tabs__pane mui--is-active" hidden="true">
+    <div id="cookie-base" class="mui-tabs__pane mui--is-active" hidden="true">
         <div class="mui-container-fluid">
             <div class="mui-col-xs-12 mui-col-md-12">
                 <p class="cBV" data-i18n="__MSG_cookieBaseVersion__"></p>
@@ -130,7 +136,7 @@
         </div>
     </div>
 
-    <div id="my-filters" class="mui-row mui-tabs__pane" hidden="true">
+    <div id="my-filters" class="mui-tabs__pane" hidden="true">
         <div class="mui-container-fluid">
             <form class="mui-col-xs-12 mui-col-md-12 mui-form">
                 <div class="mui-textfield">
@@ -152,7 +158,7 @@
     </div>
 
 
-    <div id="whitelist" class="mui-row mui-tabs__pane" hidden="true">
+    <div id="whitelist" class="mui-tabs__pane" hidden="true">
         <div class="mui-container-fluid">
             <form class="mui-col-xs-12 mui-col-md-12 mui-form">
                 <div class="mui-textfield">
@@ -170,7 +176,7 @@
         </div>
     </div>
 
-    <div id="about" class="mui-row mui-tabs__pane" hidden="true">
+    <div id="about" class="mui-tabs__pane" hidden="true">
         <div class="mui-container-fluid">
             <div class="mui-col-xs-12 mui-col-md-12">
                 <p class="extensionInfo"></p>
@@ -209,13 +215,13 @@
                         </svg>
                     </i>
                     <ul class="browser-default">
-                        <li data-i18n="__MSG_by__" data-opt-i18n-keep-children><a
-                                href="https://www.muicss.com/" target="_blank" rel="noopener">MUI
+                        <li data-i18n="__MSG_by__" data-opt-i18n-keep-children><a href="https://www.muicss.com/"
+                                target="_blank" rel="noopener">MUI
                             </a> <a href="https://github.com/muicss" target="_blank" rel="noopener"> MUI</a>
                         </li>
                         <li data-i18n="__MSG_by__" data-opt-i18n-keep-children><a
-                            href="http://www.jacklmoore.com/autosize/" target="_blank" rel="noopener">Autosize
-                        </a> <a href="http://www.jacklmoore.com/" target="_blank" rel="noopener"> Jack Moore</a>
+                                href="http://www.jacklmoore.com/autosize/" target="_blank" rel="noopener">Autosize
+                            </a> <a href="http://www.jacklmoore.com/" target="_blank" rel="noopener"> Jack Moore</a>
                         </li>
                         <li data-opt-i18n-keep-children data-i18n="__MSG_byAnd__">
                             <a href="https://github.com/TinyWebEx/Localizer" target="_blank"

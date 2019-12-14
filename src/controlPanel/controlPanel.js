@@ -54,29 +54,6 @@ document.addEventListener('DOMContentLoaded', function() {
   document.querySelector('.js-hide-sidedrawer').addEventListener("click", hideSidedrawer);
 });
 
-
-var btns = document.querySelectorAll(".nav-wrapper #tabs li");
-
-// Add the active class to the current/clicked tab
-for (var i = 0; i < btns.length; i++) {
-  btns[i].addEventListener("click", function() {
-    var current = document.querySelector(".nav-wrapper #tabs li.active");
-    current.classList.remove("active");
-    this.classList.add("active");
-  });
-}
-
-btns = document.querySelectorAll("#mobile-menu li");
-
-// Add the active class to the current/clicked mobile tab
-for (var i = 0; i < btns.length; i++) {
-  btns[i].addEventListener("click", function() {
-    var current = document.querySelector("#mobile-menu li.active");
-    current.classList.remove("active");
-    this.classList.add("active");
-  });
-}
-
 document.querySelector("#about .extensionInfo").textContent = chrome.i18n.getMessage("extensionName")+" "+chrome.runtime.getManifest().version;
 
 
