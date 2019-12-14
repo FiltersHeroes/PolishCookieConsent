@@ -1,6 +1,6 @@
 ! Polska Baza Ciasteczkowa
 ! Polish Cookie Base
-! Version: 2019.12.12.0
+! Version: 2019.12.14.0
 ! Copyright © 2019 Polish Filters Team
 !
 !
@@ -19,6 +19,7 @@ hiszpanskidlapolakow.com(bakeCookie, gdpr-accepted, {"ga":true,"facebook":true,"
 infor.pl(bakeCookie, inforCookieWallCacheVal, 15, 365)
 n26.com(bakeCookie, num26GDPR, ACCEPTED, 365)
 mapy.geoportal.gov.pl(bakeCookie, regulationsAccepted, true, 365)
+mapy.geoportal.gov.pl(bakeCookie, rules, 1, 365)
 drogerium.pl|wylecz.to|budujmase.pl(bakeCookie, rodoHfM, true, 365)
 laziska.com.pl|m-ce.pl|mojbytom.pl|mojegliwice.pl|mojekatowice.pl|mojmikolow.pl|orzesze.com.pl|piekaryslaskie.com.pl|pyskowice.com.pl|rudaslaska.com.pl|rybnicki.com|siemianowice.net.pl|sosnowiecki.pl|swiony.pl|wodzislaw.com.pl|zabrze.com.pl|zory.com.pl|silesia.info.pl(bakeCookie, rodo, accept, 365)
 wunderground.com(bakeCookie, notice_gdpr_prefs, 0,1,2,3:, 365)
