@@ -32,7 +32,9 @@
         "http://*/*",
         "https://*/*"
       ],
-      "js": ["content.js"],
+      "js": [
+        "content.js"
+      ],
       "run_at": "document_start"
     }
   ],
@@ -40,10 +42,16 @@
     "page": "controlPanel/controlPanel.html",
     "open_in_tab": true
   },
-  "permissions": ["storage", "tabs", "alarms"],
+  "permissions": [
+    "storage",
+    "tabs",
+    "alarms",
+    "https://raw.githubusercontent.com/PolishFiltersTeam/PolishCookieConsent/master/src/PCB.txt"
+  ],
   "background": {
-    "scripts": ["update.js"]
+    "scripts": [
+      "update.js"
+    ]
   },
   "short_name": "__MSG_extensionShortName__"
 }
-
