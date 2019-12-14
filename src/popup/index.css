@@ -3,13 +3,13 @@ body {
     min-width: 250px;
     width: auto;
     font-family: sans-serif;
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     user-select: none;
 }
 
 .title {
     background-color: #6a4000;
-    color: #FFFFFF;
+    color: #ffffff;
     font-size: 15px;
     text-align: center;
     padding: 5px;
@@ -50,6 +50,7 @@ body {
     border-bottom: 1px solid #8c5300;
 }
 
-.wrapper-switch, .separator-switch {
+.wrapper-switch,
+.separator-switch {
     display: none;
 }

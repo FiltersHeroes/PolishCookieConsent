@@ -32,11 +32,13 @@ button {
     min-height: 52px;
 }
 
-.mui-textfield > input:focus, .mui-textfield > textarea:focus {
+.mui-textfield > input:focus,
+.mui-textfield > textarea:focus {
     border-color: #d8ad6a !important;
 }
 
-.mui-textfield > input:focus ~ label, .mui-textfield > textarea:focus ~ label {
+.mui-textfield > input:focus ~ label,
+.mui-textfield > textarea:focus ~ label {
     color: initial !important;
 }
 
@@ -107,7 +109,8 @@ body.mui-scroll-lock {
     margin-left: 200px;
 }
 
-body.mui-scroll-lock .js-show-sidedrawer, body:not(.mui-scroll-lock) .js-hide-sidedrawer {
+body.mui-scroll-lock .js-show-sidedrawer,
+body:not(.mui-scroll-lock) .js-hide-sidedrawer {
     display: none !important;
 }
 
@@ -123,24 +126,22 @@ body.mui-scroll-lock .js-show-sidedrawer, body:not(.mui-scroll-lock) .js-hide-si
     color: initial !important;
 }
 
-.mobileMenu li a:hover, .mobileMenu li.mui--is-active{
-    background-color: #E0E0E0;
+.mobileMenu li a:hover,
+.mobileMenu li.mui--is-active {
+    background-color: #e0e0e0;
 }
 
 .mui-form label {
     white-space: normal !important;
 }
 
-@media only screen and (max-width: 650px)
-{
-    textarea
-    {
+@media only screen and (max-width: 650px) {
+    textarea {
         margin-top: 15px !important;
     }
 }
 
-@media only screen and (max-width: 767px)
-{
+@media only screen and (max-width: 767px) {
     .appbar {
         display: flex;
         align-items: center;
@@ -160,19 +161,25 @@ body.mui-scroll-lock .js-show-sidedrawer, body:not(.mui-scroll-lock) .js-hide-si
         position: absolute;
         right: 0;
     }
+
+    body.mui-scroll-lock .mui-container-fluid {
+        padding-left: 5px !important;
+    }
+
+    body.mui-scroll-lock .mui-container-fluid .mui-col-xs-12 {
+        padding: 0 !important;
+    }
 }
 
 #sidedrawer .material-icon {
     margin-right: 10px;
 }
 
-.mui-scroll-lock textarea
-{
+.mui-scroll-lock textarea {
     margin-top: 15px !important;
 }
 
-body.mui-scroll-lock .mui-btn
-{
+body.mui-scroll-lock .mui-btn {
     white-space: normal !important;
     display: flex;
 }
