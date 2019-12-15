@@ -23,7 +23,8 @@
   },
   "applications": {
     "gecko": {
-      "id": "PolishCookieConsentExt@polishannoyancefilters.netlify.com"
+      "id": "PolishCookieConsentExt@polishannoyancefilters.netlify.com",
+      "strict_min_version": "56.0"
     }
   },
   "content_scripts": [
