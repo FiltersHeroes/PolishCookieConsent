@@ -9,14 +9,14 @@ Chrome Web Store: [![Chrome Web Store version](https://img.shields.io/chrome-web
 
 Opera Addons: [![Opera addons version](https://img.shields.io/badge/OA-v1.39.1-%23007ec6.svg "Opera addons version")](https://addons.opera.com/pl/extensions/details/polish-cookie-consent/ "Opera addons version")
 
-Whale Store: [![Whale Store version](https://img.shields.io/badge/WS%20🐳%20-v1.41.0-%23007ec6.svg "Whale Store 🐳 version")](https://store.whale.naver.com/detail/micngbppijeajicgilihpkkbkgibmjhb?hl=pl)
+<!-- Whale Store: [![Whale Store version](https://img.shields.io/badge/WS%20🐳%20-v1.41.0-%23007ec6.svg "Whale Store 🐳 version")](https://store.whale.naver.com/detail/micngbppijeajicgilihpkkbkgibmjhb?hl=pl) -->
 
 ## **Jak zainstalować?**
 ### **I. ![Firefox][Firefox]Firefox/![Waterfox][Waterfox]Waterfox**
 1. Zainstaluj najnowszą wersję rozszerzenia z [AMO](https://addons.mozilla.org/pl/firefox/addon/polish-cookie-consent/) (kliknij dwukrotnie **dodaj**).
 2. Gotowe :tada: !
 
-### **II. ![Chrome][Chrome]Chrome/![Chromium][Chromium]Chromium/![Vivaldi][Vivaldi]Vivaldi/![Cent][Cent]Cent/![Yandex][Yandex]Yandex/![Kiwi][Kiwi]Kiwi**
+### **II. ![Chrome][Chrome]Chrome/![Chromium][Chromium]Chromium/![Vivaldi][Vivaldi]Vivaldi/![Cent][Cent]Cent/![Yandex][Yandex]Yandex/![Kiwi][Kiwi]Kiwi/![Whale][Whale]NAVER Whale**
 1. Zainstaluj najnowszą wersję rozszerzenia z [CWS](https://chrome.google.com/webstore/detail/polish-cookie-consent/bniijddcmabghibaojbkbnngbedopbno) (kliknij dwukrotnie **dodaj**).
 2. Gotowe :tada: !
 
@@ -24,9 +24,9 @@ Whale Store: [![Whale Store version](https://img.shields.io/badge/WS%20🐳%20-v
 1. Zainstaluj najnowszą wersję rozszerzenia z [OA](https://addons.opera.com/pl/extensions/details/polish-cookie-consent/) (kliknij **dodaj**).
 2. Gotowe :tada: !
 
-### **IV. ![Whale][Whale]NAVER Whale**
+<!-- ### **IV. ![Whale][Whale]NAVER Whale**
 1. Zainstaluj najnowszą wersję rozszerzenia z [NWS](https://store.whale.naver.com/detail/micngbppijeajicgilihpkkbkgibmjhb?hl=pl) (kliknij **dodaj**).
-2. Gotowe :tada: !
+2. Gotowe :tada: ! -->
 
 
 [Firefox]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/58.1.3/firefox/firefox_24x24.png "Mozilla Firefox"
