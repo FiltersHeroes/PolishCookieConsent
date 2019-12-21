@@ -83,7 +83,17 @@
     "message":"Zewnętrzne zależności:"
   },
   "by":{
-    "message":"autorstwa"
+    "message":"$Project$ autorstwa $author$",
+    "placeholders": {
+      "project": {
+        "content": "$1",
+        "example": "<a href=\"https://www.muicss.com/\">MUI</a>"
+      },
+      "author": {
+        "content": "$2",
+        "example": "<a href=\"https://github.com/muicss\">MUI</a>"
+      }
+    }
   },
   "byAnd":{
     "message":"$Project$ autorstwa $author$ i $contributors$",
