@@ -23,8 +23,9 @@ Opera Addons: [![Opera addons version](https://img.shields.io/badge/OA-v1.39.1-%
 ### **III. ![Opera][Opera](Chr)Opera**
 <!-- 1. Zainstaluj najnowszą wersję rozszerzenia z [OA](https://addons.opera.com/pl/extensions/details/polish-cookie-consent/) (kliknij **dodaj**).
 2. Gotowe :tada: ! -->
-1. Wejdź na [CWS](https://chrome.google.com/webstore/detail/polish-cookie-consent/bniijddcmabghibaojbkbnngbedopbno) i kliknij `Dodaj do Opera`, a następnie `OK`.
-2. Kliknij zainstaluj.
+1. Zainstaluj rozszerzenie [Install Chrome Extensions](https://addons.opera.com/pl/extensions/details/install-chrome-extensions/).
+2. Wejdź na [CWS](https://chrome.google.com/webstore/detail/polish-cookie-consent/bniijddcmabghibaojbkbnngbedopbno) i kliknij `Dodaj do Opera`, a następnie `OK`.
+2. Kliknij `Zainstaluj`.
 3. Gotowe :tada: !
 
 <!-- ### **IV. ![Whale][Whale]NAVER Whale**
