@@ -45,5 +45,9 @@ chrome.alarms.onAlarm.addListener(function(alarm) {
     chrome.storage.local.set({
       updateTime: _updateTime
     });
+
+    chrome.storage.local.get(['updateTime'], function(result) {
+      chrome.alarms.create('updateCookieBase', { when: parseInt(result.updateTime) });
+    });
   }
 });
