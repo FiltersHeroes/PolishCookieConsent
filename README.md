@@ -16,13 +16,16 @@ Opera Addons: [![Opera addons version](https://img.shields.io/badge/OA-v1.39.1-%
 1. Zainstaluj najnowszą wersję rozszerzenia z [AMO](https://addons.mozilla.org/pl/firefox/addon/polish-cookie-consent/) (kliknij dwukrotnie **dodaj**).
 2. Gotowe :tada: !
 
-### **II. ![Chrome][Chrome]Chrome/![Chromium][Chromium]Chromium/![Vivaldi][Vivaldi]Vivaldi/![Cent][Cent]Cent/![Yandex][Yandex]Yandex/![Kiwi][Kiwi]Kiwi/![Whale][Whale]NAVER Whale**
+### **II. ![Chrome][Chrome]Chrome/![Chromium][Chromium]Chromium/![Vivaldi][Vivaldi]Vivaldi/![Cent][Cent]Cent/![Yandex][Yandex]Yandex/![Kiwi][Kiwi]Kiwi/![Whale][Whale]NAVER Whale/![Edge][Edge](Chrom)Edge**
 1. Zainstaluj najnowszą wersję rozszerzenia z [CWS](https://chrome.google.com/webstore/detail/polish-cookie-consent/bniijddcmabghibaojbkbnngbedopbno) (kliknij dwukrotnie **dodaj**).
 2. Gotowe :tada: !
 
 ### **III. ![Opera][Opera](Chr)Opera**
-1. Zainstaluj najnowszą wersję rozszerzenia z [OA](https://addons.opera.com/pl/extensions/details/polish-cookie-consent/) (kliknij **dodaj**).
-2. Gotowe :tada: !
+<!-- 1. Zainstaluj najnowszą wersję rozszerzenia z [OA](https://addons.opera.com/pl/extensions/details/polish-cookie-consent/) (kliknij **dodaj**).
+2. Gotowe :tada: ! -->
+1. Wejdź na [CWS](https://chrome.google.com/webstore/detail/polish-cookie-consent/bniijddcmabghibaojbkbnngbedopbno) i kliknij `Dodaj do Opera`, a następnie `OK`.
+2. Kliknij zainstaluj.
+3. Gotowe :tada: !
 
 <!-- ### **IV. ![Whale][Whale]NAVER Whale**
 1. Zainstaluj najnowszą wersję rozszerzenia z [NWS](https://store.whale.naver.com/detail/micngbppijeajicgilihpkkbkgibmjhb?hl=pl) (kliknij **dodaj**).
@@ -39,7 +42,7 @@ Opera Addons: [![Opera addons version](https://img.shields.io/badge/OA-v1.39.1-%
 [Yandex]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/58.1.3/yandex/yandex_24x24.png "Yandex Browser"
 [Kiwi]: https://raw.githubusercontent.com/scribblemaniac/browser-logos/41d6542b2d122f5b65d8f259cf5ffbdb3b89831d/src/kiwi/kiwi_24x24.png "Kiwi Browser"
 [Whale]: https://i.imgur.com/r8YdC2G.png "NAVER Whale Browser"
-
+[Edge]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/61.1.3/edge/edge_24x24.png "Microsoft ChromEdge"
 
 ## **Podziękowania**
 
