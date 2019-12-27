@@ -21,10 +21,8 @@ chrome.tabs.query({active:true,currentWindow:true},function(tabs){
         {
           document.querySelector(".switch").textContent = chrome.i18n.getMessage("popupEnable", hostname);
           document.querySelector(".switch").addEventListener("click", function() {
-            chrome.storage.local.get('whitelist', function(result) {
-              chrome.storage.local.set({
-                whitelist: result.whitelist.replace(hostname, "").replace(/^\s*[\r\n]/gm,"").trim()
-              });
+            chrome.storage.local.set({
+              whitelist: result.whitelist.replace(hostname, "").replace(/^\s*[\r\n]/gm,"").trim()
             });
             location.reload();
           });
@@ -33,10 +31,8 @@ chrome.tabs.query({active:true,currentWindow:true},function(tabs){
         {
           document.querySelector(".switch").textContent = chrome.i18n.getMessage("popupDisable", hostname);
           document.querySelector(".switch").addEventListener("click", function() {
-            chrome.storage.local.get('whitelist', function(result) {
-              chrome.storage.local.set({
-                whitelist: result.whitelist + "\n" + hostname
-              });
+            chrome.storage.local.set({
+              whitelist: result.whitelist + "\n" + hostname
             });
             location.reload();
           });
@@ -46,10 +42,8 @@ chrome.tabs.query({active:true,currentWindow:true},function(tabs){
       {
         document.querySelector(".switch").textContent = chrome.i18n.getMessage("popupDisable", hostname);
         document.querySelector(".switch").addEventListener("click", function() {
-          chrome.storage.local.get('whitelist', function(result) {
-            chrome.storage.local.set({
-              whitelist: hostname
-            });
+          chrome.storage.local.set({
+            whitelist: hostname
           });
           location.reload();
         });
