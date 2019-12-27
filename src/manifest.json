@@ -3,7 +3,7 @@
   "author": "PolishFiltersTeam",
   "name": "__MSG_extensionName__",
   "description": "__MSG_extensionDescription__",
-  "version": "1.42.2",
+  "version": "1.42.3",
   "default_locale": "en",
   "icons": {
     "16": "icons/icon16.png",
