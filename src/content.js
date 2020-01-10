@@ -52,7 +52,7 @@ function clickComplete(element, urlArg, cookieName) {
 
 function clickCompleteText(element, text, urlArg) {
     if (getUrlCondition(urlArg)) {
-        window.onload = () => {
+        window.addEventListener('load', function(){
             var counter = 0;
             (function checkIfElemExists() {
                 var btnYes = document.evaluate("//" + element + "[contains(text(), " + '"' + text + '"' + ")]", document, null, XPathResult.ANY_TYPE, null).iterateNext();
@@ -63,7 +63,7 @@ function clickCompleteText(element, text, urlArg) {
                     btnYes.click()
                 }
             })()
-        }
+        });
     }
 }
 
