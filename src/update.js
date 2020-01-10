@@ -16,7 +16,6 @@ function handleTextResponse(response) {
 }
 
 chrome.runtime.onInstalled.addListener(function () {
-
   fetch('/PCB.txt')
   .then(handleTextResponse)
   .catch(error => console.log(error));
@@ -32,7 +31,6 @@ chrome.runtime.onInstalled.addListener(function () {
 
 chrome.alarms.onAlarm.addListener(function (alarm) {
   if (alarm.name == 'updateCookieBase') {
-
     fetch('https://raw.githubusercontent.com/PolishFiltersTeam/PolishCookieConsent/master/src/PCB.txt')
     .then(handleTextResponse)
     .catch(error => console.log(error));

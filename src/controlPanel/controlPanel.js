@@ -125,8 +125,6 @@ document.querySelector("#showCookieBase").addEventListener("click", function () 
 })
 
 document.querySelector("#updateCookieBase").addEventListener("click", function () {
-  var xhr = new XMLHttpRequest();
-
   function handleTextResponse(response) {
     return response.text()
     .then(text => {
@@ -148,7 +146,6 @@ document.querySelector("#updateCookieBase").addEventListener("click", function (
   fetch('https://raw.githubusercontent.com/PolishFiltersTeam/PolishCookieConsent/master/src/PCB.txt')
   .then(handleTextResponse)
   .catch(error => console.log(error));
-
 })
 
 document.querySelector('.mui-tabs__bar [data-mui-controls="whitelist"]').addEventListener("mui.tabs.showend", function () {
