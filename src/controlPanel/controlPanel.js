@@ -7,9 +7,8 @@ function saveFilters(e) {
 }
 
 function restoreFilters() {
-  chrome.storage.local.get(['userFilters'], function(result) {
-    if(result.userFilters)
-    {
+  chrome.storage.local.get(['userFilters'], function (result) {
+    if (result.userFilters) {
       document.querySelector("#userFilters").value = result.userFilters;
     }
   });
@@ -19,11 +18,10 @@ function restoreFilters() {
 document.addEventListener("DOMContentLoaded", restoreFilters);
 document.querySelector("#my-filters form").addEventListener("submit", saveFilters);
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   document.querySelector("div#cookie-base").hidden = "";
   var bodyEl = document.querySelector('body'),
   sidedrawerEl = document.querySelector('#sidedrawer');
-
 
   function showSidedrawer() {
     // show overlay
@@ -31,16 +29,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // show element
     overlayEl.appendChild(sidedrawerEl);
-    setTimeout(function() {
+    setTimeout(function () {
       sidedrawerEl.classList.add('active');
       var desktopTabs = document.querySelectorAll('.mui-tabs__bar li a');
-      for(var i=0; i<desktopTabs.length; i++)
-      {
+      for (var i = 0; i < desktopTabs.length; i++) {
         desktopTabs[i].setAttribute("data-mui-controls", "");
       }
     }, 20);
   }
-
 
   function hideSidedrawer() {
     bodyEl.classList.remove('hide-sidedrawer');
@@ -54,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function() {
   document.querySelector('.js-hide-sidedrawer').addEventListener("click", hideSidedrawer);
 });
 
-document.querySelector("#about .extensionInfo").textContent = chrome.i18n.getMessage("extensionName")+" "+chrome.runtime.getManifest().version;
+document.querySelector("#about .extensionInfo").textContent = chrome.i18n.getMessage("extensionName") + " " + chrome.runtime.getManifest().version;
 
 
 function saveWhitelist(e) {
@@ -66,9 +62,8 @@ function saveWhitelist(e) {
 }
 
 function restoreWhitelist() {
-  chrome.storage.local.get(['whitelist'], function(result) {
-    if(result.whitelist)
-    {
+  chrome.storage.local.get(['whitelist'], function (result) {
+    if (result.whitelist) {
       document.querySelector("#user-whitelist").value = result.whitelist;
     }
   });
@@ -79,44 +74,36 @@ document.querySelector("#whitelist form").addEventListener("submit", saveWhiteli
 
 document.querySelector("title").textContent = chrome.i18n.getMessage("extensionName") + " - " + chrome.i18n.getMessage("controlPanel");
 
-document.querySelector("#my-filters textarea").addEventListener('input', function()
-{
-  chrome.storage.local.get(["userFilters"], function(result) {
+document.querySelector("#my-filters textarea").addEventListener('input', function () {
+  chrome.storage.local.get(["userFilters"], function (result) {
     var element = document.querySelector("#my-filters textarea");
-    if(element.value == result.userFilters)
-    {
+    if (element.value == result.userFilters) {
       document.querySelector("#my-filters button").disabled = true;
     }
-    else
-    {
+    else {
       document.querySelector("#my-filters button").disabled = false;
     }
   });
 });
 
-document.querySelector("textarea#user-whitelist").addEventListener('input', function()
-{
-  chrome.storage.local.get(["whitelist"], function(result) {
+document.querySelector("textarea#user-whitelist").addEventListener('input', function () {
+  chrome.storage.local.get(["whitelist"], function (result) {
     var element = document.querySelector("textarea#user-whitelist");
-    if(element.value == result.whitelist)
-    {
+    if (element.value == result.whitelist) {
       document.querySelector("#whitelist button").disabled = true;
     }
-    else
-    {
+    else {
       document.querySelector("#whitelist button").disabled = false;
     }
   });
 });
 
 function updateVersion() {
-  chrome.storage.local.get(['cookieBase'], function(result) {
-    if(result.cookieBase)
-    {
+  chrome.storage.local.get(['cookieBase'], function (result) {
+    if (result.cookieBase) {
       var cookieBaseLine = result.cookieBase.split("\n");
-      for (var i=0; i<cookieBaseLine.length; i++) {
-        if (cookieBaseLine[i].match("Version"))
-        {
+      for (var i = 0; i < cookieBaseLine.length; i++) {
+        if (cookieBaseLine[i].match("Version")) {
           document.querySelector(".cBV").textContent += " " + cookieBaseLine[i].split(":")[1].trim();
         }
       }
@@ -126,11 +113,10 @@ function updateVersion() {
 
 document.addEventListener("DOMContentLoaded", updateVersion);
 
-document.querySelector("#showCookieBase").addEventListener("click", function() {
+document.querySelector("#showCookieBase").addEventListener("click", function () {
   var cookieBaseContent = document.querySelector("#cookieBaseContent");
-  chrome.storage.local.get(['cookieBase'], function(result) {
-    if(result.cookieBase)
-    {
+  chrome.storage.local.get(['cookieBase'], function (result) {
+    if (result.cookieBase) {
       cookieBaseContent.textContent = result.cookieBase;
       document.querySelector(".cookieBaseContent").style = "";
       autosize(document.querySelector('#cookieBaseContent'));
@@ -138,37 +124,45 @@ document.querySelector("#showCookieBase").addEventListener("click", function() {
   });
 })
 
-document.querySelector("#updateCookieBase").addEventListener("click", function() {
+document.querySelector("#updateCookieBase").addEventListener("click", function () {
   var xhr = new XMLHttpRequest();
-  xhr.open('GET', 'https://raw.githubusercontent.com/PolishFiltersTeam/PolishCookieConsent/master/src/PCB.txt', true);
 
-  xhr.responseType = 'text';
-
-  xhr.onload = function () {
-    if (xhr.readyState === xhr.DONE) {
-      if (xhr.status === 200) {
+  function handleTextResponse(response) {
+    return response.text()
+    .then(text => {
+      if (response.ok) {
         chrome.storage.local.set({
-          cookieBase: xhr.responseText
+          cookieBase: text
         });
+        location.reload();
+      } else {
+        return Promise.reject({
+          status: response.status,
+          statusText: response.statusText,
+          err: text
+        })
       }
-      location.reload();
-    }
-  };
-  xhr.send(null);
+    })
+  }
+
+  fetch('https://raw.githubusercontent.com/PolishFiltersTeam/PolishCookieConsent/master/src/PCB.txt')
+  .then(handleTextResponse)
+  .catch(error => console.log(error));
+
 })
 
-document.querySelector('.mui-tabs__bar [data-mui-controls="whitelist"]').addEventListener("mui.tabs.showend", function() {
+document.querySelector('.mui-tabs__bar [data-mui-controls="whitelist"]').addEventListener("mui.tabs.showend", function () {
   autosize(document.querySelector('#user-whitelist'));
 })
 
-document.querySelector('.mui-tabs__bar [data-mui-controls="my-filters"]').addEventListener("mui.tabs.showend", function() {
+document.querySelector('.mui-tabs__bar [data-mui-controls="my-filters"]').addEventListener("mui.tabs.showend", function () {
   autosize(document.querySelector('#userFilters'));
 })
 
-document.querySelector('#sidedrawer [data-mui-controls="whitelist"]').addEventListener("mui.tabs.showend", function() {
+document.querySelector('#sidedrawer [data-mui-controls="whitelist"]').addEventListener("mui.tabs.showend", function () {
   autosize(document.querySelector('#user-whitelist'));
 })
 
-document.querySelector('#sidedrawer [data-mui-controls="my-filters"]').addEventListener("mui.tabs.showend", function() {
+document.querySelector('#sidedrawer [data-mui-controls="my-filters"]').addEventListener("mui.tabs.showend", function () {
   autosize(document.querySelector('#userFilters'));
 })
