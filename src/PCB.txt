@@ -1,6 +1,6 @@
 ! Polska Baza Ciasteczkowa
 ! Polish Cookie Base
-! Version: 2019.12.14.0
+! Version: 2020.01.27.0
 ! Copyright © 2019 Polish Filters Team
 !
 !
@@ -32,6 +32,7 @@ tumblr.com\/privacy\/consent(clickInteractive, .btn.yes)
 unileverfoodsolutions.pl|downdetector.pl(clickInteractive, .evidon-barrier-acceptbutton)
 odr.pl(clickInteractive, .termsagree)
 guce.oath.com\/collectConsent|consent.yahoo.com\/collectConsent(clickTimeout, .btn[name="agree"])
+redirect.global.commerce-connector.com\/consent\/(clickTimeout, .cookie-notice > .btn--blue.btn)
 =https://powiatkamienski.pl/(redirect, aktualnosci.dhtml, false)
 f1racing.pl(redirect, x-set-cookie, true, x-id-cookie-yes=)
 parkiet.com|rp.pl(clickCompleteText, *[@id="rodo-popup"]//button, Zapisz)
