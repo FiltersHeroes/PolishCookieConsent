@@ -1,5 +1,5 @@
 /*!
- * MUI v0.10.0 (https://www.muicss.com/)
+ * MUI v0.10.1 (https://www.muicss.com/)
  * Copyright (c) 2015 Andres Morey
  * MIT License (https://github.com/muicss/mui/raw/master/LICENSE.txt)
 */
@@ -14,7 +14,7 @@
  * 1. Correct the line height in all browsers.
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
-html {
+ html {
   line-height: 1.15;
   /* 1 */
   -webkit-text-size-adjust: 100%;
@@ -1956,9 +1956,7 @@ h4, h5, h6 {
   border-width: 2px;
 }
 
-.mui-textfield > input:disabled, .mui-textfield > input:-moz-read-only,
-.mui-textfield > textarea:disabled,
-.mui-textfield > textarea:-moz-read-only {
+.mui-textfield > input:-moz-read-only, .mui-textfield > textarea:-moz-read-only {
   cursor: not-allowed;
   background-color: transparent;
   opacity: 1;
@@ -1972,26 +1970,22 @@ h4, h5, h6 {
   opacity: 1;
 }
 
-.mui-textfield > input::-webkit-input-placeholder,
-.mui-textfield > textarea::-webkit-input-placeholder {
+.mui-textfield > input::-webkit-input-placeholder, .mui-textfield > textarea::-webkit-input-placeholder {
   color: rgba(0, 0, 0, 0.26);
   opacity: 1;
 }
 
-.mui-textfield > input::-moz-placeholder,
-.mui-textfield > textarea::-moz-placeholder {
+.mui-textfield > input::-moz-placeholder, .mui-textfield > textarea::-moz-placeholder {
   color: rgba(0, 0, 0, 0.26);
   opacity: 1;
 }
 
-.mui-textfield > input:-ms-input-placeholder,
-.mui-textfield > textarea:-ms-input-placeholder {
+.mui-textfield > input:-ms-input-placeholder, .mui-textfield > textarea:-ms-input-placeholder {
   color: rgba(0, 0, 0, 0.26);
   opacity: 1;
 }
 
-.mui-textfield > input::-ms-input-placeholder,
-.mui-textfield > textarea::-ms-input-placeholder {
+.mui-textfield > input::-ms-input-placeholder, .mui-textfield > textarea::-ms-input-placeholder {
   color: rgba(0, 0, 0, 0.26);
   opacity: 1;
 }
