@@ -1,6 +1,6 @@
 ! Polska Baza Ciasteczkowa
 ! Polish Cookie Base
-! Version: 2020.01.27.0
+! Version: 2020.01.28.0
 ! Copyright © 2019 Polish Filters Team
 !
 !
@@ -27,7 +27,7 @@ wunderground.com(bakeCookie, notice_poptime, 1533920400000, 365)
 vice.com(bakeCookie, _vice_cmp_modal_viewed, true, 365)
 gry.pl(clickComplete, div[class*="app_gdpr"] button[class*="intro_acceptAll"], euconsent)
 abczdrowie.pl|allani.pl|autokult.pl|dobramama.pl|dobreprogramy.pl|domodi.pl|echirurgia.pl|fotoblogia.pl|gadzetomania.pl|homebook.pl|jejswiat.pl|kafeteria.pl|kafeteria.tv|kardiolo.pl|komorkomania.pl|luxlux.pl|medycyna24.pl|mixer.pl|money.pl|nocowanie.pl|nerwica.com|o2.pl|open.fm|parenting.pl|pinger.pl|pogodnie.pl|pudelek.pl|pudelek.tv|pudelekx.pl|pytamy.pl|smaczneblogi.pl|samosia.pl|smog.pl|snobka.pl|so-magazyn.pl|superauto24.com|testwiedzy.pl|wp.pl(clickCompleteText, button, PRZECHODZ)
-rodobox.io|totalnareklama.pl(clickInteractive, #_rdbxAcceptAllBtn, rodobox)
+rodobox.io|selectshop.pl|totalnareklama.pl(clickInteractive, #_rdbxAcceptAllBtn, rodobox)
 tumblr.com\/privacy\/consent(clickInteractive, .btn.yes)
 unileverfoodsolutions.pl|downdetector.pl(clickInteractive, .evidon-barrier-acceptbutton)
 odr.pl(clickInteractive, .termsagree)
