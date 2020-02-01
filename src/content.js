@@ -115,9 +115,9 @@ function redirect(redirectPoint, path, urlArg, cookieName) {
 }
 
 function userFilters() {
-    chrome.storage.local.get('userFilters', function (result) {
-        if (typeof result.userFilters !== "undefined" && result.userFilters != "") {
-            var filters = result.userFilters.split("\n");
+    self.port.on("getUserFilters", function(userFilters) {
+        if (typeof userFilters !== "undefined" && userFilters != "") {
+            var filters = userFilters.split("\n");
             for (var i = 0; i < filters.length; i++) {
                 var filter = filters[i];
                 if (filter != "" && !filter.match(/^!/)) {
@@ -195,11 +195,12 @@ function userFilters() {
         }
     });
 }
+
 
 function cookieBaseFilters() {
-    chrome.storage.local.get('cookieBase', function (result) {
-        if (typeof result.cookieBase !== "undefined" && result.cookieBase != "") {
-            var filters = result.cookieBase.split("\n");
+    self.port.on("getCookieBase", function(cookieBase) {
+        if (typeof cookieBase !== "undefined" && cookieBase != "") {
+            var filters = cookieBase.split("\n");
             for (var i = 0; i < filters.length; i++) {
                 var filter = filters[i];
                 if (filter != "" && !filter.match(/^!/)) {
@@ -278,9 +279,9 @@ function cookieBaseFilters() {
     });
 }
 
-chrome.storage.local.get('whitelist', function (result) {
-    if (typeof result.whitelist !== "undefined" && result.whitelist != "") {
-        var whitelist = result.whitelist.split("\n").join([separator = '|']);
+self.port.on("getWhitelist", function(userWhitelist) {
+    if (typeof userWhitelist !== "undefined" && userWhitelist != "" && userWhitelist != "null" ) {
+        var whitelist = userWhitelist.split("\n").join([separator = '|']);
         if (!getUrlCondition(whitelist)) {
             userFilters();
             cookieBaseFilters();

@@ -1,55 +1,65 @@
+var content = document.body;
+var size = {};
+size.width = content.offsetWidth;
+size.height = content.offsetHeight;
+self.port.emit("resize", size);
+
 var wrapper = document.querySelectorAll(".wrapper:not(.wrapper-switch)");
 
 for (var i = 0; i < wrapper.length; i++) {
   wrapper[i].addEventListener('click', function(event) {
-    chrome.tabs.create({url: this.dataset.href});
+    window.QueryInterface(Components.interfaces.nsIInterfaceRequestor)
+                       .getInterface(Components.interfaces.nsIWebNavigation)
+                       .QueryInterface(Components.interfaces.nsIDocShellTreeItem)
+                       .rootTreeItem
+                       .QueryInterface(Components.interfaces.nsIInterfaceRequestor)
+                       .getInterface(Components.interfaces.nsIDOMWindow).gBrowser.loadOneTab(this.dataset.href, {inBackground: false});
   });
 }
 
-var manifest = chrome.runtime.getManifest();
-document.querySelector(".title > p").textContent += " "+manifest.version;
+const { AddonManager } = Components.utils.import("resource://gre/modules/AddonManager.jsm");
+AddonManager.getAddonByID("PolishCookieConsentExt@polishannoyancefilters.netlify.com", function(addon) {
+  document.querySelector(".title > p").textContent += " "+addon.version;
+});
 
-chrome.tabs.query({active:true,currentWindow:true},function(tabs){
-  var tabURL = new URL(tabs[0].url)
+const { Services } = Components.utils.import("resource://gre/modules/Services.jsm");
+const stringBundle = Services.strings.createBundle(document.querySelector("meta[stringbundle]").getAttribute("stringbundle"));
+
+self.port.on("getActiveTabURL", function(activeTabURL) {
+  var tabURL = new URL(activeTabURL);
   var hostname = tabURL.hostname.replace("www.", "");
   var protocol = tabURL.protocol;
   if (protocol == "https:" ||protocol == "http:"){
-    chrome.storage.local.get('whitelist', function (result) {
-      if(typeof result.whitelist !== "undefined" && result.whitelist != ""){
-        var whitelist = result.whitelist.split("\n").join([separator = '|']);
-        if(whitelist.includes(hostname))
-        {
-          document.querySelector(".switch").textContent = chrome.i18n.getMessage("popupEnable", hostname);
+    self.port.on("getWhitelist", function(resultWhitelist) {
+      if(typeof resultWhitelist !== "undefined" && resultWhitelist != ""){
+        var whitelist = resultWhitelist.split("\n").join([separator = '|']);
+        if(whitelist.includes(hostname)) {
+          document.querySelector(".switch").textContent = stringBundle.GetStringFromName("popupEnable").replace("$HOSTNAME$", hostname);
           document.querySelector(".switch").addEventListener("click", function() {
-            chrome.storage.local.set({
-              whitelist: result.whitelist.replace(hostname, "").replace(/^\s*[\r\n]/gm,"").trim()
-            });
-            location.reload();
+            self.port.emit("removeFromWhitelist", hostname);
           });
         }
-        else
-        {
-          document.querySelector(".switch").textContent = chrome.i18n.getMessage("popupDisable", hostname);
+        else {
+          document.querySelector(".switch").textContent = stringBundle.GetStringFromName("popupDisable").replace("$HOSTNAME$", hostname);
           document.querySelector(".switch").addEventListener("click", function() {
-            chrome.storage.local.set({
-              whitelist: result.whitelist + "\n" + hostname
-            });
-            location.reload();
+            self.port.emit("addToWhitelist", hostname);
           });
         }
       }
-      else
-      {
-        document.querySelector(".switch").textContent = chrome.i18n.getMessage("popupDisable", hostname);
+      else {
+        document.querySelector(".switch").textContent = stringBundle.GetStringFromName("popupDisable").replace("$HOSTNAME$", hostname);
         document.querySelector(".switch").addEventListener("click", function() {
-          chrome.storage.local.set({
-            whitelist: hostname
-          });
-          location.reload();
+          self.port.emit("addToWhitelist", hostname);
         });
       }
+      document.querySelector(".wrapper-switch").style.display = "flex";
+      document.querySelector(".separator-switch").style.display = "block";
+      size.width = content.offsetWidth + 5;
+      size.height = content.offsetHeight + 5;
+      self.port.emit("resize", size);
     });
-    document.querySelector(".wrapper-switch").style.display = "flex";
-    document.querySelector(".separator-switch").style.display = "block";
+  }
+  else {
+    location.reload();
   }
 });

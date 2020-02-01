@@ -5,6 +5,7 @@ body {
     font-family: sans-serif;
     background-color: #ffffff;
     user-select: none;
+    color: black;
 }
 
 .title {

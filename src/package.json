@@ -1,0 +1,17 @@
+{
+  "title": "Polish Cookie Consent",
+  "name": "pcc",
+  "version": "1.42.0",
+  "description": "Automatically accepts cookie policy/GDPR on pages available in Polish.",
+  "main": "index.js",
+  "author": "Polish Filters Team",
+  "engines": {
+    "firefox": ">=52.0",
+    "{8de7fcbb-c55c-4fbe-bfc5-fc555c87dbc4}": ">=28.0"
+  },
+  "permissions": {"private-browsing": true},
+  "license": "MIT",
+  "keywords": [
+    "jetpack"
+  ]
+}

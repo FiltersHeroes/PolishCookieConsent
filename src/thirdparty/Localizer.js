@@ -1,11 +1,11 @@
 /*!
- * Localizer (https://tinywebex.github.io/Localizer/)
+ * Localizer (modified for legacy extensions by Polish Filters Team)
  * Copyright (c) 2018 rugk and contributors
  * MIT License (https://raw.githubusercontent.com/TinyWebEx/Localizer/master/LICENSE.md)
  */
 
 /**
- * Translates WebExtension's HTML document by attributes.
+ * Translates Extension's HTML document by attributes.
  *
  * @public
  * @module Localizer
@@ -77,7 +77,17 @@ function convertDatasetToAttribute(dataSetValue) {
  * @see {@link https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/i18n/getMessage}
  */
 function getTranslatedMessage(messageName, substitutions) {
-    const translatedMessage = chrome.i18n.getMessage(messageName, substitutions);
+    const { Services } = Components.utils.import("resource://gre/modules/Services.jsm");
+    let translatedMessage;
+    if(substitutions)
+    {
+        translatedMessage = Services.strings.createBundle(document.querySelector("meta[stringbundle]").getAttribute("stringbundle")).formatStringFromName(messageName, substitutions, substitutions.length);
+    }
+    else
+    {
+        translatedMessage = Services.strings.createBundle(document.querySelector("meta[stringbundle]").getAttribute("stringbundle")).GetStringFromName(messageName);
+    }
+
 
     if (!translatedMessage) {
         throw new Error(`no translation string for "${messageName}" could be found`);
@@ -290,7 +300,7 @@ export function init() {
     });
 
     // replace html lang attribut after translation
-    document.querySelector("html").setAttribute("lang", chrome.i18n.getUILanguage());
+    document.querySelector("html").setAttribute("lang", navigator.language);
 }
 
 // automatically init module

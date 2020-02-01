@@ -1,15 +1,14 @@
 function saveFilters(e) {
   e.preventDefault();
-  chrome.storage.local.set({
-    userFilters: document.querySelector("#userFilters").value
-  });
+  self.port.emit("saveFilters", document.querySelector("#userFilters").value);
   document.querySelector("#my-filters button").disabled = true;
 }
 
+
 function restoreFilters() {
-  chrome.storage.local.get(['userFilters'], function (result) {
-    if (result.userFilters) {
-      document.querySelector("#userFilters").value = result.userFilters;
+  self.port.on("restoreFilters", function(userFilters) {
+    if(userFilters) {
+      document.querySelector("#userFilters").value = userFilters;
     }
   });
 }
@@ -17,6 +16,19 @@ function restoreFilters() {
 
 document.addEventListener("DOMContentLoaded", restoreFilters);
 document.querySelector("#my-filters form").addEventListener("submit", saveFilters);
+
+self.port.on("restoreFilters", function(userFilters) {
+  document.querySelector("#my-filters textarea").addEventListener('input', function () {
+    var element = document.querySelector("#my-filters textarea");
+    if (element.value == userFilters) {
+      document.querySelector("#my-filters button").disabled = true;
+    }
+    else {
+      document.querySelector("#my-filters button").disabled = false;
+    }
+  });
+});
+
 
 document.addEventListener('DOMContentLoaded', function () {
   document.querySelector("div#cookie-base").hidden = "";
@@ -50,21 +62,25 @@ document.addEventListener('DOMContentLoaded', function () {
   document.querySelector('.js-hide-sidedrawer').addEventListener("click", hideSidedrawer);
 });
 
-document.querySelector("#about .extensionInfo").textContent = chrome.i18n.getMessage("extensionName") + " " + chrome.runtime.getManifest().version;
+const { Services } = Components.utils.import("resource://gre/modules/Services.jsm");
+const { AddonManager } = Components.utils.import("resource://gre/modules/AddonManager.jsm");
+
+const stringBundle = Services.strings.createBundle(document.querySelector("meta[stringbundle]").getAttribute("stringbundle"));
+AddonManager.getAddonByID("PolishCookieConsentExt@polishannoyancefilters.netlify.com", function(addon) {
+  document.querySelector("#about .extensionInfo").textContent = stringBundle.GetStringFromName("extensionName") + " " + addon.version;
+});
 
 
 function saveWhitelist(e) {
   e.preventDefault();
-  chrome.storage.local.set({
-    whitelist: document.querySelector("#user-whitelist").value
-  });
+  self.port.emit("saveWhitelist", document.querySelector("#user-whitelist").value);
   document.querySelector("#whitelist button").disabled = true;
 }
 
 function restoreWhitelist() {
-  chrome.storage.local.get(['whitelist'], function (result) {
-    if (result.whitelist) {
-      document.querySelector("#user-whitelist").value = result.whitelist;
+  self.port.on("restoreWhitelist", function(whitelist) {
+    if(whitelist) {
+      document.querySelector("#user-whitelist").value = whitelist;
     }
   });
 }
@@ -72,24 +88,10 @@ function restoreWhitelist() {
 document.addEventListener("DOMContentLoaded", restoreWhitelist);
 document.querySelector("#whitelist form").addEventListener("submit", saveWhitelist);
 
-document.querySelector("title").textContent = chrome.i18n.getMessage("extensionName") + " - " + chrome.i18n.getMessage("controlPanel");
-
-document.querySelector("#my-filters textarea").addEventListener('input', function () {
-  chrome.storage.local.get(["userFilters"], function (result) {
-    var element = document.querySelector("#my-filters textarea");
-    if (element.value == result.userFilters) {
-      document.querySelector("#my-filters button").disabled = true;
-    }
-    else {
-      document.querySelector("#my-filters button").disabled = false;
-    }
-  });
-});
-
-document.querySelector("textarea#user-whitelist").addEventListener('input', function () {
-  chrome.storage.local.get(["whitelist"], function (result) {
+self.port.on("restoreWhitelist", function(whitelist) {
+  document.querySelector("textarea#user-whitelist").addEventListener('input', function () {
     var element = document.querySelector("textarea#user-whitelist");
-    if (element.value == result.whitelist) {
+    if (element.value === whitelist) {
       document.querySelector("#whitelist button").disabled = true;
     }
     else {
@@ -98,14 +100,16 @@ document.querySelector("textarea#user-whitelist").addEventListener('input', func
   });
 });
 
+
+
+document.querySelector("title").textContent = stringBundle.GetStringFromName("extensionName") + " - " + stringBundle.GetStringFromName("controlPanel");
+
 function updateVersion() {
-  chrome.storage.local.get(['cookieBase'], function (result) {
-    if (result.cookieBase) {
-      var cookieBaseLine = result.cookieBase.split("\n");
-      for (var i = 0; i < cookieBaseLine.length; i++) {
-        if (cookieBaseLine[i].match("Version")) {
-          document.querySelector(".cBV").textContent += " " + cookieBaseLine[i].split(":")[1].trim();
-        }
+  self.port.on("getCookieBase", function(cookieBase) {
+    var cookieBaseLine = cookieBase.split("\n");
+    for (var i = 0; i < cookieBaseLine.length; i++) {
+      if (cookieBaseLine[i].match("Version")) {
+        document.querySelector(".cBV").textContent += " " + cookieBaseLine[i].split(":")[1].trim();
       }
     }
   });
@@ -113,25 +117,24 @@ function updateVersion() {
 
 document.addEventListener("DOMContentLoaded", updateVersion);
 
-document.querySelector("#showCookieBase").addEventListener("click", function () {
-  var cookieBaseContent = document.querySelector("#cookieBaseContent");
-  chrome.storage.local.get(['cookieBase'], function (result) {
-    if (result.cookieBase) {
-      cookieBaseContent.textContent = result.cookieBase;
-      document.querySelector(".cookieBaseContent").style = "";
-      autosize(document.querySelector('#cookieBaseContent'));
-    }
-  });
-})
+self.port.on("getCookieBase", function(cookieBase) {
+  document.querySelector("#showCookieBase").addEventListener("click", function () {
+    var cookieBaseContent = document.querySelector("#cookieBaseContent");
+      if (cookieBase) {
+        cookieBaseContent.textContent = cookieBase;
+        document.querySelector(".cookieBaseContent").style = "";
+        autosize(document.querySelector('#cookieBaseContent'));
+      }
+  })
+});
+
 
 document.querySelector("#updateCookieBase").addEventListener("click", function () {
   function handleTextResponse(response) {
     return response.text()
     .then(text => {
       if (response.ok) {
-        chrome.storage.local.set({
-          cookieBase: text
-        });
+        self.port.emit("updateCookieBase", text);
         location.reload();
       } else {
         return Promise.reject({

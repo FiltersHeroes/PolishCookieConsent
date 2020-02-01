@@ -1,0 +1,4 @@
+content PCC ./
+
+locale PCC en ./_locales/en/
+locale PCC pl ./_locales/pl/
