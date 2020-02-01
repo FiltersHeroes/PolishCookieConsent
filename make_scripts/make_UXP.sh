@@ -16,5 +16,5 @@ cd "$tymczasowy" || exit
 jpm xpi
 
 mkdir "$sciezka"/../xpi
-mv "$tymczasowy"/*.xpi "$sciezka"/../xpi/
+mv "$tymczasowy"/pcc.xpi "$sciezka"/../xpi/PolishCookieConsent_UXP.xpi
 rm -r "$tymczasowy"
