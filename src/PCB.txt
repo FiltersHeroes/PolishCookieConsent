@@ -1,7 +1,7 @@
 ! Polska Baza Ciasteczkowa
 ! Polish Cookie Base
 ! Version: 2020.01.28.0
-! Copyright © 2019 Polish Filters Team
+! Copyright © 2020 Polish Filters Team
 !
 !
 totalcasino.pl(addToStorage, gdpr_popup, true)
