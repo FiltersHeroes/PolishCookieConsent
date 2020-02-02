@@ -50,7 +50,9 @@ pageMod.PageMod({
     else {
       worker.port.emit("getWhitelist", "null");
     }
-    worker.port.emit("getUserFilters", ss.storage.userFilters);
+    if(ss.storage.userFilters) {
+      worker.port.emit("getUserFilters", ss.storage.userFilters);
+    }
     worker.port.emit("getCookieBase", ss.storage.cookieBase);
   }
 });
@@ -87,7 +89,10 @@ var button = ToggleButton({
   icon: {
     "16": "chrome://PCC/content/icons/icon16.png",
     "32": "chrome://PCC/content/icons/icon32.png",
-    "64": "chrome://PCC/content/icons/icon64.png"
+    "48": "chrome://PCC/content/icons/icon48.png",
+    "64": "chrome://PCC/content/icons/icon64.png",
+    "96": "chrome://PCC/content/icons/icon96.png",
+    "128": "chrome://PCC/content/icons/icon128.png"
   },
   onChange: handleChange
 });
@@ -136,3 +141,32 @@ function handleChange(state) {
 function handleHide() {
   button.state('window', {checked: false});
 }
+
+var { setTimeout } = require("sdk/timers");
+var _updateTime = new Date().getTime() + 24 * 7 * 60 * 60 * 1000;
+
+if(! ss.storage.updateTime) {
+  ss.storage.updateTime = _updateTime;
+}
+
+var interval = ss.storage.updateTime - Date.now();
+
+if(interval < 0) {
+  interval = 10;
+}
+
+setTimeout(function() {
+  var updateCookieBase = Request({
+    url: "https://raw.githubusercontent.com/PolishFiltersTeam/PolishCookieConsent/master/src/PCB.txt",
+    overrideMimeType: "text/plain; charset=utf-8",
+    onComplete: function (response) {
+      if(response.status == 200) {
+        ss.storage.cookieBase = response.text;
+      }
+      _updateTime = new Date().getTime() + 24 * 7 * 60 * 60 * 1000;
+      ss.storage.updateTime = _updateTime;
+      interval = ss.storage.updateTime - Date.now();
+    }
+  });
+  updateCookieBase.get();
+}, interval)
