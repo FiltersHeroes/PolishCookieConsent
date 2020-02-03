@@ -7,7 +7,9 @@ Addons.mozilla.org: [![Moz://a AMO version](https://img.shields.io/amo/v/polish-
 
 Chrome Web Store: [![Chrome Web Store version](https://img.shields.io/chrome-web-store/v/bniijddcmabghibaojbkbnngbedopbno.svg?label=CWS "Chrome Web Store version")](https://chrome.google.com/webstore/detail/polish-cookie-consent/bniijddcmabghibaojbkbnngbedopbno?hl=pl "Chrome Web Store version") ![Chromium users](https://img.shields.io/chrome-web-store/users/bniijddcmabghibaojbkbnngbedopbno.svg?label=użytkowników "Chromium users")
 
-Pale Moon Add-ons: [![Pale Moon Add-ons version](https://img.shields.io/badge/PMA-v1.42.2-%23007ec6.svg "Pale Moon Add-ons version")](https://addons.palemoon.org/addon/pcc/ "Pale Moon Add-ons version")
+Pale Moon Add-ons: [![Pale Moon Add-ons version](https://img.shields.io/badge/PMA-v1.42.3-%23007ec6.svg "Pale Moon Add-ons version")](https://addons.palemoon.org/addon/pcc/ "Pale Moon Add-ons version")
+
+Basilisk Add-ons: [![Basilisk Add-ons version](https://img.shields.io/badge/BA-v1.42.3-%23007ec6.svg "Basilisk Add-ons version")](https://addons.basilisk-browser.org/addon/pcc/ "Basilisk Add-ons version")
 
 <!-- Whale Store: [![Whale Store version](https://img.shields.io/badge/WS%20🐳%20-v1.41.0-%23007ec6.svg "Whale Store 🐳 version")](https://store.whale.naver.com/detail/micngbppijeajicgilihpkkbkgibmjhb?hl=pl) -->
 
@@ -30,6 +32,10 @@ Pale Moon Add-ons: [![Pale Moon Add-ons version](https://img.shields.io/badge/PM
 
 ### **IV. ![Pale Moon][Pale Moon]Pale Moon**
 1. Zainstaluj najnowszą wersję rozszerzenia z [PMA](https://addons.palemoon.org/addon/pcc/).
+2. Gotowe :tada: !
+
+### **V. ![Basilisk][Basilisk]Basilisk**
+1. Zainstaluj najnowszą wersję rozszerzenia z [BA](https://addons.basilisk-browser.org/addon/pcc/).
 2. Gotowe :tada: !
 
 <!-- ### **IV. ![Whale][Whale]NAVER Whale**
