@@ -1,7 +1,7 @@
 {
   "title": "Polish Cookie Consent",
   "name": "pcc",
-  "version": "1.42.1",
+  "version": "1.42.2",
   "description": "Automatically accepts cookie policy/GDPR on pages available in Polish.",
   "main": "index.js",
   "author": "Polish Filters Team",
