@@ -293,7 +293,7 @@ function replaceI18n(elem, tag) {
  * @public
  * @returns {void}
  */
-export function init() {
+function init() {
     document.querySelectorAll(`[${I18N_ATTRIBUTE}]`).forEach((currentElem) => {
         const contentString = currentElem.dataset[I18N_DATASET];
         replaceI18n(currentElem, contentString);
