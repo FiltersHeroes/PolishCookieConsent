@@ -62,6 +62,8 @@ Basilisk Add-ons: [![Basilisk Add-ons version](https://img.shields.io/badge/BA-v
 
 Polska Ciasteczkowa Zgoda korzysta z otwartoźródłowego kodu następujących projektów (wg. kolejności alfabetycznej):
 
+* [jackmoore/autosize](https://github.com/jackmoore/autosize)
+
 * [TinyWebEx/Localizer](https://github.com/TinyWebEx/Localizer)
 
 * [google/material-design-icons](https://github.com/google/material-design-icons)
@@ -69,5 +71,3 @@ Polska Ciasteczkowa Zgoda korzysta z otwartoźródłowego kodu następujących p
 * [muicss/mui](https://github.com/muicss/mui)
 
 * [primer/octicons](https://github.com/primer/octicons/)
-
-* [jackmoore/autosize](https://github.com/jackmoore/autosize)
