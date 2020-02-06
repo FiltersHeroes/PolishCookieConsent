@@ -1,6 +1,6 @@
 ! Polska Baza Ciasteczkowa
 ! Polish Cookie Base
-! Version: 2020.01.28.0
+! Version: 2020.02.06.0
 ! Copyright © 2020 Polish Filters Team
 !
 !
@@ -36,3 +36,7 @@ redirect.global.commerce-connector.com\/consent\/(clickTimeout, .cookie-notice >
 =https://powiatkamienski.pl/(redirect, aktualnosci.dhtml, false)
 f1racing.pl(redirect, x-set-cookie, true, x-id-cookie-yes=)
 parkiet.com|rp.pl(clickCompleteText, *[@id="rodo-popup"]//button, Zapisz)
+cineman.pl(bakeCookie, HAS_COOKIES_FORM_SHOWED, true, 3650)
+cineman.pl(bakeCookie, ARE_REQUIRED_COOKIES_ACCEPTED, true, 3650)
+cineman.pl(bakeCookie, ARE_MARKETING_COOKIES_ACCEPTED, true, 3650)
+cineman.pl(bakeCookie, ARE_FUNCTIONAL_COOKIES_ACCEPTED, true, 3650)
