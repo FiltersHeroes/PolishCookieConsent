@@ -1,2 +1,3 @@
 src/.web-extension-id
 src/web-ext-artifacts
+*.xpi
