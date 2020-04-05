@@ -56,7 +56,7 @@ function clickCompleteText(element, text, urlArg) {
             var counter = 0;
             (function checkIfElemExists() {
                 var btnYes = document.evaluate("//" + element + "[contains(text(), " + '"' + text + '"' + ")]", document, null, XPathResult.ANY_TYPE, null).iterateNext();
-                if (counter < 100 && btnYes == null) {
+                if (counter < 200 && btnYes == null) {
                     window.requestAnimationFrame(checkIfElemExists);
                     counter++;
                 } else if (btnYes) {
