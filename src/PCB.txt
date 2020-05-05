@@ -1,6 +1,6 @@
 ! Polska Baza Ciasteczkowa
 ! Polish Cookie Base
-! Version: 2020.03.24.1
+! Version: 2020.05.05.1
 ! Copyright © 2020 Polish Filters Team
 !
 !
@@ -40,3 +40,4 @@ cineman.pl(bakeCookie, HAS_COOKIES_FORM_SHOWED, true, 3650)
 cineman.pl(bakeCookie, ARE_REQUIRED_COOKIES_ACCEPTED, true, 3650)
 cineman.pl(bakeCookie, ARE_MARKETING_COOKIES_ACCEPTED, true, 3650)
 cineman.pl(bakeCookie, ARE_FUNCTIONAL_COOKIES_ACCEPTED, true, 3650)
+pocztapolska24.pl(bakeCookie, share-node, 152511035016, 365)
