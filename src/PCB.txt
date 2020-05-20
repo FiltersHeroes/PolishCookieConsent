@@ -1,6 +1,6 @@
 ! Polska Baza Ciasteczkowa
 ! Polish Cookie Base
-! Version: 2020.05.13.0
+! Version: 2020.05.20.0
 ! Copyright © 2020 Polish Filters Team
 !
 !
@@ -40,4 +40,4 @@ cineman.pl(bakeCookie, HAS_COOKIES_FORM_SHOWED, true, 3650)
 cineman.pl(bakeCookie, ARE_REQUIRED_COOKIES_ACCEPTED, true, 3650)
 cineman.pl(bakeCookie, ARE_MARKETING_COOKIES_ACCEPTED, true, 3650)
 cineman.pl(bakeCookie, ARE_FUNCTIONAL_COOKIES_ACCEPTED, true, 3650)
-eurogamer.pl(clickTimeout, .optanon-allow-all-button)
+eurogamer.pl(clickTimeout, #onetrust-accept-btn-handler)
