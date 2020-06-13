@@ -1,5 +1,5 @@
 /*!
- * MUI v0.10.0 (https://www.muicss.com/)
+ * MUI v0.10.3 (https://www.muicss.com/)
  * Copyright (c) 2015 Andres Morey
  * MIT License (https://github.com/muicss/mui/raw/master/LICENSE.txt)
 */
@@ -1941,12 +1941,15 @@
 
     // get previous pane
     prevPaneEl = getActiveSibling(currPaneEl);
-    prevPaneId = prevPaneEl.id;
 
-    // get previous toggle and tab elements
-    cssSelector = '[' + controlsAttrKey + '="' + prevPaneId + '"]';
-    prevToggleEl = document.querySelectorAll(cssSelector)[0];
-    prevTabEl = prevToggleEl.parentNode;
+    if (prevPaneEl) {
+      prevPaneId = prevPaneEl.id;
+
+      // get previous toggle and tab elements
+      cssSelector = '[' + controlsAttrKey + '="' + prevPaneId + '"]';
+      prevToggleEl = document.querySelectorAll(cssSelector)[0];
+      prevTabEl = prevToggleEl.parentNode;
+    }
 
     // define event data
     currData = {paneId: currPaneId, relatedPaneId: prevPaneId};
