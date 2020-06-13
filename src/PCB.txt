@@ -53,6 +53,3 @@ redirect.global.commerce-connector.com\/consent\/(clickTimeout, .cookie-notice >
 ! redirect
 =https://powiatkamienski.pl/(redirect, aktualnosci.dhtml, false)
 f1racing.pl(redirect, x-set-cookie, true, x-id-cookie-yes=)
-
-
-
