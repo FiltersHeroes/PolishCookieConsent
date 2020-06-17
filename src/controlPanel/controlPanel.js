@@ -19,7 +19,6 @@ document.addEventListener("DOMContentLoaded", restoreFilters);
 document.querySelector("#my-filters form").addEventListener("submit", saveFilters);
 
 document.addEventListener('DOMContentLoaded', function () {
-  document.querySelector("div#cookie-base").hidden = "";
   var bodyEl = document.querySelector('body'),
   sidedrawerEl = document.querySelector('#sidedrawer');
 
@@ -48,6 +47,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
   document.querySelector('.js-show-sidedrawer').addEventListener("click", showSidedrawer);
   document.querySelector('.js-hide-sidedrawer').addEventListener("click", hideSidedrawer);
+
+  chrome.storage.local.get(['lastOpenedTab'], function (result) {
+    if (result.lastOpenedTab) {
+      document.querySelector('.mui-tabs__bar [data-mui-controls='+result.lastOpenedTab+']').parentNode.classList.add("mui--is-active");
+      document.querySelector('.mobileMenu [data-mui-controls='+result.lastOpenedTab+']').parentNode.classList.add("mui--is-active");
+      document.querySelector('div#'+result.lastOpenedTab).classList.add("mui--is-active");
+    }
+    else {
+      var firstDesktopTab = document.querySelectorAll('.mui-tabs__bar li')[0];
+      var firstMobileTab = document.querySelectorAll('.mobileMenu li')[0];
+      firstDesktopTab.classList.add("mui--is-active");
+      firstMobileTab.classList.add("mui--is-active");
+      document.querySelector('div#'+firstMobileTab.querySelector("a").getAttribute("data-mui-controls")).classList.add("mui--is-active");
+    }
+  });
 });
 
 document.querySelector("#about .extensionInfo").textContent = chrome.i18n.getMessage("extensionName") + " " + chrome.runtime.getManifest().version;
@@ -163,3 +177,12 @@ document.querySelector('#sidedrawer [data-mui-controls="whitelist"]').addEventLi
 document.querySelector('#sidedrawer [data-mui-controls="my-filters"]').addEventListener("mui.tabs.showend", function () {
   autosize(document.querySelector('#userFilters'));
 })
+
+var tabs = document.querySelectorAll('[data-mui-toggle="tab"]');
+for (var i = 0; i < tabs.length; i++) {
+  tabs[i].addEventListener("click", function () {
+    chrome.storage.local.set({
+      lastOpenedTab: this.getAttribute("data-mui-controls")
+    });
+  })
+}
