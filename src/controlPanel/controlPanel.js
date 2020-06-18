@@ -48,6 +48,8 @@ document.addEventListener('DOMContentLoaded', function () {
   document.querySelector('.js-show-sidedrawer').addEventListener("click", showSidedrawer);
   document.querySelector('.js-hide-sidedrawer').addEventListener("click", hideSidedrawer);
 
+  autosize(document.querySelector("#cookieBaseContent"));
+
   chrome.storage.local.get(['lastOpenedTab'], function (result) {
     if (result.lastOpenedTab) {
       document.querySelector('.mui-tabs__bar [data-mui-controls='+result.lastOpenedTab+']').parentNode.classList.add("mui--is-active");
@@ -118,7 +120,8 @@ function updateVersion() {
       var cookieBaseLine = result.cookieBase.split("\n");
       for (var i = 0; i < cookieBaseLine.length; i++) {
         if (cookieBaseLine[i].match("Version")) {
-          document.querySelector(".cBV").textContent += " " + cookieBaseLine[i].split(":")[1].trim();
+          var cBV = document.querySelector(".cBV");
+          cBV.textContent = cBV.textContent.split(':')[0] + ": " + cookieBaseLine[i].split(":")[1].trim();
         }
       }
     }
@@ -129,16 +132,29 @@ document.addEventListener("DOMContentLoaded", updateVersion);
 
 document.querySelector("#showCookieBase").addEventListener("click", function () {
   var cookieBaseContent = document.querySelector("#cookieBaseContent");
+  var toggleBtn = document.querySelector("button#showCookieBase");
   chrome.storage.local.get(['cookieBase'], function (result) {
-    if (result.cookieBase) {
+    if (result.cookieBase && cookieBaseContent.textContent.length == 0) {
       cookieBaseContent.textContent = result.cookieBase;
       document.querySelector(".cookieBaseContent").style = "";
-      autosize(document.querySelector('#cookieBaseContent'));
+      cookieBaseContent.style.visibility = "";
+      toggleBtn.querySelector("svg.hideCookieBase").removeAttribute("hidden");
+      toggleBtn.querySelector("svg.showCookieBase").setAttribute("hidden", true);
+      replaceI18n(toggleBtn, "__MSG_hideCookieBase__");
     }
+    else if (cookieBaseContent.textContent.length > 0) {
+      cookieBaseContent.textContent = "";
+      cookieBaseContent.style.visibility = "hidden";
+      toggleBtn.querySelector("svg.hideCookieBase").setAttribute("hidden", true);
+      toggleBtn.querySelector("svg.showCookieBase").removeAttribute("hidden");
+      replaceI18n(toggleBtn, "__MSG_showCookieBase__");
+    }
+    autosize.update(cookieBaseContent);
   });
 })
 
 document.querySelector("#updateCookieBase").addEventListener("click", function () {
+  var updateBtn = document.querySelector("button#updateCookieBase");
   function handleTextResponse(response) {
     return response.text()
     .then(text => {
@@ -146,7 +162,9 @@ document.querySelector("#updateCookieBase").addEventListener("click", function (
         chrome.storage.local.set({
           cookieBase: text
         });
-        location.reload();
+        document.querySelector("#cookieBaseContent").textContent = text;
+        updateVersion();
+        updateBtn.classList.remove("active");
       } else {
         return Promise.reject({
           status: response.status,
@@ -156,7 +174,7 @@ document.querySelector("#updateCookieBase").addEventListener("click", function (
       }
     })
   }
-
+  updateBtn.classList.add("active");
   fetch('https://raw.githubusercontent.com/PolishFiltersTeam/PolishCookieConsent/master/src/PCB.txt')
   .then(handleTextResponse)
   .catch(error => console.log(error));

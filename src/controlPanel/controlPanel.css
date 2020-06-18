@@ -45,17 +45,23 @@ button {
 button .material-icon {
     position: relative;
     top: 3px;
-    left: 5px;
+    left: 8px;
+    fill: #fff;
 }
 
-.mui-tabs__bar .material-icon img {
-    filter: invert(1);
+button .material-icon, .aboutIcon, #sidedrawer .material-icon {
+    width: 20px;
+    height: 20px;
 }
 
 .mui-tabs__bar .material-icon {
-    position: relative;
-    top: 5px;
-    right: 10px;
+    margin-right: 8px;
+}
+
+.mui-tabs__bar .material-icon, .sidedrawer-toggle .material-icon {
+    fill: #fff;
+    width: 24px;
+    height: 24px;
 }
 
 .mui-tabs__bar {
@@ -182,4 +188,23 @@ body:not(.mui-scroll-lock) .js-hide-sidedrawer {
 body.mui-scroll-lock .mui-btn {
     white-space: normal !important;
     display: flex;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+button#updateCookieBase.active {
+    pointer-events: none;
+}
+
+button#updateCookieBase.active .material-icon {
+    animation: spin 1s linear infinite;
+    transform-origin: 50%;
+}
+
+.mui-tabs__bar > li > a {
+    display: flex !important;
+    align-items: center;
 }
