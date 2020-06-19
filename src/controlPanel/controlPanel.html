@@ -143,11 +143,20 @@
                             rel="noopener" data-i18n="__MSG_PCCsyntax__"></a>
                     </label>
                 </div>
-                <button class="mui-btn mui--bg-color-brown-600" type="submit" data-i18n="__MSG_apply__"
-                    data-opt-i18n-keep-children disabled="true">
+                <button id="userFiltersApply" class="mui-btn mui--bg-color-brown-600" type="submit" data-i18n="__MSG_apply__" data-opt-i18n-keep-children disabled="true">
                     <svg class="material-icon">
                         <use href="../thirdparty/octicons24.svg#check"></use>
                      </svg>
+                </button>
+                <button id="userFiltersImport" class="mui-btn mui--bg-color-brown-600" type="button" data-i18n="__MSG_import__" data-opt-i18n-keep-children>
+                    <svg class="material-icon">
+                        <use href="../thirdparty/octicons24.svg#download"></use>
+                    </svg>
+                </button>
+                <button id="userFiltersExport" class="mui-btn mui--bg-color-brown-600" type="button" data-i18n="__MSG_export__" data-opt-i18n-keep-children>
+                    <svg class="material-icon">
+                        <use href="../thirdparty/octicons24.svg#upload"></use>
+                    </svg>
                 </button>
             </form>
         </div>
@@ -163,11 +172,20 @@
                     <label for="user-whitelist" data-i18n="__MSG_whitelistHelp__">
                     </label>
                 </div>
-                <button class="mui-btn mui--bg-color-brown-600" type="submit" data-i18n="__MSG_apply__"
-                    data-opt-i18n-keep-children disabled="true">
+                <button id="whitelistApply" class="mui-btn mui--bg-color-brown-600" type="submit" data-i18n="__MSG_apply__" data-opt-i18n-keep-children disabled="true">
                     <svg class="material-icon">
                         <use href="../thirdparty/octicons24.svg#check"></use>
                      </svg>
+                </button>
+                <button id="whitelistImport" class="mui-btn mui--bg-color-brown-600" type="button" data-i18n="__MSG_import__" data-opt-i18n-keep-children>
+                    <svg class="material-icon">
+                        <use href="../thirdparty/octicons24.svg#download"></use>
+                    </svg>
+                </button>
+                <button id="whitelistExport" class="mui-btn mui--bg-color-brown-600" type="button" data-i18n="__MSG_export__" data-opt-i18n-keep-children>
+                    <svg class="material-icon">
+                        <use href="../thirdparty/octicons24.svg#upload"></use>
+                    </svg>
                 </button>
             </form>
         </div>
@@ -227,6 +245,8 @@
             </div>
         </div>
     </div>
+
+    <input id="importFilePicker" accept="text/plain" type="file" hidden="true">
 
     <script src="../thirdparty/Localizer.js"></script>
     <script src="../thirdparty/mui.js"></script>

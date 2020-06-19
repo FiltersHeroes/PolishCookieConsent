@@ -3,19 +3,10 @@ function saveFilters(e) {
   chrome.storage.local.set({
     userFilters: document.querySelector("#userFilters").value
   });
-  document.querySelector("#my-filters button").disabled = true;
-}
-
-function restoreFilters() {
-  chrome.storage.local.get(['userFilters'], function (result) {
-    if (result.userFilters) {
-      document.querySelector("#userFilters").value = result.userFilters;
-    }
-  });
+  document.querySelector("#userFiltersApply").disabled = true;
 }
 
 
-document.addEventListener("DOMContentLoaded", restoreFilters);
 document.querySelector("#my-filters form").addEventListener("submit", saveFilters);
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -64,6 +55,23 @@ document.addEventListener('DOMContentLoaded', function () {
       document.querySelector('div#'+firstMobileTab.querySelector("a").getAttribute("data-mui-controls")).classList.add("mui--is-active");
     }
   });
+  autosize(document.querySelector("#userFilters"));
+  autosize(document.querySelector("#user-whitelist"));
+
+  chrome.storage.local.get(['userFilters'], function (result) {
+    if (result.userFilters) {
+      document.querySelector("#userFilters").value = result.userFilters;
+    }
+    autosize.update(document.querySelector("#userFilters"));
+  });
+
+  chrome.storage.local.get(['whitelist'], function (result) {
+    if (result.whitelist) {
+      document.querySelector("#user-whitelist").value = result.whitelist;
+    }
+    autosize.update(document.querySelector('#user-whitelist'));
+  });
+
 });
 
 document.querySelector("#about .extensionInfo").textContent = chrome.i18n.getMessage("extensionName") + " " + chrome.runtime.getManifest().version;
@@ -74,30 +82,21 @@ function saveWhitelist(e) {
   chrome.storage.local.set({
     whitelist: document.querySelector("#user-whitelist").value
   });
-  document.querySelector("#whitelist button").disabled = true;
+  document.querySelector("#whitelistApply").disabled = true;
 }
 
-function restoreWhitelist() {
-  chrome.storage.local.get(['whitelist'], function (result) {
-    if (result.whitelist) {
-      document.querySelector("#user-whitelist").value = result.whitelist;
-    }
-  });
-}
-
-document.addEventListener("DOMContentLoaded", restoreWhitelist);
 document.querySelector("#whitelist form").addEventListener("submit", saveWhitelist);
 
 document.querySelector("title").textContent = chrome.i18n.getMessage("extensionName") + " - " + chrome.i18n.getMessage("controlPanel");
 
-document.querySelector("#my-filters textarea").addEventListener('input', function () {
+document.querySelector("#userFilters").addEventListener('input', function () {
   chrome.storage.local.get(["userFilters"], function (result) {
-    var element = document.querySelector("#my-filters textarea");
+    var element = document.querySelector("#userFilters");
     if (element.value == result.userFilters) {
-      document.querySelector("#my-filters button").disabled = true;
+      document.querySelector("#userFiltersApply").disabled = true;
     }
     else {
-      document.querySelector("#my-filters button").disabled = false;
+      document.querySelector("#userFiltersApply").disabled = false;
     }
   });
 });
@@ -106,12 +105,56 @@ document.querySelector("textarea#user-whitelist").addEventListener('input', func
   chrome.storage.local.get(["whitelist"], function (result) {
     var element = document.querySelector("textarea#user-whitelist");
     if (element.value == result.whitelist) {
-      document.querySelector("#whitelist button").disabled = true;
+      document.querySelector("#whitelistApply").disabled = true;
     }
     else {
-      document.querySelector("#whitelist button").disabled = false;
+      document.querySelector("#whitelistApply").disabled = false;
     }
   });
+});
+
+function todayDate() {
+  return new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000).toISOString().replace(/\.\d+Z$/, '').replace(/:/g, '.').replace('T', '_');
+}
+
+function exportText(field, fileNamePart) {
+  chrome.downloads.download({
+    url: window.URL.createObjectURL(new Blob([document.getElementById(field).value], {type: "text/plain"})),
+    filename : chrome.i18n.getMessage("extensionShortName") + "-" + chrome.i18n.getMessage(fileNamePart).replace(" ", "-").toLowerCase() + "_" + todayDate() + ".txt",
+    saveAs: true
+  });
+}
+
+function importText(textarea, button) {
+  var fp = document.getElementById("importFilePicker");
+  fp.addEventListener('change', function() {
+    const file = fp.files[0];
+    const fr = new FileReader();
+    fr.onload = function(e) {
+      document.getElementById(textarea).value = fr.result;
+      autosize.update(document.getElementById(textarea));
+      document.getElementById(button).disabled = false;
+    }
+    fr.readAsText(file);
+  })
+  fp.value = '';
+  fp.click();
+}
+
+document.querySelector('#userFiltersImport').addEventListener('click', function() {
+  importText("userFilters", "userFiltersApply");
+});
+
+document.querySelector('#whitelistImport').addEventListener('click', function() {
+  importText("user-whitelist", "whitelistApply");
+});
+
+document.querySelector('#userFiltersExport').addEventListener('click', function() {
+  exportText("userFilters", "myFilters");
+});
+
+document.querySelector('#whitelistExport').addEventListener('click', function() {
+  exportText("user-whitelist", "whitelist");
 });
 
 function updateVersion() {
@@ -181,19 +224,19 @@ document.querySelector("#updateCookieBase").addEventListener("click", function (
 })
 
 document.querySelector('.mui-tabs__bar [data-mui-controls="whitelist"]').addEventListener("mui.tabs.showend", function () {
-  autosize(document.querySelector('#user-whitelist'));
+  autosize.update(document.querySelector('#user-whitelist'));
 })
 
 document.querySelector('.mui-tabs__bar [data-mui-controls="my-filters"]').addEventListener("mui.tabs.showend", function () {
-  autosize(document.querySelector('#userFilters'));
+  autosize.update(document.querySelector('#userFilters'));
 })
 
 document.querySelector('#sidedrawer [data-mui-controls="whitelist"]').addEventListener("mui.tabs.showend", function () {
-  autosize(document.querySelector('#user-whitelist'));
+  autosize.update(document.querySelector('#user-whitelist'));
 })
 
 document.querySelector('#sidedrawer [data-mui-controls="my-filters"]').addEventListener("mui.tabs.showend", function () {
-  autosize(document.querySelector('#userFilters'));
+  autosize.update(document.querySelector('#userFilters'));
 })
 
 var tabs = document.querySelectorAll('[data-mui-toggle="tab"]');
