@@ -41,9 +41,12 @@ for (var i = 0; i < tabs.length; i++) {
 chrome.storage.local.get(['lastOpenedTab'], function (result) {
     if (result.lastOpenedTab) {
         mui.tabs.activate(result.lastOpenedTab);
+        document.querySelector('.mobileMenu [data-mui-controls=' + result.lastOpenedTab + ']').parentNode.classList.add("mui--is-active");
     }
     else {
-        mui.tabs.activate(document.querySelectorAll('.mobileMenu li a')[0].getAttribute("data-mui-controls"));
+        var firstMobileTab = document.querySelectorAll('.mobileMenu li')[0];
+        firstMobileTab.classList.add("mui--is-active");
+        mui.tabs.activate(firstMobileTab.querySelector("a").getAttribute("data-mui-controls"));
     }
 });
 
