@@ -138,5 +138,8 @@
   },
   "import": {
     "message":"Import and append"
+  },
+  "revert": {
+    "message": "Revert"
   }
 }

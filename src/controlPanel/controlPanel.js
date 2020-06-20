@@ -54,24 +54,27 @@ chrome.storage.local.get(['lastOpenedTab'], function (result) {
 });
 
 // Automatically adjust textareas height
-autosize(document.querySelector("#cookieBaseContent"));
-autosize(document.querySelector("#userFilters"));
-autosize(document.querySelector("#userWhitelist"));
+var cookieBaseContent = document.getElementById("cookieBaseContent");
+var userFilters = document.getElementById("userFilters");
+var userWhitelist = document.getElementById("userWhitelist");
+autosize(cookieBaseContent);
+autosize(userFilters);
+autosize(userWhitelist);
 
 document.querySelector('.mui-tabs__bar [data-mui-controls="whitelist"]').addEventListener("mui.tabs.showend", function () {
-    autosize.update(document.querySelector('#userWhitelist'));
+    autosize.update(userWhitelist);
 })
 
 document.querySelector('.mui-tabs__bar [data-mui-controls="my-filters"]').addEventListener("mui.tabs.showend", function () {
-    autosize.update(document.querySelector('#userFilters'));
+    autosize.update(userFilters);
 })
 
 document.querySelector('#sidedrawer [data-mui-controls="whitelist"]').addEventListener("mui.tabs.showend", function () {
-    autosize.update(document.querySelector('#userWhitelist'));
+    autosize.update(userWhitelist);
 })
 
 document.querySelector('#sidedrawer [data-mui-controls="my-filters"]').addEventListener("mui.tabs.showend", function () {
-    autosize.update(document.querySelector('#userFilters'));
+    autosize.update(userFilters);
 })
 
 // Show version number of Polish Cookie Base
@@ -101,7 +104,7 @@ document.querySelector("#updateCookieBase").addEventListener("click", function (
                     chrome.storage.local.set({
                         cookieBase: text
                     });
-                    document.querySelector("#cookieBaseContent").textContent = text;
+                    cookieBaseContent.textContent = text;
                     updateVersion();
                     updateBtn.classList.remove("active");
                 } else {
@@ -121,7 +124,6 @@ document.querySelector("#updateCookieBase").addEventListener("click", function (
 
 // Show/hide Cookie Base
 document.querySelector("#showCookieBase").addEventListener("click", function () {
-    var cookieBaseContent = document.querySelector("#cookieBaseContent");
     var toggleBtn = document.querySelector("button#showCookieBase");
     chrome.storage.local.get(['cookieBase'], function (result) {
         if (result.cookieBase && cookieBaseContent.textContent.length == 0) {
@@ -144,84 +146,124 @@ document.querySelector("#showCookieBase").addEventListener("click", function () 
 })
 
 // Add user filters to textarea
-chrome.storage.local.get(['userFilters'], function (result) {
-    if (result.userFilters) {
-        document.querySelector("#userFilters").value = result.userFilters;
-    }
-    autosize.update(document.querySelector("#userFilters"));
+restoreUserFilters();
+function restoreUserFilters() {
+    chrome.storage.local.get(['userFilters'], function (result) {
+        if (result.userFilters) {
+            userFilters.value = result.userFilters;
+        }
+        else {
+            userFilters.value = "";
+        }
+        autosize.update(userFilters);
+    });
+}
+
+// Revert user filters text area to original value
+var userFiltersRevert = document.getElementById("userFiltersRevert");
+var userFiltersApply = document.getElementById("userFiltersApply");
+userFiltersRevert.addEventListener("click", function () {
+    restoreUserFilters();
+    userFiltersRevert.disabled = true;
+    userFiltersApply.disabled = true;
 });
 
 // Save user filters
 document.querySelector("#my-filters form").addEventListener("submit", function (e) {
     e.preventDefault();
     chrome.storage.local.set({
-        userFilters: document.querySelector("#userFilters").value
+        userFilters: userFilters.value
     });
-    document.querySelector("#userFiltersApply").disabled = true;
+    userFiltersApply.disabled = true;
+    userFiltersRevert.disabled = true;
 });
 
-// Disable/enable submit user filters button
-document.querySelector("#userFilters").addEventListener('input', function () {
+// Disable/enable submit and revert user filters buttons
+userFilters.addEventListener('input', function () {
     chrome.storage.local.get(["userFilters"], function (result) {
-        var element = document.querySelector("#userFilters");
-        if (element.value == result.userFilters) {
-            document.querySelector("#userFiltersApply").disabled = true;
+        if (userFilters.value == result.userFilters) {
+            userFiltersApply.disabled = true;
+            userFiltersRevert.disabled = true;
         }
         else {
-            document.querySelector("#userFiltersApply").disabled = false;
+            userFiltersApply.disabled = false;
+            userFiltersRevert.disabled = false;
         }
     });
 });
 
 
 // Add whitelist to textarea
-chrome.storage.local.get(['whitelist'], function (result) {
-    if (result.whitelist) {
-        document.querySelector("#userWhitelist").value = result.whitelist;
-    }
-    autosize.update(document.querySelector('#userWhitelist'));
+restoreWhitelist();
+function restoreWhitelist() {
+    chrome.storage.local.get(['whitelist'], function (result) {
+        if (result.whitelist) {
+            userWhitelist.value = result.whitelist;
+        }
+        else {
+            userWhitelist.value = "";
+        }
+        autosize.update(userWhitelist);
+    });
+}
+
+// Revert whitelist text area to original value
+var whitelistApply = document.getElementById("whitelistApply");
+var whitelistRevert = document.getElementById("whitelistRevert");
+whitelistRevert.addEventListener("click", function () {
+    restoreWhitelist();
+    whitelistRevert.disabled = true;
+    whitelistApply.disabled = true;
 });
 
 // Save whitelist
 document.querySelector("#whitelist form").addEventListener("submit", function (e) {
     e.preventDefault();
     chrome.storage.local.set({
-        whitelist: document.querySelector("#userWhitelist").value
+        whitelist: userWhitelist.value
     });
-    document.querySelector("#whitelistApply").disabled = true;
+    whitelistApply.disabled = true;
+    whitelistRevert.disabled = true;
 });
 
-// Disable/enable submit whitelist button
-document.querySelector("textarea#userWhitelist").addEventListener('input', function () {
+// Disable/enable submit and revert whitelist buttons
+userWhitelist.addEventListener('input', function () {
     chrome.storage.local.get(["whitelist"], function (result) {
-        var element = document.querySelector("textarea#userWhitelist");
-        if (element.value == result.whitelist) {
-            document.querySelector("#whitelistApply").disabled = true;
+        if (userWhitelist.value == result.whitelist) {
+            whitelistApply.disabled = true;
+            whitelistRevert.disabled = true;
         }
         else {
-            document.querySelector("#whitelistApply").disabled = false;
+            whitelistApply.disabled = false;
+            whitelistRevert.disabled = false;
         }
     });
 });
 
 // Import user filters and whitelist
 document.querySelector('#userFiltersImport').addEventListener('click', function () {
-    importText("userFilters", "userFiltersApply");
+    importText("userFilters", "userFiltersApply", "userFiltersRevert");
 });
 
 document.querySelector('#whitelistImport').addEventListener('click', function () {
-    importText("userWhitelist", "whitelistApply");
+    importText("userWhitelist", "whitelistApply", "whitelistRevert");
 });
 
-function importText(textarea, button) {
+function importText(textarea, applyButton, revertButton) {
     var fp = document.getElementById("importFilePicker");
     fp.addEventListener('change', function () {
         const file = fp.files[0];
         const fr = new FileReader();
         fr.onload = function (e) {
-            document.getElementById(textarea).value = fr.result;
+            if (document.getElementById(textarea).textLength > 0) {
+                document.getElementById(textarea).value += "\n" + fr.result;
+            }
+            else {
+                document.getElementById(textarea).value = fr.result;
+            }
             autosize.update(document.getElementById(textarea));
-            document.getElementById(button).disabled = false;
+            document.getElementById(applyButton).disabled = false;
+            document.getElementById(revertButton).disabled = false;
         }
         fr.readAsText(file);
     })

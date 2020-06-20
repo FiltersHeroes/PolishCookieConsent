@@ -138,5 +138,8 @@
   },
   "import": {
     "message":"Importuj i dołącz"
+  },
+  "revert": {
+    "message": "Przywróć"
   }
 }
