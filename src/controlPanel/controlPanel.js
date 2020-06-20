@@ -40,16 +40,10 @@ for (var i = 0; i < tabs.length; i++) {
 // Get last opened tab ID and open it
 chrome.storage.local.get(['lastOpenedTab'], function (result) {
     if (result.lastOpenedTab) {
-        document.querySelector('.mui-tabs__bar [data-mui-controls=' + result.lastOpenedTab + ']').parentNode.classList.add("mui--is-active");
-        document.querySelector('.mobileMenu [data-mui-controls=' + result.lastOpenedTab + ']').parentNode.classList.add("mui--is-active");
-        document.querySelector('div#' + result.lastOpenedTab).classList.add("mui--is-active");
+        mui.tabs.activate(result.lastOpenedTab);
     }
     else {
-        var firstDesktopTab = document.querySelectorAll('.mui-tabs__bar li')[0];
-        var firstMobileTab = document.querySelectorAll('.mobileMenu li')[0];
-        firstDesktopTab.classList.add("mui--is-active");
-        firstMobileTab.classList.add("mui--is-active");
-        document.querySelector('div#' + firstMobileTab.querySelector("a").getAttribute("data-mui-controls")).classList.add("mui--is-active");
+        mui.tabs.activate(document.querySelectorAll('.mobileMenu li a')[0].getAttribute("data-mui-controls"));
     }
 });
 
