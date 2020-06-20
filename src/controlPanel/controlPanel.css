@@ -1,4 +1,4 @@
-.material-icon svg {
+svg.material-icon {
     fill: white;
 }
 
@@ -46,7 +46,6 @@ button .material-icon {
     position: relative;
     top: 3px;
     left: 8px;
-    fill: #fff;
 }
 
 button .material-icon,
@@ -62,7 +61,6 @@ button .material-icon,
 
 .mui-tabs__bar .material-icon,
 .sidedrawer-toggle .material-icon {
-    fill: #fff;
     width: 24px;
     height: 24px;
 }
@@ -132,7 +130,7 @@ body:not(.mui-scroll-lock) .js-hide-sidedrawer {
     padding: 15px 22px;
     cursor: pointer;
     text-decoration: none !important;
-    color: initial !important;
+    color: white !important;
 }
 
 .mobileMenu li a:hover,
@@ -214,4 +212,13 @@ button#updateCookieBase.active .material-icon {
 .mui-tabs__bar > li > a {
     display: flex !important;
     align-items: center;
+}
+
+.mobileMenu li a:hover, .mobileMenu li.mui--is-active {
+    background-color: #6D4C41 !important;
+}
+
+.mui-tabs__bar > li:not(.mui--is-active):hover {
+    background-color: #5D4037;
+    border-bottom: 2px solid #5D4037;
 }
