@@ -49,7 +49,9 @@ button .material-icon {
     fill: #fff;
 }
 
-button .material-icon, .aboutIcon, #sidedrawer .material-icon {
+button .material-icon,
+.aboutIcon,
+#sidedrawer .material-icon {
     width: 20px;
     height: 20px;
 }
@@ -58,7 +60,8 @@ button .material-icon, .aboutIcon, #sidedrawer .material-icon {
     margin-right: 8px;
 }
 
-.mui-tabs__bar .material-icon, .sidedrawer-toggle .material-icon {
+.mui-tabs__bar .material-icon,
+.sidedrawer-toggle .material-icon {
     fill: #fff;
     width: 24px;
     height: 24px;
@@ -191,8 +194,12 @@ body.mui-scroll-lock .mui-btn {
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 button#updateCookieBase.active {
