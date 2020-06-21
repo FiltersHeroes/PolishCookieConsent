@@ -15,12 +15,12 @@
     <nav>
         <div class="mui--bg-color-brown-600 appbar">
             <a class="sidedrawer-toggle mui--hidden-md mui--hidden-lg mui--hidden-xl js-show-sidedrawer mui--pull-left">
-                <svg class="material-icon">
+                <svg class="icon">
                     <use href="../thirdparty/octicons16.svg#three-bars"></use>
                 </svg>
             </a>
             <a class="sidedrawer-toggle mui--hidden-md mui--hidden-lg mui--hidden-xl js-hide-sidedrawer mui--pull-left">
-                <svg class="material-icon">
+                <svg class="icon">
                     <use href="../thirdparty/octicons16.svg#three-bars"></use>
                 </svg>
             </a>
@@ -33,7 +33,7 @@
                 <ul class="mui-tabs__bar mui--visible-md-block mui--visible-lg-block mui--visible-xl-block">
                     <li>
                         <a data-mui-toggle="tab" data-mui-controls="cookie-base">
-                            <svg class="material-icon">
+                            <svg class="icon">
                                 <use href="../thirdparty/octicons24.svg#database"></use>
                             </svg>
                             <span data-i18n="__MSG_cookieBase__"></span>
@@ -41,7 +41,7 @@
                     </li>
                     <li>
                         <a data-mui-toggle="tab" data-mui-controls="my-filters">
-                            <svg class="material-icon">
+                            <svg class="icon">
                                 <use href="../thirdparty/octicons24.svg#filter"></use>
                             </svg>
                             <span data-i18n="__MSG_myFilters__"></span>
@@ -49,7 +49,7 @@
                     </li>
                     <li>
                         <a data-mui-toggle="tab" data-mui-controls="whitelist">
-                            <svg class="material-icon">
+                            <svg class="icon">
                                 <use href="../thirdparty/octicons16.svg#diff-ignored"></use>
                             </svg>
                             <span data-i18n="__MSG_whitelist__"></span>
@@ -57,7 +57,7 @@
                     </li>
                     <li>
                         <a data-mui-toggle="tab" data-mui-controls="about">
-                            <svg class="material-icon">
+                            <svg class="icon">
                                 <use href="../thirdparty/octicons24.svg#info"></use>
                             </svg>
                             <span data-i18n="__MSG_about__"></span>
@@ -73,7 +73,7 @@
             <ul class="mobileMenu">
                 <li>
                     <a data-mui-toggle="tab" data-mui-controls="cookie-base">
-                        <svg class="material-icon mui--pull-left">
+                        <svg class="icon mui--pull-left">
                             <use href="../thirdparty/octicons24.svg#database"></use>
                         </svg>
                         <span data-i18n="__MSG_cookieBase__"></span>
@@ -81,7 +81,7 @@
                 </li>
                 <li>
                     <a data-mui-toggle="tab" data-mui-controls="my-filters">
-                        <svg class="material-icon mui--pull-left">
+                        <svg class="icon mui--pull-left">
                             <use href="../thirdparty/octicons24.svg#filter"></use>
                         </svg>
                         <span data-i18n="__MSG_myFilters__"></span>
@@ -89,7 +89,7 @@
                 </li>
                 <li>
                     <a data-mui-toggle="tab" data-mui-controls="whitelist">
-                        <svg class="material-icon mui--pull-left">
+                        <svg class="icon mui--pull-left">
                             <use href="../thirdparty/octicons16.svg#diff-ignored"></use>
                         </svg>
                         <span data-i18n="__MSG_whitelist__"></span>
@@ -97,7 +97,7 @@
                 </li>
                 <li>
                     <a data-mui-toggle="tab" data-mui-controls="about">
-                        <svg class="material-icon mui--pull-left">
+                        <svg class="icon mui--pull-left">
                             <use href="../thirdparty/octicons24.svg#info"></use>
                         </svg>
                         <span data-i18n="__MSG_about__"></span>
@@ -111,18 +111,18 @@
         <div class="mui-container-fluid">
             <div class="mui-col-xs-12 mui-col-md-12">
                 <p class="cBV" data-i18n="__MSG_cookieBaseVersion__"></p>
-                <button class="mui-btn mui--bg-color-brown-600" id="showCookieBase" data-i18n="__MSG_showCookieBase__"
-                    data-opt-i18n-keep-children>
-                    <svg class="material-icon showCookieBase">
+                <button class="mui-btn mui--bg-color-brown-600" id="showCookieBase">
+                    <span data-i18n="__MSG_showCookieBase__"></span>
+                    <svg class="icon showCookieBase">
                         <use href="../thirdparty/octicons24.svg#eye"></use>
                     </svg>
-                    <svg class="material-icon hideCookieBase" hidden="true">
+                    <svg class="icon hideCookieBase" hidden="true">
                         <use href="../thirdparty/octicons24.svg#eye-slash"></use>
                     </svg>
                 </button>
-                <button class="mui-btn mui--bg-color-brown-600" id="updateCookieBase"
-                    data-i18n="__MSG_updateCookieBase__" data-opt-i18n-keep-children>
-                    <svg class="material-icon">
+                <button class="mui-btn mui--bg-color-brown-600" id="updateCookieBase">
+                    <span data-i18n="__MSG_updateCookieBase__"></span>
+                    <svg class="icon">
                         <use href="../thirdparty/octicons24.svg#sync"></use>
                     </svg>
                 </button>
@@ -143,27 +143,27 @@
                             rel="noopener" data-i18n="__MSG_PCCsyntax__"></a>
                     </label>
                 </div>
-                <button id="userFiltersApply" class="mui-btn mui--bg-color-brown-600" type="submit"
-                    data-i18n="__MSG_apply__" data-opt-i18n-keep-children disabled="true">
-                    <svg class="material-icon">
+                <button id="userFiltersApply" class="mui-btn mui--bg-color-brown-600" type="submit" disabled="true">
+                    <span data-i18n="__MSG_apply__"></span>
+                    <svg class="icon">
                         <use href="../thirdparty/octicons24.svg#check"></use>
                     </svg>
                 </button>
-                <button id="userFiltersRevert" class="mui-btn mui--bg-color-brown-600" type="button"
-                    data-i18n="__MSG_revert__" data-opt-i18n-keep-children disabled="true">
-                    <svg class="material-icon">
+                <button id="userFiltersRevert" class="mui-btn mui--bg-color-brown-600" type="button" disabled="true">
+                    <span data-i18n="__MSG_revert__"></span>
+                    <svg class="icon">
                         <use href="../thirdparty/octicons24.svg#history"></use>
                     </svg>
                 </button>
-                <button id="userFiltersImport" class="mui-btn mui--bg-color-brown-600" type="button"
-                    data-i18n="__MSG_import__" data-opt-i18n-keep-children>
-                    <svg class="material-icon">
+                <button id="userFiltersImport" class="mui-btn mui--bg-color-brown-600" type="button">
+                    <span data-i18n="__MSG_import__"></span>
+                    <svg class="icon">
                         <use href="../thirdparty/octicons24.svg#download"></use>
                     </svg>
                 </button>
-                <button id="userFiltersExport" class="mui-btn mui--bg-color-brown-600" type="button"
-                    data-i18n="__MSG_export__" data-opt-i18n-keep-children>
-                    <svg class="material-icon">
+                <button id="userFiltersExport" class="mui-btn mui--bg-color-brown-600" type="button">
+                    <span data-i18n="__MSG_export__"></span>
+                    <svg class="icon">
                         <use href="../thirdparty/octicons24.svg#upload"></use>
                     </svg>
                 </button>
@@ -181,27 +181,27 @@
                     <label for="userWhitelist" data-i18n="__MSG_whitelistHelp__">
                     </label>
                 </div>
-                <button id="whitelistApply" class="mui-btn mui--bg-color-brown-600" type="submit"
-                    data-i18n="__MSG_apply__" data-opt-i18n-keep-children disabled="true">
-                    <svg class="material-icon">
+                <button id="whitelistApply" class="mui-btn mui--bg-color-brown-600" type="submit" disabled="true">
+                    <span data-i18n="__MSG_apply__"></span>
+                    <svg class="icon">
                         <use href="../thirdparty/octicons24.svg#check"></use>
                     </svg>
                 </button>
-                <button id="whitelistRevert" class="mui-btn mui--bg-color-brown-600" type="button"
-                    data-i18n="__MSG_revert__" data-opt-i18n-keep-children disabled="true">
-                    <svg class="material-icon">
+                <button id="whitelistRevert" class="mui-btn mui--bg-color-brown-600" type="button" disabled="true">
+                    <span data-i18n="__MSG_revert__"></span>
+                    <svg class="icon">
                         <use href="../thirdparty/octicons24.svg#history"></use>
                     </svg>
                 </button>
-                <button id="whitelistImport" class="mui-btn mui--bg-color-brown-600" type="button"
-                    data-i18n="__MSG_import__" data-opt-i18n-keep-children>
-                    <svg class="material-icon">
+                <button id="whitelistImport" class="mui-btn mui--bg-color-brown-600" type="button">
+                    <span data-i18n="__MSG_import__"></span>
+                    <svg class="icon">
                         <use href="../thirdparty/octicons24.svg#download"></use>
                     </svg>
                 </button>
-                <button id="whitelistExport" class="mui-btn mui--bg-color-brown-600" type="button"
-                    data-i18n="__MSG_export__" data-opt-i18n-keep-children>
-                    <svg class="material-icon">
+                <button id="whitelistExport" class="mui-btn mui--bg-color-brown-600" type="button">
+                    <span data-i18n="__MSG_export__"></span>
+                    <svg class="icon">
                         <use href="../thirdparty/octicons24.svg#upload"></use>
                     </svg>
                 </button>

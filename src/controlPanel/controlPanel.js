@@ -129,14 +129,14 @@ document.querySelector("#showCookieBase").addEventListener("click", function () 
             cookieBaseContent.style.visibility = "";
             toggleBtn.querySelector("svg.hideCookieBase").removeAttribute("hidden");
             toggleBtn.querySelector("svg.showCookieBase").setAttribute("hidden", true);
-            replaceI18n(toggleBtn, "__MSG_hideCookieBase__");
+            replaceI18n(toggleBtn.querySelector("span"), "__MSG_hideCookieBase__");
         }
         else if (cookieBaseContent.textContent.length > 0) {
             cookieBaseContent.textContent = "";
             cookieBaseContent.style.visibility = "hidden";
             toggleBtn.querySelector("svg.hideCookieBase").setAttribute("hidden", true);
             toggleBtn.querySelector("svg.showCookieBase").removeAttribute("hidden");
-            replaceI18n(toggleBtn, "__MSG_showCookieBase__");
+            replaceI18n(toggleBtn.querySelector("span"), "__MSG_showCookieBase__");
         }
         autosize.update(cookieBaseContent);
     });

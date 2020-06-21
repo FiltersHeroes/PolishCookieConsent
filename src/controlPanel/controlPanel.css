@@ -1,4 +1,4 @@
-svg.material-icon {
+svg.icon {
     fill: white;
 }
 
@@ -42,25 +42,25 @@ button {
     color: initial !important;
 }
 
-button .material-icon {
+button .icon {
     position: relative;
-    top: 3px;
-    left: 8px;
+    left: 10px;
+    bottom: 1px;
 }
 
-button .material-icon,
+button .icon,
 .aboutIcon,
-#sidedrawer .material-icon {
+#sidedrawer .icon {
     width: 20px;
     height: 20px;
 }
 
-.mui-tabs__bar .material-icon {
+.mui-tabs__bar .icon {
     margin-right: 8px;
 }
 
-.mui-tabs__bar .material-icon,
-.sidedrawer-toggle .material-icon {
+.mui-tabs__bar .icon,
+.sidedrawer-toggle .icon {
     width: 24px;
     height: 24px;
 }
@@ -178,7 +178,7 @@ body:not(.mui-scroll-lock) .js-hide-sidedrawer {
     }
 }
 
-#sidedrawer .material-icon {
+#sidedrawer .icon {
     margin-right: 10px;
 }
 
@@ -187,8 +187,7 @@ body:not(.mui-scroll-lock) .js-hide-sidedrawer {
 }
 
 body.mui-scroll-lock .mui-btn {
-    white-space: normal !important;
-    display: flex;
+    height: 40px;
 }
 
 @keyframes spin {
@@ -204,7 +203,7 @@ button#updateCookieBase.active {
     pointer-events: none;
 }
 
-button#updateCookieBase.active .material-icon {
+button#updateCookieBase.active .icon {
     animation: spin 1s linear infinite;
     transform-origin: 50%;
 }
@@ -215,10 +214,17 @@ button#updateCookieBase.active .material-icon {
 }
 
 .mobileMenu li a:hover, .mobileMenu li.mui--is-active {
-    background-color: #6D4C41 !important;
+    background-color: #795548 !important;
 }
 
 .mui-tabs__bar > li:not(.mui--is-active):hover {
     background-color: #5D4037;
     border-bottom: 2px solid #5D4037;
+}
+
+.mui-tabs__pane .mui-btn {
+    display: inline-flex;
+    align-items: center;
+    white-space: normal;
+    line-height: inherit;
 }
