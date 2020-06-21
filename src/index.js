@@ -14,8 +14,8 @@ const id = options.id;
 const readPref = key => get("extensions." + id + ".sdk." + key);
 const name = readPref("name") || options.name;
 const baseURI = readPref("baseURI") || options.prefixURI + name + "/"
-const uri = (path="") =>
-path.includes(":") ? path : baseURI + path.replace(/^\.\//, "");
+const uri = (path = "") =>
+  path.includes(":") ? path : baseURI + path.replace(/^\.\//, "");
 var self = Object.freeze({
   url: uri,
   load: function read(path) {
@@ -34,7 +34,7 @@ var getCookieBase = Request({
   }
 });
 
-if(! ss.storage.cookieBase) {
+if (!ss.storage.cookieBase) {
   getCookieBase.get();
 }
 
@@ -43,14 +43,14 @@ pageMod.PageMod({
   include: "*",
   contentScriptWhen: "start",
   contentScriptFile: self.url("content.js"),
-  onAttach: function(worker) {
+  onAttach: function (worker) {
     if (ss.storage.whitelist) {
       worker.port.emit("getWhitelist", ss.storage.whitelist);
     }
     else {
       worker.port.emit("getWhitelist", "null");
     }
-    if(ss.storage.userFilters) {
+    if (ss.storage.userFilters) {
       worker.port.emit("getUserFilters", ss.storage.userFilters);
     }
     worker.port.emit("getCookieBase", ss.storage.cookieBase);
@@ -61,18 +61,18 @@ pageMod.PageMod({
   include: "chrome://pcc/content/controlPanel/controlPanel.html",
   contentScriptFile: self.url("controlPanel/controlPanel.js"),
   contentScriptWhen: "ready",
-  onAttach: function(worker) {
+  onAttach: function (worker) {
     worker.port.emit("restoreFilters", ss.storage.userFilters);
-    worker.port.on('saveFilters', function(userFilters) {
+    worker.port.on('saveFilters', function (userFilters) {
       ss.storage.userFilters = userFilters;
       worker.port.emit("restoreFilters", ss.storage.userFilters);
     });
     worker.port.emit("restoreWhitelist", ss.storage.whitelist);
-    worker.port.on('saveWhitelist', function(whitelist) {
+    worker.port.on('saveWhitelist', function (whitelist) {
       ss.storage.whitelist = whitelist;
       worker.port.emit("restoreWhitelist", ss.storage.whitelist);
     });
-    worker.port.on('updateCookieBase', function(cookieBase) {
+    worker.port.on('updateCookieBase', function (cookieBase) {
       ss.storage.cookieBase = cookieBase;
     });
     worker.port.emit("getCookieBase", ss.storage.cookieBase);
@@ -107,29 +107,28 @@ var myPanel = sdkPanels.Panel({
 
 function handleChange(state) {
   if (state.checked) {
-    myPanel.port.on("resize", function(size)
-    {
+    myPanel.port.on("resize", function (size) {
       myPanel.resize(size.width, size.height);
     });
     myPanel.show({
       position: button
     });
     myPanel.port.emit("getActiveTabURL", tabs.activeTab.url);
-    myPanel.port.on('removeFromWhitelist', function(hostname) {
-      ss.storage.whitelist = previousWhitelist.replace(hostname, "").replace(/^\s*[\r\n]/gm,"").trim();
+    myPanel.port.on('removeFromWhitelist', function (hostname) {
+      ss.storage.whitelist = previousWhitelist.replace(hostname, "").replace(/^\s*[\r\n]/gm, "").trim();
       myPanel.hide();
     });
     const previousWhitelist = ss.storage.whitelist;
-    myPanel.port.on('addToWhitelist', function(hostname) {
-      if(previousWhitelist) {
-        ss.storage.whitelist = previousWhitelist + "\n" +hostname;
+    myPanel.port.on('addToWhitelist', function (hostname) {
+      if (previousWhitelist) {
+        ss.storage.whitelist = previousWhitelist + "\n" + hostname;
       }
       else {
         ss.storage.whitelist = hostname;
       }
       myPanel.hide();
     });
-    if(ss.storage.whitelist) {
+    if (ss.storage.whitelist) {
       myPanel.port.emit("getWhitelist", ss.storage.whitelist);
     }
     else {
@@ -139,28 +138,28 @@ function handleChange(state) {
 }
 
 function handleHide() {
-  button.state('window', {checked: false});
+  button.state('window', { checked: false });
 }
 
 var { setTimeout } = require("sdk/timers");
 var _updateTime = new Date().getTime() + 24 * 7 * 60 * 60 * 1000;
 
-if(! ss.storage.updateTime) {
+if (!ss.storage.updateTime) {
   ss.storage.updateTime = _updateTime;
 }
 
 var interval = ss.storage.updateTime - Date.now();
 
-if(interval < 0) {
+if (interval < 0) {
   interval = 10;
 }
 
-setTimeout(function() {
+setTimeout(function () {
   var updateCookieBase = Request({
     url: "https://raw.githubusercontent.com/PolishFiltersTeam/PolishCookieConsent/master/src/PCB.txt",
     overrideMimeType: "text/plain; charset=utf-8",
     onComplete: function (response) {
-      if(response.status == 200) {
+      if (response.status == 200) {
         ss.storage.cookieBase = response.text;
       }
       _updateTime = new Date().getTime() + 24 * 7 * 60 * 60 * 1000;

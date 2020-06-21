@@ -52,7 +52,7 @@ function clickComplete(element, urlArg, cookieName) {
 
 function clickCompleteText(element, text, urlArg) {
     if (getUrlCondition(urlArg)) {
-        window.addEventListener('load', function(){
+        window.addEventListener('load', function () {
             var counter = 0;
             (function checkIfElemExists() {
                 var btnYes = document.evaluate("//" + element + "[contains(text(), " + '"' + text + '"' + ")]", document, null, XPathResult.ANY_TYPE, null).iterateNext();
@@ -115,7 +115,7 @@ function redirect(redirectPoint, path, urlArg, cookieName) {
 }
 
 function userFilters() {
-    self.port.on("getUserFilters", function(userFilters) {
+    self.port.on("getUserFilters", function (userFilters) {
         if (typeof userFilters !== "undefined" && userFilters != "") {
             var filters = userFilters.split("\n");
             for (var i = 0; i < filters.length; i++) {
@@ -198,7 +198,7 @@ function userFilters() {
 
 
 function cookieBaseFilters() {
-    self.port.on("getCookieBase", function(cookieBase) {
+    self.port.on("getCookieBase", function (cookieBase) {
         if (typeof cookieBase !== "undefined" && cookieBase != "") {
             var filters = cookieBase.split("\n");
             for (var i = 0; i < filters.length; i++) {
@@ -279,8 +279,8 @@ function cookieBaseFilters() {
     });
 }
 
-self.port.on("getWhitelist", function(userWhitelist) {
-    if (typeof userWhitelist !== "undefined" && userWhitelist != "" && userWhitelist != "null" ) {
+self.port.on("getWhitelist", function (userWhitelist) {
+    if (typeof userWhitelist !== "undefined" && userWhitelist != "" && userWhitelist != "null") {
         var whitelist = userWhitelist.split("\n").join([separator = '|']);
         if (!getUrlCondition(whitelist)) {
             userFilters();

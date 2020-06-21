@@ -1,168 +1,170 @@
-function saveFilters(e) {
-  e.preventDefault();
-  self.port.emit("saveFilters", document.querySelector("#userFilters").value);
-  document.querySelector("#my-filters button").disabled = true;
-}
+// Title
+const { Services } = Components.utils.import("resource://gre/modules/Services.jsm");
+const stringBundle = Services.strings.createBundle(document.querySelector("meta[stringbundle]").getAttribute("stringbundle"));
+document.querySelector("title").textContent = stringBundle.GetStringFromName("extensionName") + " - " + stringBundle.GetStringFromName("controlPanel");
 
-
-function restoreFilters() {
-  self.port.on("restoreFilters", function(userFilters) {
-    if(userFilters) {
-      document.querySelector("#userFilters").value = userFilters;
-    }
-  });
-}
-
-
-document.addEventListener("DOMContentLoaded", restoreFilters);
-document.querySelector("#my-filters form").addEventListener("submit", saveFilters);
-
-self.port.on("restoreFilters", function(userFilters) {
-  document.querySelector("#my-filters textarea").addEventListener('input', function () {
-    var element = document.querySelector("#my-filters textarea");
-    if (element.value == userFilters) {
-      document.querySelector("#my-filters button").disabled = true;
-    }
-    else {
-      document.querySelector("#my-filters button").disabled = false;
-    }
-  });
-});
-
-
-document.addEventListener('DOMContentLoaded', function () {
-  document.querySelector("div#cookie-base").hidden = "";
-  var bodyEl = document.querySelector('body'),
-  sidedrawerEl = document.querySelector('#sidedrawer');
-
-  function showSidedrawer() {
+// Mobile menu
+var sidedrawerEl = document.querySelector('#sidedrawer');
+document.querySelector('.js-show-sidedrawer').addEventListener("click", function () {
     // show overlay
     var overlayEl = mui.overlay('on');
 
     // show element
     overlayEl.appendChild(sidedrawerEl);
     setTimeout(function () {
-      sidedrawerEl.classList.add('active');
-      var desktopTabs = document.querySelectorAll('.mui-tabs__bar li a');
-      for (var i = 0; i < desktopTabs.length; i++) {
-        desktopTabs[i].setAttribute("data-mui-controls", "");
-      }
+        sidedrawerEl.classList.add('active');
+        var desktopTabs = document.querySelectorAll('.mui-tabs__bar li a');
+        for (var i = 0; i < desktopTabs.length; i++) {
+            desktopTabs[i].setAttribute("data-mui-controls", "");
+        }
     }, 20);
-  }
+});
 
-  function hideSidedrawer() {
+document.querySelector('.js-hide-sidedrawer').addEventListener("click", function () {
+    var bodyEl = document.body;
     bodyEl.classList.remove('hide-sidedrawer');
     bodyEl.classList.remove('mui-scroll-lock');
     sidedrawerEl.classList.remove('active');
     mui.overlay('off');
-  }
-
-
-  document.querySelector('.js-show-sidedrawer').addEventListener("click", showSidedrawer);
-  document.querySelector('.js-hide-sidedrawer').addEventListener("click", hideSidedrawer);
 });
 
-const { Services } = Components.utils.import("resource://gre/modules/Services.jsm");
-const { AddonManager } = Components.utils.import("resource://gre/modules/AddonManager.jsm");
+// Show cookie base tab
+document.querySelector("div#cookie-base").hidden = "";
 
-const stringBundle = Services.strings.createBundle(document.querySelector("meta[stringbundle]").getAttribute("stringbundle"));
-AddonManager.getAddonByID("PolishCookieConsentExt@polishannoyancefilters.netlify.com", function(addon) {
-  document.querySelector("#about .extensionInfo").textContent = stringBundle.GetStringFromName("extensionName") + " " + addon.version;
-});
-
-
-function saveWhitelist(e) {
-  e.preventDefault();
-  self.port.emit("saveWhitelist", document.querySelector("#user-whitelist").value);
-  document.querySelector("#whitelist button").disabled = true;
-}
-
-function restoreWhitelist() {
-  self.port.on("restoreWhitelist", function(whitelist) {
-    if(whitelist) {
-      document.querySelector("#user-whitelist").value = whitelist;
-    }
-  });
-}
-
-document.addEventListener("DOMContentLoaded", restoreWhitelist);
-document.querySelector("#whitelist form").addEventListener("submit", saveWhitelist);
-
-self.port.on("restoreWhitelist", function(whitelist) {
-  document.querySelector("textarea#user-whitelist").addEventListener('input', function () {
-    var element = document.querySelector("textarea#user-whitelist");
-    if (element.value === whitelist) {
-      document.querySelector("#whitelist button").disabled = true;
-    }
-    else {
-      document.querySelector("#whitelist button").disabled = false;
-    }
-  });
-});
-
-
-
-document.querySelector("title").textContent = stringBundle.GetStringFromName("extensionName") + " - " + stringBundle.GetStringFromName("controlPanel");
-
-function updateVersion() {
-  self.port.on("getCookieBase", function(cookieBase) {
-    var cookieBaseLine = cookieBase.split("\n");
-    for (var i = 0; i < cookieBaseLine.length; i++) {
-      if (cookieBaseLine[i].match("Version")) {
-        document.querySelector(".cBV").textContent += " " + cookieBaseLine[i].split(":")[1].trim();
-      }
-    }
-  });
-}
-
-document.addEventListener("DOMContentLoaded", updateVersion);
-
-self.port.on("getCookieBase", function(cookieBase) {
-  document.querySelector("#showCookieBase").addEventListener("click", function () {
-    var cookieBaseContent = document.querySelector("#cookieBaseContent");
-      if (cookieBase) {
-        cookieBaseContent.textContent = cookieBase;
-        document.querySelector(".cookieBaseContent").style = "";
-        autosize(document.querySelector('#cookieBaseContent'));
-      }
-  })
-});
-
-
-document.querySelector("#updateCookieBase").addEventListener("click", function () {
-  function handleTextResponse(response) {
-    return response.text()
-    .then(text => {
-      if (response.ok) {
-        self.port.emit("updateCookieBase", text);
-        location.reload();
-      } else {
-        return Promise.reject({
-          status: response.status,
-          statusText: response.statusText,
-          err: text
-        })
-      }
-    })
-  }
-
-  fetch('https://raw.githubusercontent.com/PolishFiltersTeam/PolishCookieConsent/master/src/PCB.txt')
-  .then(handleTextResponse)
-  .catch(error => console.log(error));
-})
+// Automatically adjust textareas height
+var userFiltersTa = document.getElementById("userFilters");
+var userWhitelist = document.getElementById("userWhitelist");
 
 document.querySelector('.mui-tabs__bar [data-mui-controls="whitelist"]').addEventListener("mui.tabs.showend", function () {
-  autosize(document.querySelector('#user-whitelist'));
+    autosize(userWhitelist);
 })
 
 document.querySelector('.mui-tabs__bar [data-mui-controls="my-filters"]').addEventListener("mui.tabs.showend", function () {
-  autosize(document.querySelector('#userFilters'));
+    autosize(userFiltersTa);
 })
 
 document.querySelector('#sidedrawer [data-mui-controls="whitelist"]').addEventListener("mui.tabs.showend", function () {
-  autosize(document.querySelector('#user-whitelist'));
+    autosize(userWhitelist);
 })
 
 document.querySelector('#sidedrawer [data-mui-controls="my-filters"]').addEventListener("mui.tabs.showend", function () {
-  autosize(document.querySelector('#userFilters'));
+    autosize(userFiltersTa);
 })
+
+// Show version number of Polish Cookie Base
+updateVersion();
+function updateVersion() {
+    self.port.on("getCookieBase", function (cookieBase) {
+        var cookieBaseLine = cookieBase.split("\n");
+        for (var i = 0; i < cookieBaseLine.length; i++) {
+            if (cookieBaseLine[i].match("Version")) {
+                var cBV = document.querySelector(".cBV");
+                cBV.textContent = cBV.textContent.split(':')[0] + ": " + cookieBaseLine[i].split(":")[1].trim();
+            }
+        }
+    });
+}
+
+// Manual update of Cookie Base
+document.getElementById("updateCookieBase").addEventListener("click", function () {
+    function handleTextResponse(response) {
+        return response.text()
+            .then(text => {
+                if (response.ok) {
+                    self.port.emit("updateCookieBase", text);
+                    location.reload();
+                } else {
+                    return Promise.reject({
+                        status: response.status,
+                        statusText: response.statusText,
+                        err: text
+                    })
+                }
+            })
+    }
+
+    fetch('https://raw.githubusercontent.com/PolishFiltersTeam/PolishCookieConsent/master/src/PCB.txt')
+        .then(handleTextResponse)
+        .catch(error => console.log(error));
+})
+
+// Show Cookie Base
+self.port.on("getCookieBase", function (cookieBase) {
+    document.getElementById("showCookieBase").addEventListener("click", function () {
+        var cookieBaseContent = document.getElementById("cookieBaseContent");
+        if (cookieBase) {
+            cookieBaseContent.textContent = cookieBase;
+            document.querySelector(".cookieBaseContent").style = "";
+            autosize(cookieBaseContent);
+        }
+    })
+});
+
+// Add user filters to textarea
+restoreFilters();
+function restoreFilters() {
+    self.port.on("restoreFilters", function (userFilters) {
+        if (userFilters) {
+            userFiltersTa.value = userFilters;
+        }
+    });
+}
+
+// Save user filters
+var userFiltersApply = document.getElementById("userFiltersApply");
+document.querySelector("#my-filters form").addEventListener("submit", function (e) {
+    e.preventDefault();
+    self.port.emit("saveFilters", userFiltersTa.value);
+    userFiltersApply.disabled = true;
+});
+
+
+// Disable/enable submit user filters button
+self.port.on("restoreFilters", function (userFilters) {
+    userFiltersTa.addEventListener('input', function () {
+        if (userFiltersTa.value == userFilters) {
+            userFiltersApply.disabled = true;
+        }
+        else {
+            userFiltersApply.disabled = false;
+        }
+    });
+});
+
+// Add whitelist to textarea
+restoreWhitelist();
+function restoreWhitelist() {
+    self.port.on("restoreWhitelist", function (whitelist) {
+        if (whitelist) {
+            userWhitelist.value = whitelist;
+        }
+        autosize.update(userWhitelist);
+    });
+}
+
+// Save whitelist
+var whitelistApply = document.getElementById("whitelistApply");
+document.querySelector("#whitelist form").addEventListener("submit", function (e) {
+    e.preventDefault();
+    self.port.emit("saveWhitelist", userWhitelist.value);
+    whitelistApply.disabled = true;
+});
+
+
+// Disable/enable submit whitelist button
+self.port.on("restoreWhitelist", function (whitelist) {
+    userWhitelist.addEventListener('input', function () {
+        if (userWhitelist.value === whitelist) {
+            whitelistApply.disabled = true;
+        }
+        else {
+            whitelistApply.disabled = false;
+        }
+    });
+});
+
+// Add extension version to about tab
+const { AddonManager } = Components.utils.import("resource://gre/modules/AddonManager.jsm");
+AddonManager.getAddonByID("PolishCookieConsentExt@polishannoyancefilters.netlify.com", function (addon) {
+    document.querySelector("#about .extensionInfo").textContent = stringBundle.GetStringFromName("extensionName") + " " + addon.version;
+});
