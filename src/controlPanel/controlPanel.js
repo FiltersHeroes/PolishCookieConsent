@@ -253,7 +253,7 @@ function importText(textarea, applyButton, revertButton) {
         const fr = new FileReader();
         fr.onload = function (e) {
             if (document.getElementById(textarea).textLength > 0) {
-                document.getElementById(textarea).value += "\n" + fr.result;
+                document.getElementById(textarea).value = [...new Set((document.getElementById(textarea).value + "\n" + fr.result).split(/[\n \t ' ']/))].join("\n");
             }
             else {
                 document.getElementById(textarea).value = fr.result;
