@@ -282,11 +282,13 @@ function todayDate() {
 }
 
 function exportText(field, fileNamePart) {
-    chrome.downloads.download({
-        url: window.URL.createObjectURL(new Blob([document.getElementById(field).value], { type: "text/plain" })),
-        filename: chrome.i18n.getMessage("extensionShortName") + "-" + chrome.i18n.getMessage(fileNamePart).replace(" ", "-").toLowerCase() + "_" + todayDate() + ".txt",
-        saveAs: true
-    });
+    // We need an iframe to workaround bug in Waterfox Classic/Firefox<63 on Linux (https://discourse.mozilla.org/t/bug-exporting-files-via-javascript/13116)
+    var a = document.querySelector('iframe[src="exportFile.html"]').contentWindow.document.getElementById("download");
+    a.href = "data:text/plain;charset=utf-8," + encodeURIComponent(document.getElementById(field).value);
+    a.download = chrome.i18n.getMessage("extensionShortName") + "-" + chrome.i18n.getMessage(fileNamePart).replace(" ", "-").toLowerCase() + "_" + todayDate() + ".txt";
+    a.click();
+    a.href = "";
+    a.download = "";
 }
 
 // Add extension version to about tab
