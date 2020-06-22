@@ -127,6 +127,9 @@
   "showCookieBase":{
     "message":"Pokaż bazę ciasteczkową"
   },
+  "hideCookieBase":{
+    "message":"Ukryj bazę ciasteczkową"
+  },
   "extensionShortName":{
     "message":"PCZ"
   }

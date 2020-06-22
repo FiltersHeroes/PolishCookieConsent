@@ -76,10 +76,11 @@ pageMod.PageMod({
       ss.storage.whitelist = whitelist;
       worker.port.emit("restoreWhitelist", ss.storage.whitelist);
     });
+    worker.port.emit("getCookieBase", ss.storage.cookieBase);
     worker.port.on('updateCookieBase', function (cookieBase) {
       ss.storage.cookieBase = cookieBase;
+      worker.port.emit("getCookieBase", ss.storage.cookieBase);
     });
-    worker.port.emit("getCookieBase", ss.storage.cookieBase);
   }
 });
 

@@ -16,20 +16,14 @@
     <nav>
         <div class="mui--bg-color-brown-600 appbar">
             <a class="sidedrawer-toggle mui--hidden-md mui--hidden-lg mui--hidden-xl js-show-sidedrawer mui--pull-left">
-                <i class="material-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                        <path d="M0 0h24v24H0z" fill="none"></path>
-                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
-                    </svg>
-                </i>
+                <svg class="icon">
+                    <use href="../thirdparty/octicons16.svg#three-bars"></use>
+                </svg>
             </a>
             <a class="sidedrawer-toggle mui--hidden-md mui--hidden-lg mui--hidden-xl js-hide-sidedrawer mui--pull-left">
-                <i class="material-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                        <path d="M0 0h24v24H0z" fill="none"></path>
-                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
-                    </svg>
-                </i>
+                <svg class="icon">
+                    <use href="../thirdparty/octicons16.svg#three-bars"></use>
+                </svg>
             </a>
             <span class="mui--text-title mui--visible-xs-inline-block mui--visible-sm-inline-block"
                 data-i18n="__MSG_extensionShortName__"></span>
@@ -39,35 +33,35 @@
             <div class="mui-container-fluid">
                 <ul class="mui-tabs__bar mui--visible-md-block mui--visible-lg-block mui--visible-xl-block">
                     <li>
-                        <a data-mui-toggle="tab" data-mui-controls="cookie-base" data-i18n="__MSG_cookieBase__"
-                            data-opt-i18n-keep-children>
-                            <i class="material-icon mui--pull-left">
-                                <img src="../thirdparty/database.svg">
-                            </i>
+                        <a data-mui-toggle="tab" data-mui-controls="cookie-base">
+                            <svg class="icon">
+                                <use href="../thirdparty/octicons24.svg#database"></use>
+                            </svg>
+                            <span data-i18n="__MSG_cookieBase__"></span>
                         </a>
                     </li>
                     <li>
-                        <a data-mui-toggle="tab" data-mui-controls="my-filters" data-i18n="__MSG_myFilters__"
-                            data-opt-i18n-keep-children>
-                            <i class="material-icon mui--pull-left">
-                                <img src="../thirdparty/filter.svg">
-                            </i>
+                        <a data-mui-toggle="tab" data-mui-controls="my-filters">
+                            <svg class="icon">
+                                <use href="../thirdparty/octicons24.svg#filter"></use>
+                            </svg>
+                            <span data-i18n="__MSG_myFilters__"></span>
                         </a>
                     </li>
                     <li>
-                        <a data-mui-toggle="tab" data-mui-controls="whitelist" data-i18n="__MSG_whitelist__"
-                            data-opt-i18n-keep-children>
-                            <i class="material-icon mui--pull-left">
-                                <img src="../thirdparty/diff-ignored.svg">
-                            </i>
+                        <a data-mui-toggle="tab" data-mui-controls="whitelist">
+                            <svg class="icon">
+                                <use href="../thirdparty/octicons16.svg#diff-ignored"></use>
+                            </svg>
+                            <span data-i18n="__MSG_whitelist__"></span>
                         </a>
                     </li>
                     <li>
-                        <a data-mui-toggle="tab" data-mui-controls="about" data-i18n="__MSG_about__"
-                            data-opt-i18n-keep-children>
-                            <i class="material-icon mui--pull-left">
-                                <img src="../thirdparty/info.svg">
-                            </i>
+                        <a data-mui-toggle="tab" data-mui-controls="about">
+                            <svg class="icon">
+                                <use href="../thirdparty/octicons24.svg#info"></use>
+                            </svg>
+                            <span data-i18n="__MSG_about__"></span>
                         </a>
                     </li>
                 </ul>
@@ -75,60 +69,63 @@
         </div>
     </nav>
 
-    <div id="sidedrawer" class="mui--no-user-select">
+    <div id="sidedrawer" class="mui--no-user-select mui--bg-color-brown-700">
         <ul>
             <ul class="mobileMenu">
                 <li>
-                    <a data-mui-toggle="tab" data-mui-controls="cookie-base" data-i18n="__MSG_cookieBase__"
-                        data-opt-i18n-keep-children>
-                        <i class="material-icon mui--pull-left">
-                            <img src="../thirdparty/database.svg">
-                        </i>
+                    <a data-mui-toggle="tab" data-mui-controls="cookie-base">
+                        <svg class="icon mui--pull-left">
+                            <use href="../thirdparty/octicons24.svg#database"></use>
+                        </svg>
+                        <span data-i18n="__MSG_cookieBase__"></span>
                     </a>
                 </li>
                 <li>
-                    <a data-mui-toggle="tab" data-mui-controls="my-filters" data-i18n="__MSG_myFilters__"
-                        data-opt-i18n-keep-children>
-                        <i class="material-icon mui--pull-left">
-                            <img src="../thirdparty/filter.svg">
-                        </i>
+                    <a data-mui-toggle="tab" data-mui-controls="my-filters">
+                        <svg class="icon mui--pull-left">
+                            <use href="../thirdparty/octicons24.svg#filter"></use>
+                        </svg>
+                        <span data-i18n="__MSG_myFilters__"></span>
                     </a>
                 </li>
                 <li>
-                    <a data-mui-toggle="tab" data-mui-controls="whitelist" data-i18n="__MSG_whitelist__"
-                        data-opt-i18n-keep-children>
-                        <i class="material-icon mui--pull-left">
-                            <img src="../thirdparty/diff-ignored.svg">
-                        </i>
+                    <a data-mui-toggle="tab" data-mui-controls="whitelist">
+                        <svg class="icon mui--pull-left">
+                            <use href="../thirdparty/octicons16.svg#diff-ignored"></use>
+                        </svg>
+                        <span data-i18n="__MSG_whitelist__"></span>
                     </a>
                 </li>
                 <li>
-                    <a data-mui-toggle="tab" data-mui-controls="about" data-i18n="__MSG_about__"
-                        data-opt-i18n-keep-children>
-                        <i class="material-icon mui--pull-left">
-                            <img src="../thirdparty/info.svg">
-                        </i>
+                    <a data-mui-toggle="tab" data-mui-controls="about">
+                        <svg class="icon mui--pull-left">
+                            <use href="../thirdparty/octicons24.svg#info"></use>
+                        </svg>
+                        <span data-i18n="__MSG_about__"></span>
                     </a>
                 </li>
             </ul>
         </ul>
     </div>
 
-    <div id="cookie-base" class="mui-tabs__pane" hidden="true">
+    <div id="cookie-base" class="mui-tabs__pane">
         <div class="mui-container-fluid">
             <div class="mui-col-xs-12 mui-col-md-12">
                 <p class="cBV" data-i18n="__MSG_cookieBaseVersion__"></p>
-                <button class="mui-btn mui--bg-color-brown-600" id="showCookieBase" data-i18n="__MSG_showCookieBase__"
-                    data-opt-i18n-keep-children>
-                    <i class="material-icon">
-                        <img src="../thirdparty/play.svg">
-                    </i>
+                <button class="mui-btn mui--bg-color-brown-600" id="showCookieBase">
+                    <span data-i18n="__MSG_showCookieBase__"></span>
+                    <svg class="icon showCookieBase">
+                        <use href="../thirdparty/octicons24.svg#eye"></use>
+                    </svg>
+                    <svg class="icon hideCookieBase" hidden="true">
+                        <use href="../thirdparty/octicons24.svg#eye-slash"></use>
+                    </svg>
                 </button>
-                <button class="mui-btn mui--bg-color-brown-600" id="updateCookieBase"
-                    data-i18n="__MSG_updateCookieBase__" data-opt-i18n-keep-children>
-                    <i class="material-icon">
-                        <img src="../thirdparty/update_btn.svg">
-                    </i>
+                <button class="mui-btn mui--bg-color-brown-600" id="updateCookieBase">
+                    <span data-i18n="__MSG_updateCookieBase__"></span>
+                    <svg class="icon">
+                        <use href="../thirdparty/octicons24.svg#sync"></use>
+                    </svg>
                 </button>
                 <div class="mui-textfield cookieBaseContent" style="visibility: hidden;">
                     <textarea id="cookieBaseContent" readonly></textarea>
@@ -137,21 +134,21 @@
         </div>
     </div>
 
-    <div id="my-filters" class="mui-tabs__pane" hidden="true">
+    <div id="my-filters" class="mui-tabs__pane">
         <div class="mui-container-fluid">
             <form class="mui-col-xs-12 mui-col-md-12 mui-form">
                 <div class="mui-textfield">
                     <textarea id="userFilters"></textarea>
                     <label for="userFilters" data-i18n="__MSG_mfHelp__" data-opt-i18n-keep-children>
                         <a href="https://polishannoyancefilters.netlify.app/cookieconsentsyntax/" target="_blank"
-                            data-i18n="__MSG_PCCsyntax__"></a>
+                            rel="noopener" data-i18n="__MSG_PCCsyntax__"></a>
                     </label>
                 </div>
-                <button id="userFiltersApply" class="mui-btn mui--bg-color-brown-600" type="submit" data-i18n="__MSG_apply__"
-                    data-opt-i18n-keep-children disabled="true">
-                    <i class="material-icon">
-                        <img src="../thirdparty/check.svg">
-                    </i>
+                <button id="userFiltersApply" class="mui-btn mui--bg-color-brown-600" type="submit" disabled="true">
+                    <span data-i18n="__MSG_apply__"></span>
+                    <svg class="icon">
+                        <use href="../thirdparty/octicons24.svg#check"></use>
+                    </svg>
                 </button>
             </form>
         </div>
@@ -159,7 +156,7 @@
     </div>
 
 
-    <div id="whitelist" class="mui-tabs__pane" hidden="true">
+    <div id="whitelist" class="mui-tabs__pane">
         <div class="mui-container-fluid">
             <form class="mui-col-xs-12 mui-col-md-12 mui-form">
                 <div class="mui-textfield">
@@ -167,17 +164,17 @@
                     <label for="userWhitelist" data-i18n="__MSG_whitelistHelp__">
                     </label>
                 </div>
-                <button id="whitelistApply" class="mui-btn mui--bg-color-brown-600" type="submit" data-i18n="__MSG_apply__"
-                    data-opt-i18n-keep-children disabled="true">
-                    <i class="material-icon">
-                        <img src="../thirdparty/check.svg">
-                    </i>
+                <button id="whitelistApply" class="mui-btn mui--bg-color-brown-600" type="submit" disabled="true">
+                    <span data-i18n="__MSG_apply__"></span>
+                    <svg class="icon">
+                        <use href="../thirdparty/octicons24.svg#check"></use>
+                    </svg>
                 </button>
             </form>
         </div>
     </div>
 
-    <div id="about" class="mui-tabs__pane" hidden="true">
+    <div id="about" class="mui-tabs__pane">
         <div class="mui-container-fluid">
             <div class="mui-col-xs-12 mui-col-md-12">
                 <p class="extensionInfo"></p>
@@ -186,65 +183,46 @@
                 </p>
                 <p>
                     <i class="aboutIcon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20">
-                            <path fill-rule="evenodd"
-                                d="M0 3.75A.75.75 0 01.75 3h7.497c1.566 0 2.945.8 3.751 2.014A4.496 4.496 0 0115.75 3h7.5a.75.75 0 01.75.75v15.063a.75.75 0 01-.755.75l-7.682-.052a3 3 0 00-2.142.878l-.89.891a.75.75 0 01-1.061 0l-.902-.901a3 3 0 00-2.121-.879H.75a.75.75 0 01-.75-.75v-15zm11.247 3.747a3 3 0 00-3-2.997H1.5V18h6.947a4.5 4.5 0 012.803.98l-.003-11.483zm1.503 11.485V7.5a3 3 0 013-3h6.75v13.558l-6.927-.047a4.5 4.5 0 00-2.823.971z">
-                            </path>
+                        <svg class="aboutIcon">
+                            <use href="../thirdparty/octicons24.svg#book"></use>
                         </svg>
                     </i>
                     <a data-i18n="__MSG_license__"
                         href="https://github.com/PolishFiltersTeam/PolishCookieConsent/blob/master/LICENSE"
-                        target="_blank"></a>
+                        target="_blank" rel="noopener"></a>
                 </p>
                 <p>
                     <a data-i18n="__MSG_sourceCode__" href="https://github.com/PolishFiltersTeam/PolishCookieConsent"
-                        target="_blank">
+                        target="_blank" rel="noopener">
                     </a>
-                    <i class="aboutIcon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20">
-                            <path
-                                d="M10.3 8.24a.75.75 0 01-.04 1.06L7.352 12l2.908 2.7a.75.75 0 11-1.02 1.1l-3.5-3.25a.75.75 0 010-1.1l3.5-3.25a.75.75 0 011.06.04zm3.44 1.06a.75.75 0 111.02-1.1l3.5 3.25a.75.75 0 010 1.1l-3.5 3.25a.75.75 0 11-1.02-1.1l2.908-2.7-2.908-2.7z">
-                            </path>
-                            <path fill-rule="evenodd"
-                                d="M2 3.75C2 2.784 2.784 2 3.75 2h16.5c.966 0 1.75.784 1.75 1.75v16.5A1.75 1.75 0 0120.25 22H3.75A1.75 1.75 0 012 20.25V3.75zm1.75-.25a.25.25 0 00-.25.25v16.5c0 .138.112.25.25.25h16.5a.25.25 0 00.25-.25V3.75a.25.25 0 00-.25-.25H3.75z">
-                            </path>
-                        </svg>
-                    </i>
+                    <svg class="aboutIcon">
+                        <use href="../thirdparty/octicons24.svg#code-square"></use>
+                    </svg>
                 </p>
                 <div class="list" data-i18n="__MSG_externalDepends__" data-opt-i18n-keep-children>
-                    <i class="aboutIcon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20">
-                            <path fill-rule="evenodd"
-                                d="M9.126.64a1.75 1.75 0 011.75 0l8.25 4.762c.103.06.199.128.286.206a.748.748 0 01.554.96c.023.113.035.23.035.35v3.332a.75.75 0 01-1.5 0V7.64l-7.75 4.474V22.36a.75.75 0 01-1.125.65l-8.75-5.052a1.75 1.75 0 01-.875-1.515V6.917c0-.119.012-.236.035-.35a.748.748 0 01.554-.96 1.75 1.75 0 01.286-.205L9.126.639zM1.501 7.638v8.803c0 .09.048.172.125.216l7.625 4.402v-8.947l-7.75-4.474zm8.5 3.175L2.251 6.34l7.625-4.402a.25.25 0 01.25 0l7.625 4.402-7.75 4.474z">
-                            </path>
-                            <path
-                                d="M16.617 17.5l2.895-2.702a.75.75 0 00-1.024-1.096l-4.285 4a.75.75 0 000 1.096l4.285 4a.75.75 0 101.024-1.096L16.617 19h6.633a.75.75 0 000-1.5h-6.633z">
-                            </path>
-                        </svg>
-                    </i>
+                    <svg class="aboutIcon">
+                        <use href="../thirdparty/octicons24.svg#package-dependencies"></use>
+                    </svg>
                     <ul class="browser-default">
                         <li data-i18n="__MSG_by__" data-opt-i18n-keep-children>
-                            <a href="https://www.muicss.com/" target="_blank">MUI</a>
-                            <a href="https://github.com/muicss" target="_blank">MUI</a>
+                            <a href="https://www.muicss.com/" target="_blank" rel="noopener">MUI</a>
+                            <a href="https://github.com/muicss" target="_blank" rel="noopener">MUI</a>
                         </li>
                         <li data-i18n="__MSG_by__" data-opt-i18n-keep-children>
-                            <a href="http://www.jacklmoore.com/autosize/" target="_blank">Autosize</a>
-                            <a href="http://www.jacklmoore.com/" target="_blank">Jack Moore</a>
+                            <a href="http://www.jacklmoore.com/autosize/" target="_blank" rel="noopener">Autosize</a>
+                            <a href="http://www.jacklmoore.com/" target="_blank" rel="noopener">Jack Moore</a>
                         </li>
                         <li data-opt-i18n-keep-children data-i18n="__MSG_byAnd__">
-                            <a href="https://github.com/TinyWebEx/Localizer" target="_blank">Localizer</a>
-                            <a href="https://github.com/rugk" target="_blank">rugk</a>
+                            <a href="https://github.com/TinyWebEx/Localizer" target="_blank"
+                                rel="noopener">Localizer</a>
+                            <a href="https://github.com/rugk" target="_blank" rel="noopener">rugk</a>
                             <a data-i18n="__MSG_contributors__"
                                 href="https://raw.githubusercontent.com/TinyWebEx/Localizer/master/CONTRIBUTORS"
-                                target="_blank"></a>
+                                target="_blank" rel="noopener"></a>
                         </li>
                         <li data-i18n="__MSG_by__" data-opt-i18n-keep-children>
-                            <a href="https://github.com/google/material-design-icons" target="_blank">Material Design
-                                Icons</a>
-                            <a href="https://opensource.google/" target="_blank">Google</a></li>
-                        <li data-i18n="__MSG_by__" data-opt-i18n-keep-children>
-                            <a href="https://github.com/primer/octicons" target="_blank">Octicons</a>
-                            <a href="https://github.com/primer" target="_blank">GitHub Inc.</a></li>
+                            <a href="https://github.com/primer/octicons" target="_blank" rel="noopener">Octicons</a>
+                            <a href="https://github.com/primer" target="_blank" rel="noopener">GitHub Inc.</a></li>
                     </ul>
                 </div>
             </div>

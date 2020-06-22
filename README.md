@@ -66,8 +66,6 @@ Polska Ciasteczkowa Zgoda korzysta z otwartoźródłowego kodu następujących p
 
 * [TinyWebEx/Localizer](https://github.com/TinyWebEx/Localizer)
 
-* [google/material-design-icons](https://github.com/google/material-design-icons)
-
 * [muicss/mui](https://github.com/muicss/mui)
 
 * [primer/octicons](https://github.com/primer/octicons/)

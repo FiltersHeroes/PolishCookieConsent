@@ -88,12 +88,14 @@ function updateVersion() {
 }
 
 // Manual update of Cookie Base
-document.getElementById("updateCookieBase").addEventListener("click", function () {
+var updateBtn = document.getElementById("updateCookieBase");
+updateBtn.addEventListener("click", function () {
     function handleTextResponse(response) {
         return response.text()
             .then(text => {
                 if (response.ok) {
                     self.port.emit("updateCookieBase", text);
+                    updateBtn.classList.remove("active");
                     location.reload();
                 } else {
                     return Promise.reject({
@@ -104,20 +106,32 @@ document.getElementById("updateCookieBase").addEventListener("click", function (
                 }
             })
     }
-
+    updateBtn.classList.add("active");
     fetch('https://raw.githubusercontent.com/PolishFiltersTeam/PolishCookieConsent/master/src/PCB.txt')
         .then(handleTextResponse)
         .catch(error => console.log(error));
 })
 
-// Show Cookie Base
+// Show/hide Cookie Base
 self.port.on("getCookieBase", function (cookieBase) {
-    document.getElementById("showCookieBase").addEventListener("click", function () {
-        if (cookieBase) {
+    var toggleBtn = document.querySelector("#showCookieBase");
+    toggleBtn.addEventListener("click", function () {
+        if (cookieBase && cookieBaseContent.textContent.length == 0) {
             cookieBaseContent.textContent = cookieBase;
             document.querySelector(".cookieBaseContent").style = "";
-            autosize.update(cookieBaseContent);
+            cookieBaseContent.style.visibility = "";
+            toggleBtn.querySelector("svg.hideCookieBase").removeAttribute("hidden");
+            toggleBtn.querySelector("svg.showCookieBase").setAttribute("hidden", true);
+            replaceI18n(toggleBtn.querySelector("span"), "__MSG_hideCookieBase__");
         }
+        else if (cookieBaseContent.textContent.length > 0) {
+            cookieBaseContent.textContent = "";
+            cookieBaseContent.style.visibility = "hidden";
+            toggleBtn.querySelector("svg.hideCookieBase").setAttribute("hidden", true);
+            toggleBtn.querySelector("svg.showCookieBase").removeAttribute("hidden");
+            replaceI18n(toggleBtn.querySelector("span"), "__MSG_showCookieBase__");
+        }
+        autosize.update(cookieBaseContent);
     })
 });
 
