@@ -28,27 +28,49 @@ document.querySelector('.js-hide-sidedrawer').addEventListener("click", function
     mui.overlay('off');
 });
 
-// Show cookie base tab
-document.querySelector("div#cookie-base").hidden = "";
+// Save last opened tab ID
+var tabs = document.querySelectorAll('[data-mui-toggle="tab"]');
+for (var i = 0; i < tabs.length; i++) {
+    tabs[i].addEventListener("click", function () {
+        self.port.emit("saveLastOpenedTab", this.getAttribute("data-mui-controls"));
+    })
+}
+
+// Get last opened tab ID and open it
+self.port.on("getLastOpenedTab", function (lastOpenedTab) {
+    if (lastOpenedTab) {
+        mui.tabs.activate(lastOpenedTab);
+        document.querySelector('.mobileMenu [data-mui-controls=' + lastOpenedTab + ']').parentNode.classList.add("mui--is-active");
+    }
+    else {
+        var firstMobileTab = document.querySelectorAll('.mobileMenu li')[0];
+        firstMobileTab.classList.add("mui--is-active");
+        mui.tabs.activate(firstMobileTab.querySelector("a").getAttribute("data-mui-controls"));
+    }
+});
 
 // Automatically adjust textareas height
+var cookieBaseContent = document.getElementById("cookieBaseContent");
 var userFiltersTa = document.getElementById("userFilters");
 var userWhitelist = document.getElementById("userWhitelist");
+autosize(cookieBaseContent);
+autosize(userFiltersTa);
+autosize(userWhitelist);
 
 document.querySelector('.mui-tabs__bar [data-mui-controls="whitelist"]').addEventListener("mui.tabs.showend", function () {
-    autosize(userWhitelist);
+    autosize.update(userWhitelist);
 })
 
 document.querySelector('.mui-tabs__bar [data-mui-controls="my-filters"]').addEventListener("mui.tabs.showend", function () {
-    autosize(userFiltersTa);
+    autosize.update(userFiltersTa);
 })
 
 document.querySelector('#sidedrawer [data-mui-controls="whitelist"]').addEventListener("mui.tabs.showend", function () {
-    autosize(userWhitelist);
+    autosize.update(userWhitelist);
 })
 
 document.querySelector('#sidedrawer [data-mui-controls="my-filters"]').addEventListener("mui.tabs.showend", function () {
-    autosize(userFiltersTa);
+    autosize.update(userFiltersTa);
 })
 
 // Show version number of Polish Cookie Base
@@ -91,11 +113,10 @@ document.getElementById("updateCookieBase").addEventListener("click", function (
 // Show Cookie Base
 self.port.on("getCookieBase", function (cookieBase) {
     document.getElementById("showCookieBase").addEventListener("click", function () {
-        var cookieBaseContent = document.getElementById("cookieBaseContent");
         if (cookieBase) {
             cookieBaseContent.textContent = cookieBase;
             document.querySelector(".cookieBaseContent").style = "";
-            autosize(cookieBaseContent);
+            autosize.update(cookieBaseContent);
         }
     })
 });

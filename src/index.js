@@ -62,6 +62,10 @@ pageMod.PageMod({
   contentScriptFile: self.url("controlPanel/controlPanel.js"),
   contentScriptWhen: "ready",
   onAttach: function (worker) {
+    worker.port.on('saveLastOpenedTab', function (lastOpenedTab) {
+      ss.storage.lastOpenedTab = lastOpenedTab;
+    });
+    worker.port.emit("getLastOpenedTab", ss.storage.lastOpenedTab);
     worker.port.emit("restoreFilters", ss.storage.userFilters);
     worker.port.on('saveFilters', function (userFilters) {
       ss.storage.userFilters = userFilters;
