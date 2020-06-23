@@ -132,5 +132,14 @@
   },
   "extensionShortName":{
     "message":"PCZ"
+  },
+  "export": {
+    "message":"Eksportuj"
+  },
+  "import": {
+    "message":"Importuj i dołącz"
+  },
+  "revert": {
+    "message": "Przywróć"
   }
 }

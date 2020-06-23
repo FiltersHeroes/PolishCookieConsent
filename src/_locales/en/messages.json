@@ -132,5 +132,14 @@
   },
   "extensionShortName":{
     "message":"PCC"
+  },
+  "export": {
+    "message":"Export"
+  },
+  "import": {
+    "message":"Import and append"
+  },
+  "revert": {
+    "message": "Revert"
   }
 }

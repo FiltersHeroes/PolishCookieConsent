@@ -95,8 +95,9 @@ updateBtn.addEventListener("click", function () {
             .then(text => {
                 if (response.ok) {
                     self.port.emit("updateCookieBase", text);
+                    self.port.emit("updateCookieBase", text);
+                    cookieBaseContent.textContent = text;
                     updateBtn.classList.remove("active");
-                    location.reload();
                 } else {
                     return Promise.reject({
                         status: response.status,
@@ -113,8 +114,8 @@ updateBtn.addEventListener("click", function () {
 })
 
 // Show/hide Cookie Base
+var toggleBtn = document.querySelector("#showCookieBase");
 self.port.on("getCookieBase", function (cookieBase) {
-    var toggleBtn = document.querySelector("#showCookieBase");
     toggleBtn.addEventListener("click", function () {
         if (cookieBase && cookieBaseContent.textContent.length == 0) {
             cookieBaseContent.textContent = cookieBase;
@@ -135,15 +136,28 @@ self.port.on("getCookieBase", function (cookieBase) {
     })
 });
 
-// Add user filters to textarea
-restoreFilters();
-function restoreFilters() {
-    self.port.on("restoreFilters", function (userFilters) {
+
+var userFiltersRevert = document.getElementById("userFiltersRevert");
+var userFiltersApply = document.getElementById("userFiltersApply");
+self.port.on("restoreFilters", function (userFilters) {
+    // Add user filters to textarea
+    if (userFilters) {
+        userFiltersTa.value = userFilters;
+        autosize.update(userFilters);
+    }
+    // Revert user filters text area to original value
+    userFiltersRevert.addEventListener("click", function () {
         if (userFilters) {
             userFiltersTa.value = userFilters;
         }
+        else {
+            userFiltersTa.value = "";
+        }
+        userFiltersRevert.disabled = true;
+        userFiltersApply.disabled = true;
+        autosize.update(userFilters);
     });
-}
+});
 
 // Save user filters
 var userFiltersApply = document.getElementById("userFiltersApply");
@@ -151,31 +165,45 @@ document.querySelector("#my-filters form").addEventListener("submit", function (
     e.preventDefault();
     self.port.emit("saveFilters", userFiltersTa.value);
     userFiltersApply.disabled = true;
+    userFiltersRevert.disabled = true;
 });
 
 
-// Disable/enable submit user filters button
+// Disable/enable submit and revert user filters buttons
 self.port.on("restoreFilters", function (userFilters) {
     userFiltersTa.addEventListener('input', function () {
         if (userFiltersTa.value == userFilters) {
             userFiltersApply.disabled = true;
+            userFiltersRevert.disabled = true;
         }
         else {
             userFiltersApply.disabled = false;
+            userFiltersRevert.disabled = false;
         }
     });
 });
 
-// Add whitelist to textarea
-restoreWhitelist();
-function restoreWhitelist() {
-    self.port.on("restoreWhitelist", function (whitelist) {
+var whitelistApply = document.getElementById("whitelistApply");
+var whitelistRevert = document.getElementById("whitelistRevert");
+self.port.on("restoreWhitelist", function (whitelist) {
+    // Add whitelist to textarea
+    if (whitelist) {
+        userWhitelist.value = whitelist;
+        autosize.update(userWhitelist);
+    }
+    // Revert whitelist text area to original value
+    whitelistRevert.addEventListener("click", function () {
         if (whitelist) {
             userWhitelist.value = whitelist;
         }
+        else {
+            userWhitelist.value = "";
+        }
+        whitelistRevert.disabled = true;
+        whitelistApply.disabled = true;
         autosize.update(userWhitelist);
     });
-}
+});
 
 // Save whitelist
 var whitelistApply = document.getElementById("whitelistApply");
@@ -183,20 +211,73 @@ document.querySelector("#whitelist form").addEventListener("submit", function (e
     e.preventDefault();
     self.port.emit("saveWhitelist", userWhitelist.value);
     whitelistApply.disabled = true;
+    whitelistRevert.disabled = true;
 });
 
-
-// Disable/enable submit whitelist button
+// Disable/enable submit and revert whitelist buttons
 self.port.on("restoreWhitelist", function (whitelist) {
     userWhitelist.addEventListener('input', function () {
         if (userWhitelist.value === whitelist) {
             whitelistApply.disabled = true;
+            whitelistRevert.disabled = true;
         }
         else {
             whitelistApply.disabled = false;
+            whitelistRevert.disabled = false;
         }
     });
 });
+
+// Import user filters and whitelist
+document.querySelector('#userFiltersImport').addEventListener('click', function () {
+    importText("userFilters", "userFiltersApply", "userFiltersRevert");
+});
+
+document.querySelector('#whitelistImport').addEventListener('click', function () {
+    importText("userWhitelist", "whitelistApply", "whitelistRevert");
+});
+
+function importText(textarea, applyButton, revertButton) {
+    var fp = document.getElementById("importFilePicker");
+    fp.addEventListener('change', function () {
+        const file = fp.files[0];
+        const fr = new FileReader();
+        fr.onload = function (e) {
+            if (document.getElementById(textarea).textLength > 0) {
+                document.getElementById(textarea).value = [...new Set((document.getElementById(textarea).value + "\n" + fr.result).split(/[\n \t ' ']/))].join("\n");
+            }
+            else {
+                document.getElementById(textarea).value = fr.result;
+            }
+            autosize.update(document.getElementById(textarea));
+            document.getElementById(applyButton).disabled = false;
+            document.getElementById(revertButton).disabled = false;
+        }
+        fr.readAsText(file);
+    })
+    fp.value = '';
+    fp.click();
+}
+
+// Export user filters and whitelist
+document.querySelector('#userFiltersExport').addEventListener('click', function () {
+    exportText("userFilters", "myFilters");
+});
+
+document.querySelector('#whitelistExport').addEventListener('click', function () {
+    exportText("userWhitelist", "whitelist");
+});
+
+function todayDate() {
+    return new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000).toISOString().replace(/\.\d+Z$/, '').replace(/:/g, '.').replace('T', '_');
+}
+
+function exportText(field, fileNamePart) {
+    const a = document.createElement('a');
+    a.href = "data:text/plain;charset=utf-8," + encodeURIComponent(document.getElementById(field).value);
+    a.download = stringBundle.GetStringFromName("extensionShortName") + "-" + stringBundle.GetStringFromName(fileNamePart).replace(" ", "-").toLowerCase() + "_" + todayDate() + ".txt";
+    a.dispatchEvent(new MouseEvent('click'));
+}
 
 // Add extension version to about tab
 const { AddonManager } = Components.utils.import("resource://gre/modules/AddonManager.jsm");
