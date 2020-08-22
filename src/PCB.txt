@@ -1,6 +1,6 @@
 ! Polska Baza Ciasteczkowa
 ! Polish Cookie Base
-! Version: 2020.07.18.0
+! Version: 2020.08.22.0
 ! Copyright © 2020 Polish Filters Team
 !
 !
@@ -18,7 +18,7 @@ cineman.pl(bakeCookie, ARE_MARKETING_COOKIES_ACCEPTED, true, 3650)
 cineman.pl(bakeCookie, ARE_REQUIRED_COOKIES_ACCEPTED, true, 3650)
 cineman.pl(bakeCookie, HAS_COOKIES_FORM_SHOWED, true, 3650)
 espedytor.pl(bakeCookie, zgodaRODO, true, 365)
-fandom.com|wikia.com|wikia.org(bakeCookie, tracking-opt-in-status, accepted, 365)
+fandom.com|gamepedia.com|wikia.com|wikia.org(bakeCookie, tracking-opt-in-status, accepted, 365)
 hiszpanskidlapolakow.com(bakeCookie, gdpr-accepted, {"ga":true,"facebook":true,"disqus":true}, 365)
 infor.pl(bakeCookie, inforCookieWallCacheVal, 15, 365)
 laziska.com.pl|m-ce.pl|mojbytom.pl|mojegliwice.pl|mojekatowice.pl|mojmikolow.pl|orzesze.com.pl|piekaryslaskie.com.pl|pyskowice.com.pl|rudaslaska.com.pl|rybnicki.com|siemianowice.net.pl|sosnowiecki.pl|swiony.pl|wodzislaw.com.pl|zabrze.com.pl|zory.com.pl|silesia.info.pl(bakeCookie, rodo, accept, 365)
@@ -34,10 +34,12 @@ wunderground.com(bakeCookie, notice_gdpr_prefs, 0,1,2,3:, 365)
 wunderground.com(bakeCookie, notice_poptime, 1533920400000, 365)
 www2.hm.com(bakeCookie, hm_gdpr_read, true, 365)
 !
-! click complete
+! click complete text
 abczdrowie.pl|allani.pl|autocentrum.pl|autokult.pl|dobramama.pl|dobregry.pl|dobreprogramy.pl|domodi.pl|echirurgia.pl|fotoblogia.pl|gadzetomania.pl|homebook.pl|jejswiat.pl|kafeteria.pl|kafeteria.tv|kardiolo.pl|komorkomania.pl|luxlux.pl|medycyna24.pl|mixer.pl|money.pl|nocowanie.pl|nerwica.com|o2.pl|open.fm|parenting.pl|pinger.pl|pogodnie.pl|polygamia.pl|pudelek.pl|pudelek.tv|pudelekx.pl|pytamy.pl|smaczneblogi.pl|samosia.pl|smog.pl|snobka.pl|so-magazyn.pl|superauto24.com|testwiedzy.pl|wp.pl(clickCompleteText, button, PRZECHODZ)
-gry.pl(clickComplete, div[class*="app_gdpr"] button[class*="intro_acceptAll"], euconsent)
 parkiet.com|rp.pl(clickCompleteText, *[@id="rodo-popup"]//button, Zapisz)
+!
+! click complete
+gry.pl(clickComplete, div[class*="app_gdpr"] button[class*="intro_acceptAll"], euconsent)
 !
 ! click interactive
 downdetector.pl|unileverfoodsolutions.pl(clickInteractive, .evidon-barrier-acceptbutton)
@@ -48,6 +50,7 @@ tumblr.com\/privacy\/consent(clickInteractive, .btn.yes)
 ! click timeout
 eurogamer.pl(clickTimeout, #onetrust-accept-btn-handler)
 guce.oath.com\/collectConsent|consent.yahoo.com\/collectConsent(clickTimeout, .btn[name="agree"])
+google.com|google.pl|youtube.com(clickTimeout, form[action^="https://consent.google."] > div[aria-label^="Zgadzasz się na wykorzystanie plików cookie"] > span)
 redirect.global.commerce-connector.com\/consent\/(clickTimeout, .cookie-notice > .btn--blue.btn)
 !
 ! redirect
