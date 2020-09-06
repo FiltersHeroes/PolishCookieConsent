@@ -1,6 +1,6 @@
 ! Polska Baza Ciasteczkowa
 ! Polish Cookie Base
-! Version: 2020.08.22.0
+! Version: 2020.09.06.0
 ! Copyright © 2020 Polish Filters Team
 !
 !
@@ -9,6 +9,10 @@ gry.lotto.pl(addToStorage, rodoConfirmation, true)
 gry.lotto.pl(addToStorage, rodoConfirmation2, true)
 laczynaspilka.pl(addToStorage, gdpr_accepted, true)
 totalcasino.pl(addToStorage, gdpr_popup, true)
+tv-trwam.pl(bakeCookie, HAS_COOKIES_FORM_SHOWED, true, 365)
+tv-trwam.pl(bakeCookie, ARE_REQUIRED_COOKIES_ACCEPTED, true, 365)
+tv-trwam.pl(bakeCookie, ARE_FUNCTIONAL_COOKIES_ACCEPTED, true, 365)
+tv-trwam.pl(bakeCookie, ARE_MARKETING_COOKIES_ACCEPTED, true, 365)
 !
 ! bake cookie
 action.com(bakeCookie, CookieConsent, true, 365)
@@ -48,9 +52,9 @@ rodobox.io|selectshop.pl|totalnareklama.pl(clickInteractive, #_rdbxAcceptAllBtn,
 tumblr.com\/privacy\/consent(clickInteractive, .btn.yes)
 !
 ! click timeout
+consent.google.com|consent.google.pl|consent.youtube.com(clickTimeout, form[action^="https://consent.google."] > div[aria-label^="Zgadzasz się na wykorzystanie plików cookie"] > span)
 eurogamer.pl(clickTimeout, #onetrust-accept-btn-handler)
 guce.oath.com\/collectConsent|consent.yahoo.com\/collectConsent(clickTimeout, .btn[name="agree"])
-google.com|google.pl|youtube.com(clickTimeout, form[action^="https://consent.google."] > div[aria-label^="Zgadzasz się na wykorzystanie plików cookie"] > span)
 redirect.global.commerce-connector.com\/consent\/(clickTimeout, .cookie-notice > .btn--blue.btn)
 !
 ! redirect
