@@ -122,7 +122,7 @@ function userFilters() {
                 var filter = filters[i];
                 if (filter != "" && !filter.match(/^!/)) {
                     var urlArg = filter.split('(')[0];
-                    var jsfunc = filter.split("(")[1].split(",")[0];
+                    var jsfunc = filter.split("(")[1].split(",")[0].trim();
 
                     if (jsfunc == "clickInteractive" || jsfunc == "clickComplete" || jsfunc == "clickCompleteText" || jsfunc == "addToStorage") {
                         var arglen = filter.split("(")[1].split(", ").length;
@@ -205,7 +205,7 @@ function cookieBaseFilters() {
                 var filter = filters[i];
                 if (filter != "" && !filter.match(/^!/)) {
                     var urlArg = filter.split('(')[0];
-                    var jsfunc = filter.split("(")[1].split(",")[0];
+                    var jsfunc = filter.split("(")[1].split(",")[0].trim();
 
                     if (jsfunc == "clickInteractive" || jsfunc == "clickComplete" || jsfunc == "clickCompleteText" || jsfunc == "addToStorage") {
                         var arglen = filter.split("(")[1].split(", ").length;
