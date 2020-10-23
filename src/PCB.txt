@@ -55,6 +55,7 @@ consent.google.com|consent.google.pl|consent.youtube.com(clickTimeout, form[acti
 eurogamer.pl(clickTimeout, #onetrust-accept-btn-handler)
 guce.oath.com\/collectConsent|consent.yahoo.com\/collectConsent(clickTimeout, .btn[name="agree"])
 redirect.global.commerce-connector.com\/consent\/(clickTimeout, .cookie-notice > .btn--blue.btn)
+shinden.pl(clickTimeout, div[class^="app_gdpr"] button[class*="details_save"])
 !
 ! redirect
 =https://powiatkamienski.pl/(redirect, aktualnosci.dhtml, false)
