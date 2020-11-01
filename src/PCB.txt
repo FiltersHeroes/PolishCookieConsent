@@ -52,7 +52,7 @@ tumblr.com\/privacy\/consent(clickInteractive, .btn.yes)
 !
 ! click timeout
 consent.google.com|consent.google.pl|consent.youtube.com(clickTimeout, form[action^="https://consent.google."] > div[aria-label^="Zgadzasz się na wykorzystanie plików cookie"] > span)
-eurogamer.pl(clickTimeout, #onetrust-accept-btn-handler)
+eurogamer.pl|tvn24.pl(clickTimeout, #onetrust-accept-btn-handler)
 guce.oath.com\/collectConsent|consent.yahoo.com\/collectConsent(clickTimeout, .btn[name="agree"])
 redirect.global.commerce-connector.com\/consent\/(clickTimeout, .cookie-notice > .btn--blue.btn)
 shinden.pl(clickTimeout, div[class^="app_gdpr"] button[class*="details_save"])
