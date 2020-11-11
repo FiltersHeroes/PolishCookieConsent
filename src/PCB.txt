@@ -38,7 +38,7 @@ wunderground.com(bakeCookie, notice_poptime, 1533920400000, 365)
 www2.hm.com(bakeCookie, hm_gdpr_read, true, 365)
 !
 ! click complete text
-abczdrowie.pl|allani.pl|autocentrum.pl|autokult.pl|dobramama.pl|dobregry.pl|dobreprogramy.pl|domodi.pl|echirurgia.pl|fotoblogia.pl|gadzetomania.pl|homebook.pl|jejswiat.pl|kafeteria.pl|kafeteria.tv|kardiolo.pl|kazimierzdolny.pl|komorkomania.pl|luxlux.pl|medycyna24.pl|mixer.pl|money.pl|nocowanie.pl|nerwica.com|o2.pl|open.fm|parenting.pl|pinger.pl|pogodnie.pl|polygamia.pl|pudelek.pl|pudelek.tv|pudelekx.pl|pytamy.pl|smaczneblogi.pl|samosia.pl|smog.pl|snobka.pl|so-magazyn.pl|superauto24.com|testwiedzy.pl|vibez.pl|wp.pl(clickCompleteText, button, PRZECHODZ)
+abczdrowie.pl|allani.pl|autocentrum.pl|autokult.pl|dobramama.pl|dobregry.pl|dobreprogramy.pl|domodi.pl|echirurgia.pl|fotoblogia.pl|gadzetomania.pl|homebook.pl|jejswiat.pl|kafeteria.pl|kafeteria.tv|kardiolo.pl|kazimierzdolny.pl|komorkomania.pl|luxlux.pl|medycyna24.pl|mixer.pl|money.pl|nerwica.com|nocowanie.pl|o2.pl|open.fm|parenting.pl|pinger.pl|pogodnie.pl|polygamia.pl|pudelek.pl|pudelek.tv|pudelekx.pl|pytamy.pl|samosia.pl|smaczneblogi.pl|smog.pl|snobka.pl|so-magazyn.pl|superauto24.com|testwiedzy.pl|vibez.pl|wp.pl(clickCompleteText, button, PRZECHODZ)
 parkiet.com|rp.pl(clickCompleteText, *[@id="rodo-popup"]//button, Dalej)
 parkiet.com|rp.pl(clickCompleteText, *[@id="rodo-popup"]//button, Zapisz)
 !
