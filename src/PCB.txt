@@ -1,6 +1,6 @@
 ! Polska Baza Ciasteczkowa
 ! Polish Cookie Base
-! Version: 2020.11.11.0
+! Version: 2020.11.14.0
 ! Copyright © 2020 Polish Filters Team
 !
 !
@@ -54,6 +54,7 @@ tumblr.com\/privacy\/consent(clickInteractive, .btn.yes)
 consent.google.com|consent.google.pl|consent.youtube.com(clickTimeout, form[action^="https://consent.google."] > div[aria-label^="Zgadzasz się na wykorzystanie plików cookie"] > span)
 eurogamer.pl|tvn24.pl(clickTimeout, #onetrust-accept-btn-handler)
 guce.oath.com\/collectConsent|consent.yahoo.com\/collectConsent(clickTimeout, .btn[name="agree"])
+mapa.szukacz.pl(clickTimeout, input[value="załaduj mapę"])
 redirect.global.commerce-connector.com\/consent\/(clickTimeout, .cookie-notice > .btn--blue.btn)
 shinden.pl(clickTimeout, div[class^="app_gdpr"] button[class*="details_save"])
 !
