@@ -1,6 +1,6 @@
 ! Polska Baza Ciasteczkowa
 ! Polish Cookie Base
-! Version: 2020.11.14.0
+! Version: 2020.11.14.1
 ! Copyright © 2020 Polish Filters Team
 !
 !
@@ -23,6 +23,7 @@ hiszpanskidlapolakow.com(bakeCookie, gdpr-accepted, {"ga":true,"facebook":true,"
 infor.pl(bakeCookie, inforCookieWallCacheVal, 15, 365)
 laziska.com.pl|m-ce.pl|mojbytom.pl|mojegliwice.pl|mojekatowice.pl|mojmikolow.pl|orzesze.com.pl|piekaryslaskie.com.pl|pyskowice.com.pl|rudaslaska.com.pl|rybnicki.com|siemianowice.net.pl|sosnowiecki.pl|swiony.pl|wodzislaw.com.pl|zabrze.com.pl|zory.com.pl|silesia.info.pl(bakeCookie, rodo, accept, 365)
 login.e-dowod.gov.pl(bakeCookie, acceptRodoSie, hide, 365)
+mapa.szukacz.pl(bakeCookie, gdprid, 1, 780)
 mapy.geoportal.gov.pl(bakeCookie, regulationsAccepted, true, 365)
 mapy.geoportal.gov.pl(bakeCookie, rules, 1, 365)
 n26.com(bakeCookie, num26GDPR, ACCEPTED, 365)
@@ -54,7 +55,6 @@ tumblr.com\/privacy\/consent(clickInteractive, .btn.yes)
 consent.google.com|consent.google.pl|consent.youtube.com(clickTimeout, form[action^="https://consent.google."] > div[aria-label^="Zgadzasz się na wykorzystanie plików cookie"] > span)
 eurogamer.pl|tvn24.pl(clickTimeout, #onetrust-accept-btn-handler)
 guce.oath.com\/collectConsent|consent.yahoo.com\/collectConsent(clickTimeout, .btn[name="agree"])
-mapa.szukacz.pl(clickTimeout, input[value="załaduj mapę"])
 redirect.global.commerce-connector.com\/consent\/(clickTimeout, .cookie-notice > .btn--blue.btn)
 shinden.pl(clickTimeout, div[class^="app_gdpr"] button[class*="details_save"])
 !
