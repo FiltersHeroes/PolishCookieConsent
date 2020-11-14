@@ -1,6 +1,6 @@
 ! Polska Baza Ciasteczkowa
 ! Polish Cookie Base
-! Version: 2020.11.14.1
+! Version: 2020.11.14.2
 ! Copyright © 2020 Polish Filters Team
 !
 !
@@ -27,6 +27,7 @@ mapa.szukacz.pl(bakeCookie, gdprid, 1, 780)
 mapy.geoportal.gov.pl(bakeCookie, regulationsAccepted, true, 365)
 mapy.geoportal.gov.pl(bakeCookie, rules, 1, 365)
 n26.com(bakeCookie, num26GDPR, ACCEPTED, 365)
+parkiet.com|rp.pl(bakeCookie, __gm_tcfconsent_v2, 1, 365)
 tv-trwam.pl(bakeCookie, HAS_COOKIES_FORM_SHOWED, true, 365)
 tv-trwam.pl(bakeCookie, ARE_REQUIRED_COOKIES_ACCEPTED, true, 365)
 tv-trwam.pl(bakeCookie, ARE_FUNCTIONAL_COOKIES_ACCEPTED, true, 365)
@@ -40,8 +41,8 @@ www2.hm.com(bakeCookie, hm_gdpr_read, true, 365)
 !
 ! click complete text
 abczdrowie.pl|allani.pl|autocentrum.pl|autokult.pl|dobramama.pl|dobregry.pl|dobreprogramy.pl|domodi.pl|echirurgia.pl|fotoblogia.pl|gadzetomania.pl|homebook.pl|jejswiat.pl|kafeteria.pl|kafeteria.tv|kardiolo.pl|kazimierzdolny.pl|komorkomania.pl|luxlux.pl|medycyna24.pl|mixer.pl|money.pl|nerwica.com|nocowanie.pl|o2.pl|open.fm|parenting.pl|pinger.pl|pogodnie.pl|polygamia.pl|pudelek.pl|pudelek.tv|pudelekx.pl|pytamy.pl|samosia.pl|smaczneblogi.pl|smog.pl|snobka.pl|so-magazyn.pl|superauto24.com|testwiedzy.pl|vibez.pl|wp.pl(clickCompleteText, button, PRZECHODZ)
-parkiet.com|rp.pl(clickCompleteText, *[@id="rodo-popup"]//button, Dalej)
-parkiet.com|rp.pl(clickCompleteText, *[@id="rodo-popup"]//button, Zapisz)
+!parkiet.com|rp.pl(clickCompleteText, *[@id="rodo-popup"]//button, Dalej)
+!parkiet.com|rp.pl(clickCompleteText, *[@id="rodo-popup"]//button, Zapisz)
 !
 ! click complete
 gry.pl(clickComplete, div[class*="app_gdpr"] button[class*="intro_acceptAll"], euconsent)
