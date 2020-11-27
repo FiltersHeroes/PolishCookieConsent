@@ -1,6 +1,6 @@
 ! Polska Baza Ciasteczkowa
 ! Polish Cookie Base
-! Version: 2020.11.26.0
+! Version: 2020.11.27.0
 ! Copyright © 2020 Polish Filters Team
 !
 !
@@ -63,6 +63,7 @@ shinden.pl(clickTimeout, div[class^="app_gdpr"] button[class*="details_save"])
 !
 ! redirect
 =http://edytor-serwis.com.pl/(redirect, index2.html, false)
+=http://www.edytor-serwis.com.pl/(redirect, index2.html, false)
 =https://powiatkamienski.pl/(redirect, aktualnosci.dhtml, false)
 =https://www.powiatkamienski.pl/(redirect, aktualnosci.dhtml, false)
 f1racing.pl(redirect, x-set-cookie, true, x-id-cookie-yes=)
