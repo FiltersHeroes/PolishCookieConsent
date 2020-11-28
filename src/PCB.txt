@@ -1,6 +1,6 @@
 ! Polska Baza Ciasteczkowa
 ! Polish Cookie Base
-! Version: 2020.11.27.0
+! Version: 2020.11.28.0
 ! Copyright © 2020 Polish Filters Team
 !
 !
@@ -49,12 +49,13 @@ abczdrowie.pl|allani.pl|autocentrum.pl|autokult.pl|dobramama.pl|dobregry.pl|dobr
 gry.pl(clickComplete, div[class*="app_gdpr"] button[class*="intro_acceptAll"], euconsent)
 !
 ! click interactive
-downdetector.pl|unileverfoodsolutions.pl(clickInteractive, .evidon-barrier-acceptbutton)
+!downdetector.pl|unileverfoodsolutions.pl(clickInteractive, .evidon-barrier-acceptbutton)
 odr.pl(clickInteractive, .termsagree)
 tumblr.com\/privacy\/consent(clickInteractive, .btn.yes)
 !
 ! click timeout
 consent.google.com|consent.google.pl|consent.youtube.com(clickTimeout, form[action^="https://consent."] > div[aria-label^="Zgadzasz się na wykorzystanie plików cookie"] > span)
+downdetector.pl(clickTimeout, .evidon-barrier-acceptbutton)
 eurogamer.pl|tvn24.pl(clickTimeout, #onetrust-accept-btn-handler)
 guce.oath.com\/[a-z0-9]{2}\/collectConsent|consent.yahoo.com\/[a-z0-9]{2}\/collectConsent(clickTimeout, .btn[name="agree"])
 radio17.pl(clickTimeout, button[data-cy="gdpr-accept"])
