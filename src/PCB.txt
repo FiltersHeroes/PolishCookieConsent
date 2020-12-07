@@ -47,6 +47,7 @@ abczdrowie.pl|allani.pl|autocentrum.pl|autokult.pl|dobramama.pl|dobregry.pl|dobr
 !
 ! click complete
 gry.pl(clickComplete, div[class*="app_gdpr"] button[class*="intro_acceptAll"], euconsent)
+!mapaodoru.pgkslupsk.pl(clickComplete, input#wpgmza_ugm_spm, jestem_czlowiekiem)
 !
 ! click interactive
 !downdetector.pl|unileverfoodsolutions.pl(clickInteractive, .evidon-barrier-acceptbutton)
