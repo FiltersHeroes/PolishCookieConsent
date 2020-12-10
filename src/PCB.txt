@@ -1,6 +1,6 @@
 ! Polska Baza Ciasteczkowa
 ! Polish Cookie Base
-! Version: 2020.11.28.0
+! Version: 2020.12.10.0
 ! Copyright © 2020 Polish Filters Team
 !
 !
@@ -21,6 +21,7 @@ emuia1.gugik.gov.pl(bakeCookie, cookieMessageHide, true, 365)
 espedytor.pl(bakeCookie, zgodaRODO, true, 365)
 fandom.com|gamepedia.com|wikia.com|wikia.org(bakeCookie, tracking-opt-in-status, accepted, 365)
 hiszpanskidlapolakow.com(bakeCookie, gdpr-accepted, {"ga":true,"facebook":true,"disqus":true}, 365)
+hrkgame.com(bakeCookie, gdpralert, done, 365)
 infor.pl(bakeCookie, inforCookieWallCacheVal, 15, 365)
 laziska.com.pl|m-ce.pl|mojbytom.pl|mojegliwice.pl|mojekatowice.pl|mojmikolow.pl|orzesze.com.pl|piekaryslaskie.com.pl|pyskowice.com.pl|rudaslaska.com.pl|rybnicki.com|siemianowice.net.pl|sosnowiecki.pl|swiony.pl|wodzislaw.com.pl|zabrze.com.pl|zory.com.pl|silesia.info.pl(bakeCookie, rodo, accept, 365)
 login.e-dowod.gov.pl(bakeCookie, acceptRodoSie, hide, 365)
