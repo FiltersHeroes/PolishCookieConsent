@@ -1,6 +1,6 @@
 ! Polska Baza Ciasteczkowa
 ! Polish Cookie Base
-! Version: 2021.03.07.1
+! Version: 2021.03.09.0
 ! Copyright © 2020 Polish Filters Team
 !
 !
@@ -54,6 +54,7 @@ gry.pl(clickComplete, div[class*="app_gdpr"] button[class*="intro_acceptAll"], e
 ! click interactive
 !downdetector.pl|unileverfoodsolutions.pl(clickInteractive, .evidon-barrier-acceptbutton)
 odr.pl(clickInteractive, .termsagree)
+rejestracja.pwik.gliwice.pl(clickInteractive, .bp3-portal .bp3-dialog-footer-actions button[type="button"] ~ button[type="submit"], PWiKGliwiceSMS)
 tumblr.com\/privacy\/consent(clickInteractive, .btn.yes)
 !
 ! click timeout
