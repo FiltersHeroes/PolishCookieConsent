@@ -38,7 +38,7 @@ Basilisk Add-ons: [![Basilisk Add-ons version](https://img.shields.io/badge/BA-v
 1. Zainstaluj najnowszą wersję rozszerzenia z [BA](https://addons.basilisk-browser.org/addon/pcc/).
 2. Gotowe :tada: !
 
-### **VI. [**Iceraven**](https://github.com/fork-maintainers/iceraven-browser)
+### **VI. [Iceraven](https://github.com/fork-maintainers/iceraven-browser)**
 1. Wejdź w Ustawienia->Dostosuj i zjeżdżaj w dół, aż znajdziesz „Set custom add-ons account".
 2. Dotknij „Set custom add-ons account", wpisz `12377843` i `OK`.
 3. Dotknij „Set custom add-ons collection", wpisz `Moje-rekomendacje` i `OK`.
