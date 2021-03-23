@@ -38,6 +38,14 @@ Basilisk Add-ons: [![Basilisk Add-ons version](https://img.shields.io/badge/BA-v
 1. Zainstaluj najnowszą wersję rozszerzenia z [BA](https://addons.basilisk-browser.org/addon/pcc/).
 2. Gotowe :tada: !
 
+### **VI. [**Iceraven**](https://github.com/fork-maintainers/iceraven-browser)
+1. Wejdź w Ustawienia->Dostosuj i zjeżdżaj w dół, aż znajdziesz „Set custom add-ons account".
+2. Dotknij „Set custom add-ons account", wpisz `12377843` i `OK`.
+3. Dotknij „Set custom add-ons collection", wpisz `Moje-rekomendacje` i `OK`.
+4. Wróć do głównych ustawień, zjedź w dół i dotknij `Dodatki`.
+5. Dodatki `+` przy PCZ i `Dodaj`.
+6. Gotowe :tada: !
+
 <!-- ### **IV. ![Whale][Whale]NAVER Whale**
 1. Zainstaluj najnowszą wersję rozszerzenia z [NWS](https://store.whale.naver.com/detail/micngbppijeajicgilihpkkbkgibmjhb?hl=pl) (kliknij **dodaj**).
 2. Gotowe :tada: ! -->
