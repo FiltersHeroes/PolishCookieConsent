@@ -1,6 +1,6 @@
 ! Polska Baza Ciasteczkowa
 ! Polish Cookie Base
-! Version: 2021.03.14.0
+! Version: 2021.04.02.0
 ! Copyright © 2020 Polish Filters Team
 !
 !
@@ -59,7 +59,7 @@ tumblr.com\/privacy\/consent(clickInteractive, .btn.yes)
 !
 ! click timeout
 boomerang-tv.pl|eurogamer.pl|tvn24.pl(clickTimeout, #onetrust-accept-btn-handler)
-consent.google.com|consent.google.pl|consent.youtube.com(clickTimeout, form[action^="https://consent."] > div[aria-label^="Zgadzasz się na wykorzystanie plików cookie"] > span)
+consent.google.com|consent.google.pl|consent.youtube.com(clickTimeout, form[action*="consent."] [aria-label^="Zgadzasz się na wykorzystanie plików cookie"])
 downdetector.pl(clickTimeout, .evidon-barrier-acceptbutton)
 facebook.com|messenger.com(clickTimeout, body > div div[aria-label="Akceptuj wszystkie"])
 facebook.com|messenger.com(clickTimeout, body > div button[title="Akceptuj wszystkie"])
