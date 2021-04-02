@@ -7,7 +7,6 @@
 ! add to storage
 gry.lotto.pl(addToStorage, rodoConfirmation, true)
 gry.lotto.pl(addToStorage, rodoConfirmation2, true)
-laczynaspilka.pl(addToStorage, gdpr_accepted, true)
 totalcasino.pl(addToStorage, gdpr_popup, true)
 !
 ! bake cookie
