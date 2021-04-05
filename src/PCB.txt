@@ -1,6 +1,6 @@
 ! Polska Baza Ciasteczkowa
 ! Polish Cookie Base
-! Version: 2021.04.02.0
+! Version: 2021.04.05.0
 ! Copyright © 2020 Polish Filters Team
 !
 !
@@ -20,6 +20,7 @@ cineman.pl(bakeCookie, HAS_COOKIES_FORM_SHOWED, true, 3650)
 emuia1.gugik.gov.pl(bakeCookie, cookieMessageHide, true, 365)
 espedytor.pl(bakeCookie, zgodaRODO, true, 365)
 fandom.com|gamepedia.com|wikia.com|wikia.org(bakeCookie, tracking-opt-in-status, accepted, 365)
+gisgminny.pl(bakeCookie, cookiesDirective, 1, 365)
 hiszpanskidlapolakow.com(bakeCookie, gdpr-accepted, {"ga":true,"facebook":true,"disqus":true}, 365)
 hrkgame.com(bakeCookie, gdpralert, done, 365)
 infor.pl(bakeCookie, inforCookieWallCacheVal, 15, 365)
