@@ -1,10 +1,11 @@
 ! Polska Baza Ciasteczkowa
 ! Polish Cookie Base
-! Version: 2021.04.05.0
+! Version: 2021.04.07.0
 ! Copyright © 2020 Polish Filters Team
 !
 !
 ! add to storage
+click.kaufland.com(addToStorage, cookies, {"consent":"accepted"})
 gry.lotto.pl(addToStorage, rodoConfirmation, true)
 gry.lotto.pl(addToStorage, rodoConfirmation2, true)
 totalcasino.pl(addToStorage, gdpr_popup, true)
@@ -64,6 +65,7 @@ downdetector.pl(clickTimeout, .evidon-barrier-acceptbutton)
 facebook.com|messenger.com(clickTimeout, body > div div[aria-label="Akceptuj wszystkie"])
 facebook.com|messenger.com(clickTimeout, body > div button[title="Akceptuj wszystkie"])
 guce.oath.com\/[a-z0-9]{2}\/collectConsent|consent.yahoo.com\/[a-z0-9]{2}\/collectConsent(clickTimeout, .btn[name="agree"])
+https://click.kaufland.com/cookieconsent(clickTimeout, button.primary)
 mapa.gdansk.gda.pl(clickTimeout, a#btn-accept)
 radio17.pl(clickTimeout, button[data-cy="gdpr-accept"])
 redirect.global.commerce-connector.com\/consent\/(clickTimeout, .cookie-notice > .btn--blue.btn)
