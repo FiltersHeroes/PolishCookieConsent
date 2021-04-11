@@ -1,6 +1,6 @@
 ! Polska Baza Ciasteczkowa
 ! Polish Cookie Base
-! Version: 2021.04.11.1
+! Version: 2021.04.11.2
 ! Copyright © 2020 Polish Filters Team
 !
 !
@@ -67,7 +67,6 @@ facebook.com|messenger.com(clickTimeout, body > div div[aria-label="Akceptuj wsz
 facebook.com|messenger.com(clickTimeout, body > div button[title="Akceptuj wszystkie"])
 guce\.oath\.com\/[a-z0-9]{2}\/collectConsent|consent.yahoo.com\/[a-z0-9]{2}\/collectConsent(clickTimeout, .btn[name="agree"])
 https://click.kaufland.com/cookieconsent(clickTimeout, button.primary)
-mapa.gdansk.gda.pl(clickTimeout, a#btn-accept)
 redirect.global.commerce-connector.com\/consent\/(clickTimeout, .cookie-notice > .btn--blue.btn)
 shinden.pl(clickTimeout, div[class^="app_gdpr"] button[class*="details_save"])
 !
@@ -75,6 +74,6 @@ shinden.pl(clickTimeout, div[class^="app_gdpr"] button[class*="details_save"])
 biblioteka\.rawicz\.pl\/$(redirect, indexa.html, false)
 edytor-serwis\.com\.pl\/$(redirect, index2.html, false)
 f1racing.pl(redirect, x-set-cookie, true, x-id-cookie-yes=)
-powiatkamienski\.pl\/$(redirect, aktualnosci.dhtml, false)
+!powiatkamienski\.pl\/$(redirect, aktualnosci.dhtml, false)
 tester\.net\.pl\/$(redirect, ?pl_witamy,1, false)
 ubi2.wit.edu.pl(redirect, wall/gaccept, false, GPRD)
