@@ -67,12 +67,21 @@ function clickCompleteText(element, text, urlArg) {
     }
 }
 
-function clickTimeout(element, urlArg) {
+function clickTimeout(element, urlArg, cookieName) {
     if (getUrlCondition(urlArg)) {
+        var condition;
+        var counter = 0;
+        if (cookieName) {
+            condition = document.cookie.indexOf(cookieName + "=") == -1;
+        }
+        else {
+            condition = counter < 200
+        }
         (function checkIfElemExists() {
             var btnYes = document.querySelector(element);
-            if (btnYes == null) {
+            if (btnYes == null && condition) {
                 window.requestAnimationFrame(checkIfElemExists);
+                counter++;
             } else if (btnYes) {
                 btnYes.click()
             }
@@ -124,7 +133,7 @@ function userFilters() {
                     var urlArg = filter.split('(')[0];
                     var jsfunc = filter.split("(")[1].split(",")[0].trim();
 
-                    if (jsfunc == "clickInteractive" || jsfunc == "clickComplete" || jsfunc == "clickCompleteText" || jsfunc == "addToStorage") {
+                    if (jsfunc == "clickInteractive" || jsfunc == "clickComplete" || jsfunc == "clickCompleteText" || jsfunc == "addToStorage" || jsfunc == "clickTimeout") {
                         var arglen = filter.split("(")[1].split(", ").length;
                         if (arglen == 2) {
                             var element = filter.split("(")[1].split(", ")[1].replace(")", "");
@@ -156,10 +165,15 @@ function userFilters() {
                             var storageValue = arg2;
                             addToStorage(storageKey, storageValue, urlArg);
                         }
-                    }
-                    else if (jsfunc == "clickTimeout") {
-                        var element = filter.split("(")[1].split(", ")[1].replace(")", "");
-                        clickTimeout(element, urlArg);
+                        else if (jsfunc == "clickTimeout") {
+                            if (arglen == 3) {
+                                var cookieName = arg2;
+                                clickTimeout(element, urlArg, cookieName);
+                            }
+                            else {
+                                clickTimeout(element, urlArg);
+                            }
+                        }
                     }
                     else if (jsfunc == "bakeCookie" || jsfunc == "redirect") {
                         var arg = filter.split("(")[1].split(", ")[1];
@@ -206,7 +220,7 @@ function cookieBaseFilters() {
                     var urlArg = filter.split('(')[0];
                     var jsfunc = filter.split("(")[1].split(",")[0].trim();
 
-                    if (jsfunc == "clickInteractive" || jsfunc == "clickComplete" || jsfunc == "clickCompleteText" || jsfunc == "addToStorage") {
+                    if (jsfunc == "clickInteractive" || jsfunc == "clickComplete" || jsfunc == "clickCompleteText" || jsfunc == "addToStorage" || jsfunc == "clickTimeout") {
                         var arglen = filter.split("(")[1].split(", ").length;
                         if (arglen == 2) {
                             var element = filter.split("(")[1].split(", ")[1].replace(")", "");
@@ -238,10 +252,15 @@ function cookieBaseFilters() {
                             var storageValue = arg2;
                             addToStorage(storageKey, storageValue, urlArg);
                         }
-                    }
-                    else if (jsfunc == "clickTimeout") {
-                        var element = filter.split("(")[1].split(", ")[1].replace(")", "");
-                        clickTimeout(element, urlArg);
+                        else if (jsfunc == "clickTimeout") {
+                            if (arglen == 3) {
+                                var cookieName = arg2;
+                                clickTimeout(element, urlArg, cookieName);
+                            }
+                            else {
+                                clickTimeout(element, urlArg);
+                            }
+                        }
                     }
                     else if (jsfunc == "bakeCookie" || jsfunc == "redirect") {
                         var arg = filter.split("(")[1].split(", ")[1];
