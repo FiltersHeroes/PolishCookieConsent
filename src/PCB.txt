@@ -56,7 +56,7 @@ gry.pl(clickComplete, div[class*="app_gdpr"] button[class*="intro_acceptAll"], e
 !downdetector.pl|unileverfoodsolutions.pl(clickInteractive, .evidon-barrier-acceptbutton)
 odr.pl(clickInteractive, .termsagree)
 rejestracja.pwik.gliwice.pl(clickInteractive, .bp3-portal .bp3-dialog-footer-actions button[type="button"] ~ button[type="submit"], PWiKGliwiceSMS)
-tumblr.com\/privacy\/consent(clickInteractive, .btn.yes)
+tumblr\.com\/privacy\/consent(clickInteractive, .btn.yes)
 !
 ! click timeout
 boomerang-tv.pl|eurogamer.pl|tvn24.pl(clickTimeout, #onetrust-accept-btn-handler)
@@ -64,7 +64,7 @@ consent.google.com|consent.google.pl|consent.youtube.com(clickTimeout, form[acti
 downdetector.pl(clickTimeout, .evidon-barrier-acceptbutton)
 facebook.com|messenger.com(clickTimeout, body > div div[aria-label="Akceptuj wszystkie"])
 facebook.com|messenger.com(clickTimeout, body > div button[title="Akceptuj wszystkie"])
-guce.oath.com\/[a-z0-9]{2}\/collectConsent|consent.yahoo.com\/[a-z0-9]{2}\/collectConsent(clickTimeout, .btn[name="agree"])
+guce\.oath\.com\/[a-z0-9]{2}\/collectConsent|consent.yahoo.com\/[a-z0-9]{2}\/collectConsent(clickTimeout, .btn[name="agree"])
 https://click.kaufland.com/cookieconsent(clickTimeout, button.primary)
 mapa.gdansk.gda.pl(clickTimeout, a#btn-accept)
 radio17.pl(clickTimeout, button[data-cy="gdpr-accept"])
@@ -72,11 +72,11 @@ redirect.global.commerce-connector.com\/consent\/(clickTimeout, .cookie-notice >
 shinden.pl(clickTimeout, div[class^="app_gdpr"] button[class*="details_save"])
 !
 ! redirect
-=http://edytor-serwis.com.pl/(redirect, index2.html, false)
-=http://www.edytor-serwis.com.pl/(redirect, index2.html, false)
-=https://powiatkamienski.pl/(redirect, aktualnosci.dhtml, false)
-=https://www.powiatkamienski.pl/(redirect, aktualnosci.dhtml, false)
-=http://biblioteka.rawicz.pl/(redirect, indexa.html, false)
-=https://biblioteka.rawicz.pl/(redirect, indexa.html, false)
+edytor-serwis\.com\.pl/$(redirect, index2.html, false)
+
+powiatkamienski\.pl/$(redirect, aktualnosci.dhtml, false)
+
+biblioteka\.rawicz\.pl/$(redirect, indexa.html, false)
+
 f1racing.pl(redirect, x-set-cookie, true, x-id-cookie-yes=)
 ubi2.wit.edu.pl(redirect, wall/gaccept, false, GPRD)
