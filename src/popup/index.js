@@ -16,7 +16,10 @@ chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
     if (protocol == "https:" || protocol == "http:") {
         chrome.storage.local.get('whitelist', function (result) {
             if (typeof result.whitelist !== "undefined" && result.whitelist != "") {
-                var whitelist = result.whitelist.split("\n").join([separator = '|']);
+                function containsCommentSign(value) {
+                    return value.indexOf("!") &&  value.indexOf("#");
+                }
+                var whitelist = result.whitelist.split("\n").filter(containsCommentSign).join([separator = '|']);
                 if (whitelist.includes(hostname)) {
                     document.querySelector(".switch").textContent = chrome.i18n.getMessage("popupEnable", hostname);
                     document.querySelector(".switch").addEventListener("click", function () {

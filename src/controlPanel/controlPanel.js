@@ -216,6 +216,10 @@ whitelistRevert.addEventListener("click", function () {
 // Save whitelist
 document.querySelector("#whitelist form").addEventListener("submit", function (e) {
     e.preventDefault();
+
+    // Strip not allowed characters from whitelist
+    userWhitelist.value = userWhitelist.value.replace(/[^\w\s\.!\-#]/gi, '').trim();
+
     chrome.storage.local.set({
         whitelist: userWhitelist.value
     });

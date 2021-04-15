@@ -41,7 +41,7 @@
     "message":"Moje filtry"
   },
   "mfHelp":{
-    "message":"Jeden filtr zgodny ze $PCCsyntax$ na linię. Wiersze poprzedzone wykrzyknikiem będą pomijane.",
+    "message":"Jeden filtr zgodny ze $PCCsyntax$ na linię. Wiersze poprzedzone wykrzyknikiem lub kratką będą pomijane.",
     "placeholders": {
       "PCCsyntax": {
         "content": "$1",
@@ -59,7 +59,7 @@
     "message":"Biała lista"
   },
   "whitelistHelp":{
-    "message":"Lista wszystkich stron, na których rozszerzenie powinno zostać wyłączone. Jeden adres strony bez protokołu na linię."
+    "message":"Lista wszystkich stron, na których rozszerzenie powinno zostać wyłączone. Jeden adres strony bez protokołu na linię. Wiersze poprzedzone wykrzyknikiem lub kratką będą pomijane."
   },
   "popupDisable":{
     "message":"Wyłącz rozszerzenie na $HOSTNAME$",

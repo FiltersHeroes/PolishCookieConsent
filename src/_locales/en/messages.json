@@ -41,7 +41,7 @@
     "message":"My filters"
   },
   "mfHelp":{
-    "message":"One filter compatible with $PCCsyntax$ per line. Lines prefixed with exclamation mark will be ignored.",
+    "message":"One filter compatible with $PCCsyntax$ per line. Lines prefixed with exclamation mark or hash will be ignored.",
     "placeholders": {
       "PCCsyntax": {
         "content": "$1",
@@ -59,7 +59,7 @@
     "message":"Whitelist"
   },
   "whitelistHelp":{
-    "message":"List of all websites on which the extension should be disabled. One website address without protocol per line."
+    "message":"List of all websites on which the extension should be disabled. One website address without protocol per line. Lines prefixed with exclamation mark or hash will be ignored."
   },
   "popupDisable":{
     "message":"Disable extension on $HOSTNAME$",

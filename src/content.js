@@ -124,7 +124,7 @@ function redirect(redirectPoint, path, urlArg, cookieName) {
 }
 
 function initArgs(filter) {
-    if (filter != "" && !filter.match(/^!/)) {
+    if (filter != "" && !filter.match(/^!|^#/)) {
         var urlArg = filter.split('(')[0];
         var jsfunc = filter.split("(")[1].split(",")[0].trim();
 
@@ -226,7 +226,10 @@ function cookieBaseFilters() {
 
 chrome.storage.local.get('whitelist', function (result) {
     if (typeof result.whitelist !== "undefined" && result.whitelist != "") {
-        var whitelist = result.whitelist.split("\n").join([separator = '|']);
+        function containsCommentSign(value) {
+            return value.indexOf("!") &&  value.indexOf("#");
+        }
+        var whitelist = result.whitelist.split("\n").filter(containsCommentSign).join([separator = '|']);
         if (!getUrlCondition(whitelist)) {
             userFilters();
             cookieBaseFilters();
