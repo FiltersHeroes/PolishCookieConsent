@@ -168,6 +168,10 @@ userFiltersRevert.addEventListener("click", function () {
 // Save user filters
 document.querySelector("#my-filters form").addEventListener("submit", function (e) {
     e.preventDefault();
+
+    // Strip duplicates from user filters
+    userFilters.value = [...new Set(userFilters.value.split("\n"))].join("\n").trim();
+
     chrome.storage.local.set({
         userFilters: userFilters.value
     });
@@ -217,8 +221,8 @@ whitelistRevert.addEventListener("click", function () {
 document.querySelector("#whitelist form").addEventListener("submit", function (e) {
     e.preventDefault();
 
-    // Strip not allowed characters from whitelist
-    userWhitelist.value = userWhitelist.value.replace(/[^\w\s\.!\-#]/gi, '').trim();
+    // Strip duplicates and not allowed characters from whitelist
+    userWhitelist.value = [...new Set(userWhitelist.value.replace(/[^\w\s\.!\-#]/gi, '').split("\n"))].join("\n").trim();
 
     chrome.storage.local.set({
         whitelist: userWhitelist.value
@@ -257,7 +261,7 @@ function importText(textarea, applyButton, revertButton) {
         const fr = new FileReader();
         fr.onload = function (e) {
             if (document.getElementById(textarea).textLength > 0) {
-                document.getElementById(textarea).value = [...new Set((document.getElementById(textarea).value + "\n" + fr.result).split(/[\n \t ' ']/))].join("\n");
+                document.getElementById(textarea).value = [...new Set((document.getElementById(textarea).value + "\n" + fr.result).split("\n"))].join("\n");
             }
             else {
                 document.getElementById(textarea).value = fr.result;

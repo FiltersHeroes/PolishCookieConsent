@@ -227,7 +227,7 @@ function cookieBaseFilters() {
 chrome.storage.local.get('whitelist', function (result) {
     if (typeof result.whitelist !== "undefined" && result.whitelist != "") {
         function containsCommentSign(value) {
-            return value.indexOf("!") &&  value.indexOf("#");
+            return value.indexOf("!") && value.indexOf("#");
         }
         var whitelist = result.whitelist.split("\n").filter(containsCommentSign).join([separator = '|']);
         if (!getUrlCondition(whitelist)) {
