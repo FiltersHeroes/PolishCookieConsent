@@ -17,7 +17,7 @@ chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
         chrome.storage.local.get('whitelist', function (result) {
             if (typeof result.whitelist !== "undefined" && result.whitelist != "") {
                 function containsCommentSign(value) {
-                    return value.indexOf("!") && value.indexOf("#");
+                    return value.indexOf("!") && value.indexOf("#") && value != "";
                 }
                 var whitelist = result.whitelist.split("\n").filter(containsCommentSign).join([separator = '|']);
                 if (whitelist.includes(hostname)) {
