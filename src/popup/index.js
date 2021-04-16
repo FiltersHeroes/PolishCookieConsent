@@ -1,5 +1,7 @@
 var wrapper = document.querySelectorAll(".wrapper:not(.wrapper-switch)");
 
+document.querySelector("#changelog").dataset.href += "/v" + chrome.runtime.getManifest().version;
+
 for (var i = 0; i < wrapper.length; i++) {
     wrapper[i].addEventListener('click', function (event) {
         chrome.tabs.create({ url: this.dataset.href });
