@@ -2,12 +2,21 @@ version: 2
 jobs:
   publish:
     docker:
-    - image: circleci/golang:latest-node
+    - image: cimg/node:lts
     steps:
     - checkout
-    - run: go get github.com/tcnksm/ghr
-    - run: npm set prefix=/home/circleci/npm && echo 'export PATH=$HOME/circleci/npm/bin:$PATH' >> /home/circleci/.bashrc && npm install web-ext-submit @wext/shipit && ./make_scripts/make_firefox.sh && ./make_scripts/make_chromium.sh
-    - run: ghr -t ${GIT_TOKEN} -u PolishFiltersTeam -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} -delete ${CIRCLE_TAG} ./artifacts
+    - run:
+        command: |
+          sudo apt-get update && sudo apt-get install -y software-properties-common
+          sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key C99B11DEB97541F0
+          sudo apt-add-repository https://cli.github.com/packages
+          sudo apt-get update && sudo apt-get install -y gh
+          ./make_scripts/make_UXP.sh
+          npm set prefix=/home/circleci/npm && echo 'export PATH=$HOME/circleci/npm/bin:$PATH' >> /home/circleci/.bashrc && npm install @wext/shipit && ./make_scripts/make_firefox.sh && ./make_scripts/make_chromium.sh && ./make_scripts/make_UXP.sh
+    - run:
+        command: |
+          ./make_scripts/make_release_notes.sh
+          gh release create ${CIRCLE_TAG} ./artifacts/* --notes-file ./release_notes/release_notes.md
 workflows:
   version: 2
   workflow:

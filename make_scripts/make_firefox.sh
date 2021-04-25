@@ -17,14 +17,14 @@ mv "$tymczasowy"/platform/webext/* "$tymczasowy"/
 rm -rf "$tymczasowy"/platform/
 
 if [ "$CI" = "true" ]; then
-    npx web-ext-submit
+    npx shipit firefox ./
 fi
 
 if [ -d "./web-ext-artifacts" ]; then
     rm -rvf ./web-ext-artifacts
 fi
 
-zip -r9 PolishCookieConsent_firefox.xpi ./*
+zip -r9 PolishCookieConsent_Firefox.xpi ./*
 
 cd "$glowna_sciezka" || exit
 
@@ -32,5 +32,5 @@ if [ ! -d "./artifacts" ]; then
     mkdir ./artifacts
 fi
 
-mv "$tymczasowy"/PolishCookieConsent_firefox.xpi "$glowna_sciezka"/artifacts
+mv "$tymczasowy"/PolishCookieConsent_Firefox.xpi "$glowna_sciezka"/artifacts
 rm -rf "$tymczasowy"

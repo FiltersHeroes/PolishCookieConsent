@@ -26,7 +26,7 @@ if [ -d "./web-ext-artifacts" ]; then
     rm -rvf ./web-ext-artifacts
 fi
 
-zip -r9 PolishCookieConsent_chromium.zip ./*
+zip -r9 PolishCookieConsent_Chromium.zip ./*
 
 cd "$glowna_sciezka" || exit
 
@@ -34,5 +34,5 @@ if [ ! -d "./artifacts" ]; then
     mkdir ./artifacts
 fi
 
-mv "$tymczasowy"/PolishCookieConsent_chromium.zip ./artifacts
+mv "$tymczasowy"/PolishCookieConsent_Chromium.zip ./artifacts
 rm -rf "$tymczasowy"
