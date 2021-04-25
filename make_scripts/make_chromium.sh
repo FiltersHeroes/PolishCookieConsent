@@ -1,25 +1,38 @@
 #!/bin/bash
 
 # Sciezka to miejsce, w którym znajduje się skrypt
-sciezka=$(dirname "$0")
+sciezka=$(dirname "$(realpath -s "$0")")
 
-cd $sciezka/../src
+glowna_sciezka=$(git -C "$sciezka" rev-parse --show-toplevel)
+tymczasowy="$glowna_sciezka"/src_temp
+
+cd "$glowna_sciezka"/src || exit
+
+mkdir "$tymczasowy"
+cp -r "$glowna_sciezka"/src/* "$tymczasowy"/
+
+cd "$tymczasowy" || exit
 jq 'del(.applications)' manifest.json > manifest.json.temp
 rm -r manifest.json
 mv manifest.json.temp manifest.json
+mv "$tymczasowy"/platform/webext/* "$tymczasowy"/
+rm -rf "$tymczasowy"/platform/
+
+if [ "$CI" = "true" ]; then
+    npx shipit chrome ./
+fi
 
 if [ -d "./web-ext-artifacts" ]; then
     rm -rvf ./web-ext-artifacts
 fi
 
-npx shipit chrome ./
+zip -r PolishCookieConsent_chromium.zip ./*
 
-zip -r PolishCookieConsent_chromium.zip *
-
-cd ..
+cd "$glowna_sciezka" || exit
 
 if [ ! -d "./artifacts" ]; then
     mkdir ./artifacts
 fi
 
-mv ./src/PolishCookieConsent_chromium.zip ./artifacts
+mv "$tymczasowy"/PolishCookieConsent_chromium.zip ./artifacts
+rm -rf "$tymczasowy"

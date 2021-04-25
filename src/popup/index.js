@@ -1,57 +1,82 @@
-var wrapper = document.querySelectorAll(".wrapper:not(.wrapper-switch)");
+const version = PCC_vAPI.getVersion();
+document.querySelector(".title > p").textContent += " " + version;
+document.querySelector("#changelog").dataset.href += "/v" + version;
 
-document.querySelector("#changelog").dataset.href += "/v" + chrome.runtime.getManifest().version;
+const wrapper = document.querySelectorAll(".wrapper:not(.wrapper-switch)");
 
-for (var i = 0; i < wrapper.length; i++) {
-    wrapper[i].addEventListener('click', function (event) {
-        chrome.tabs.create({ url: this.dataset.href });
+for (let i = 0; i < wrapper.length; i++) {
+    wrapper[i].addEventListener('click', function () {
+        PCC_vAPI.tabs.create(this.dataset.href);
+        PCC_vAPI.hidePopup();
     });
 }
 
-var manifest = chrome.runtime.getManifest();
-document.querySelector(".title > p").textContent += " " + manifest.version;
-
-chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-    var tabURL = new URL(tabs[0].url)
-    var hostname = tabURL.hostname.replace("www.", "");
-    var protocol = tabURL.protocol;
+function setSwitch(url) {
+    let tabURL = new URL(url);
+    let hostname = tabURL.hostname.replace("www.", "");
+    let protocol = tabURL.protocol;
     if (protocol == "https:" || protocol == "http:") {
-        chrome.storage.local.get('whitelist', function (result) {
-            if (typeof result.whitelist !== "undefined" && result.whitelist != "") {
+        PCC_vAPI.storage.local.get('whitelist').then(function (resultWhitelist) {
+            var switchBtn = document.querySelector(".switch");
+            if (typeof resultWhitelist !== "undefined" && resultWhitelist != "") {
+                function addWhitelist(btn) {
+                    PCC_vAPI.storage.local.set("whitelist", resultWhitelist + "\n" + hostname);
+                    btn.textContent = PCC_vAPI.i18n.getMessage("popupEnable", [hostname]);
+                    btn.onclick = function() { removeWhitelist(btn); };
+                }
+                function removeWhitelist(btn) {
+                    PCC_vAPI.storage.local.set("whitelist", resultWhitelist.replace(hostname, "").replace(/^\s*[\r\n]/gm, "").trim());
+                    btn.textContent = PCC_vAPI.i18n.getMessage("popupDisable", [hostname]);
+                    btn.onclick = function() { addWhitelist(btn); };
+                }
                 function containsCommentSign(value) {
                     return value.indexOf("!") && value.indexOf("#") && value != "";
                 }
-                var whitelist = result.whitelist.split("\n").filter(containsCommentSign).join([separator = '|']);
+                var whitelist = resultWhitelist.split("\n").filter(containsCommentSign).join([separator = '|']);
                 if (whitelist.includes(hostname)) {
-                    document.querySelector(".switch").textContent = chrome.i18n.getMessage("popupEnable", hostname);
-                    document.querySelector(".switch").addEventListener("click", function () {
-                        chrome.storage.local.set({
-                            whitelist: result.whitelist.replace(hostname, "").replace(/^\s*[\r\n]/gm, "").trim()
-                        });
-                        location.reload();
-                    });
+                    switchBtn.textContent = PCC_vAPI.i18n.getMessage("popupEnable", [hostname]);
+                    switchBtn.onclick = function() { removeWhitelist(switchBtn); };
                 }
                 else {
-                    document.querySelector(".switch").textContent = chrome.i18n.getMessage("popupDisable", hostname);
-                    document.querySelector(".switch").addEventListener("click", function () {
-                        chrome.storage.local.set({
-                            whitelist: result.whitelist + "\n" + hostname
-                        });
-                        location.reload();
-                    });
+                    document.querySelector(".switch").textContent = PCC_vAPI.i18n.getMessage("popupDisable", [hostname]);
+                    switchBtn.onclick = function() { addWhitelist(switchBtn); };
                 }
             }
             else {
-                document.querySelector(".switch").textContent = chrome.i18n.getMessage("popupDisable", hostname);
-                document.querySelector(".switch").addEventListener("click", function () {
-                    chrome.storage.local.set({
-                        whitelist: hostname
-                    });
-                    location.reload();
-                });
+                function addWhitelist(btn) {
+                    PCC_vAPI.storage.local.set("whitelist", hostname);
+                    btn.textContent = PCC_vAPI.i18n.getMessage("popupEnable", [hostname]);
+                    btn.onclick = function() { removeWhitelist(btn); };
+                }
+                function removeWhitelist(btn) {
+                    PCC_vAPI.storage.local.set("whitelist", "");
+                    btn.textContent = PCC_vAPI.i18n.getMessage("popupDisable", [hostname]);
+                    btn.onclick = function() { addWhitelist(btn); };
+                }
+                switchBtn.textContent = PCC_vAPI.i18n.getMessage("popupDisable", [hostname]);
+                switchBtn.onclick = function() { addWhitelist(switchBtn); };
             }
         });
         document.querySelector(".wrapper-switch").style.display = "flex";
         document.querySelector(".separator-switch").style.display = "block";
     }
-});
+    else {
+        document.querySelector(".wrapper-switch").style.display = "none";
+        document.querySelector(".separator-switch").style.display = "none";
+    }
+}
+
+if(PCC_vAPI.isWebExtension() == true) {
+    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+        setSwitch(tabs[0].url);
+    });
+} else {
+    window.onmessage = function (e) {
+        const msg = e.data;
+        let aTabURL;
+        if (msg.what == "tabURL") {
+            aTabURL = msg.value;
+        }
+        setSwitch(aTabURL);
+    }
+}

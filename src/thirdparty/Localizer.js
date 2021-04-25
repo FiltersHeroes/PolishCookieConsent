@@ -2,6 +2,7 @@
  * Localizer (https://tinywebex.github.io/Localizer/)
  * Copyright (c) 2018 rugk and contributors
  * MIT License (https://raw.githubusercontent.com/TinyWebEx/Localizer/master/LICENSE.md)
+ * Modified by Polish Filters Team for using with XUL extensions.
  */
 
 /**
@@ -77,7 +78,7 @@ function convertDatasetToAttribute(dataSetValue) {
  * @see {@link https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/i18n/getMessage}
  */
 function getTranslatedMessage(messageName, substitutions) {
-    const translatedMessage = chrome.i18n.getMessage(messageName, substitutions);
+    const translatedMessage = PCC_vAPI.i18n.getMessage(messageName, substitutions);
 
     if (!translatedMessage) {
         throw new Error(`no translation string for "${messageName}" could be found`);
@@ -87,10 +88,10 @@ function getTranslatedMessage(messageName, substitutions) {
 }
 
 /**
- * Translates only the text nodes of the element, and adjusts the psition of the
+ * Translates only the text nodes of the element, and adjusts the pusition of the
  * other HTML elements.
  *
- * It does this wout inserting HTML just by moving DOM elements and inserting text,
+ * It does this without inserting HTML just by moving DOM elements and inserting text,
  * so it works around potential security problems of innerHtml etc.
  *
  * @private
@@ -289,8 +290,8 @@ function init() {
         replaceI18n(currentElem, contentString);
     });
 
-    // replace html lang attribut after translation
-    document.querySelector("html").setAttribute("lang", chrome.i18n.getUILanguage());
+    // replace html lang attribute after translation
+    document.querySelector("html").setAttribute("lang", PCC_vAPI.i18n.getUILanguage());
 }
 
 // automatically init module

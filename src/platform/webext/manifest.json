@@ -34,6 +34,7 @@
         "https://*/*"
       ],
       "js": [
+        "vAPI.js",
         "content.js"
       ],
       "run_at": "document_start"
@@ -46,11 +47,11 @@
   "permissions": [
     "storage",
     "tabs",
-    "alarms",
     "https://raw.githubusercontent.com/PolishFiltersTeam/PolishCookieConsent/master/src/PCB.txt"
   ],
   "background": {
     "scripts": [
+      "vAPI.js",
       "update.js"
     ]
   },

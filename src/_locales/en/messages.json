@@ -28,12 +28,6 @@
   "apply":{
     "message":"Apply changes"
   },
-  "ageHelp":{
-    "message":"Some sites require an appropriate age, so if you want the GDPR to be accepted on such sites, then you must state how old you are."
-  },
-  "age":{
-    "message":"Age"
-  },
   "controlPanel":{
     "message":"Control Panel"
   },

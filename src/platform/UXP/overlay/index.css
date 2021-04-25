@@ -1,0 +1,9 @@
+toolbox[iconsize="small"] #PolishFiltersTeam_PCC_btn {
+    list-style-image: url("chrome://PCC/content/icons/icon16.png");
+}
+
+#customization-palette #PolishFiltersTeam_PCC_btn,
+window#CustomizeToolbarWindow #PolishFiltersTeam_PCC_btn,
+toolbox[iconsize="large"] #PolishFiltersTeam_PCC_btn {
+    list-style-image: url("chrome://PCC/content/icons/icon32.png");
+}

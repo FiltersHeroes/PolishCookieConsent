@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:em="http://www.mozilla.org/2004/em-rdf#">
+  <Description about="urn:mozilla:install-manifest"
+    em:name="Polish Cookie Consent"
+    em:description="Automatically accepts cookie policy/GDPR on pages available in Polish."
+    em:creator="Polish Filters Team"
+    em:homepageURL="https://github.com/PolishFiltersTeam/PolishCookieConsent"
+    em:id="PolishCookieConsentExt@polishannoyancefilters.netlify.com"
+    em:version="1.43.0"
+    em:type="2"
+    em:bootstrap="false"
+    em:optionsType="3"
+    em:optionsURL="chrome://PCC/content/controlPanel/controlPanel.html"
+    em:iconURL="chrome://pcc/content/icons/icon48.png"
+    em:icon64URL="chrome://pcc/content/icons/icon64.png">
+
+    <em:targetApplication name="Pale Moon">
+      <Description em:id="{8de7fcbb-c55c-4fbe-bfc5-fc555c87dbc4}" em:minVersion="28.0" em:maxVersion="29.*"/>
+    </em:targetApplication>
+
+    <em:targetApplication name="Basilisk">
+      <Description em:id="{ec8030f7-c20a-464f-9b0e-13a3a9e97384}" em:minVersion="52.0" em:maxVersion="56.*"/>
+    </em:targetApplication>
+
+    <em:localized>
+      <Description
+        em:locale="pl"
+        em:name="Polska Ciasteczkowa Zgoda"
+        em:description="Automatycznie akceptuje politykę ciasteczek/RODO na stronach dostępnych w języku polskim."/>
+    </em:localized>
+
+  </Description>
+</RDF>

@@ -1,0 +1,6 @@
+content PCC ./
+overlay chrome://browser/content/browser.xul 				chrome://PCC/content/overlay/index.xul
+style chrome://global/content/customizeToolbar.xul chrome://PCC/content/overlay/index.css
+locale PCC en ./_locales/en/
+locale PCC pl ./_locales/pl/
+

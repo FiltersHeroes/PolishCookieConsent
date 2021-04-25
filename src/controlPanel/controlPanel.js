@@ -1,5 +1,5 @@
 // Title
-document.querySelector("title").textContent = chrome.i18n.getMessage("extensionName") + " - " + chrome.i18n.getMessage("controlPanel");
+document.querySelector("title").textContent = PCC_vAPI.i18n.getMessage("extensionName") + " - " + PCC_vAPI.i18n.getMessage("controlPanel");
 
 // Mobile menu
 var sidedrawerEl = document.querySelector('#sidedrawer');
@@ -31,17 +31,15 @@ document.querySelector('.js-hide-sidedrawer').addEventListener("click", function
 var tabs = document.querySelectorAll('[data-mui-toggle="tab"]');
 for (var i = 0; i < tabs.length; i++) {
     tabs[i].addEventListener("click", function () {
-        chrome.storage.local.set({
-            lastOpenedTab: this.getAttribute("data-mui-controls")
-        });
+        PCC_vAPI.storage.local.set("lastOpenedTab", this.getAttribute("data-mui-controls"));
     })
 }
 
 // Get last opened tab ID and open it
-chrome.storage.local.get(['lastOpenedTab'], function (result) {
-    if (result.lastOpenedTab) {
-        mui.tabs.activate(result.lastOpenedTab);
-        document.querySelector('.mobileMenu [data-mui-controls=' + result.lastOpenedTab + ']').parentNode.classList.add("mui--is-active");
+PCC_vAPI.storage.local.get('lastOpenedTab').then(function (resultLastOpenedTab) {
+    if (resultLastOpenedTab) {
+        mui.tabs.activate(resultLastOpenedTab);
+        document.querySelector('.mobileMenu [data-mui-controls=' + resultLastOpenedTab + ']').parentNode.classList.add("mui--is-active");
     }
     else {
         var firstMobileTab = document.querySelectorAll('.mobileMenu li')[0];
@@ -78,9 +76,9 @@ document.querySelector('#sidedrawer [data-mui-controls="my-filters"]').addEventL
 document.addEventListener("DOMContentLoaded", updateVersion);
 
 function updateVersion() {
-    chrome.storage.local.get(['cookieBase'], function (result) {
-        if (result.cookieBase) {
-            var cookieBaseLine = result.cookieBase.split("\n");
+    PCC_vAPI.storage.local.get('cookieBase').then(function (resultCookieBase) {
+        if (resultCookieBase) {
+            var cookieBaseLine = resultCookieBase.split("\n");
             for (var i = 0; i < cookieBaseLine.length; i++) {
                 if (cookieBaseLine[i].match("Version")) {
                     var cBV = document.querySelector(".cBV");
@@ -98,9 +96,7 @@ document.querySelector("#updateCookieBase").addEventListener("click", function (
         return response.text()
             .then(text => {
                 if (response.ok) {
-                    chrome.storage.local.set({
-                        cookieBase: text
-                    });
+                    PCC_vAPI.storage.local.set("cookieBase", text);
                     cookieBaseContent.textContent = text;
                     updateVersion();
                     updateBtn.classList.remove("active");
@@ -122,9 +118,9 @@ document.querySelector("#updateCookieBase").addEventListener("click", function (
 // Show/hide Cookie Base
 document.querySelector("#showCookieBase").addEventListener("click", function () {
     var toggleBtn = document.querySelector("button#showCookieBase");
-    chrome.storage.local.get(['cookieBase'], function (result) {
-        if (result.cookieBase && cookieBaseContent.textContent.length == 0) {
-            cookieBaseContent.textContent = result.cookieBase;
+    PCC_vAPI.storage.local.get('cookieBase').then(function (resultCookieBase) {
+        if (resultCookieBase && cookieBaseContent.textContent.length == 0) {
+            cookieBaseContent.textContent = resultCookieBase;
             document.querySelector(".cookieBaseContent").style = "";
             cookieBaseContent.style.visibility = "";
             toggleBtn.querySelector("svg.hideCookieBase").removeAttribute("hidden");
@@ -145,9 +141,9 @@ document.querySelector("#showCookieBase").addEventListener("click", function () 
 // Add user filters to textarea
 restoreUserFilters();
 function restoreUserFilters() {
-    chrome.storage.local.get(['userFilters'], function (result) {
-        if (result.userFilters) {
-            userFilters.value = result.userFilters;
+    PCC_vAPI.storage.local.get('userFilters').then(function (resultUserFilters) {
+        if (resultUserFilters) {
+            userFilters.value = resultUserFilters;
         }
         else {
             userFilters.value = "";
@@ -172,17 +168,15 @@ document.querySelector("#my-filters form").addEventListener("submit", function (
     // Strip duplicates from user filters
     userFilters.value = [...new Set(userFilters.value.split("\n"))].join("\n").trim();
 
-    chrome.storage.local.set({
-        userFilters: userFilters.value
-    });
+    PCC_vAPI.storage.local.set("userFilters", userFilters.value);
     userFiltersApply.disabled = true;
     userFiltersRevert.disabled = true;
 });
 
 // Disable/enable submit and revert user filters buttons
 userFilters.addEventListener('input', function () {
-    chrome.storage.local.get(["userFilters"], function (result) {
-        if (userFilters.value == result.userFilters) {
+    PCC_vAPI.storage.local.get("userFilters").then(function (resultUserFilters) {
+        if (userFilters.value == resultUserFilters) {
             userFiltersApply.disabled = true;
             userFiltersRevert.disabled = true;
         }
@@ -197,9 +191,9 @@ userFilters.addEventListener('input', function () {
 // Add whitelist to textarea
 restoreWhitelist();
 function restoreWhitelist() {
-    chrome.storage.local.get(['whitelist'], function (result) {
-        if (result.whitelist) {
-            userWhitelist.value = result.whitelist;
+    PCC_vAPI.storage.local.get('whitelist').then(function (resultWhitelist) {
+        if (resultWhitelist) {
+            userWhitelist.value = resultWhitelist;
         }
         else {
             userWhitelist.value = "";
@@ -224,17 +218,15 @@ document.querySelector("#whitelist form").addEventListener("submit", function (e
     // Strip duplicates and not allowed characters from whitelist
     userWhitelist.value = [...new Set(userWhitelist.value.replace(/[^\w\s\.!\-#]/gi, '').split("\n"))].join("\n").trim();
 
-    chrome.storage.local.set({
-        whitelist: userWhitelist.value
-    });
+    PCC_vAPI.storage.local.set("whitelist", userWhitelist.value);
     whitelistApply.disabled = true;
     whitelistRevert.disabled = true;
 });
 
 // Disable/enable submit and revert whitelist buttons
 userWhitelist.addEventListener('input', function () {
-    chrome.storage.local.get(["whitelist"], function (result) {
-        if (userWhitelist.value == result.whitelist) {
+    PCC_vAPI.storage.local.get("whitelist").then(function (resultWhitelist) {
+        if (userWhitelist.value == resultWhitelist) {
             whitelistApply.disabled = true;
             whitelistRevert.disabled = true;
         }
@@ -293,11 +285,11 @@ function exportText(field, fileNamePart) {
     // We need an iframe to workaround bug in Waterfox Classic/Firefox<63 on Linux (https://discourse.mozilla.org/t/bug-exporting-files-via-javascript/13116)
     var a = document.querySelector('iframe[src="exportFile.html"]').contentWindow.document.getElementById("download");
     a.href = "data:text/plain;charset=utf-8," + encodeURIComponent(document.getElementById(field).value);
-    a.download = chrome.i18n.getMessage("extensionShortName") + "-" + chrome.i18n.getMessage(fileNamePart).replace(" ", "-").toLowerCase() + "_" + todayDate() + ".txt";
+    a.download = PCC_vAPI.i18n.getMessage("extensionShortName") + "-" + PCC_vAPI.i18n.getMessage(fileNamePart).replace(" ", "-").toLowerCase() + "_" + todayDate() + ".txt";
     a.click();
     a.href = "";
     a.download = "";
 }
 
 // Add extension version to about tab
-document.querySelector("#about .extensionInfo").textContent = chrome.i18n.getMessage("extensionName") + " " + chrome.runtime.getManifest().version;
+document.querySelector("#about .extensionInfo").textContent = PCC_vAPI.i18n.getMessage("extensionName") + " " + PCC_vAPI.getVersion();

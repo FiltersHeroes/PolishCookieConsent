@@ -13,18 +13,13 @@ cp -r "$glowna_sciezka"/src/* "$tymczasowy"/
 
 cd "$tymczasowy" || exit
 
-mv "$tymczasowy"/platform/webext/* "$tymczasowy"/
+mv "$tymczasowy"/platform/UXP/* "$tymczasowy"/
 rm -rf "$tymczasowy"/platform/
 
-if [ "$CI" = "true" ]; then
-    npx web-ext-submit
-fi
+python3 "$sciezka"/convert_locales_to_legacy_version.py "$tymczasowy"
+rm -r "$tymczasowy"/_locales/*/messages.json
 
-if [ -d "./web-ext-artifacts" ]; then
-    rm -rvf ./web-ext-artifacts
-fi
-
-zip -r9 PolishCookieConsent_firefox.xpi ./*
+zip -r9 PolishCookieConsent_UXP.xpi ./*
 
 cd "$glowna_sciezka" || exit
 
@@ -32,5 +27,5 @@ if [ ! -d "./artifacts" ]; then
     mkdir ./artifacts
 fi
 
-mv "$tymczasowy"/PolishCookieConsent_firefox.xpi "$glowna_sciezka"/artifacts
+mv "$tymczasowy"/PolishCookieConsent_UXP.xpi "$glowna_sciezka"/artifacts
 rm -rf "$tymczasowy"

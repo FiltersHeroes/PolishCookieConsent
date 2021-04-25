@@ -28,12 +28,6 @@
   "apply":{
     "message":"Zastosuj zmiany"
   },
-  "ageHelp":{
-    "message":"Niektóre strony wymagają odpowiedniego wieku, więc jeśli chcesz, by RODO na takich stronach było akceptowane, to musisz podać ile masz lat."
-  },
-  "age":{
-    "message":"Wiek"
-  },
   "controlPanel":{
     "message":"Panel sterowania"
   },
