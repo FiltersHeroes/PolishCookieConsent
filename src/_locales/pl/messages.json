@@ -50,7 +50,7 @@
     "message":"O rozszerzeniu"
   },
   "whitelist":{
-    "message":"Biała lista"
+    "message":"Lista wykluczonych"
   },
   "whitelistHelp":{
     "message":"Lista wszystkich stron, na których rozszerzenie powinno zostać wyłączone. Jeden adres strony bez protokołu na linię. Wiersze poprzedzone wykrzyknikiem lub kratką będą pomijane."

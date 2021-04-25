@@ -1,7 +1,7 @@
 ! Polska Baza Ciasteczkowa
 ! Polish Cookie Base
-! Version: 2021.04.18.0
-! Copyright © 2020 Polish Filters Team
+! Version: 2021.04.25.0
+! Copyright © 2021 Polish Filters Team
 !
 !
 ! add to storage
@@ -29,8 +29,8 @@ infor.pl(bakeCookie, inforCookieWallCacheVal, 15, 365)
 laziska.com.pl|m-ce.pl|mojbytom.pl|mojegliwice.pl|mojekatowice.pl|mojmikolow.pl|orzesze.com.pl|piekaryslaskie.com.pl|pyskowice.com.pl|rudaslaska.com.pl|rybnicki.com|siemianowice.net.pl|sosnowiecki.pl|swiony.pl|wodzislaw.com.pl|zabrze.com.pl|zory.com.pl|silesia.info.pl(bakeCookie, rodo, accept, 365)
 login.e-dowod.gov.pl(bakeCookie, acceptRodoSie, hide, 365)
 mapa.szukacz.pl(bakeCookie, gdprid, 1, 780)
-mapa.gdansk.gda.pl(bakeCookie, ipg.splash, y, 365)
 mapa.gdansk.gda.pl(bakeCookie, splash, y, 365)
+mapa.gdansk.gda.pl(bakeCookie, ipg.splash, y, 365)
 mapy.geoportal.gov.pl(bakeCookie, regulationsAccepted, true, 365)
 mapy.geoportal.gov.pl(bakeCookie, rules, 1, 365)
 n26.com(bakeCookie, num26GDPR, ACCEPTED, 365)

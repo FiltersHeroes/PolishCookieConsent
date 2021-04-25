@@ -26,7 +26,7 @@ if [ -d "./web-ext-artifacts" ]; then
     rm -rvf ./web-ext-artifacts
 fi
 
-zip -r PolishCookieConsent_chromium.zip ./*
+zip -r9 PolishCookieConsent_chromium.zip ./*
 
 cd "$glowna_sciezka" || exit
 

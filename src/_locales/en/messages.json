@@ -50,7 +50,7 @@
     "message":"About"
   },
   "whitelist":{
-    "message":"Whitelist"
+    "message":"Excluded list"
   },
   "whitelistHelp":{
     "message":"List of all websites on which the extension should be disabled. One website address without protocol per line. Lines prefixed with exclamation mark or hash will be ignored."
