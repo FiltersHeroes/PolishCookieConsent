@@ -1,6 +1,6 @@
 ! Polska Baza Ciasteczkowa
 ! Polish Cookie Base
-! Version: 2021.04.25.0
+! Version: 2021.04.26.0
 ! Copyright © 2021 Polish Filters Team
 !
 !
@@ -39,6 +39,7 @@ tv-trwam.pl(bakeCookie, HAS_COOKIES_FORM_SHOWED, true, 365)
 tv-trwam.pl(bakeCookie, ARE_REQUIRED_COOKIES_ACCEPTED, true, 365)
 tv-trwam.pl(bakeCookie, ARE_FUNCTIONAL_COOKIES_ACCEPTED, true, 365)
 tv-trwam.pl(bakeCookie, ARE_MARKETING_COOKIES_ACCEPTED, true, 365)
+ubi2.wit.edu.pl(bakeCookie, GPRD, 128, 365)
 vice.com(bakeCookie, _vice_cmp_modal_viewed, true, 365)
 virustotal.com(bakeCookie, euConsent, 1, 365)
 vivaldi.com(bakeCookie, acceptedCookies, true, 365)
@@ -73,9 +74,9 @@ redirect.global.commerce-connector.com\/consent\/(clickTimeout, .cookie-notice >
 shinden.pl(clickTimeout, div[class^="app_gdpr"] button[class*="details_save"])
 !
 ! redirect
-biblioteka\.rawicz\.pl\/$(redirect, indexa.html, false)
-edytor-serwis\.com\.pl\/$(redirect, index2.html, false)
+^https?:\/\/(www\.)?biblioteka\.rawicz\.pl\/$(redirect, indexa.html, false)
+^https?:\/\/(www\.)?edytor-serwis\.com\.pl\/$(redirect, index2.html, false)
 f1racing.pl(redirect, x-set-cookie, true, x-id-cookie-yes=)
 !powiatkamienski\.pl\/$(redirect, aktualnosci.dhtml, false)
-tester\.net\.pl\/$(redirect, ?pl_witamy,1, false)
-ubi2.wit.edu.pl(redirect, wall/gaccept, false, GPRD)
+^https?:\/\/(www\.)?tester\.net\.pl\/$(redirect, ?pl_witamy,1, false)
+!^https?:\/\/ubi2\.wit\.edu\.pl(redirect, wall/gaccept, false, GPRD)
