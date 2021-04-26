@@ -110,7 +110,7 @@ document.querySelector("#updateCookieBase").addEventListener("click", function (
             })
     }
     updateBtn.classList.add("active");
-    fetch('https://raw.githubusercontent.com/PolishFiltersTeam/PolishCookieConsent/master/src/PCB.txt')
+    fetch('https://raw.githubusercontent.com/PolishFiltersTeam/PolishCookieConsent/master/src/PCB_2021.txt')
         .then(handleTextResponse)
         .catch(error => console.log(error));
 })

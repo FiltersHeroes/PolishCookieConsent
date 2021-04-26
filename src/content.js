@@ -102,13 +102,18 @@ function clickTimeout(element, urlArg, cookieName) {
     }
 }
 
-function bakeCookie(cookieName, cookieValue, expiresDays, urlArg) {
+function bakeCookie(cookieName, cookieValue, expiresDays, urlArg, domain) {
     if (getUrlCondition(urlArg)) {
         if (document.cookie.indexOf(cookieName + "=") == -1) {
             var d = new Date();
             d.setTime(d.getTime() + (expiresDays * 24 * 60 * 60 * 1000));
             var expires = "expires=" + d.toUTCString();
-            document.cookie = cookieName + "=" + cookieValue + ";" + expires + ";path=/";
+            if(domain) {
+                document.cookie = cookieName + "=" + cookieValue + ";" + expires +";" + "domain=" + domain + ";path=/";
+            }
+            else {
+                document.cookie = cookieName + "=" + cookieValue + ";" + expires + ";path=/";
+            }
             location.reload();
         }
     }
@@ -142,74 +147,71 @@ function initArgs(filter) {
         var jsfunc = filter.split("##+js(")[1].split(",")[0].trim();
         var arglen = filter.split("##+js(")[1].split(", ").length - 1;
 
-        if (jsfunc == "clickInteractive" || jsfunc == "clickComplete" || jsfunc == "clickCompleteText" || jsfunc == "addToStorage" || jsfunc == "clickTimeout") {
-            if (arglen == 1) {
-                var element = filter.split("##+js(")[1].split(", ")[1].replace(")", "");
+        var arg = filter.split("##+js(")[1].slice(0, -1).split(", ")[1];
+
+        if (arglen >= 2) {
+            var arg2 = filter.split("##+js(")[1].slice(0, -1).split(", ")[2];
+        }
+
+        if (arglen >= 3) {
+            var arg3 = filter.split("##+js(")[1].slice(0, -1).split(", ")[3];
+        }
+
+        if (arglen == 4) {
+            var arg4 = filter.split("##+js(")[1].slice(0, -1).split(", ")[4];
+        }
+
+        var element = arg;
+        if (jsfunc == "clickInteractive") {
+            if (arglen == 2) {
+                var cookieName = arg2;
+                clickInteractive(element, urlArg, cookieName);
             }
             else {
-                var element = filter.split("##+js(")[1].split(", ")[1];
-                var arg2 = filter.split("##+js(")[1].split(", ")[2].replace(")", "");
-            }
-
-            if (jsfunc == "clickInteractive") {
-                if (arglen == 2) {
-                    var cookieName = arg2;
-                    clickInteractive(element, urlArg, cookieName);
-                }
-                else {
-                    clickInteractive(element, urlArg);
-                }
-            }
-            else if (jsfunc == "clickComplete") {
-                var cookieName = arg2;
-                clickComplete(element, urlArg, cookieName);
-            }
-            else if (jsfunc == "clickCompleteText") {
-                var text = arg2;
-                clickCompleteText(element, text, urlArg);
-            }
-            else if (jsfunc == "addToStorage") {
-                var storageKey = element;
-                var storageValue = arg2;
-                addToStorage(storageKey, storageValue, urlArg);
-            }
-            else if (jsfunc == "clickTimeout") {
-                if (arglen == 3) {
-                    var cookieName = arg2;
-                    clickTimeout(element, urlArg, cookieName);
-                }
-                else {
-                    clickTimeout(element, urlArg);
-                }
+                clickInteractive(element, urlArg);
             }
         }
-        else if (jsfunc == "bakeCookie" || jsfunc == "redirect") {
-            var arg = filter.split("##+js(")[1].split(", ")[1];
-            var arg2 = filter.split("##+js(")[1].split(", ")[2];
-
+        else if (jsfunc == "clickComplete") {
+            var cookieName = arg2;
+            clickComplete(element, urlArg, cookieName);
+        }
+        else if (jsfunc == "clickCompleteText") {
+            var text = arg2;
+            clickCompleteText(element, text, urlArg);
+        }
+        else if (jsfunc == "addToStorage") {
+            var storageKey = arg;
+            var storageValue = arg2;
+            addToStorage(storageKey, storageValue, urlArg);
+        }
+        else if (jsfunc == "clickTimeout") {
             if (arglen == 3) {
-                var arg3 = filter.split("##+js(")[1].split(", ")[3].replace(")", "");
+                var cookieName = arg2;
+                clickTimeout(element, urlArg, cookieName);
             }
-
-            if (jsfunc == "bakeCookie") {
-                var cookieName = arg;
-                var cookieValue = arg2;
-                var expiresDays = arg3;
+            else {
+                clickTimeout(element, urlArg);
+            }
+        } else if (jsfunc == "bakeCookie") {
+            var cookieName = arg;
+            var cookieValue = arg2;
+            var expiresDays = arg3;
+            var domain = arg4;
+            if (arglen == 4) {
+                bakeCookie(cookieName, cookieValue, expiresDays, urlArg, domain);
+            } else {
                 bakeCookie(cookieName, cookieValue, expiresDays, urlArg);
             }
-            else if (jsfunc == "redirect") {
-                var redirectPoint = arg;
-                var path = arg2;
-                if (arglen == 3) {
-                    var cookieName = arg3;
-                    redirect(redirectPoint, path, urlArg, cookieName);
-                }
-                else {
-                    path = arg2.replace(")", "");
-                    redirect(redirectPoint, path, urlArg);
-                }
+        } else if (jsfunc == "redirect") {
+            var redirectPoint = arg;
+            var path = arg2;
+            if (arglen == 3) {
+                var cookieName = arg3;
+                redirect(redirectPoint, path, urlArg, cookieName);
+            } else {
+                path = arg2.replace(")", "");
+                redirect(redirectPoint, path, urlArg);
             }
-
         }
     }
 }
