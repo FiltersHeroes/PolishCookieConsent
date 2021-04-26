@@ -1,0 +1,77 @@
+! Polska Baza Ciasteczkowa
+! Polish Cookie Base
+! Version: 2021.04.26.0
+! Copyright © 2021 Polish Filters Team
+!
+!
+! add to storage
+click.kaufland.com##+js(addToStorage, cookies, {"consent":"accepted"})
+gry.lotto.pl##+js(addToStorage, rodoConfirmation, true)
+gry.lotto.pl##+js(addToStorage, rodoConfirmation2, true)
+totalcasino.pl##+js(addToStorage, gdpr_popup, true)
+!
+! bake cookie
+!.mini.com.pl##+js(bakeCookie, cc_consentCookie, %7B%22mini-pl%22%3A%7B%22consentMetadataModel%22%3A%7B%22analytics%22%3A%22GIVEN%22%2C%22functional%22%3A%22GIVEN%22%2C%22advertising%22%3A%22GIVEN%22%7D%2C%22crossDomainConsent%22%3Atrue%7D%7D, 365)
+action.com##+js(bakeCookie, CookieConsent, true, 365)
+al.to,combat.pl,x-kom.pl##+js(bakeCookie, cookieAccept, true, 365)
+budujmase.pl,drogerium.pl,wylecz.to##+js(bakeCookie, rodoHfM, true, 365)
+cineman.pl##+js(bakeCookie, ARE_FUNCTIONAL_COOKIES_ACCEPTED, true, 3650)
+cineman.pl##+js(bakeCookie, ARE_MARKETING_COOKIES_ACCEPTED, true, 3650)
+cineman.pl##+js(bakeCookie, ARE_REQUIRED_COOKIES_ACCEPTED, true, 3650)
+cineman.pl##+js(bakeCookie, HAS_COOKIES_FORM_SHOWED, true, 3650)
+emuia1.gugik.gov.pl##+js(bakeCookie, cookieMessageHide, true, 365)
+espedytor.pl##+js(bakeCookie, zgodaRODO, true, 365)
+fandom.com,gamepedia.com,wikia.com,wikia.org##+js(bakeCookie, tracking-opt-in-status, accepted, 365)
+gisgminny.pl##+js(bakeCookie, cookiesDirective, 1, 365)
+hiszpanskidlapolakow.com##+js(bakeCookie, gdpr-accepted, {"ga":true,"facebook":true,"disqus":true}, 365)
+hrkgame.com##+js(bakeCookie, gdpralert, done, 365)
+infor.pl##+js(bakeCookie, inforCookieWallCacheVal, 15, 365)
+laziska.com.pl,m-ce.pl,mojbytom.pl,mojegliwice.pl,mojekatowice.pl,mojmikolow.pl,orzesze.com.pl,piekaryslaskie.com.pl,pyskowice.com.pl,rudaslaska.com.pl,rybnicki.com,siemianowice.net.pl,sosnowiecki.pl,swiony.pl,wodzislaw.com.pl,zabrze.com.pl,zory.com.pl,silesia.info.pl##+js(bakeCookie, rodo, accept, 365)
+login.e-dowod.gov.pl##+js(bakeCookie, acceptRodoSie, hide, 365)
+mapa.szukacz.pl##+js(bakeCookie, gdprid, 1, 780)
+mapa.gdansk.gda.pl##+js(bakeCookie, splash, y, 365)
+mapa.gdansk.gda.pl##+js(bakeCookie, ipg.splash, y, 365)
+mapy.geoportal.gov.pl##+js(bakeCookie, regulationsAccepted, true, 365)
+mapy.geoportal.gov.pl##+js(bakeCookie, rules, 1, 365)
+n26.com##+js(bakeCookie, num26GDPR, ACCEPTED, 365)
+parkiet.com,rp.pl##+js(bakeCookie, __gm_tcfconsent_v2, 1, 365)
+tv-trwam.pl##+js(bakeCookie, HAS_COOKIES_FORM_SHOWED, true, 365)
+tv-trwam.pl##+js(bakeCookie, ARE_REQUIRED_COOKIES_ACCEPTED, true, 365)
+tv-trwam.pl##+js(bakeCookie, ARE_FUNCTIONAL_COOKIES_ACCEPTED, true, 365)
+tv-trwam.pl##+js(bakeCookie, ARE_MARKETING_COOKIES_ACCEPTED, true, 365)
+ubi2.wit.edu.pl##+js(bakeCookie, GPRD, 128, 365)
+vice.com##+js(bakeCookie, _vice_cmp_modal_viewed, true, 365)
+virustotal.com##+js(bakeCookie, euConsent, 1, 365)
+vivaldi.com##+js(bakeCookie, acceptedCookies, true, 365)
+wunderground.com##+js(bakeCookie, notice_gdpr_prefs, 0,1,2,3:, 365)
+wunderground.com##+js(bakeCookie, notice_poptime, 1533920400000, 365)
+www2.hm.com##+js(bakeCookie, hm_gdpr_read, true, 365)
+!
+! click complete text
+abczdrowie.pl,allani.pl,autocentrum.pl,autokult.pl,dobramama.pl,dobregry.pl,dobreprogramy.pl,domodi.pl,echirurgia.pl,fotoblogia.pl,gadzetomania.pl,homebook.pl,jejswiat.pl,kafeteria.pl,kafeteria.tv,kardiolo.pl,kazimierzdolny.pl,komorkomania.pl,luxlux.pl,medycyna24.pl,mixer.pl,money.pl,nerwica.com,nocowanie.pl,o2.pl,open.fm,parenting.pl,pinger.pl,pogodnie.pl,polygamia.pl,pudelek.pl,pudelek.tv,pudelekx.pl,pytamy.pl,samosia.pl,smaczneblogi.pl,smog.pl,snobka.pl,so-magazyn.pl,superauto24.com,testwiedzy.pl,vibez.pl,wakacje.pl,wp.pl##+js(clickCompleteText, button, PRZECHODZ)
+!
+! click complete
+gry.pl##+js(clickComplete, div[class*="app_gdpr"] button[class*="intro_acceptAll"], euconsent)
+!
+! click interactive
+!downdetector.pl,unileverfoodsolutions.pl##+js(clickInteractive, .evidon-barrier-acceptbutton)
+odr.pl##+js(clickInteractive, .termsagree)
+rejestracja.pwik.gliwice.pl##+js(clickInteractive, .bp3-portal .bp3-dialog-footer-actions button[type="button"] ~ button[type="submit"], PWiKGliwiceSMS)
+tumblr.com/privacy/consent##+js(clickInteractive, .btn.yes)
+!
+! click timeout
+boomerang-tv.pl,eurogamer.pl,tvn24.pl##+js(clickTimeout, #onetrust-accept-btn-handler)
+consent.google.com,consent.google.pl,consent.youtube.com##+js(clickTimeout, form[action*="consent."] [aria-label^="Zgadzasz się na wykorzystanie plików cookie"])
+downdetector.pl##+js(clickTimeout, .evidon-barrier-acceptbutton)
+facebook.com,messenger.com##+js(clickTimeout, body > div div[aria-label="Akceptuj wszystkie"])
+facebook.com,messenger.com##+js(clickTimeout, body > div button[title="Akceptuj wszystkie"])
+!guce\.oath\.com\/[a-z0-9]{2}\/collectConsent,consent.yahoo.com\/[a-z0-9]{2}\/collectConsent(clickTimeout, .btn[name="agree"])
+click.kaufland.com/cookieconsent##+js(clickTimeout, button.primary)
+redirect.global.commerce-connector.com/consent##+js(clickTimeout, .cookie-notice > .btn--blue.btn)
+shinden.pl##+js(clickTimeout, div[class^="app_gdpr"] button[class*="details_save"])
+!
+! redirect
+/^https?:\/\/(www\.)?biblioteka\.rawicz\.pl\/$/##+js(redirect, indexa.html, false)
+/^https?:\/\/(www\.)?edytor-serwis\.com\.pl\/$/##+js(redirect, index2.html, false)
+f1racing.pl##+js(redirect, x-set-cookie, true, x-id-cookie-yes=)
+/^https?:\/\/(www\.)?tester\.net\.pl\/$/##+js(redirect, ?pl_witamy,1, false)

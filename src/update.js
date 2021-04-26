@@ -27,7 +27,7 @@ function updateCookieBase(updateTime) {
             interval = 10;
         }
         setTimeout(function () {
-            fetch("https://raw.githubusercontent.com/PolishFiltersTeam/PolishCookieConsent/master/src/PCB.txt")
+            fetch("https://raw.githubusercontent.com/PolishFiltersTeam/PolishCookieConsent/master/src/PCB_2021.txt")
                 .then(handleTextResponse)
                 .catch(error => console.log(error));
             setUpdateTime();
@@ -39,9 +39,9 @@ PCC_vAPI.onFirstRunOrUpdate().then(function (result) {
     if (result == "install" || result == "update") {
         let cookieBaseURL;
         if (PCC_vAPI.isWebExtension() == true) {
-            cookieBaseURL = "/PCB.txt";
+            cookieBaseURL = "/PCB_2021.txt";
         } else {
-            cookieBaseURL = "chrome://PCC/content/PCB.txt";
+            cookieBaseURL = "chrome://PCC/content/PCB_2021.txt";
         }
         fetch(cookieBaseURL)
             .then(handleTextResponse)

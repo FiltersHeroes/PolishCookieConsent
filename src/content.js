@@ -4,11 +4,24 @@ function getUrlCondition(urlArg) {
     var condition;
     if (urlArg.match("=")) {
         condition = url == urlArg.replace("=", "");
+    } else if (urlArg.match(new RegExp("^\/.*\/$"))) {
+        condition = url.match(new RegExp(urlArg.slice(0, -1).substring(1), "g"));
     }
     else {
-        condition = url.match(RegExp(urlArg));
+        let urlArgs = urlArg.split(',');
+        for(let i in urlArgs) {
+            urlArgs[i] = urlArgs[i].replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+            urlArgs[i] = new RegExp("^https?:\\/\\/(.*\\.)?"+urlArgs[i]+"(\\/.*)?$", "g");
+        }
+        condition = isSingleURLMatch(urlArgs, url);
     }
     return condition;
+}
+
+function isSingleURLMatch(arr, val) {
+    return arr.some(function(arrVal) {
+        return val.match(arrVal);
+    });
 }
 
 function clickInteractive(element, urlArg, cookieName) {
@@ -125,21 +138,21 @@ function redirect(redirectPoint, path, urlArg, cookieName) {
 
 function initArgs(filter) {
     if (filter != "" && !filter.match(/^!|^#/)) {
-        var urlArg = filter.split('(')[0];
-        var jsfunc = filter.split("(")[1].split(",")[0].trim();
+        var urlArg = filter.split('##+js')[0];
+        var jsfunc = filter.split("##+js(")[1].split(",")[0].trim();
+        var arglen = filter.split("##+js(")[1].split(", ").length - 1;
 
         if (jsfunc == "clickInteractive" || jsfunc == "clickComplete" || jsfunc == "clickCompleteText" || jsfunc == "addToStorage" || jsfunc == "clickTimeout") {
-            var arglen = filter.split("(")[1].split(", ").length;
-            if (arglen == 2) {
-                var element = filter.split("(")[1].split(", ")[1].replace(")", "");
+            if (arglen == 1) {
+                var element = filter.split("##+js(")[1].split(", ")[1].replace(")", "");
             }
             else {
-                var element = filter.split("(")[1].split(", ")[1];
-                var arg2 = filter.split("(")[1].split(", ")[2].replace(")", "");
+                var element = filter.split("##+js(")[1].split(", ")[1];
+                var arg2 = filter.split("##+js(")[1].split(", ")[2].replace(")", "");
             }
 
             if (jsfunc == "clickInteractive") {
-                if (arglen == 3) {
+                if (arglen == 2) {
                     var cookieName = arg2;
                     clickInteractive(element, urlArg, cookieName);
                 }
@@ -171,12 +184,11 @@ function initArgs(filter) {
             }
         }
         else if (jsfunc == "bakeCookie" || jsfunc == "redirect") {
-            var arg = filter.split("(")[1].split(", ")[1];
-            var arg2 = filter.split("(")[1].split(", ")[2];
-            var arglen = filter.split("(")[1].split(", ").length;
+            var arg = filter.split("##+js(")[1].split(", ")[1];
+            var arg2 = filter.split("##+js(")[1].split(", ")[2];
 
-            if (arglen == 4) {
-                var arg3 = filter.split("(")[1].split(", ")[3].replace(")", "");
+            if (arglen == 3) {
+                var arg3 = filter.split("##+js(")[1].split(", ")[3].replace(")", "");
             }
 
             if (jsfunc == "bakeCookie") {
@@ -188,7 +200,7 @@ function initArgs(filter) {
             else if (jsfunc == "redirect") {
                 var redirectPoint = arg;
                 var path = arg2;
-                if (arglen == 4) {
+                if (arglen == 3) {
                     var cookieName = arg3;
                     redirect(redirectPoint, path, urlArg, cookieName);
                 }
