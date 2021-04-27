@@ -24,7 +24,7 @@ function isSingleURLMatch(arr, val) {
     });
 }
 
-function clickInteractive(element, urlArg, cookieNameOrMaxCount) {
+function clickInteractive(urlArg, element, cookieNameOrMaxCount) {
     if (getUrlCondition(urlArg)) {
         document.onreadystatechange = function () {
             if (document.readyState === "interactive") {
@@ -54,7 +54,7 @@ function clickInteractive(element, urlArg, cookieNameOrMaxCount) {
     }
 }
 
-function clickComplete(element, urlArg, cookieName) {
+function clickComplete(urlArg, element, cookieName) {
     if (getUrlCondition(urlArg)) {
         document.onreadystatechange = function () {
             if (document.readyState === "complete") {
@@ -67,7 +67,7 @@ function clickComplete(element, urlArg, cookieName) {
     }
 }
 
-function clickCompleteText(element, text, urlArg) {
+function clickCompleteText(urlArg, element, text) {
     if (getUrlCondition(urlArg)) {
         window.addEventListener('load', function () {
             var counter = 0;
@@ -84,7 +84,7 @@ function clickCompleteText(element, text, urlArg) {
     }
 }
 
-function clickTimeout(element, urlArg, cookieNameOrMaxCount) {
+function clickTimeout(urlArg, element, cookieNameOrMaxCount) {
     if (getUrlCondition(urlArg)) {
         var condition;
         var counter = 0;
@@ -110,7 +110,7 @@ function clickTimeout(element, urlArg, cookieNameOrMaxCount) {
     }
 }
 
-function bakeCookie(cookieName, cookieValue, expiresDays, urlArg, domain) {
+function bakeCookie(urlArg, cookieName, cookieValue, expiresDays, domain) {
     if (getUrlCondition(urlArg)) {
         if (!new RegExp("(^|;\\s?)" + cookieName + "=").test(document.cookie)) {
             var d = new Date();
@@ -127,7 +127,7 @@ function bakeCookie(cookieName, cookieValue, expiresDays, urlArg, domain) {
     }
 }
 
-function addToStorage(storageKey, storageValue, urlArg) {
+function addToStorage(urlArg, storageKey, storageValue) {
     if (getUrlCondition(urlArg)) {
         if (localStorage.getItem(storageKey) === undefined || localStorage.getItem(storageKey) === null) {
             localStorage.setItem(storageKey, storageValue);
@@ -136,7 +136,7 @@ function addToStorage(storageKey, storageValue, urlArg) {
 }
 
 
-function redirect(redirectPoint, path, urlArg, cookieName) {
+function redirect(urlArg, redirectPoint, path, cookieName) {
     if (getUrlCondition(urlArg)) {
         if (!new RegExp("(^|;\\s?)" + cookieName + "=").test(document.cookie)) {
             if (path == "true") {
@@ -173,32 +173,32 @@ function initArgs(filter) {
         if (jsfunc == "clickInteractive") {
             if (arglen == 2) {
                 var cookieNameOrMaxCount = arg2;
-                clickInteractive(element, urlArg, cookieNameOrMaxCount);
+                clickInteractive(urlArg, element, cookieNameOrMaxCount);
             }
             else {
-                clickInteractive(element, urlArg);
+                clickInteractive(urlArg, element);
             }
         }
         else if (jsfunc == "clickComplete") {
             var cookieName = arg2;
-            clickComplete(element, urlArg, cookieName);
+            clickComplete(urlArg, element, cookieName);
         }
         else if (jsfunc == "clickCompleteText") {
             var text = arg2;
-            clickCompleteText(element, text, urlArg);
+            clickCompleteText(urlArg, element, text);
         }
         else if (jsfunc == "addToStorage") {
             var storageKey = arg;
             var storageValue = arg2;
-            addToStorage(storageKey, storageValue, urlArg);
+            addToStorage(urlArg, storageKey, storageValue);
         }
         else if (jsfunc == "clickTimeout") {
             if (arglen == 3) {
                 var cookieNameOrMaxCount = arg2;
-                clickTimeout(element, urlArg, cookieNameOrMaxCount);
+                clickTimeout(urlArg, element, cookieNameOrMaxCount);
             }
             else {
-                clickTimeout(element, urlArg);
+                clickTimeout(urlArg, element);
             }
         } else if (jsfunc == "bakeCookie") {
             var cookieName = arg;
@@ -206,19 +206,19 @@ function initArgs(filter) {
             var expiresDays = arg3;
             var domain = arg4;
             if (arglen == 4) {
-                bakeCookie(cookieName, cookieValue, expiresDays, urlArg, domain);
+                bakeCookie(urlArg, cookieName, cookieValue, expiresDays, domain);
             } else {
-                bakeCookie(cookieName, cookieValue, expiresDays, urlArg);
+                bakeCookie(urlArg, cookieName, cookieValue, expiresDays);
             }
         } else if (jsfunc == "redirect") {
             var redirectPoint = arg;
             var path = arg2;
             if (arglen == 3) {
                 var cookieName = arg3;
-                redirect(redirectPoint, path, urlArg, cookieName);
+                redirect(urlArg, redirectPoint, path, cookieName);
             } else {
                 path = arg2.replace(")", "");
-                redirect(redirectPoint, path, urlArg);
+                redirect(urlArg, redirectPoint, path);
             }
         }
     }
