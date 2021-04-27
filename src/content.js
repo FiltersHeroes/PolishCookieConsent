@@ -24,23 +24,28 @@ function isSingleURLMatch(arr, val) {
     });
 }
 
-function clickInteractive(urlArg, element, cookieNameOrMaxCount) {
+function clickInteractive(urlArg, element, cookieNameOrMaxCount, text) {
     if (getUrlCondition(urlArg)) {
         document.onreadystatechange = function () {
             if (document.readyState === "interactive") {
+                var condition;
                 var counter = 0;
+                if (cookieNameOrMaxCount) {
+                    if (isNaN(cookieNameOrMaxCount)) {
+                        condition = !new RegExp("(^|;\\s?)" + cookieNameOrMaxCount + "=").test(document.cookie);
+                    }
+                    else {
+                        condition = counter < cookieNameOrMaxCount;
+                    }
+                } else {
+                    condition = counter < 1
+                }
                 (function checkIfElemExists() {
-                    var btnYes = document.querySelector(element);
-                    var condition;
-                    if (cookieNameOrMaxCount) {
-                        if (cookieNameOrMaxCount.isNaN()) {
-                            condition = !new RegExp("(^|;\\s?)" + cookieNameOrMaxCount + "=").test(document.cookie);
-                        }
-                        else {
-                            condition = counter < cookieNameOrMaxCount;
-                        }
+                    let btnYes;
+                    if (text) {
+                        btnYes = document.evaluate("//" + element + "[contains(text(), " + '"' + text + '"' + ")]", document, null, XPathResult.ANY_TYPE, null).iterateNext();
                     } else {
-                        condition = counter < 10
+                        btnYes = document.querySelector(element);
                     }
                     if (btnYes == null && condition) {
                         window.requestAnimationFrame(checkIfElemExists);
@@ -54,52 +59,62 @@ function clickInteractive(urlArg, element, cookieNameOrMaxCount) {
     }
 }
 
-function clickComplete(urlArg, element, cookieName) {
+function clickComplete(urlArg, element, cookieNameOrMaxCount, text) {
     if (getUrlCondition(urlArg)) {
         document.onreadystatechange = function () {
             if (document.readyState === "complete") {
-                var btnYes = document.querySelector(element);
-                if (!new RegExp("(^|;\\s?)" + cookieName + "=").test(document.cookie)) {
-                    btnYes.click();
+                var condition;
+                var counter = 0;
+                if (cookieNameOrMaxCount) {
+                    if (isNaN(cookieNameOrMaxCount)) {
+                        condition = !new RegExp("(^|;\\s?)" + cookieNameOrMaxCount + "=").test(document.cookie);
+                    }
+                    else {
+                        condition = counter < cookieNameOrMaxCount;
+                    }
+                } else {
+                    condition = counter < 1
                 }
+                (function checkIfElemExists() {
+                    let btnYes;
+                    if (text) {
+                        btnYes = document.evaluate("//" + element + "[contains(text(), " + '"' + text + '"' + ")]", document, null, XPathResult.ANY_TYPE, null).iterateNext();
+                    } else {
+                        btnYes = document.querySelector(element);
+                    }
+                    if (btnYes == null && condition) {
+                        window.requestAnimationFrame(checkIfElemExists);
+                        counter++;
+                    } else if (btnYes) {
+                        btnYes.click()
+                    }
+                })()
             }
         }
     }
 }
 
-function clickCompleteText(urlArg, element, text) {
-    if (getUrlCondition(urlArg)) {
-        window.addEventListener('load', function () {
-            var counter = 0;
-            (function checkIfElemExists() {
-                var btnYes = document.evaluate("//" + element + "[contains(text(), " + '"' + text + '"' + ")]", document, null, XPathResult.ANY_TYPE, null).iterateNext();
-                if (counter < 200 && btnYes == null) {
-                    window.requestAnimationFrame(checkIfElemExists);
-                    counter++;
-                } else if (btnYes) {
-                    btnYes.click()
-                }
-            })()
-        });
-    }
-}
-
-function clickTimeout(urlArg, element, cookieNameOrMaxCount) {
+function clickTimeout(urlArg, element, cookieNameOrMaxCount, text) {
     if (getUrlCondition(urlArg)) {
         var condition;
         var counter = 0;
         if (cookieNameOrMaxCount) {
-            if (cookieNameOrMaxCount.isNaN()) {
+            if (isNaN(cookieNameOrMaxCount)) {
                 condition = !new RegExp("(^|;\\s?)" + cookieNameOrMaxCount + "=").test(document.cookie);
             }
             else {
                 condition = counter < cookieNameOrMaxCount;
             }
         } else {
-            condition = counter < 200
+            condition = counter < 1
         }
         (function checkIfElemExists() {
-            var btnYes = document.querySelector(element);
+            let btnYes;
+            if (text) {
+                btnYes = document.evaluate("//" + element + "[contains(text(), " + '"' + text + '"' + ")]", document, null, XPathResult.ANY_TYPE, null).iterateNext();
+            } else {
+                btnYes = document.querySelector(element);
+            }
             if (btnYes == null && condition) {
                 window.requestAnimationFrame(checkIfElemExists);
                 counter++;
@@ -170,37 +185,47 @@ function initArgs(filter) {
         }
 
         var element = arg;
-        if (jsfunc == "clickInteractive") {
-            if (arglen == 2) {
+        if (jsfunc == "clickInteractive" || jsfunc == "clickTimeout" || jsfunc == "clickComplete") {
+            if (arglen >= 2) {
                 var cookieNameOrMaxCount = arg2;
-                clickInteractive(urlArg, element, cookieNameOrMaxCount);
             }
-            else {
-                clickInteractive(urlArg, element);
+            if (arglen == 3) {
+                var text = arg3;
             }
-        }
-        else if (jsfunc == "clickComplete") {
-            var cookieName = arg2;
-            clickComplete(urlArg, element, cookieName);
-        }
-        else if (jsfunc == "clickCompleteText") {
-            var text = arg2;
-            clickCompleteText(urlArg, element, text);
+            if (arglen == 1) {
+                if (jsfunc == "clickInteractive") {
+                    clickInteractive(urlArg, element);
+                } else if (jsfunc == "clickTimeout") {
+                    clickTimeout(urlArg, element);
+                } else if (jsfunc == "clickComplete") {
+                    clickComplete(urlArg, element);
+                }
+            }
+            else if (arglen == 2) {
+                if (jsfunc == "clickInteractive") {
+                    clickInteractive(urlArg, element, cookieNameOrMaxCount);
+                } else if (jsfunc == "clickTimeout") {
+                    clickTimeout(urlArg, element, cookieNameOrMaxCount);
+                } else if (jsfunc == "clickComplete") {
+                    clickComplete(urlArg, element, cookieNameOrMaxCount);
+                }
+            }
+            else if (arglen == 3) {
+                if (jsfunc == "clickInteractive") {
+                    clickInteractive(urlArg, element, cookieNameOrMaxCount, text);
+                } else if (jsfunc == "clickTimeout") {
+                    clickTimeout(urlArg, element, cookieNameOrMaxCount, text);
+                } else if (jsfunc == "clickComplete") {
+                    clickComplete(urlArg, element, cookieNameOrMaxCount, text);
+                }
+            }
         }
         else if (jsfunc == "addToStorage") {
             var storageKey = arg;
             var storageValue = arg2;
             addToStorage(urlArg, storageKey, storageValue);
         }
-        else if (jsfunc == "clickTimeout") {
-            if (arglen == 3) {
-                var cookieNameOrMaxCount = arg2;
-                clickTimeout(urlArg, element, cookieNameOrMaxCount);
-            }
-            else {
-                clickTimeout(urlArg, element);
-            }
-        } else if (jsfunc == "bakeCookie") {
+        else if (jsfunc == "bakeCookie") {
             var cookieName = arg;
             var cookieValue = arg2;
             var expiresDays = arg3;
@@ -210,7 +235,8 @@ function initArgs(filter) {
             } else {
                 bakeCookie(urlArg, cookieName, cookieValue, expiresDays);
             }
-        } else if (jsfunc == "redirect") {
+        }
+        else if (jsfunc == "redirect") {
             var redirectPoint = arg;
             var path = arg2;
             if (arglen == 3) {

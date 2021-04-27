@@ -47,17 +47,13 @@ wunderground.com##+js(bakeCookie, notice_gdpr_prefs, 0,1,2,3:, 365)
 wunderground.com##+js(bakeCookie, notice_poptime, 1533920400000, 365)
 www2.hm.com##+js(bakeCookie, hm_gdpr_read, true, 365)
 !
-! click complete text
-abczdrowie.pl,allani.pl,autocentrum.pl,autokult.pl,dobramama.pl,dobregry.pl,dobreprogramy.pl,domodi.pl,echirurgia.pl,fotoblogia.pl,gadzetomania.pl,homebook.pl,jejswiat.pl,kafeteria.pl,kafeteria.tv,kardiolo.pl,kazimierzdolny.pl,komorkomania.pl,luxlux.pl,medycyna24.pl,mixer.pl,money.pl,nerwica.com,nocowanie.pl,o2.pl,open.fm,parenting.pl,pinger.pl,pogodnie.pl,polygamia.pl,pudelek.pl,pudelek.tv,pudelekx.pl,pytamy.pl,samosia.pl,smaczneblogi.pl,smog.pl,snobka.pl,so-magazyn.pl,superauto24.com,testwiedzy.pl,vibez.pl,wakacje.pl,wp.pl##+js(clickCompleteText, button, PRZECHODZ)
-!
-! click complete
-gry.pl##+js(clickComplete, div[class*="app_gdpr"] button[class*="intro_acceptAll"], euconsent)
 !
 ! click interactive
 !downdetector.pl,unileverfoodsolutions.pl##+js(clickInteractive, .evidon-barrier-acceptbutton)
 odr.pl##+js(clickInteractive, .termsagree)
 rejestracja.pwik.gliwice.pl##+js(clickInteractive, .bp3-portal .bp3-dialog-footer-actions button[type="button"] ~ button[type="submit"], PWiKGliwiceSMS)
 tumblr.com/privacy/consent##+js(clickInteractive, .btn.yes)
+!
 !
 ! click timeout
 boomerang-tv.pl,eurogamer.pl,tvn24.pl##+js(clickTimeout, #onetrust-accept-btn-handler)
@@ -69,6 +65,12 @@ facebook.com,messenger.com##+js(clickTimeout, body > div button[title="Akceptuj 
 click.kaufland.com/cookieconsent##+js(clickTimeout, button.primary)
 redirect.global.commerce-connector.com/consent##+js(clickTimeout, .cookie-notice > .btn--blue.btn)
 shinden.pl##+js(clickTimeout, div[class^="app_gdpr"] button[class*="details_save"])
+!
+!
+! click complete
+abczdrowie.pl,allani.pl,autocentrum.pl,autokult.pl,dobramama.pl,dobregry.pl,dobreprogramy.pl,domodi.pl,echirurgia.pl,fotoblogia.pl,gadzetomania.pl,homebook.pl,jejswiat.pl,kafeteria.pl,kafeteria.tv,kardiolo.pl,kazimierzdolny.pl,komorkomania.pl,luxlux.pl,medycyna24.pl,mixer.pl,money.pl,nerwica.com,nocowanie.pl,o2.pl,open.fm,parenting.pl,pinger.pl,pogodnie.pl,polygamia.pl,pudelek.pl,pudelek.tv,pudelekx.pl,pytamy.pl,samosia.pl,smaczneblogi.pl,smog.pl,snobka.pl,so-magazyn.pl,superauto24.com,testwiedzy.pl,vibez.pl,wakacje.pl,wp.pl##+js(clickComplete, button, 200, PRZECHODZ)
+gry.pl##+js(clickComplete, div[class*="app_gdpr"] button[class*="intro_acceptAll"], euconsent)
+!
 !
 ! redirect
 /^https?:\/\/(www\.)?biblioteka\.rawicz\.pl\/$/##+js(redirect, indexa.html, false)
