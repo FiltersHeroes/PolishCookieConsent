@@ -33,7 +33,7 @@ function clickInteractive(element, urlArg, cookieName) {
                     var btnYes = document.querySelector(element);
                     var condition;
                     if (cookieName) {
-                        condition = document.cookie.indexOf(cookieName + "=") == -1;
+                        condition = !new RegExp("(^|;\\s?)" + cookieName + "=").test(document.cookie);
                     }
                     else {
                         condition = counter < 10
@@ -55,7 +55,7 @@ function clickComplete(element, urlArg, cookieName) {
         document.onreadystatechange = function () {
             if (document.readyState === "complete") {
                 var btnYes = document.querySelector(element);
-                if (document.cookie.indexOf(cookieName + "=") == -1) {
+                if (!new RegExp("(^|;\\s?)" + cookieName + "=").test(document.cookie)) {
                     btnYes.click();
                 }
             }
@@ -85,7 +85,7 @@ function clickTimeout(element, urlArg, cookieName) {
         var condition;
         var counter = 0;
         if (cookieName) {
-            condition = document.cookie.indexOf(cookieName + "=") == -1;
+            condition = !new RegExp("(^|;\\s?)" + cookieName + "=").test(document.cookie);
         }
         else {
             condition = counter < 200
@@ -130,7 +130,7 @@ function addToStorage(storageKey, storageValue, urlArg) {
 
 function redirect(redirectPoint, path, urlArg, cookieName) {
     if (getUrlCondition(urlArg)) {
-        if (document.cookie.indexOf(cookieName) == -1) {
+        if (!new RegExp("(^|;\\s?)" + cookieName + "=").test(document.cookie)) {
             if (path == "true") {
                 window.location = "/" + redirectPoint + location.pathname;
             }
