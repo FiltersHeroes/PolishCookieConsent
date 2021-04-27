@@ -24,7 +24,7 @@ function isSingleURLMatch(arr, val) {
     });
 }
 
-function clickInteractive(element, urlArg, cookieName) {
+function clickInteractive(element, urlArg, cookieNameOrMaxCount) {
     if (getUrlCondition(urlArg)) {
         document.onreadystatechange = function () {
             if (document.readyState === "interactive") {
@@ -32,10 +32,14 @@ function clickInteractive(element, urlArg, cookieName) {
                 (function checkIfElemExists() {
                     var btnYes = document.querySelector(element);
                     var condition;
-                    if (cookieName) {
-                        condition = !new RegExp("(^|;\\s?)" + cookieName + "=").test(document.cookie);
-                    }
-                    else {
+                    if (cookieNameOrMaxCount) {
+                        if (cookieNameOrMaxCount.isNaN()) {
+                            condition = !new RegExp("(^|;\\s?)" + cookieNameOrMaxCount + "=").test(document.cookie);
+                        }
+                        else {
+                            condition = counter < cookieNameOrMaxCount;
+                        }
+                    } else {
                         condition = counter < 10
                     }
                     if (btnYes == null && condition) {
@@ -80,14 +84,18 @@ function clickCompleteText(element, text, urlArg) {
     }
 }
 
-function clickTimeout(element, urlArg, cookieName) {
+function clickTimeout(element, urlArg, cookieNameOrMaxCount) {
     if (getUrlCondition(urlArg)) {
         var condition;
         var counter = 0;
-        if (cookieName) {
-            condition = !new RegExp("(^|;\\s?)" + cookieName + "=").test(document.cookie);
-        }
-        else {
+        if (cookieNameOrMaxCount) {
+            if (cookieNameOrMaxCount.isNaN()) {
+                condition = !new RegExp("(^|;\\s?)" + cookieNameOrMaxCount + "=").test(document.cookie);
+            }
+            else {
+                condition = counter < cookieNameOrMaxCount;
+            }
+        } else {
             condition = counter < 200
         }
         (function checkIfElemExists() {
@@ -164,8 +172,8 @@ function initArgs(filter) {
         var element = arg;
         if (jsfunc == "clickInteractive") {
             if (arglen == 2) {
-                var cookieName = arg2;
-                clickInteractive(element, urlArg, cookieName);
+                var cookieNameOrMaxCount = arg2;
+                clickInteractive(element, urlArg, cookieNameOrMaxCount);
             }
             else {
                 clickInteractive(element, urlArg);
@@ -186,8 +194,8 @@ function initArgs(filter) {
         }
         else if (jsfunc == "clickTimeout") {
             if (arglen == 3) {
-                var cookieName = arg2;
-                clickTimeout(element, urlArg, cookieName);
+                var cookieNameOrMaxCount = arg2;
+                clickTimeout(element, urlArg, cookieNameOrMaxCount);
             }
             else {
                 clickTimeout(element, urlArg);
