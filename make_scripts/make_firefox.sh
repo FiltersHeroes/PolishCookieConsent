@@ -15,6 +15,7 @@ cd "$tymczasowy" || exit
 
 mv "$tymczasowy"/platform/webext/* "$tymczasowy"/
 rm -rf "$tymczasowy"/platform/
+rm -r "$tymczasowy"/PCB.txt
 
 if [ "$CI" = "true" ]; then
     npx shipit firefox ./

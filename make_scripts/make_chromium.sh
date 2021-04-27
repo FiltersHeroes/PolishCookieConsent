@@ -17,6 +17,7 @@ rm -r manifest.json
 mv manifest.json.temp manifest.json
 mv "$tymczasowy"/platform/webext/* "$tymczasowy"/
 rm -rf "$tymczasowy"/platform/
+rm -r "$tymczasowy"/PCB.txt
 
 if [ "$CI" = "true" ]; then
     npx shipit chrome ./
