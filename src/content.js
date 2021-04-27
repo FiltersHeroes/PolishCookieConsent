@@ -9,9 +9,9 @@ function getUrlCondition(urlArg) {
     }
     else {
         let urlArgs = urlArg.split(',');
-        for(let i in urlArgs) {
+        for (let i in urlArgs) {
             urlArgs[i] = urlArgs[i].replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-            urlArgs[i] = new RegExp("^https?:\\/\\/(.*\\.)?"+urlArgs[i]+"(\\/.*)?$", "g");
+            urlArgs[i] = new RegExp("^https?:\\/\\/(.*\\.)?" + urlArgs[i] + "(\\/.*)?$", "g");
         }
         condition = isSingleURLMatch(urlArgs, url);
     }
@@ -19,7 +19,7 @@ function getUrlCondition(urlArg) {
 }
 
 function isSingleURLMatch(arr, val) {
-    return arr.some(function(arrVal) {
+    return arr.some(function (arrVal) {
         return val.match(arrVal);
     });
 }
@@ -104,12 +104,12 @@ function clickTimeout(element, urlArg, cookieName) {
 
 function bakeCookie(cookieName, cookieValue, expiresDays, urlArg, domain) {
     if (getUrlCondition(urlArg)) {
-        if (document.cookie.indexOf(cookieName + "=") == -1) {
+        if (!new RegExp("(^|;\\s?)" + cookieName + "=").test(document.cookie)) {
             var d = new Date();
             d.setTime(d.getTime() + (expiresDays * 24 * 60 * 60 * 1000));
             var expires = "expires=" + d.toUTCString();
-            if(domain) {
-                document.cookie = cookieName + "=" + cookieValue + ";" + expires +";" + "domain=" + domain + ";path=/";
+            if (domain) {
+                document.cookie = cookieName + "=" + cookieValue + ";" + expires + ";" + "domain=" + domain + ";path=/";
             }
             else {
                 document.cookie = cookieName + "=" + cookieValue + ";" + expires + ";path=/";
