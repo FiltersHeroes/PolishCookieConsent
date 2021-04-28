@@ -1,6 +1,6 @@
 ! Polska Baza Ciasteczkowa
 ! Polish Cookie Base
-! Version: 2021.04.27.0
+! Version: 2021.04.28.0
 ! Copyright © 2021 Polish Filters Team
 !
 !
@@ -11,7 +11,6 @@ gry.lotto.pl##+js(addToStorage, rodoConfirmation2, true)
 totalcasino.pl##+js(addToStorage, gdpr_popup, true)
 !
 ! bake cookie
-!mini.com.pl##+js(bakeCookie, cc_consentCookie, %7B%22mini_poland_family%22%3A%7B%22consentMetadataModel%22%3A%7B%22analytics%22%3A%22GIVEN%22%2C%22functional%22%3A%22GIVEN%22%2C%22advertising%22%3A%22GIVEN%22%7D%2C%22crossDomainConsent%22%3Atrue%7D%7D, 365, .mini.com.pl)
 action.com##+js(bakeCookie, CookieConsent, true, 365)
 al.to,combat.pl,x-kom.pl##+js(bakeCookie, cookieAccept, true, 365)
 budujmase.pl,drogerium.pl,wylecz.to##+js(bakeCookie, rodoHfM, true, 365)
@@ -33,6 +32,7 @@ mapa.gdansk.gda.pl##+js(bakeCookie, ipg.splash, y, 365)
 mapa.gdansk.gda.pl##+js(bakeCookie, splash, y, 365)
 mapy.geoportal.gov.pl##+js(bakeCookie, regulationsAccepted, true, 365)
 mapy.geoportal.gov.pl##+js(bakeCookie, rules, 1, 365)
+mini.com.pl##+js(bakeCookie, cc_consentCookie, {"mini_poland_family":{"consentMetadataModel":{"analytics":"GIVEN","functional":"GIVEN","advertising":"GIVEN"},"lastModifiedTimestamp":1619619734490,"crossDomainConsent":true}}, 365, .mini.com.pl)
 n26.com##+js(bakeCookie, num26GDPR, ACCEPTED, 365)
 parkiet.com,rp.pl##+js(bakeCookie, __gm_tcfconsent_v2, 1, 365)
 tv-trwam.pl##+js(bakeCookie, HAS_COOKIES_FORM_SHOWED, true, 365)
