@@ -1,6 +1,6 @@
 ! Polska Baza Ciasteczkowa
 ! Polish Cookie Base
-! Version: 2021.04.26.0
+! Version: 2021.04.28.0
 ! Copyright © 2021 Polish Filters Team
 !
 !
@@ -11,7 +11,7 @@ gry.lotto.pl(addToStorage, rodoConfirmation2, true)
 totalcasino.pl(addToStorage, gdpr_popup, true)
 !
 ! bake cookie
-.mini.com.pl(bakeCookie, cc_consentCookie, %7B%22mini-pl%22%3A%7B%22consentMetadataModel%22%3A%7B%22analytics%22%3A%22GIVEN%22%2C%22functional%22%3A%22GIVEN%22%2C%22advertising%22%3A%22GIVEN%22%7D%2C%22crossDomainConsent%22%3Atrue%7D%7D, 365)
+!.mini.com.pl(bakeCookie, cc_consentCookie, %7B%22mini-pl%22%3A%7B%22consentMetadataModel%22%3A%7B%22analytics%22%3A%22GIVEN%22%2C%22functional%22%3A%22GIVEN%22%2C%22advertising%22%3A%22GIVEN%22%7D%2C%22crossDomainConsent%22%3Atrue%7D%7D, 365)
 action.com(bakeCookie, CookieConsent, true, 365)
 al.to,combat.pl,x-kom.pl(bakeCookie, cookieAccept, true, 365)
 budujmase.pl|drogerium.pl|wylecz.to(bakeCookie, rodoHfM, true, 365)
@@ -74,9 +74,9 @@ redirect.global.commerce-connector.com\/consent\/(clickTimeout, .cookie-notice >
 shinden.pl(clickTimeout, div[class^="app_gdpr"] button[class*="details_save"])
 !
 ! redirect
-^https?:\/\/(www\.)?biblioteka\.rawicz\.pl\/$(redirect, indexa.html, false)
-^https?:\/\/(www\.)?edytor-serwis\.com\.pl\/$(redirect, index2.html, false)
+!^https?:\/\/(www\.)?biblioteka\.rawicz\.pl\/$(redirect, indexa.html, false)
+!^https?:\/\/(www\.)?edytor-serwis\.com\.pl\/$(redirect, index2.html, false)
 f1racing.pl(redirect, x-set-cookie, true, x-id-cookie-yes=)
 !powiatkamienski\.pl\/$(redirect, aktualnosci.dhtml, false)
-^https?:\/\/(www\.)?tester\.net\.pl\/$(redirect, ?pl_witamy,1, false)
+!^https?:\/\/(www\.)?tester\.net\.pl\/$(redirect, ?pl_witamy,1, false)
 !^https?:\/\/ubi2\.wit\.edu\.pl(redirect, wall/gaccept, false, GPRD)
