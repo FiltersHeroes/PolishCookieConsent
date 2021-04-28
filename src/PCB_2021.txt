@@ -50,7 +50,6 @@ www2.hm.com##+js(bakeCookie, hm_gdpr_read, true, 365)
 !
 ! click interactive
 odr.pl##+js(clickInteractive, .termsagree)
-rejestracja.pwik.gliwice.pl##+js(clickTimeout, .bp3-portal .bp3-dialog-footer-actions button[type="button"] ~ button[type="submit"])
 tumblr.com/privacy/consent##+js(clickInteractive, .btn.yes)
 !
 !
@@ -63,6 +62,7 @@ facebook.com,messenger.com##+js(clickTimeout, body > div button[title="Akceptuj 
 /https?:\/\/consent\.yahoo.com\/[a-z0-9]{2}\/collectConsent/##+js(clickTimeout, .btn[name="agree"])
 click.kaufland.com/cookieconsent##+js(clickTimeout, button.primary)
 redirect.global.commerce-connector.com/consent##+js(clickTimeout, .cookie-notice > .btn--blue.btn)
+rejestracja.pwik.gliwice.pl##+js(clickTimeout, .bp3-portal .bp3-dialog-footer-actions button[type="button"] ~ button[type="submit"])
 shinden.pl##+js(clickTimeout, div[class^="app_gdpr"] button[class*="details_save"])
 !
 !
