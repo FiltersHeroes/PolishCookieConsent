@@ -167,84 +167,87 @@ function redirect(urlArg, redirectPoint, path, cookieName) {
 function initArgs(filter) {
     if (filter != "" && !filter.match(/^!|^#/)) {
         var urlArg = filter.split('##+js')[0];
-        var jsfunc = filter.split("##+js(")[1].split(",")[0].trim();
-        var arglen = filter.split("##+js(")[1].split(", ").length - 1;
+        var funcArgs = filter.split("##+js(")[1];
+        if (funcArgs) {
+            var jsfunc = funcArgs.split(",")[0].trim();
+            var arglen = funcArgs.split(", ").length - 1;
 
-        var arg = filter.split("##+js(")[1].slice(0, -1).split(", ")[1];
+            var arg = funcArgs.slice(0, -1).split(", ")[1];
 
-        if (arglen >= 2) {
-            var arg2 = filter.split("##+js(")[1].slice(0, -1).split(", ")[2];
-        }
-
-        if (arglen >= 3) {
-            var arg3 = filter.split("##+js(")[1].slice(0, -1).split(", ")[3];
-        }
-
-        if (arglen == 4) {
-            var arg4 = filter.split("##+js(")[1].slice(0, -1).split(", ")[4];
-        }
-
-        var element = arg;
-        if (jsfunc == "clickInteractive" || jsfunc == "clickTimeout" || jsfunc == "clickComplete") {
             if (arglen >= 2) {
-                var cookieNameOrMaxCount = arg2;
+                var arg2 = funcArgs.slice(0, -1).split(", ")[2];
             }
-            if (arglen == 3) {
-                var text = arg3;
+
+            if (arglen >= 3) {
+                var arg3 = funcArgs.slice(0, -1).split(", ")[3];
             }
-            if (arglen == 1) {
-                if (jsfunc == "clickInteractive") {
-                    clickInteractive(urlArg, element);
-                } else if (jsfunc == "clickTimeout") {
-                    clickTimeout(urlArg, element);
-                } else if (jsfunc == "clickComplete") {
-                    clickComplete(urlArg, element);
-                }
-            }
-            else if (arglen == 2) {
-                if (jsfunc == "clickInteractive") {
-                    clickInteractive(urlArg, element, cookieNameOrMaxCount);
-                } else if (jsfunc == "clickTimeout") {
-                    clickTimeout(urlArg, element, cookieNameOrMaxCount);
-                } else if (jsfunc == "clickComplete") {
-                    clickComplete(urlArg, element, cookieNameOrMaxCount);
-                }
-            }
-            else if (arglen == 3) {
-                if (jsfunc == "clickInteractive") {
-                    clickInteractive(urlArg, element, cookieNameOrMaxCount, text);
-                } else if (jsfunc == "clickTimeout") {
-                    clickTimeout(urlArg, element, cookieNameOrMaxCount, text);
-                } else if (jsfunc == "clickComplete") {
-                    clickComplete(urlArg, element, cookieNameOrMaxCount, text);
-                }
-            }
-        }
-        else if (jsfunc == "addToStorage") {
-            var storageKey = arg;
-            var storageValue = arg2;
-            addToStorage(urlArg, storageKey, storageValue);
-        }
-        else if (jsfunc == "bakeCookie") {
-            var cookieName = arg;
-            var cookieValue = arg2;
-            var expiresDays = arg3;
-            var domain = arg4;
+
             if (arglen == 4) {
-                bakeCookie(urlArg, cookieName, cookieValue, expiresDays, domain);
-            } else {
-                bakeCookie(urlArg, cookieName, cookieValue, expiresDays);
+                var arg4 = funcArgs.slice(0, -1).split(", ")[4];
             }
-        }
-        else if (jsfunc == "redirect") {
-            var redirectPoint = arg;
-            var path = arg2;
-            if (arglen == 3) {
-                var cookieName = arg3;
-                redirect(urlArg, redirectPoint, path, cookieName);
-            } else {
-                path = arg2.replace(")", "");
-                redirect(urlArg, redirectPoint, path);
+
+            var element = arg;
+            if (jsfunc == "clickInteractive" || jsfunc == "clickTimeout" || jsfunc == "clickComplete") {
+                if (arglen >= 2) {
+                    var cookieNameOrMaxCount = arg2;
+                }
+                if (arglen == 3) {
+                    var text = arg3;
+                }
+                if (arglen == 1) {
+                    if (jsfunc == "clickInteractive") {
+                        clickInteractive(urlArg, element);
+                    } else if (jsfunc == "clickTimeout") {
+                        clickTimeout(urlArg, element);
+                    } else if (jsfunc == "clickComplete") {
+                        clickComplete(urlArg, element);
+                    }
+                }
+                else if (arglen == 2) {
+                    if (jsfunc == "clickInteractive") {
+                        clickInteractive(urlArg, element, cookieNameOrMaxCount);
+                    } else if (jsfunc == "clickTimeout") {
+                        clickTimeout(urlArg, element, cookieNameOrMaxCount);
+                    } else if (jsfunc == "clickComplete") {
+                        clickComplete(urlArg, element, cookieNameOrMaxCount);
+                    }
+                }
+                else if (arglen == 3) {
+                    if (jsfunc == "clickInteractive") {
+                        clickInteractive(urlArg, element, cookieNameOrMaxCount, text);
+                    } else if (jsfunc == "clickTimeout") {
+                        clickTimeout(urlArg, element, cookieNameOrMaxCount, text);
+                    } else if (jsfunc == "clickComplete") {
+                        clickComplete(urlArg, element, cookieNameOrMaxCount, text);
+                    }
+                }
+            }
+            else if (jsfunc == "addToStorage") {
+                var storageKey = arg;
+                var storageValue = arg2;
+                addToStorage(urlArg, storageKey, storageValue);
+            }
+            else if (jsfunc == "bakeCookie") {
+                var cookieName = arg;
+                var cookieValue = arg2;
+                var expiresDays = arg3;
+                var domain = arg4;
+                if (arglen == 4) {
+                    bakeCookie(urlArg, cookieName, cookieValue, expiresDays, domain);
+                } else {
+                    bakeCookie(urlArg, cookieName, cookieValue, expiresDays);
+                }
+            }
+            else if (jsfunc == "redirect") {
+                var redirectPoint = arg;
+                var path = arg2;
+                if (arglen == 3) {
+                    var cookieName = arg3;
+                    redirect(urlArg, redirectPoint, path, cookieName);
+                } else {
+                    path = arg2.replace(")", "");
+                    redirect(urlArg, redirectPoint, path);
+                }
             }
         }
     }
