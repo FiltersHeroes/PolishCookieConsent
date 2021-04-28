@@ -1,6 +1,6 @@
 ! Polska Baza Ciasteczkowa
 ! Polish Cookie Base
-! Version: 2021.04.28.0
+! Version: 2021.04.28.1
 ! Copyright © 2021 Polish Filters Team
 !
 !
@@ -49,9 +49,8 @@ www2.hm.com##+js(bakeCookie, hm_gdpr_read, true, 365)
 !
 !
 ! click interactive
-!downdetector.pl,unileverfoodsolutions.pl##+js(clickInteractive, .evidon-barrier-acceptbutton)
 odr.pl##+js(clickInteractive, .termsagree)
-rejestracja.pwik.gliwice.pl##+js(clickInteractive, .bp3-portal .bp3-dialog-footer-actions button[type="button"] ~ button[type="submit"], PWiKGliwiceSMS)
+rejestracja.pwik.gliwice.pl##+js(clickTimeout, .bp3-portal .bp3-dialog-footer-actions button[type="button"] ~ button[type="submit"])
 tumblr.com/privacy/consent##+js(clickInteractive, .btn.yes)
 !
 !
