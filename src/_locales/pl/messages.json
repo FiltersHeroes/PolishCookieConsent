@@ -56,22 +56,10 @@
     "message":"Lista wszystkich stron, na których rozszerzenie powinno zostać wyłączone. Jeden adres strony bez protokołu na linię. Wiersze poprzedzone wykrzyknikiem lub kratką będą pomijane."
   },
   "popupDisable":{
-    "message":"Wyłącz rozszerzenie na $HOSTNAME$",
-    "placeholders": {
-      "hostname": {
-        "content": "$1",
-        "example": "domain.com"
-      }
-    }
+    "message":"Wyłącz rozszerzenie na tej stronie"
   },
   "popupEnable":{
-    "message":"Włącz rozszerzenie na $HOSTNAME$",
-    "placeholders": {
-      "hostname": {
-        "content": "$1",
-        "example": "domain.com"
-      }
-    }
+    "message":"Włącz rozszerzenie na tej stronie"
   },
   "externalDepends":{
     "message":"Zewnętrzne zależności:"

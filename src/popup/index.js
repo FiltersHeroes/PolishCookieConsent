@@ -21,12 +21,12 @@ function setSwitch(url) {
             if (typeof resultWhitelist !== "undefined" && resultWhitelist != "") {
                 function addWhitelist(btn) {
                     PCC_vAPI.storage.local.set("whitelist", resultWhitelist + "\n" + hostname);
-                    btn.textContent = PCC_vAPI.i18n.getMessage("popupEnable", [hostname]);
+                    btn.textContent = PCC_vAPI.i18n.getMessage("popupEnable");
                     btn.onclick = function() { removeWhitelist(btn); };
                 }
                 function removeWhitelist(btn) {
                     PCC_vAPI.storage.local.set("whitelist", resultWhitelist.replace(hostname, "").replace(/^\s*[\r\n]/gm, "").trim());
-                    btn.textContent = PCC_vAPI.i18n.getMessage("popupDisable", [hostname]);
+                    btn.textContent = PCC_vAPI.i18n.getMessage("popupDisable");
                     btn.onclick = function() { addWhitelist(btn); };
                 }
                 function containsCommentSign(value) {
@@ -34,26 +34,26 @@ function setSwitch(url) {
                 }
                 var whitelist = resultWhitelist.split("\n").filter(containsCommentSign).join([separator = '|']);
                 if (whitelist.includes(hostname)) {
-                    switchBtn.textContent = PCC_vAPI.i18n.getMessage("popupEnable", [hostname]);
+                    switchBtn.textContent = PCC_vAPI.i18n.getMessage("popupEnable");
                     switchBtn.onclick = function() { removeWhitelist(switchBtn); };
                 }
                 else {
-                    document.querySelector(".switch").textContent = PCC_vAPI.i18n.getMessage("popupDisable", [hostname]);
+                    document.querySelector(".switch").textContent = PCC_vAPI.i18n.getMessage("popupDisable");
                     switchBtn.onclick = function() { addWhitelist(switchBtn); };
                 }
             }
             else {
                 function addWhitelist(btn) {
                     PCC_vAPI.storage.local.set("whitelist", hostname);
-                    btn.textContent = PCC_vAPI.i18n.getMessage("popupEnable", [hostname]);
+                    btn.textContent = PCC_vAPI.i18n.getMessage("popupEnable");
                     btn.onclick = function() { removeWhitelist(btn); };
                 }
                 function removeWhitelist(btn) {
                     PCC_vAPI.storage.local.set("whitelist", "");
-                    btn.textContent = PCC_vAPI.i18n.getMessage("popupDisable", [hostname]);
+                    btn.textContent = PCC_vAPI.i18n.getMessage("popupDisable");
                     btn.onclick = function() { addWhitelist(btn); };
                 }
-                switchBtn.textContent = PCC_vAPI.i18n.getMessage("popupDisable", [hostname]);
+                switchBtn.textContent = PCC_vAPI.i18n.getMessage("popupDisable");
                 switchBtn.onclick = function() { addWhitelist(switchBtn); };
             }
             document.querySelector(".wrapper-switch").style.display = "flex";

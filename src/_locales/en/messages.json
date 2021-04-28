@@ -56,22 +56,10 @@
     "message":"List of all websites on which the extension should be disabled. One website address without protocol per line. Lines prefixed with exclamation mark or hash will be ignored."
   },
   "popupDisable":{
-    "message":"Disable extension on $HOSTNAME$",
-    "placeholders": {
-      "hostname": {
-        "content": "$1",
-        "example": "domain.com"
-      }
-    }
+    "message":"Disable extension on this site"
   },
   "popupEnable":{
-    "message":"Enable extension on $HOSTNAME$",
-    "placeholders": {
-      "hostname": {
-        "content": "$1",
-        "example": "domain.com"
-      }
-    }
+    "message":"Enable extension on this site"
   },
   "externalDepends":{
     "message":"External dependencies:"
