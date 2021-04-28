@@ -93,6 +93,15 @@ var PCC_vAPI = {
         var browserWindow = Components.classes["@mozilla.org/appshell/window-mediator;1"].getService(Components.interfaces.nsIWindowMediator).getMostRecentWindow("navigator:browser");
         var epanel = browserWindow.document.querySelector("#PolishFiltersTeam_PCC_popup_panel");
         epanel.hidePopup();
+    },
+    resizePopup: () => {
+        let wm = Components.classes["@mozilla.org/appshell/window-mediator;1"].getService(Components.interfaces.nsIWindowMediator);
+        let browserWindow = wm.getMostRecentWindow("navigator:browser");
+        let eframe = browserWindow.document.querySelector("#PolishFiltersTeam_PCC_popup_frame");
+        let eframeHeight = eframe.contentDocument.body.scrollHeight;
+        let eframeWidth = eframe.contentDocument.body.scrollWidth;
+        let epanel = browserWindow.document.querySelector("#PolishFiltersTeam_PCC_popup_panel");
+        epanel.style.height = eframe.style.height = eframeHeight + 1 + "px";
+        epanel.style.width = eframe.style.width = eframeWidth +1 + "px";
     }
-
 }

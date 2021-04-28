@@ -91,17 +91,14 @@ var PCC_overlay = {
         let ebtn = browserWindow.document.querySelector("#PolishFiltersTeam_PCC_btn");
         let epanel = browserWindow.document.querySelector("#PolishFiltersTeam_PCC_popup_panel");
         epanel.openPopup(ebtn, "after_end", 0, 0, false, false);
-        let eframe = browserWindow.document.querySelector("#PolishFiltersTeam_PCC_popup_frame");
-        let eframeHeight = eframe.contentDocument.body.offsetHeight;
-        let eframeWidth = eframe.contentDocument.body.offsetWidth;
-        epanel.style.height = eframe.style.height = eframeHeight + "px";
-        epanel.style.width = eframe.style.width = eframeWidth + "px";
+
+        PCC_vAPI.resizePopup();
 
         epanel.addEventListener("popuphiding", function () {
             ebtn.checked = false;
         });
 
-        eframe.contentWindow.postMessage({ what: 'tabURL', value: browserWindow.gBrowser.currentURI.spec }, "*");
+        browserWindow.document.querySelector("#PolishFiltersTeam_PCC_popup_frame").contentWindow.postMessage({ what: 'tabURL', value: browserWindow.gBrowser.currentURI.spec }, "*");
     },
 }
 

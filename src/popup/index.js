@@ -56,13 +56,19 @@ function setSwitch(url) {
                 switchBtn.textContent = PCC_vAPI.i18n.getMessage("popupDisable", [hostname]);
                 switchBtn.onclick = function() { addWhitelist(switchBtn); };
             }
+            document.querySelector(".wrapper-switch").style.display = "flex";
+            document.querySelector(".separator-switch").style.display = "block";
+            if(PCC_vAPI.isWebExtension() == false) {
+                PCC_vAPI.resizePopup();
+            }
         });
-        document.querySelector(".wrapper-switch").style.display = "flex";
-        document.querySelector(".separator-switch").style.display = "block";
     }
     else {
         document.querySelector(".wrapper-switch").style.display = "none";
         document.querySelector(".separator-switch").style.display = "none";
+        if(PCC_vAPI.isWebExtension() == false) {
+            PCC_vAPI.resizePopup();
+        }
     }
 }
 
