@@ -277,7 +277,7 @@ PCC_vAPI.storage.local.get('whitelist').then(function (resultWhitelist) {
         function containsCommentSign(value) {
             return value.indexOf("!") && value.indexOf("#") && value != "";
         }
-        var whitelist = resultWhitelist.split("\n").filter(containsCommentSign).join([separator = '|']);
+        var whitelist = resultWhitelist.split("\n").filter(containsCommentSign).join([separator = ',']);
         if (!getUrlCondition(whitelist)) {
             userFilters();
             cookieBaseFilters();
