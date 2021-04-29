@@ -56,10 +56,10 @@
     "message":"List of all websites on which the extension should be disabled. One website address without protocol per line. Lines prefixed with exclamation mark or hash will be ignored."
   },
   "popupDisable":{
-    "message":"Disable extension on this site"
+    "message":"Disable PCC on this site"
   },
   "popupEnable":{
-    "message":"Enable extension on this site"
+    "message":"Enable PCC on this site"
   },
   "externalDepends":{
     "message":"External dependencies:"

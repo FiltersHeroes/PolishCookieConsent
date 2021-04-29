@@ -56,10 +56,10 @@
     "message":"Lista wszystkich stron, na których rozszerzenie powinno zostać wyłączone. Jeden adres strony bez protokołu na linię. Wiersze poprzedzone wykrzyknikiem lub kratką będą pomijane."
   },
   "popupDisable":{
-    "message":"Wyłącz rozszerzenie na tej stronie"
+    "message":"Wyłącz PCZ na tej stronie"
   },
   "popupEnable":{
-    "message":"Włącz rozszerzenie na tej stronie"
+    "message":"Włącz PCZ na tej stronie"
   },
   "externalDepends":{
     "message":"Zewnętrzne zależności:"
