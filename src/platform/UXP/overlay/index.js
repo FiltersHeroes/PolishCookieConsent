@@ -1,5 +1,5 @@
 var PCC_overlay = {
-    init: function () {
+    init: () => {
         const { Services } = Components.utils.import("resource://gre/modules/Services.jsm");
         let prefService = Services.prefs;
 
@@ -24,12 +24,14 @@ var PCC_overlay = {
                         const parsedD = JSON.parse(data, 'utf8');
                         PCC_vAPI.storage.local.set("lastOpenedTab", parsedD.lastOpenedTab).then(function () {
                             PCC_vAPI.storage.local.set("userFilters", parsedD.userFilters).then(function () {
-                                PCC_vAPI.storage.local.set("whitelist", parsedD.whitelist);
+                                PCC_vAPI.storage.local.set("whitelist", parsedD.whitelist).then(function () {
+                                    PCC_vAPI_common.convertUFToNewSyntax();
+                                });
                             });
                         });
                         const backupFile = OS.Path.join(OS.Constants.Path.profileDir, "jetpack", "PolishCookieConsentExt@polishannoyancefilters.netlify.com", "simple-storage", "store.json.migrated");
                         OS.File.move(jetpackFile, backupFile);
-                        console.log("[Polish Cookie Consent] Settings migration completed. If all is fine, then you can remove file '" + backupFile + "' now.");
+                        alert("[Polish Cookie Consent] Settings migration completed. If all is fine, then you can remove file '" + backupFile + "' now.");
                     });
                 }
             });
@@ -85,7 +87,7 @@ var PCC_overlay = {
             Services.scriptloader.loadSubScript("chrome://PCC/content/content.js", sandbox);
         }, true);
     },
-    placePopup: function () {
+    placePopup: () => {
         let wm = Components.classes["@mozilla.org/appshell/window-mediator;1"].getService(Components.interfaces.nsIWindowMediator);
         let browserWindow = wm.getMostRecentWindow("navigator:browser");
         let ebtn = browserWindow.document.querySelector("#PolishFiltersTeam_PCC_btn");
@@ -99,7 +101,7 @@ var PCC_overlay = {
         });
 
         browserWindow.document.querySelector("#PolishFiltersTeam_PCC_popup_frame").contentWindow.postMessage({ what: 'tabURL', value: browserWindow.gBrowser.currentURI.spec }, "*");
-    },
+    }
 }
 
 window.addEventListener("load", () => { PCC_overlay.init(); }, false);

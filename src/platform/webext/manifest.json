@@ -52,6 +52,7 @@
   "background": {
     "scripts": [
       "vAPI.js",
+      "vAPI_common.js",
       "update.js"
     ]
   },

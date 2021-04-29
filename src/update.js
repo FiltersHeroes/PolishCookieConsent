@@ -35,17 +35,26 @@ function updateCookieBase(updateTime) {
     }
 }
 
+function fetchLocalCookieBase() {
+    let cookieBaseURL;
+    if (PCC_vAPI.isWebExtension() == true) {
+        cookieBaseURL = "/PCB_2021.txt";
+    } else {
+        cookieBaseURL = "chrome://PCC/content/PCB_2021.txt";
+    }
+    fetch(cookieBaseURL)
+        .then(handleTextResponse)
+        .catch(error => console.log(error));
+}
+
 PCC_vAPI.onFirstRunOrUpdate().then(function (result) {
-    if (result == "install" || result == "update") {
-        let cookieBaseURL;
-        if (PCC_vAPI.isWebExtension() == true) {
-            cookieBaseURL = "/PCB_2021.txt";
-        } else {
-            cookieBaseURL = "chrome://PCC/content/PCB_2021.txt";
-        }
-        fetch(cookieBaseURL)
-            .then(handleTextResponse)
-            .catch(error => console.log(error));
+    if (PCC_vAPI.isWebExtension() == true && result == "update") {
+        fetchLocalCookieBase();
+        setUpdateTime();
+        PCC_vAPI_common.convertUFToNewSyntax();
+    }
+    else if (result == "install" || result == "update") {
+        fetchLocalCookieBase();
         setUpdateTime();
     } else if (PCC_vAPI.isWebExtension() == false) {
         if (result == "nothing") {
