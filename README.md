@@ -43,7 +43,7 @@ Basilisk Add-ons: [![Basilisk Add-ons version](https://img.shields.io/badge/BA-v
 2. Dotknij `Set custom add-ons account`, wpisz `12377843` i `OK`.
 3. Dotknij `Set custom add-ons collection`, wpisz `Moje-rekomendacje` i `OK`.
 4. Wróć do głównych ustawień, zjedź w dół i dotknij `Dodatki`.
-5. Dodatki `+` przy PCZ i `Dodaj`.
+5. Dotknij `+` przy PCZ i `Dodaj`.
 6. Gotowe :tada: !
 
 <!-- ### **IV. ![Whale][Whale]NAVER Whale**
