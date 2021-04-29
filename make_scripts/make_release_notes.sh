@@ -22,7 +22,7 @@ $checksum_chromium **PolishCookieConsent_Chromium.zip**
 EOT
 fi
 
-if [[ -f "./artifacts/PolishCookieConsent_Firefox.zip" ]]; then
+if [[ -f "./artifacts/PolishCookieConsent_Firefox.xpi" ]]; then
 checksum_ff=$(sha256sum ./artifacts/PolishCookieConsent_Firefox.xpi | awk '{print $1}')
     cat <<EOT >>"$tymczasowy"/release_notes.md
 $checksum_ff **PolishCookieConsent_Firefox.xpi**

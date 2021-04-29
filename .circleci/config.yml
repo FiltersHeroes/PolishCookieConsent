@@ -16,7 +16,7 @@ jobs:
     - run:
         command: |
           ./make_scripts/make_release_notes.sh
-          gh release create ${CIRCLE_TAG} ./artifacts/* --notes-file ./release_notes/release_notes.md
+          gh release create "$CIRCLE_TAG" ./artifacts/* --notes-file ./release_notes/release_notes.md
 workflows:
   version: 2
   workflow:
