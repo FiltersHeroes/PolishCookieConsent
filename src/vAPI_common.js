@@ -4,7 +4,7 @@ var PCC_vAPI_common = {
         PCC_vAPI.storage.local.get("convertUF").then(function (resultConvert) {
             if (typeof resultConvert === "undefined" || resultConvert !== "done") {
                 PCC_vAPI.storage.local.get("userFilters").then(function (resultUF) {
-                    if (typeof resultUF !== "undefined" || resultUF !== "") {
+                    if (typeof resultUF !== "undefined") {
                         let filters = resultUF.split("\n");
                         let argsAfterFunc;
                         for (var i = 0; i < filters.length; i++) {

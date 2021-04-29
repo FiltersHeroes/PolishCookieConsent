@@ -19,6 +19,8 @@ rm -rf "$tymczasowy"/platform/
 python3 "$sciezka"/convert_locales_to_legacy_version.py "$tymczasowy"
 rm -r "$tymczasowy"/_locales/*/messages.json
 rm -r "$tymczasowy"/PCB.txt
+rm -r "$tymczasowy"/icons/icon96.png
+rm -r "$tymczasowy"/icons/icon128.png
 
 zip -r9 PolishCookieConsent_UXP.xpi ./*
 
