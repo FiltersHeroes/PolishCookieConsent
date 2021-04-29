@@ -1,3 +1,6 @@
 src/.web-extension-id
 src/web-ext-artifacts
 *.xpi
+src_temp/*
+release_notes/release_notes.md
+artifacts/*
