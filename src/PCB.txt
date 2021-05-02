@@ -1,6 +1,6 @@
-! Polska Baza Ciasteczkowa
-! Polish Cookie Base
-! Version: 2021.04.28.0
+! Polska Baza Ciasteczkowa - zalecana aktualizacja dodatku
+! Polish Cookie Base - recommended addon update
+! Version: 2021.05.02.0
 ! Copyright © 2021 Polish Filters Team
 !
 !
@@ -74,9 +74,9 @@ redirect.global.commerce-connector.com\/consent\/(clickTimeout, .cookie-notice >
 shinden.pl(clickTimeout, div[class^="app_gdpr"] button[class*="details_save"])
 !
 ! redirect
-!^https?:\/\/(www\.)?biblioteka\.rawicz\.pl\/$(redirect, indexa.html, false)
-!^https?:\/\/(www\.)?edytor-serwis\.com\.pl\/$(redirect, index2.html, false)
+^https?:\/\/[\w]?[\w]?[\w]?[\d]?\.?biblioteka\.rawicz\.pl\/$(redirect, indexa.html, false)
+^https?:\/\/[\w]?[\w]?[\w]?[\d]?\.?edytor-serwis\.com\.pl\/$(redirect, index2.html, false)
 f1racing.pl(redirect, x-set-cookie, true, x-id-cookie-yes=)
 !powiatkamienski\.pl\/$(redirect, aktualnosci.dhtml, false)
-!^https?:\/\/(www\.)?tester\.net\.pl\/$(redirect, ?pl_witamy,1, false)
-!^https?:\/\/ubi2\.wit\.edu\.pl(redirect, wall/gaccept, false, GPRD)
+^https?:\/\/[\w]?[\w]?[\w]?[\d]?\.?tester\.net\.pl\/$(redirect, ?pl_witamy,1, false)
+^https?:\/\/ubi2\.wit\.edu\.pl(redirect, wall/gaccept, false, GPRD)
