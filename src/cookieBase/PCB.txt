@@ -1,6 +1,6 @@
 ! Polska Baza Ciasteczkowa
 ! Polish Cookie Base
-! Version: 2021.05.03.1
+! Version: 2021.05.03.2
 ! Copyright © 2021 Polish Filters Team
 !
 !
@@ -21,7 +21,6 @@ cineman.pl##+js(bakeCookie, HAS_COOKIES_FORM_SHOWED, true, 3650)
 emuia1.gugik.gov.pl##+js(bakeCookie, cookieMessageHide, true, 365)
 espedytor.pl##+js(bakeCookie, zgodaRODO, true, 365)
 gamepedia.com,wikia.com,wikia.org##+js(bakeCookie, tracking-opt-in-status, accepted, 365)
-fandom.com##+js(bakeCookie, tracking-opt-in-status, accepted, 365, .fandom.com)
 gisgminny.pl##+js(bakeCookie, cookiesDirective, 1, 365)
 hiszpanskidlapolakow.com##+js(bakeCookie, gdpr-accepted, {"ga":true,"facebook":true,"disqus":true}, 365)
 hrkgame.com##+js(bakeCookie, gdpralert, done, 365)
@@ -62,6 +61,7 @@ facebook.com,messenger.com##+js(clickTimeout, body > div div[aria-label="Akceptu
 facebook.com,messenger.com##+js(clickTimeout, body > div button[title="Akceptuj wszystkie"])
 /https?:\/\/consent\.yahoo.com\/[a-z0-9]{2}\/collectConsent/##+js(clickTimeout, .btn[name="agree"])
 click.kaufland.com/cookieconsent##+js(clickTimeout, button.primary)
+fandom.com##+js(clickTimeout, [data-tracking-opt-in-accept="true"], euconsent-v2)
 redirect.global.commerce-connector.com/consent##+js(clickTimeout, .cookie-notice > .btn--blue.btn)
 rejestracja.pwik.gliwice.pl##+js(clickTimeout, .bp3-portal .bp3-dialog-footer-actions button[type="button"] ~ button[type="submit"])
 shinden.pl##+js(clickTimeout, div[class^="app_gdpr"] button[class*="details_save"])
