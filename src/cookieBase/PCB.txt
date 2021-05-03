@@ -1,6 +1,6 @@
 ! Polska Baza Ciasteczkowa
 ! Polish Cookie Base
-! Version: 2021.04.28.1
+! Version: 2021.05.03.0
 ! Copyright © 2021 Polish Filters Team
 !
 !
@@ -13,7 +13,7 @@ totalcasino.pl##+js(addToStorage, gdpr_popup, true)
 ! bake cookie
 action.com##+js(bakeCookie, CookieConsent, true, 365)
 al.to,combat.pl,x-kom.pl##+js(bakeCookie, cookieAccept, true, 365)
-budujmase.pl,drogerium.pl,wylecz.to##+js(bakeCookie, rodoHfM, true, 365)
+budujmase.pl,drogerium.pl,trec.pl,wylecz.to##+js(bakeCookie, rodoHfM, true, 365)
 cineman.pl##+js(bakeCookie, ARE_FUNCTIONAL_COOKIES_ACCEPTED, true, 3650)
 cineman.pl##+js(bakeCookie, ARE_MARKETING_COOKIES_ACCEPTED, true, 3650)
 cineman.pl##+js(bakeCookie, ARE_REQUIRED_COOKIES_ACCEPTED, true, 3650)
