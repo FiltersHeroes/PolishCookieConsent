@@ -16,6 +16,30 @@ cd "$tymczasowy" || exit
 mv "$tymczasowy"/platform/UXP/* "$tymczasowy"/
 rm -rf "$tymczasowy"/platform/
 
+mapfile -t locales < <(find "$tymczasowy"/_locales -maxdepth 1 -exec basename {} \; | sed s/en$// | sed s/_locales$// | sed -r '/^\s*$/d' | sort -u)
+
+for locale in "${locales[@]}"; do
+extName=$(jq -r '.extensionName.message' "$tymczasowy"/_locales/"$locale"/messages.json)
+extDesc=$(jq -r '.extensionDescription.message' "$tymczasowy"/_locales/"$locale"/messages.json)
+localized+=$(cat <<EOF
+
+    <em:localized>
+      <Description
+        em:locale="$locale"
+        em:name="$extName"
+        em:description="$extDesc"/>
+    </em:localized>
+\l
+EOF
+)
+cat >> "$tymczasowy"/locales.manifest << END
+locale PCC $locale ./_locales/$locale/
+END
+done
+
+localized=$(echo "${localized}" | sed ':a;N;$!ba;s/\n/\\n/g' | sed 's/\$/\\$/g' | sed '/^$/d')
+sed -i "s|_localized_|$localized|" "$tymczasowy"/install.rdf
+
 python3 "$sciezka"/convert_locales_to_legacy_version.py "$tymczasowy"
 rm -r "$tymczasowy"/_locales/*/messages.json
 rm -r "$tymczasowy"/PCB.txt

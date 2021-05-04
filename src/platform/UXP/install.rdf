@@ -24,12 +24,7 @@
       <Description em:id="{ec8030f7-c20a-464f-9b0e-13a3a9e97384}" em:minVersion="52.0" em:maxVersion="56.*"/>
     </em:targetApplication>
 
-    <em:localized>
-      <Description
-        em:locale="pl"
-        em:name="Polska Ciasteczkowa Zgoda"
-        em:description="Automatycznie akceptuje politykę ciasteczek/RODO na stronach dostępnych w języku polskim."/>
-    </em:localized>
+_localized_
 
   </Description>
 </RDF>
