@@ -92,12 +92,16 @@ var PCC_overlay = {
         let browserWindow = wm.getMostRecentWindow("navigator:browser");
         let ebtn = browserWindow.document.querySelector("#PolishFiltersTeam_PCC_btn");
         let epanel = browserWindow.document.querySelector("#PolishFiltersTeam_PCC_popup_panel");
+        if (epanel.hasAttribute("hidden")) {
+            epanel.removeAttribute("hidden");
+        }
         epanel.openPopup(ebtn, "after_end", 0, 0, false, false);
 
         PCC_vAPI.resizePopup();
 
         epanel.addEventListener("popuphiding", function () {
             ebtn.checked = false;
+            epanel.setAttribute("hidden", true);
         });
 
         browserWindow.document.querySelector("#PolishFiltersTeam_PCC_popup_frame").contentWindow.postMessage({ what: 'tabURL', value: browserWindow.gBrowser.currentURI.spec }, "*");
