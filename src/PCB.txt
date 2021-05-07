@@ -1,6 +1,8 @@
-! Polska Baza Ciasteczkowa - zalecana aktualizacja dodatku
-! Polish Cookie Base - recommended addon update
-! Version: 2021.05.06.0
+! Polska Baza Ciasteczkowa 2020 (EOL) - zalecana aktualizacja dodatku
+! Polish Cookie Base 2020 (EOL) - recommended addon update
+! Description: Reguły zgodne ze starszą wersją rozszerzenia, zwane inaczej składnią 2020.
+! UWAGA!!! Baza ta otrzymała status EOL, co oznacza, że nie będzie już więcej żadnych aktualizacji dla niej i zalecana jest aktualizacja rozszerzenia.
+! Version: 2021.05.06.1
 ! Copyright © 2021 Polish Filters Team
 !
 !
@@ -11,7 +13,6 @@ gry.lotto.pl(addToStorage, rodoConfirmation2, true)
 totalcasino.pl(addToStorage, gdpr_popup, true)
 !
 ! bake cookie
-!.mini.com.pl(bakeCookie, cc_consentCookie, %7B%22mini-pl%22%3A%7B%22consentMetadataModel%22%3A%7B%22analytics%22%3A%22GIVEN%22%2C%22functional%22%3A%22GIVEN%22%2C%22advertising%22%3A%22GIVEN%22%7D%2C%22crossDomainConsent%22%3Atrue%7D%7D, 365)
 action.com(bakeCookie, CookieConsent, true, 365)
 al.to,combat.pl,x-kom.pl(bakeCookie, cookieAccept, true, 365)
 budujmase.pl|drogerium.pl|trec.pl|wylecz.to(bakeCookie, rodoHfM, true, 365)
@@ -49,15 +50,12 @@ www2.hm.com(bakeCookie, hm_gdpr_read, true, 365)
 !
 ! click complete text
 abczdrowie.pl|allani.pl|autocentrum.pl|autokult.pl|dobramama.pl|dobregry.pl|dobreprogramy.pl|domodi.pl|echirurgia.pl|extradom.pl|fotoblogia.pl|gadzetomania.pl|homebook.pl|jejswiat.pl|kafeteria.pl|kafeteria.tv|kardiolo.pl|kazimierzdolny.pl|komorkomania.pl|luxlux.pl|medycyna24.pl|mixer.pl|money.pl|nerwica.com|nocowanie.pl|o2.pl|open.fm|parenting.pl|pinger.pl|pogodnie.pl|polygamia.pl|pudelek.pl|pudelek.tv|pudelekx.pl|pytamy.pl|samosia.pl|smaczneblogi.pl|smog.pl|snobka.pl|so-magazyn.pl|superauto24.com|testwiedzy.pl|vibez.pl|wakacje.pl|wp.pl(clickCompleteText, button, PRZECHODZ)
-!parkiet.com|rp.pl(clickCompleteText, *[@id="rodo-popup"]//button, Dalej)
-!parkiet.com|rp.pl(clickCompleteText, *[@id="rodo-popup"]//button, Zapisz)
 !
 ! click complete
 gry.pl(clickComplete, div[class*="app_gdpr"] button[class*="intro_acceptAll"], euconsent)
-!mapaodoru.pgkslupsk.pl(clickComplete, input#wpgmza_ugm_spm, jestem_czlowiekiem)
 !
 ! click interactive
-!downdetector.pl|unileverfoodsolutions.pl(clickInteractive, .evidon-barrier-acceptbutton)
+fandom.com(clickInteractive, [data-tracking-opt-in-accept="true"], euconsent-v2)
 odr.pl(clickInteractive, .termsagree)
 rejestracja.pwik.gliwice.pl(clickInteractive, .bp3-portal .bp3-dialog-footer-actions button[type="button"] ~ button[type="submit"], PWiKGliwiceSMS)
 tumblr\.com\/privacy\/consent(clickInteractive, .btn.yes)
@@ -77,6 +75,5 @@ shinden.pl(clickTimeout, div[class^="app_gdpr"] button[class*="details_save"])
 ^https?:\/\/[\w]?[\w]?[\w]?[\d]?\.?biblioteka\.rawicz\.pl\/$(redirect, indexa.html, false)
 ^https?:\/\/[\w]?[\w]?[\w]?[\d]?\.?edytor-serwis\.com\.pl\/$(redirect, index2.html, false)
 f1racing.pl(redirect, x-set-cookie, true, x-id-cookie-yes=)
-!powiatkamienski\.pl\/$(redirect, aktualnosci.dhtml, false)
 ^https?:\/\/[\w]?[\w]?[\w]?[\d]?\.?tester\.net\.pl\/$(redirect, ?pl_witamy,1, false)
 ^https?:\/\/ubi2\.wit\.edu\.pl(redirect, wall/gaccept, false, GPRD)
