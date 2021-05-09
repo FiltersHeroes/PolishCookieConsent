@@ -48,7 +48,7 @@ Basilisk Add-ons: [![Basilisk Add-ons version](https://img.shields.io/badge/BA-v
 
 ### **VII. ![Fennec][Fennec][Fennec (F-Droid)](https://f-droid.org/en/packages/org.mozilla.fennec_fdroid/)/![Nightly][Nightly][Firefox Nightly (Android)](https://play.google.com/store/apps/details?id=org.mozilla.fenix)**
 1. Wejdź w Ustawienia -> O programie Fennec/Firefox Nightly.
-2. Dotknij 5 razy w szybkim tempie logo programu - aby doblokować tryb developera.
+2. Dotknij 5 razy w szybkim tempie logo programu - aby odblokować tryb developera.
 3. Wróć do głównych ustawień programu -> Inna kolejkcja dodatków.
 4. Dotknij `Właściciel kolekcji (identyfikator)`, wpisz `12377843`, można zatwierdzić enterem.
 5. Dotknij `Nazwa kolejkcji`, wpisz `Moje-rekomendacje` i kliknij `OK`.
