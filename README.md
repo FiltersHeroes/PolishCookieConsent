@@ -14,7 +14,7 @@ Basilisk Add-ons: [![Basilisk Add-ons version](https://img.shields.io/badge/BA-v
 <!-- Whale Store: [![Whale Store version](https://img.shields.io/badge/WS%20🐳%20-v1.41.0-%23007ec6.svg "Whale Store 🐳 version")](https://store.whale.naver.com/detail/micngbppijeajicgilihpkkbkgibmjhb?hl=pl) -->
 
 ## **Jak zainstalować?**
-### **I. ![Firefox][Firefox]Firefox/![Waterfox][Waterfox]Waterfox (Classic i Current)**
+### **I. ![Firefox][Firefox]Firefox/![Waterfox][Waterfox]Waterfox (Classic i G3)**
 1. Zainstaluj najnowszą wersję rozszerzenia z [AMO](https://addons.mozilla.org/pl/firefox/addon/polish-cookie-consent/) (kliknij dwukrotnie **dodaj**).
 2. Gotowe :tada: !
 
@@ -46,13 +46,13 @@ Basilisk Add-ons: [![Basilisk Add-ons version](https://img.shields.io/badge/BA-v
 5. Dotknij `+` przy PCZ i `Dodaj`.
 6. Gotowe :tada: !
 
-### **VII. ![Fennec][Fennec][Fennec (F-Droid)](https://f-droid.org/en/packages/org.mozilla.fennec_fdroid/)/![Nightly][Nightly][Firefox Nightly (Android)](https://play.google.com/store/apps/details?id=org.mozilla.fenix)**
+### **VII. ![Fennec][Fennec][Fennec F-Droid](https://f-droid.org/en/packages/org.mozilla.fennec_fdroid/)/![Nightly][Nightly][Firefox Nightly (Android)](https://play.google.com/store/apps/details?id=org.mozilla.fenix)**
 1. Wejdź w Ustawienia -> O programie Fennec/Firefox Nightly.
 2. Dotknij 5 razy w szybkim tempie logo programu - aby odblokować tryb developera.
-3. Wróć do głównych ustawień programu -> Inna kolejkcja dodatków.
-4. Dotknij `Właściciel kolekcji (identyfikator)`, wpisz `12377843`, można zatwierdzić enterem.
-5. Dotknij `Nazwa kolejkcji`, wpisz `Moje-rekomendacje` i kliknij `OK`.
-6. Przeglądarka zamknie się w celu zastosowania kolekcji `Moje-rekomendacje`, uruchom ją ponownie ręcznie.
+3. Wróć do głównych ustawień programu -> Inna kolekcja dodatków.
+4. Dotknij `Właściciel kolekcji (identyfikator)` i wpisz `12377843`.
+5. Dotknij `Nazwa kolekcji`, wpisz `Moje-rekomendacje` i kliknij `OK`.
+6. Przeglądarka zamknie się w celu zastosowania kolekcji `Moje-rekomendacje`, więc uruchom ją ponownie ręcznie.
 7. Wejdź w `Dodatki`.
 8. Dotknij `+` przy PCZ i `Dodaj`.
 9. Gotowe :tada: !
