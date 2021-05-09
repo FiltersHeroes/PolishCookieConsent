@@ -12,6 +12,8 @@ mkdir "$tymczasowy"
 cp -r "$glowna_sciezka"/src/* "$tymczasowy"/
 
 cd "$tymczasowy" || exit
+
+cp ../LICENSE "$tymczasowy"/
 mv "$tymczasowy"/platform/webext/* "$tymczasowy"/
 jq 'del(.applications)' manifest.json > manifest.json.temp
 rm -r manifest.json

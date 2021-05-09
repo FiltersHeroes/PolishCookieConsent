@@ -13,6 +13,7 @@ cp -r "$glowna_sciezka"/src/* "$tymczasowy"/
 
 cd "$tymczasowy" || exit
 
+cp ../LICENSE "$tymczasowy"/
 mv "$tymczasowy"/platform/webext/* "$tymczasowy"/
 rm -rf "$tymczasowy"/platform/
 rm -r "$tymczasowy"/PCB.txt

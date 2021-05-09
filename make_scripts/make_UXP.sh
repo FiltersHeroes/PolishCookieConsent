@@ -13,6 +13,7 @@ cp -r "$glowna_sciezka"/src/* "$tymczasowy"/
 
 cd "$tymczasowy" || exit
 
+cp ../LICENSE "$tymczasowy"/
 mv "$tymczasowy"/platform/UXP/* "$tymczasowy"/
 rm -rf "$tymczasowy"/platform/
 
