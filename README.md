@@ -2,7 +2,7 @@
 
 Rozszerzenie automatycznie akceptujące politykę ciasteczek/RODO na stronach dostępnych w języku polskim. Stanowi ono uzupełnienie [Polskich Filtrów Rodo-Ciasteczkowych](https://subscribe.adblockplus.org/?location=https://raw.githubusercontent.com/MajkiIT/polish-ads-filter/master/cookies_filters/adblock_cookies.txt&title=Polskie%20Filtry%20RODO-Ciasteczkowe) (wchodzących też w skład **Polskich Filtrów Elementów Irytujących**) oraz wymaganej przez nie listy [I don't care about cookies](https://subscribe.adblockplus.org/?location=https://www.i-dont-care-about-cookies.eu/abp/&title=I%20dont%20care%20about%20cookies).
 
-Addons.mozilla.org: [![Moz://a AMO version](https://img.shields.io/amo/v/polish-cookie-consent.svg?label=AMO "Moz://a AMO version")](https://addons.mozilla.org/pl/firefox/addon/polish-cookie-consent/ "Moz://a AMO version") ![Firefox week download](https://img.shields.io/amo/dw/polish-cookie-consent.svg?label=pobrań "Firefox week download")
+Addons.mozilla.org: [![Moz://a AMO version](https://img.shields.io/amo/v/polish-cookie-consent.svg?label=AMO "Moz://a AMO version")](https://addons.mozilla.org/pl/firefox/addon/polish-cookie-consent?utm_source=git "Moz://a AMO version") ![Firefox week download](https://img.shields.io/amo/dw/polish-cookie-consent.svg?label=pobrań "Firefox week download")
 ![Firefox users](https://img.shields.io/amo/users/polish-cookie-consent.svg?label=użytkowników "Firefox week users")
 
 Chrome Web Store: [![Chrome Web Store version](https://img.shields.io/chrome-web-store/v/bniijddcmabghibaojbkbnngbedopbno.svg?label=CWS "Chrome Web Store version")](https://chrome.google.com/webstore/detail/polish-cookie-consent/bniijddcmabghibaojbkbnngbedopbno?hl=pl "Chrome Web Store version") ![Chromium users](https://img.shields.io/chrome-web-store/users/bniijddcmabghibaojbkbnngbedopbno.svg?label=użytkowników "Chromium users")
@@ -15,7 +15,7 @@ Basilisk Add-ons: [![Basilisk Add-ons version](https://img.shields.io/badge/BA-v
 
 ## **Jak zainstalować?**
 ### **I. ![Firefox][Firefox]Firefox/![Waterfox][Waterfox]Waterfox (Classic i G3)**
-1. Zainstaluj najnowszą wersję rozszerzenia z [AMO](https://addons.mozilla.org/pl/firefox/addon/polish-cookie-consent/) (kliknij dwukrotnie **dodaj**).
+1. Zainstaluj najnowszą wersję rozszerzenia z [AMO](https://addons.mozilla.org/pl/firefox/addon/polish-cookie-consent?utm_source=git) (kliknij dwukrotnie **dodaj**).
 2. Gotowe :tada: !
 
 ### **II. ![Chrome][Chrome]Chrome/![Chromium][Chromium]Chromium/![Vivaldi][Vivaldi]Vivaldi/![Cent][Cent]Cent/![Yandex][Yandex]Yandex/![Kiwi][Kiwi]Kiwi/![Whale][Whale]NAVER Whale/![Edge][Edge](Chrom)Edge**
