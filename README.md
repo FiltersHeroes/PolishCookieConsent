@@ -1,5 +1,4 @@
 # Polska Ciasteczkowa Zgoda
-
 Rozszerzenie automatycznie akceptujące politykę ciasteczek/RODO na stronach dostępnych w języku polskim. Stanowi ono uzupełnienie [Polskich Filtrów Rodo-Ciasteczkowych](https://subscribe.adblockplus.org/?location=https://raw.githubusercontent.com/MajkiIT/polish-ads-filter/master/cookies_filters/adblock_cookies.txt&title=Polskie%20Filtry%20RODO-Ciasteczkowe) (wchodzących też w skład **Polskich Filtrów Elementów Irytujących**) oraz wymaganej przez nie listy [I don't care about cookies](https://subscribe.adblockplus.org/?location=https://www.i-dont-care-about-cookies.eu/abp/&title=I%20dont%20care%20about%20cookies).
 
 Addons.mozilla.org: [![Moz://a AMO version](https://img.shields.io/amo/v/polish-cookie-consent.svg?label=AMO "Moz://a AMO version")](https://addons.mozilla.org/pl/firefox/addon/polish-cookie-consent?utm_source=git "Moz://a AMO version") ![Firefox week download](https://img.shields.io/amo/dw/polish-cookie-consent.svg?label=pobrań "Firefox week download")
@@ -12,6 +11,8 @@ Pale Moon Add-ons: [![Pale Moon Add-ons version](https://img.shields.io/badge/PM
 Basilisk Add-ons: [![Basilisk Add-ons version](https://img.shields.io/badge/BA-v1.43.5-%23007ec6.svg "Basilisk Add-ons version")](https://addons.basilisk-browser.org/addon/pcc/ "Basilisk Add-ons version")
 
 <!-- Whale Store: [![Whale Store version](https://img.shields.io/badge/WS%20🐳%20-v1.41.0-%23007ec6.svg "Whale Store 🐳 version")](https://store.whale.naver.com/detail/micngbppijeajicgilihpkkbkgibmjhb?hl=pl) -->
+
+[![Crowdin](https://badges.crowdin.net/polish-cookie-consent/localized.svg)](https://crowdin.com/project/polish-cookie-consent)
 
 ## **Jak zainstalować?**
 ### **I. ![Firefox][Firefox]Firefox/![Waterfox][Waterfox]Waterfox (Classic i G3)**
