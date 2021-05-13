@@ -5,7 +5,7 @@ preserve_hierarchy: false
 files: [
   {
     "source": "/src/_locales/en/*",
-    "translation": "/src/_locales/%locale%/%original_file_name%",
+    "translation": "/src/_locales/%locale_with_underscore%/%original_file_name%",
     "escape_quotes": 3,
     "escape_special_characters": 0,
     "update_option": "update_as_unapproved"
