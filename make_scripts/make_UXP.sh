@@ -38,7 +38,7 @@ locale PCC $locale ./_locales/$locale/
 END
 done
 
-localized=$(echo "${localized}" | sed ':a;N;$!ba;s/\n/\\n/g' | sed 's/\$/\\$/g' | sed '/^$/d')
+localized=$(echo "${localized}" | sed '/^$/d' | sed ':a;N;$!ba;s/\n/\\n/g' | sed 's/\$/\\$/g')
 sed -i "s|_localized_|$localized|" "$tymczasowy"/install.rdf
 
 python3 "$sciezka"/convert_locales_to_legacy_version.py "$tymczasowy"
