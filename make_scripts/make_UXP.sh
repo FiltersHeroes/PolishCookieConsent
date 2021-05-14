@@ -20,9 +20,10 @@ rm -rf "$tymczasowy"/platform/
 mapfile -t locales < <(find "$tymczasowy"/_locales -maxdepth 1 -exec basename {} \; | sed s/en$// | sed s/_locales$// | sed -r '/^\s*$/d' | sort -u)
 
 for locale in "${locales[@]}"; do
-extName=$(jq -r '.extensionName.message' "$tymczasowy"/_locales/"$locale"/messages.json)
-extDesc=$(jq -r '.extensionDescription.message' "$tymczasowy"/_locales/"$locale"/messages.json)
-localized+=$(cat <<EOF
+    extName=$(jq -r '.extensionName.message' "$tymczasowy"/_locales/"$locale"/messages.json)
+    extDesc=$(jq -r '.extensionDescription.message' "$tymczasowy"/_locales/"$locale"/messages.json)
+    localized+=$(
+        cat <<EOF
 
     <em:localized>
       <Description
@@ -32,10 +33,12 @@ localized+=$(cat <<EOF
     </em:localized>
 \l
 EOF
-)
-cat >> "$tymczasowy"/locales.manifest << END
+    )
+
+    cat >>"$tymczasowy"/locales.manifest <<END
 locale PCC $locale ./_locales/$locale/
 END
+
 done
 
 localized=$(echo "${localized}" | sed '/^$/d' | sed ':a;N;$!ba;s/\n/\\n/g' | sed 's/\$/\\$/g')
