@@ -258,3 +258,7 @@ button#updateCookieBase.active .icon {
 .tip {
     color: rgba(0, 0, 0, 0.54);
 }
+
+.cm-s-default .cm-comment {
+    color: #777;
+}

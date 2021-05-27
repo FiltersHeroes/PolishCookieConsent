@@ -120,13 +120,37 @@ document.querySelector("#showCookieBase").addEventListener("click", function () 
     });
 })
 
+// Define CodeMirror mode for user filters
+CodeMirror.defineSimpleMode("filters", {
+    // The start state contains the rules that are initially used
+    start: [
+        {
+            regex: /#.*/,
+            token: 'comment',
+        },
+        {
+            regex: /!.*/,
+            token: 'comment'
+        },
+    ],
+    meta: {
+        lineComment: "#"
+    }
+});
+
 // Add user filters to textarea
 var userFilters = new CodeMirror(document.querySelector('#userFilters'), {
     autofocus: true,
     autoRefresh: true,
-    gutters: [ 'CodeMirror-linenumbers' ],
+    extraKeys: {
+        "Ctrl-/": function (cm) {
+            cm.toggleComment();
+        }
+    },
+    gutters: ['CodeMirror-linenumbers'],
     lineNumbers: true,
     lineWrapping: true,
+    mode: "filters",
     viewportMargin: Infinity
 });
 restoreUserFilters();
@@ -138,7 +162,7 @@ function restoreUserFilters() {
         else {
             userFilters.setValue("");
         }
-    }).then(function(){
+    }).then(function () {
         userFilters.refresh();
     });
 }
@@ -178,14 +202,37 @@ userFilters.on('changes', function () {
     });
 });
 
+// Define CodeMirror mode for excluded list
+CodeMirror.defineSimpleMode("excludedList", {
+    // The start state contains the rules that are initially used
+    start: [
+        {
+            regex: /#.*/,
+            token: 'comment'
+        },
+        {
+            regex: /!.*/,
+            token: 'comment'
+        },
+    ],
+    meta: {
+        lineComment: "#"
+    }
+});
 
-// Add whitelist to textarea
+// Add excluded list to textarea
 var userWhitelist = new CodeMirror(document.querySelector('#userWhitelist'), {
     autofocus: true,
     autoRefresh: true,
-    gutters: [ 'CodeMirror-linenumbers' ],
+    extraKeys: {
+        "Ctrl-/": function (cm) {
+            cm.toggleComment();
+        }
+    },
+    gutters: ['CodeMirror-linenumbers'],
     lineNumbers: true,
     lineWrapping: true,
+    mode: "excludedList",
     viewportMargin: Infinity
 });
 restoreWhitelist();
@@ -197,7 +244,7 @@ function restoreWhitelist() {
         else {
             userWhitelist.setValue("");
         }
-    }).then(function(){
+    }).then(function () {
         userWhitelist.refresh();
     });
 }
