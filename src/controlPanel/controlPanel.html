@@ -6,9 +6,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title></title>
-    <link rel="stylesheet" href="controlPanel.css" />
+    <link rel="stylesheet" href="../thirdparty/codemirror/lib/codemirror.css" />
     <link rel="stylesheet" href="../thirdparty/mui.css" />
     <link rel="stylesheet" href="../thirdparty/mui-colors.css" />
+    <link rel="stylesheet" href="controlPanel.css" />
     <link rel="shortcut icon" type="image/png" href="../icons/icon16.png" />
 </head>
 
@@ -137,37 +138,39 @@
     <div id="my-filters" class="mui-tabs__pane">
         <div class="mui-container-fluid">
             <form class="mui-col-xs-12 mui-col-md-12 mui-form">
-                <div class="mui-textfield">
-                    <textarea id="userFilters"></textarea>
-                    <label for="userFilters" data-i18n="__MSG_mfHelp__" data-opt-i18n-keep-children>
+                <p>
+                    <label class="tip" data-i18n="__MSG_mfHelp__" data-opt-i18n-keep-children>
                         <a href="https://polishannoyancefilters.netlify.app/cookieconsentsyntax/" target="_blank"
                             data-i18n="__MSG_PCCsyntax__"></a>
                     </label>
-                </div>
-                <button id="userFiltersApply" class="mui-btn mui--bg-color-brown-600" type="submit" disabled="true">
-                    <span data-i18n="__MSG_apply__"></span>
-                    <svg class="icon">
-                        <use href="../thirdparty/octicons24.svg#check"></use>
-                    </svg>
-                </button>
-                <button id="userFiltersRevert" class="mui-btn mui--bg-color-brown-600" type="button" disabled="true">
-                    <span data-i18n="__MSG_revert__"></span>
-                    <svg class="icon">
-                        <use href="../thirdparty/octicons24.svg#history"></use>
-                    </svg>
-                </button>
-                <button id="userFiltersImport" class="mui-btn mui--bg-color-brown-600" type="button">
-                    <span data-i18n="__MSG_import__"></span>
-                    <svg class="icon">
-                        <use href="../thirdparty/octicons24.svg#download"></use>
-                    </svg>
-                </button>
-                <button id="userFiltersExport" class="mui-btn mui--bg-color-brown-600" type="button">
-                    <span data-i18n="__MSG_export__"></span>
-                    <svg class="icon">
-                        <use href="../thirdparty/octicons24.svg#upload"></use>
-                    </svg>
-                </button>
+                </p>
+                <div id="userFilters" class="codeMirrorContainer"></div>
+                <p class="buttons">
+                    <button id="userFiltersApply" class="mui-btn mui--bg-color-brown-600" type="button" disabled="true">
+                        <span data-i18n="__MSG_apply__"></span>
+                        <svg class="icon">
+                            <use href="../thirdparty/octicons24.svg#check"></use>
+                        </svg>
+                    </button>
+                    <button id="userFiltersRevert" class="mui-btn mui--bg-color-brown-600" type="button" disabled="true">
+                        <span data-i18n="__MSG_revert__"></span>
+                        <svg class="icon">
+                            <use href="../thirdparty/octicons24.svg#history"></use>
+                        </svg>
+                    </button>
+                    <button id="userFiltersImport" class="mui-btn mui--bg-color-brown-600" type="button">
+                        <span data-i18n="__MSG_import__"></span>
+                        <svg class="icon">
+                            <use href="../thirdparty/octicons24.svg#download"></use>
+                        </svg>
+                    </button>
+                    <button id="userFiltersExport" class="mui-btn mui--bg-color-brown-600" type="button">
+                        <span data-i18n="__MSG_export__"></span>
+                        <svg class="icon">
+                            <use href="../thirdparty/octicons24.svg#upload"></use>
+                        </svg>
+                    </button>
+                </p>
             </form>
         </div>
         </form>
@@ -177,35 +180,37 @@
     <div id="whitelist" class="mui-tabs__pane">
         <div class="mui-container-fluid">
             <form class="mui-col-xs-12 mui-col-md-12 mui-form">
-                <div class="mui-textfield">
-                    <textarea id="userWhitelist"></textarea>
-                    <label for="userWhitelist" data-i18n="__MSG_whitelistHelp__">
+                <p>
+                    <label class="tip" data-i18n="__MSG_whitelistHelp__">
                     </label>
-                </div>
-                <button id="whitelistApply" class="mui-btn mui--bg-color-brown-600" type="submit" disabled="true">
-                    <span data-i18n="__MSG_apply__"></span>
-                    <svg class="icon">
-                        <use href="../thirdparty/octicons24.svg#check"></use>
-                    </svg>
-                </button>
-                <button id="whitelistRevert" class="mui-btn mui--bg-color-brown-600" type="button" disabled="true">
-                    <span data-i18n="__MSG_revert__"></span>
-                    <svg class="icon">
-                        <use href="../thirdparty/octicons24.svg#history"></use>
-                    </svg>
-                </button>
-                <button id="whitelistImport" class="mui-btn mui--bg-color-brown-600" type="button">
-                    <span data-i18n="__MSG_import__"></span>
-                    <svg class="icon">
-                        <use href="../thirdparty/octicons24.svg#download"></use>
-                    </svg>
-                </button>
-                <button id="whitelistExport" class="mui-btn mui--bg-color-brown-600" type="button">
-                    <span data-i18n="__MSG_export__"></span>
-                    <svg class="icon">
-                        <use href="../thirdparty/octicons24.svg#upload"></use>
-                    </svg>
-                </button>
+                </p>
+                <div id="userWhitelist" class="codeMirrorContainer"></div>
+                <p class="buttons">
+                    <button id="whitelistApply" class="mui-btn mui--bg-color-brown-600" type="button" disabled="true">
+                        <span data-i18n="__MSG_apply__"></span>
+                        <svg class="icon">
+                            <use href="../thirdparty/octicons24.svg#check"></use>
+                        </svg>
+                    </button>
+                    <button id="whitelistRevert" class="mui-btn mui--bg-color-brown-600" type="button" disabled="true">
+                        <span data-i18n="__MSG_revert__"></span>
+                        <svg class="icon">
+                            <use href="../thirdparty/octicons24.svg#history"></use>
+                        </svg>
+                    </button>
+                    <button id="whitelistImport" class="mui-btn mui--bg-color-brown-600" type="button">
+                        <span data-i18n="__MSG_import__"></span>
+                        <svg class="icon">
+                            <use href="../thirdparty/octicons24.svg#download"></use>
+                        </svg>
+                    </button>
+                    <button id="whitelistExport" class="mui-btn mui--bg-color-brown-600" type="button">
+                        <span data-i18n="__MSG_export__"></span>
+                        <svg class="icon">
+                            <use href="../thirdparty/octicons24.svg#upload"></use>
+                        </svg>
+                    </button>
+                </p>
             </form>
         </div>
     </div>
@@ -245,6 +250,10 @@
                             <a href="https://github.com/muicss" target="_blank">MUI</a>
                         </li>
                         <li data-i18n="__MSG_by__" data-opt-i18n-keep-children>
+                            <a href="https://codemirror.net/" target="_blank">CodeMirror</a>
+                            <a href="https://marijnhaverbeke.nl/" target="_blank">Marijn Haverbeke</a>
+                        </li>
+                        <li data-i18n="__MSG_by__" data-opt-i18n-keep-children>
                             <a href="http://www.jacklmoore.com/autosize/" target="_blank">Autosize</a>
                             <a href="http://www.jacklmoore.com/" target="_blank">Jack Moore</a>
                         </li>
@@ -267,13 +276,15 @@
 
     <input id="importFilePicker" accept="text/plain" type="file" hidden="true">
 
+    <script src="../thirdparty/codemirror/lib/codemirror.js"></script>
+    <script src="../thirdparty/codemirror/addon/display/autorefresh.js"></script>
     <script src="../vAPI.js"></script>
     <script src="../thirdparty/Localizer.js"></script>
     <script src="../thirdparty/mui.js"></script>
     <script src="../thirdparty/autosize.js"></script>
     <script src="controlPanel.js"></script>
 
-    <iframe src="exportFile.html" style="visibility: hidden;"></iframe>
+    <iframe src="exportFile.html" class="exportFrame"></iframe>
 </body>
 
 </html>

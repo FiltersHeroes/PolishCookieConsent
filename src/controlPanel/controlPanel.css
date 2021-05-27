@@ -228,3 +228,33 @@ button#updateCookieBase.active .icon {
     white-space: normal;
     line-height: inherit;
 }
+
+.codeMirrorContainer {
+    flex-grow: 1;
+    min-height: 2em;
+    position: relative;
+}
+
+.CodeMirror {
+    height: 100%;
+}
+
+.exportFrame {
+    visibility: hidden;
+    width: 0;
+    height: 0;
+}
+
+.mui-form {
+    display: flex;
+    flex-flow: column;
+    max-height: calc(100vh - 82px);
+}
+
+.buttons {
+    margin-top: 5px;
+}
+
+.tip {
+    color: rgba(0, 0, 0, 0.54);
+}

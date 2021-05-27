@@ -48,29 +48,11 @@ PCC_vAPI.storage.local.get('lastOpenedTab').then(function (resultLastOpenedTab) 
     }
 });
 
+
 // Automatically adjust textareas height
 var cookieBaseContent = document.getElementById("cookieBaseContent");
-var userFilters = document.getElementById("userFilters");
-var userWhitelist = document.getElementById("userWhitelist");
 autosize(cookieBaseContent);
-autosize(userFilters);
-autosize(userWhitelist);
 
-document.querySelector('.mui-tabs__bar [data-mui-controls="whitelist"]').addEventListener("mui.tabs.showend", function () {
-    autosize.update(userWhitelist);
-})
-
-document.querySelector('.mui-tabs__bar [data-mui-controls="my-filters"]').addEventListener("mui.tabs.showend", function () {
-    autosize.update(userFilters);
-})
-
-document.querySelector('#sidedrawer [data-mui-controls="whitelist"]').addEventListener("mui.tabs.showend", function () {
-    autosize.update(userWhitelist);
-})
-
-document.querySelector('#sidedrawer [data-mui-controls="my-filters"]').addEventListener("mui.tabs.showend", function () {
-    autosize.update(userFilters);
-})
 
 // Show version number of Polish Cookie Base
 document.addEventListener("DOMContentLoaded", updateVersion);
@@ -139,16 +121,25 @@ document.querySelector("#showCookieBase").addEventListener("click", function () 
 })
 
 // Add user filters to textarea
+var userFilters = new CodeMirror(document.querySelector('#userFilters'), {
+    autofocus: true,
+    autoRefresh: true,
+    gutters: [ 'CodeMirror-linenumbers' ],
+    lineNumbers: true,
+    lineWrapping: true,
+    viewportMargin: Infinity
+});
 restoreUserFilters();
 function restoreUserFilters() {
     PCC_vAPI.storage.local.get('userFilters').then(function (resultUserFilters) {
         if (resultUserFilters) {
-            userFilters.value = resultUserFilters;
+            userFilters.setValue(resultUserFilters);
         }
         else {
-            userFilters.value = "";
+            userFilters.setValue("");
         }
-        autosize.update(userFilters);
+    }).then(function(){
+        userFilters.refresh();
     });
 }
 
@@ -157,26 +148,26 @@ var userFiltersRevert = document.getElementById("userFiltersRevert");
 var userFiltersApply = document.getElementById("userFiltersApply");
 userFiltersRevert.addEventListener("click", function () {
     restoreUserFilters();
-    userFiltersRevert.disabled = true;
-    userFiltersApply.disabled = true;
 });
 
 // Save user filters
-document.querySelector("#my-filters form").addEventListener("submit", function (e) {
-    e.preventDefault();
-
+let cachedUserFilters = '';
+document.querySelector("#userFiltersApply").addEventListener("click", function () {
     // Strip duplicates from user filters
-    userFilters.value = [...new Set(userFilters.value.split("\n"))].join("\n").trim();
+    userFilters.setValue([...new Set(userFilters.getValue().toString().split("\n"))].join("\n").trim());
 
-    PCC_vAPI.storage.local.set("userFilters", userFilters.value);
-    userFiltersApply.disabled = true;
-    userFiltersRevert.disabled = true;
+    cachedUserFilters = userFilters.getValue();
+    PCC_vAPI.storage.local.set("userFilters", cachedUserFilters);
 });
 
 // Disable/enable submit and revert user filters buttons
-userFilters.addEventListener('input', function () {
+userFilters.on('changes', function () {
     PCC_vAPI.storage.local.get("userFilters").then(function (resultUserFilters) {
-        if (userFilters.value == resultUserFilters) {
+        if (cachedUserFilters != '') {
+            resultUserFilters = cachedUserFilters;
+            cachedUserFilters = '';
+        }
+        if (userFilters.getValue() == resultUserFilters) {
             userFiltersApply.disabled = true;
             userFiltersRevert.disabled = true;
         }
@@ -189,16 +180,25 @@ userFilters.addEventListener('input', function () {
 
 
 // Add whitelist to textarea
+var userWhitelist = new CodeMirror(document.querySelector('#userWhitelist'), {
+    autofocus: true,
+    autoRefresh: true,
+    gutters: [ 'CodeMirror-linenumbers' ],
+    lineNumbers: true,
+    lineWrapping: true,
+    viewportMargin: Infinity
+});
 restoreWhitelist();
 function restoreWhitelist() {
     PCC_vAPI.storage.local.get('whitelist').then(function (resultWhitelist) {
         if (resultWhitelist) {
-            userWhitelist.value = resultWhitelist;
+            userWhitelist.setValue(resultWhitelist);
         }
         else {
-            userWhitelist.value = "";
+            userWhitelist.setValue("");
         }
-        autosize.update(userWhitelist);
+    }).then(function(){
+        userWhitelist.refresh();
     });
 }
 
@@ -207,26 +207,26 @@ var whitelistApply = document.getElementById("whitelistApply");
 var whitelistRevert = document.getElementById("whitelistRevert");
 whitelistRevert.addEventListener("click", function () {
     restoreWhitelist();
-    whitelistRevert.disabled = true;
-    whitelistApply.disabled = true;
 });
 
 // Save whitelist
-document.querySelector("#whitelist form").addEventListener("submit", function (e) {
-    e.preventDefault();
-
+let cachedWhitelist = '';
+document.querySelector("#whitelistApply").addEventListener("click", function () {
     // Strip duplicates and not allowed characters from whitelist
-    userWhitelist.value = [...new Set(userWhitelist.value.replace(/[^\w\s\.!\-#]/gi, '').split("\n"))].join("\n").trim();
+    userWhitelist.setValue([...new Set(userWhitelist.getValue().replace(/[^\w\s\.!\-#]/gi, '').split("\n"))].join("\n").trim());
 
-    PCC_vAPI.storage.local.set("whitelist", userWhitelist.value);
-    whitelistApply.disabled = true;
-    whitelistRevert.disabled = true;
+    cachedWhitelist = userWhitelist.getValue();
+    PCC_vAPI.storage.local.set("whitelist", cachedWhitelist);
 });
 
 // Disable/enable submit and revert whitelist buttons
-userWhitelist.addEventListener('input', function () {
+userWhitelist.on('changes', function () {
     PCC_vAPI.storage.local.get("whitelist").then(function (resultWhitelist) {
-        if (userWhitelist.value == resultWhitelist) {
+        if (cachedWhitelist != '') {
+            resultWhitelist = cachedWhitelist;
+            cachedWhitelist = '';
+        }
+        if (userWhitelist.getValue() == resultWhitelist) {
             whitelistApply.disabled = true;
             whitelistRevert.disabled = true;
         }
@@ -239,28 +239,25 @@ userWhitelist.addEventListener('input', function () {
 
 // Import user filters and whitelist
 document.querySelector('#userFiltersImport').addEventListener('click', function () {
-    importText("userFilters", "userFiltersApply", "userFiltersRevert");
+    importText(userFilters);
 });
 
 document.querySelector('#whitelistImport').addEventListener('click', function () {
-    importText("userWhitelist", "whitelistApply", "whitelistRevert");
+    importText(userWhitelist);
 });
 
-function importText(textarea, applyButton, revertButton) {
+function importText(textarea) {
     var fp = document.getElementById("importFilePicker");
     fp.addEventListener('change', function () {
         const file = fp.files[0];
         const fr = new FileReader();
         fr.onload = function (e) {
-            if (document.getElementById(textarea).textLength > 0) {
-                document.getElementById(textarea).value = [...new Set((document.getElementById(textarea).value + "\n" + fr.result).split("\n"))].join("\n");
+            if (textarea.getValue().length > 0) {
+                textarea.setValue([...new Set((textarea.getValue() + "\n" + fr.result).split("\n"))].join("\n"));
             }
             else {
-                document.getElementById(textarea).value = fr.result;
+                textarea.setValue(fr.result);
             }
-            autosize.update(document.getElementById(textarea));
-            document.getElementById(applyButton).disabled = false;
-            document.getElementById(revertButton).disabled = false;
         }
         fr.readAsText(file);
     })
