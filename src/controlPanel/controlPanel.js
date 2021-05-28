@@ -127,10 +127,12 @@ CodeMirror.defineSimpleMode("filters", {
         {
             regex: /#.*/,
             token: 'comment',
+            sol: true
         },
         {
             regex: /!.*/,
-            token: 'comment'
+            token: 'comment',
+            sol: true
         },
     ],
     meta: {
@@ -208,11 +210,13 @@ CodeMirror.defineSimpleMode("excludedList", {
     start: [
         {
             regex: /#.*/,
-            token: 'comment'
+            token: 'comment',
+            sol: true
         },
         {
             regex: /!.*/,
-            token: 'comment'
+            token: 'comment',
+            sol: true
         },
     ],
     meta: {
