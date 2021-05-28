@@ -1,3 +1,8 @@
+:root {
+    --cm-def: #AF00DB;
+    --cm-domain: #a31515;
+}
+
 svg.icon {
     fill: white;
 }
@@ -261,4 +266,12 @@ button#updateCookieBase.active .icon {
 
 .cm-s-default .cm-comment {
     color: #777;
+}
+
+.cm-s-default .cm-def {
+    color: var(--cm-def);
+}
+
+.cm-domainPart {
+    color: var(--cm-domain);
 }
