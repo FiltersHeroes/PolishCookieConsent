@@ -171,6 +171,8 @@ var userFilters = new CodeMirror(document.querySelector('#userFilters'), {
     lineNumbers: true,
     lineWrapping: true,
     lint: true,
+    matchBrackets: true,
+    maxScanLines: 1,
     mode: "filters",
     viewportMargin: Infinity
 });

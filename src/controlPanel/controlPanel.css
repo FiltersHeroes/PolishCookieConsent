@@ -275,3 +275,9 @@ button#updateCookieBase.active .icon {
 .cm-domainPart {
     color: var(--cm-domain);
 }
+
+div.CodeMirror span.CodeMirror-matchingbracket {
+    color: inherit;
+    background-color: #afa;
+    font-weight: bold;
+}
