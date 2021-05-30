@@ -123,5 +123,23 @@
   },
   "revert": {
     "message": "Revert"
+  },
+  "invalidEntry": {
+    "message": "This entry is invalid."
+  },
+  "invalidFunction": {
+    "message": "The function $function$ couldn't be found.",
+    "placeholders": {
+      "function": {
+        "content": "$1",
+        "example": "bakePizza"
+      }
+    }
+  },
+  "tooFewArgs": {
+    "message": "Too few arguments were given."
+  },
+  "tooManyArgs": {
+    "message": "Too many arguments were given."
   }
 }

@@ -166,12 +166,14 @@ var userFilters = new CodeMirror(document.querySelector('#userFilters'), {
             cm.toggleComment();
         }
     },
-    gutters: ['CodeMirror-linenumbers'],
+    gutters: ['CodeMirror-lint-markers', 'CodeMirror-linenumbers'],
     lineNumbers: true,
     lineWrapping: true,
+    lint: true,
     mode: "filters",
     viewportMargin: Infinity
 });
+
 restoreUserFilters();
 function restoreUserFilters() {
     PCC_vAPI.storage.local.get('userFilters').then(function (resultUserFilters) {
@@ -250,9 +252,10 @@ var userWhitelist = new CodeMirror(document.querySelector('#userWhitelist'), {
             cm.toggleComment();
         }
     },
-    gutters: ['CodeMirror-linenumbers'],
+    gutters: ['CodeMirror-lint-markers', 'CodeMirror-linenumbers'],
     lineNumbers: true,
     lineWrapping: true,
+    lint: true,
     mode: "excludedList",
     viewportMargin: Infinity
 });
@@ -280,8 +283,8 @@ whitelistRevert.addEventListener("click", function () {
 // Save whitelist
 let cachedWhitelist = '';
 document.querySelector("#whitelistApply").addEventListener("click", function () {
-    // Strip duplicates and not allowed characters from whitelist
-    userWhitelist.setValue([...new Set(userWhitelist.getValue().replace(/[^\w\s\.!\-#]/gi, '').split("\n"))].join("\n").trim());
+    // Strip duplicates from excluded list
+    userWhitelist.setValue([...new Set(userWhitelist.getValue().split("\n"))].join("\n").trim());
 
     cachedWhitelist = userWhitelist.getValue();
     PCC_vAPI.storage.local.set("whitelist", cachedWhitelist);

@@ -123,5 +123,23 @@
   },
   "revert": {
     "message": "Przywróć"
+  },
+  "invalidEntry": {
+    "message": "Ten wpis jest nieprawidłowy."
+  },
+  "invalidFunction": {
+    "message": "Funkcja $function$ nie została odnaleziona.",
+    "placeholders": {
+      "function": {
+        "content": "$1",
+        "example": "bakePizza"
+      }
+    }
+  },
+  "tooFewArgs": {
+    "message": "Podano zbyt mało argumentów."
+  },
+  "tooManyArgs": {
+    "message": "Podano zbyt dużo argumentów."
   }
 }

@@ -35,7 +35,7 @@ for alpha2 in sorted(os.listdir(locale_dir)):
     locale_path = pj(locale_dir, alpha2, 'messages.properties')
     with open(locale_path, 'wt', encoding='utf-8', newline='\n') as f:
         for string_name in strings:
-            string = strings[string_name]['message'].replace("$PCCsyntax$", "%S").replace("$Project$", "%1$S").replace("$author$", "%2$S").replace("$contributors$", "%3$S").replace("$HOSTNAME$", "%S")
+            string = strings[string_name]['message'].replace("$PCCsyntax$", "%S").replace("$Project$", "%1$S").replace("$author$", "%2$S").replace("$contributors$", "%3$S").replace("$HOSTNAME$", "%S").replace("$function$", "%S")
             f.write(string_name)
             f.write(u'=')
             f.write(string.replace('\n', r'\n'))
