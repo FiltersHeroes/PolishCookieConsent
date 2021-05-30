@@ -159,6 +159,7 @@ CodeMirror.defineSimpleMode("filters", {
 
 // Add user filters to textarea
 var userFilters = new CodeMirror(document.querySelector('#userFilters'), {
+    autoCloseBrackets: true,
     autofocus: true,
     autoRefresh: true,
     extraKeys: {
