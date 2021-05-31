@@ -1,0 +1,33 @@
+:root {
+    --cm-def: #AF00DB;
+    --cm-domain: #a31515;
+    --cm-comment: #777;
+}
+
+.codeMirrorContainer {
+    flex-grow: 1;
+    min-height: 2em;
+    position: relative;
+}
+
+.CodeMirror {
+    height: 100%;
+}
+
+.cm-s-default .cm-comment {
+    color: var(--cm-comment);
+}
+
+.cm-s-default .cm-def {
+    color: var(--cm-def);
+}
+
+.cm-domainPart {
+    color: var(--cm-domain);
+}
+
+div.CodeMirror span.CodeMirror-matchingbracket {
+    color: inherit;
+    background-color: #afa;
+    font-weight: bold;
+}

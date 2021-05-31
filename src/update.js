@@ -47,13 +47,26 @@ function fetchLocalCookieBase() {
         .catch(error => console.log(error));
 }
 
+function setDefaultSettings() {
+    const settings = ["userFiltersEnabled", "cookieBaseEnabled"];
+    settings.forEach((setting) => {
+        PCC_vAPI.storage.local.get(setting).then(function (sValue) {
+            if(sValue !== 'undefined') {
+                PCC_vAPI.storage.local.set(setting, "true");
+            }
+        })
+    });
+}
+
 PCC_vAPI.onFirstRunOrUpdate().then(function (result) {
     if (PCC_vAPI.isWebExtension() == true && result == "update") {
+        setDefaultSettings();
         fetchLocalCookieBase();
         setUpdateTime();
         PCC_vAPI_common.convertUFToNewSyntax();
     }
     else if (result == "install" || result == "update") {
+        setDefaultSettings();
         fetchLocalCookieBase();
         setUpdateTime();
     } else if (PCC_vAPI.isWebExtension() == false) {

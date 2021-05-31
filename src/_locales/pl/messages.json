@@ -97,20 +97,14 @@
   "contributors":{
     "message":"współtwórców"
   },
-  "cookieBaseVersion":{
-    "message":"Wersja bazy ciasteczkowej:"
+  "version":{
+    "message":"Wersja:"
   },
   "cookieBase":{
     "message":"Baza ciasteczkowa"
   },
   "updateCookieBase":{
     "message":"Aktualizuj bazę ciasteczkową"
-  },
-  "showCookieBase":{
-    "message":"Pokaż bazę ciasteczkową"
-  },
-  "hideCookieBase":{
-    "message":"Ukryj bazę ciasteczkową"
   },
   "extensionShortName":{
     "message":"PCZ"
@@ -141,5 +135,11 @@
   },
   "tooManyArgs": {
     "message": "Podano zbyt dużo argumentów."
+  },
+  "PolishCookieDatabase": {
+    "message": "Polska Baza Ciasteczkowa"
+  },
+  "assetViewer": {
+    "message": "Przeglądarka zasobów"
   }
 }

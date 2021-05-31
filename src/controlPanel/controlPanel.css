@@ -1,8 +1,3 @@
-:root {
-    --cm-def: #AF00DB;
-    --cm-domain: #a31515;
-}
-
 svg.icon {
     fill: white;
 }
@@ -14,6 +9,11 @@ svg.icon {
 .aboutIcon {
     float: left;
     margin-right: 5px;
+}
+
+.settingsIcon {
+    float: right;
+    margin-left: 5px;
 }
 
 .mui-tabs__bar > li:not(.mui--is-active) > a {
@@ -55,6 +55,7 @@ button .icon {
 
 button .icon,
 .aboutIcon,
+.settingsIcon,
 #sidedrawer .icon {
     width: 20px;
     height: 20px;
@@ -234,16 +235,6 @@ button#updateCookieBase.active .icon {
     line-height: inherit;
 }
 
-.codeMirrorContainer {
-    flex-grow: 1;
-    min-height: 2em;
-    position: relative;
-}
-
-.CodeMirror {
-    height: 100%;
-}
-
 .exportFrame {
     visibility: hidden;
     width: 0;
@@ -264,20 +255,22 @@ button#updateCookieBase.active .icon {
     color: rgba(0, 0, 0, 0.54);
 }
 
-.cm-s-default .cm-comment {
-    color: #777;
+.database #version{
+    color: var(--cm-comment);
 }
 
-.cm-s-default .cm-def {
-    color: var(--cm-def);
+.database title {
+    font-weight: 600;
 }
 
-.cm-domainPart {
-    color: var(--cm-domain);
+.settingsIcon {
+    fill: var(--cm-comment);
 }
 
-div.CodeMirror span.CodeMirror-matchingbracket {
-    color: inherit;
-    background-color: #afa;
-    font-weight: bold;
+.settingsIcon:hover {
+    fill: inherit;
+}
+
+.database {
+    padding-bottom: 1px;
 }

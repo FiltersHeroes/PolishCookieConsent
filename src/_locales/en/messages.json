@@ -97,20 +97,14 @@
   "contributors":{
     "message":"contributors"
   },
-  "cookieBaseVersion":{
-    "message":"Cookie base version:"
+  "version":{
+    "message":"Version:"
   },
   "cookieBase":{
-    "message":"Cookie base"
+    "message":"Cookie database"
   },
   "updateCookieBase":{
-    "message":"Update cookie base"
-  },
-  "showCookieBase":{
-    "message":"Show cookie base"
-  },
-  "hideCookieBase":{
-    "message":"Hide cookie base"
+    "message":"Update cookie database"
   },
   "extensionShortName":{
     "message":"PCC"
@@ -141,5 +135,14 @@
   },
   "tooManyArgs": {
     "message": "Too many arguments were given."
+  },
+  "PolishCookieDatabase": {
+    "message": "Polish Cookie Database"
+  },
+  "assetViewer": {
+    "message": "Asset Viewer"
+  },
+  "viewContent": {
+    "message": "View content"
   }
 }

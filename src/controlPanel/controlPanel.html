@@ -10,7 +10,9 @@
     <link rel="stylesheet" href="../thirdparty/codemirror/addon/lint/lint.css" />
     <link rel="stylesheet" href="../thirdparty/mui.css" />
     <link rel="stylesheet" href="../thirdparty/mui-colors.css" />
+    <link rel="stylesheet" href="../thirdparty/icheck-material.css" />
     <link rel="stylesheet" href="controlPanel.css" />
+    <link rel="stylesheet" href="editor.css" />
     <link rel="shortcut icon" type="image/png" href="../icons/icon16.png" />
 </head>
 
@@ -113,16 +115,36 @@
     <div id="cookie-base" class="mui-tabs__pane">
         <div class="mui-container-fluid">
             <div class="mui-col-xs-12 mui-col-md-12">
-                <p class="cBV" data-i18n="__MSG_cookieBaseVersion__"></p>
-                <button class="mui-btn mui--bg-color-brown-600" id="showCookieBase">
-                    <span data-i18n="__MSG_showCookieBase__"></span>
-                    <svg class="icon showCookieBase">
-                        <use href="../thirdparty/octicons24.svg#eye"></use>
-                    </svg>
-                    <svg class="icon hideCookieBase" hidden="true">
-                        <use href="../thirdparty/octicons24.svg#eye-slash"></use>
-                    </svg>
-                </button>
+                <div id="myFilters" class="database">
+                    <div class="icheck-material-brown">
+                        <input type="checkbox" id="userFilters_toggle">
+                        <label for="userFilters_toggle">
+                            <div id="title" data-i18n="__MSG_myFilters__" data-opt-i18n-keep-children>
+                                <a href="assetViewer.html?url=userFilters" target="_blank" data-i18n data-i18n-title="__MSG_viewContent__" data-opt-i18n-keep-children>
+                                    <svg class="settingsIcon">
+                                        <use href="../thirdparty/octicons24.svg#eye"></use>
+                                    </svg>
+                                </a>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+                <div id="cookieBase" class="database">
+                    <div class="icheck-material-brown">
+                        <input type="checkbox" id="cookieBase_toggle">
+                        <label for="cookieBase_toggle">
+                            <div id="title" data-i18n="__MSG_PolishCookieDatabase__" data-opt-i18n-keep-children>
+                                <a href="assetViewer.html?url=cookieBase" target="_blank" data-i18n data-i18n-title="__MSG_viewContent__" data-opt-i18n-keep-children>
+                                    <svg class="settingsIcon">
+                                        <use href="../thirdparty/octicons24.svg#eye"></use>
+                                    </svg>
+                                </a>
+                            </div>
+                            <div id="version" data-i18n="__MSG_version__"></div>
+                        </label>
+                    </div>
+                </div>
+
                 <button class="mui-btn mui--bg-color-brown-600" id="updateCookieBase">
                     <span data-i18n="__MSG_updateCookieBase__"></span>
                     <svg class="icon">
@@ -153,7 +175,8 @@
                             <use href="../thirdparty/octicons24.svg#check"></use>
                         </svg>
                     </button>
-                    <button id="userFiltersRevert" class="mui-btn mui--bg-color-brown-600" type="button" disabled="true">
+                    <button id="userFiltersRevert" class="mui-btn mui--bg-color-brown-600" type="button"
+                        disabled="true">
                         <span data-i18n="__MSG_revert__"></span>
                         <svg class="icon">
                             <use href="../thirdparty/octicons24.svg#history"></use>
@@ -249,12 +272,12 @@
                             <a href="https://github.com/muicss" target="_blank">MUI</a>
                         </li>
                         <li data-i18n="__MSG_by__" data-opt-i18n-keep-children>
-                            <a href="https://codemirror.net/" target="_blank">CodeMirror</a>
-                            <a href="https://marijnhaverbeke.nl/" target="_blank">Marijn Haverbeke</a>
+                            <a href="https://bantikyan.github.io/icheck-material/" target="_blank">icheck-material</a>
+                            <a href="https://github.com/bantikyan" target="_blank">Hovhannes Bantikyan</a>
                         </li>
                         <li data-i18n="__MSG_by__" data-opt-i18n-keep-children>
-                            <a href="http://www.jacklmoore.com/autosize/" target="_blank">Autosize</a>
-                            <a href="http://www.jacklmoore.com/" target="_blank">Jack Moore</a>
+                            <a href="https://codemirror.net/" target="_blank">CodeMirror</a>
+                            <a href="https://marijnhaverbeke.nl/" target="_blank">Marijn Haverbeke</a>
                         </li>
                         <li data-opt-i18n-keep-children data-i18n="__MSG_byAnd__">
                             <a href="https://github.com/TinyWebEx/Localizer" target="_blank">Localizer</a>
@@ -285,8 +308,8 @@
     <script src="../vAPI.js"></script>
     <script src="../thirdparty/Localizer.js"></script>
     <script src="../thirdparty/mui.js"></script>
-    <script src="../thirdparty/autosize.js"></script>
     <script src="linters.js"></script>
+    <script src="filtersMode.js"></script>
     <script src="controlPanel.js"></script>
 
     <iframe src="exportFile.html" class="exportFrame"></iframe>

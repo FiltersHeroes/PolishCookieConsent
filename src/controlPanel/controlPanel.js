@@ -48,10 +48,17 @@ PCC_vAPI.storage.local.get('lastOpenedTab').then(function (resultLastOpenedTab) 
     }
 });
 
-
-// Automatically adjust textareas height
-var cookieBaseContent = document.getElementById("cookieBaseContent");
-autosize(cookieBaseContent);
+// Enable/disable filterlists
+document.querySelectorAll('.database input[type="checkbox"').forEach((filterlist) => {
+    filterlist.addEventListener('change', () => {
+        PCC_vAPI.storage.local.set(filterlist.id.replace("_toggle", "Enabled"), filterlist.checked);
+    });
+    document.addEventListener("DOMContentLoaded", () => {
+        PCC_vAPI.storage.local.get(filterlist.id.replace("_toggle", "Enabled")).then(function (result) {
+            filterlist.checked = result;
+        });
+    });
+});
 
 
 // Show version number of Polish Cookie Base
@@ -63,7 +70,7 @@ function updateVersion() {
             var cookieBaseLine = resultCookieBase.split("\n");
             for (var i = 0; i < cookieBaseLine.length; i++) {
                 if (cookieBaseLine[i].match("Version")) {
-                    var cBV = document.querySelector(".cBV");
+                    var cBV = document.querySelector("#cookieBase #version");
                     cBV.textContent = cBV.textContent.split(':')[0] + ": " + cookieBaseLine[i].split(":")[1].trim();
                 }
             }
@@ -96,66 +103,6 @@ document.querySelector("#updateCookieBase").addEventListener("click", function (
         .then(handleTextResponse)
         .catch(error => console.log(error));
 })
-
-// Show/hide Cookie Base
-document.querySelector("#showCookieBase").addEventListener("click", function () {
-    var toggleBtn = document.querySelector("button#showCookieBase");
-    PCC_vAPI.storage.local.get('cookieBase').then(function (resultCookieBase) {
-        if (resultCookieBase && cookieBaseContent.textContent.length == 0) {
-            cookieBaseContent.textContent = resultCookieBase;
-            document.querySelector(".cookieBaseContent").style = "";
-            cookieBaseContent.style.visibility = "";
-            toggleBtn.querySelector("svg.hideCookieBase").removeAttribute("hidden");
-            toggleBtn.querySelector("svg.showCookieBase").setAttribute("hidden", true);
-            replaceI18n(toggleBtn.querySelector("span"), "__MSG_hideCookieBase__");
-        }
-        else if (cookieBaseContent.textContent.length > 0) {
-            cookieBaseContent.textContent = "";
-            cookieBaseContent.style.visibility = "hidden";
-            toggleBtn.querySelector("svg.hideCookieBase").setAttribute("hidden", true);
-            toggleBtn.querySelector("svg.showCookieBase").removeAttribute("hidden");
-            replaceI18n(toggleBtn.querySelector("span"), "__MSG_showCookieBase__");
-        }
-        autosize.update(cookieBaseContent);
-    });
-})
-
-// Define CodeMirror mode for user filters
-CodeMirror.defineSimpleMode("filters", {
-    // The start state contains the rules that are initially used
-    start: [
-        {
-            regex: /#.*/,
-            token: 'comment',
-            sol: true
-        },
-        {
-            regex: /!.*/,
-            token: 'comment',
-            sol: true
-        },
-        {
-            regex: /([a-zA-Z0-9][a-zA-Z0-9-]{0,}[a-zA-Z0-9]\.)+[a-zA-Z\/]{0,}/,
-            token: 'domainPart',
-        },
-        {
-            regex: /##\+js/,
-            token: 'def'
-        },
-        {
-            regex: /[(].*/,
-            token: 'args'
-        },
-        {
-            regex: /\/.*\//,
-            token: 'domainPart',
-            sol: true
-        },
-    ],
-    meta: {
-        lineComment: "#"
-    }
-});
 
 // Add user filters to textarea
 var userFilters = new CodeMirror(document.querySelector('#userFilters'), {
