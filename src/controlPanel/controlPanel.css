@@ -263,14 +263,22 @@ button#updateCookieBase.active .icon {
     font-weight: 600;
 }
 
-.settingsIcon {
+.settingsIcon,
+.tipIcon {
     fill: var(--cm-comment);
 }
 
-.settingsIcon:hover {
+.settingsIcon:hover,
+.tipIcon:hover {
     fill: inherit;
 }
 
 .database {
     padding-bottom: 1px;
+}
+
+.tipIcon {
+    width: 16px;
+    height: 16px;
+    margin-left: 5px;
 }

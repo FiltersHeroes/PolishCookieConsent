@@ -120,7 +120,8 @@
                         <input type="checkbox" id="userFilters_toggle">
                         <label for="userFilters_toggle">
                             <div id="title" data-i18n="__MSG_myFilters__" data-opt-i18n-keep-children>
-                                <a href="assetViewer.html?url=userFilters" target="_blank" data-i18n data-i18n-title="__MSG_viewContent__" data-opt-i18n-keep-children>
+                                <a href="assetViewer.html?url=userFilters" target="_blank" data-i18n
+                                    data-i18n-title="__MSG_viewContent__" data-opt-i18n-keep-children>
                                     <svg class="settingsIcon">
                                         <use href="../thirdparty/octicons24.svg#eye"></use>
                                     </svg>
@@ -134,7 +135,8 @@
                         <input type="checkbox" id="cookieBase_toggle">
                         <label for="cookieBase_toggle">
                             <div id="title" data-i18n="__MSG_PolishCookieDatabase__" data-opt-i18n-keep-children>
-                                <a href="assetViewer.html?url=cookieBase" target="_blank" data-i18n data-i18n-title="__MSG_viewContent__" data-opt-i18n-keep-children>
+                                <a href="assetViewer.html?url=cookieBase" target="_blank" data-i18n
+                                    data-i18n-title="__MSG_viewContent__" data-opt-i18n-keep-children>
                                     <svg class="settingsIcon">
                                         <use href="../thirdparty/octicons24.svg#eye"></use>
                                     </svg>
@@ -164,7 +166,12 @@
                 <p>
                     <label class="tip" data-i18n="__MSG_mfHelp__" data-opt-i18n-keep-children>
                         <a href="https://polishannoyancefilters.netlify.app/cookieconsentsyntax/" target="_blank"
-                            data-i18n="__MSG_PCCsyntax__"></a>
+                            data-i18n="__MSG_mfHelpPCCsyntax__"></a>
+                        <a href="https://polishannoyancefilters.netlify.app/PolishCookieConsent/keyboard-shortcuts/"
+                            target="_blank"><svg class="tipIcon">
+                                <use href="../thirdparty/octicons16.svg#question"></use>
+                            </svg>
+                        </a>
                     </label>
                 </p>
                 <div id="userFilters" class="codeMirrorContainer"></div>
@@ -197,7 +204,6 @@
                 </p>
             </form>
         </div>
-        </form>
     </div>
 
 
@@ -205,7 +211,12 @@
         <div class="mui-container-fluid">
             <form class="mui-col-xs-12 mui-col-md-12 mui-form">
                 <p>
-                    <label class="tip" data-i18n="__MSG_whitelistHelp__">
+                    <label class="tip" data-i18n="__MSG_whitelistHelp__" data-opt-i18n-keep-children>
+                        <a href="https://polishannoyancefilters.netlify.app/PolishCookieConsent/keyboard-shortcuts/"
+                        target="_blank"><svg class="tipIcon">
+                            <use href="../thirdparty/octicons16.svg#question"></use>
+                        </svg>
+                        </a>
                     </label>
                 </p>
                 <div id="userWhitelist" class="codeMirrorContainer"></div>

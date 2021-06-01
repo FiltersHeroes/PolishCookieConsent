@@ -35,16 +35,17 @@
     "message":"My filters"
   },
   "mfHelp":{
-    "message":"One filter compatible with $PCCsyntax$ per line. Lines prefixed with exclamation mark or hash will be ignored.",
+    "message":"One filter compatible with $mfHelpPCCsyntax$ per line. Lines prefixed with exclamation mark or hash will be ignored.",
     "placeholders": {
-      "PCCsyntax": {
+      "mfHelpPCCsyntax": {
         "content": "$1",
         "example": "<a href=\"https://polishannoyancefilters.netlify.com/cookieconsentsyntax/\" target=\"_blank\" rel=\"noopener\">PCC syntax</a>"
       }
     }
   },
-  "PCCsyntax": {
-    "message":"PCC syntax"
+  "mfHelpPCCsyntax": {
+    "message":"PCC syntax",
+    "description": "Part with URL for user filters tip."
   },
   "about":{
     "message":"About"
