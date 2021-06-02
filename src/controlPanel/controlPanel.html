@@ -37,7 +37,7 @@
             <div class="mui-container-fluid">
                 <ul class="mui-tabs__bar mui--visible-md-block mui--visible-lg-block mui--visible-xl-block">
                     <li>
-                        <a data-mui-toggle="tab" data-mui-controls="cookie-base">
+                        <a data-mui-toggle="tab" data-mui-controls="cookie-base-tab">
                             <svg class="icon">
                                 <use href="../thirdparty/octicons24.svg#database"></use>
                             </svg>
@@ -45,7 +45,7 @@
                         </a>
                     </li>
                     <li>
-                        <a data-mui-toggle="tab" data-mui-controls="my-filters">
+                        <a data-mui-toggle="tab" data-mui-controls="my-filters-tab">
                             <svg class="icon">
                                 <use href="../thirdparty/octicons24.svg#filter"></use>
                             </svg>
@@ -53,7 +53,7 @@
                         </a>
                     </li>
                     <li>
-                        <a data-mui-toggle="tab" data-mui-controls="whitelist">
+                        <a data-mui-toggle="tab" data-mui-controls="excluded-list-tab">
                             <svg class="icon">
                                 <use href="../thirdparty/octicons16.svg#diff-ignored"></use>
                             </svg>
@@ -61,7 +61,7 @@
                         </a>
                     </li>
                     <li>
-                        <a data-mui-toggle="tab" data-mui-controls="about">
+                        <a data-mui-toggle="tab" data-mui-controls="about-tab">
                             <svg class="icon">
                                 <use href="../thirdparty/octicons24.svg#info"></use>
                             </svg>
@@ -77,7 +77,7 @@
         <ul>
             <ul class="mobileMenu">
                 <li>
-                    <a data-mui-toggle="tab" data-mui-controls="cookie-base">
+                    <a data-mui-toggle="tab" data-mui-controls="cookie-base-tab">
                         <svg class="icon mui--pull-left">
                             <use href="../thirdparty/octicons24.svg#database"></use>
                         </svg>
@@ -85,7 +85,7 @@
                     </a>
                 </li>
                 <li>
-                    <a data-mui-toggle="tab" data-mui-controls="my-filters">
+                    <a data-mui-toggle="tab" data-mui-controls="my-filters-tab">
                         <svg class="icon mui--pull-left">
                             <use href="../thirdparty/octicons24.svg#filter"></use>
                         </svg>
@@ -93,7 +93,7 @@
                     </a>
                 </li>
                 <li>
-                    <a data-mui-toggle="tab" data-mui-controls="whitelist">
+                    <a data-mui-toggle="tab" data-mui-controls="excluded-list-tab">
                         <svg class="icon mui--pull-left">
                             <use href="../thirdparty/octicons16.svg#diff-ignored"></use>
                         </svg>
@@ -101,7 +101,7 @@
                     </a>
                 </li>
                 <li>
-                    <a data-mui-toggle="tab" data-mui-controls="about">
+                    <a data-mui-toggle="tab" data-mui-controls="about-tab">
                         <svg class="icon mui--pull-left">
                             <use href="../thirdparty/octicons24.svg#info"></use>
                         </svg>
@@ -112,7 +112,7 @@
         </ul>
     </div>
 
-    <div id="cookie-base" class="mui-tabs__pane">
+    <div id="cookie-base-tab" class="mui-tabs__pane">
         <div class="mui-container-fluid">
             <div class="mui-col-xs-12 mui-col-md-12">
                 <div id="myFilters" class="database">
@@ -160,7 +160,7 @@
         </div>
     </div>
 
-    <div id="my-filters" class="mui-tabs__pane">
+    <div id="my-filters-tab" class="mui-tabs__pane">
         <div class="mui-container-fluid">
             <form class="mui-col-xs-12 mui-col-md-12 mui-form">
                 <p>
@@ -207,7 +207,7 @@
     </div>
 
 
-    <div id="whitelist" class="mui-tabs__pane">
+    <div id="excluded-list-tab" class="mui-tabs__pane">
         <div class="mui-container-fluid">
             <form class="mui-col-xs-12 mui-col-md-12 mui-form">
                 <p>
@@ -250,7 +250,7 @@
         </div>
     </div>
 
-    <div id="about" class="mui-tabs__pane">
+    <div id="about-tab" class="mui-tabs__pane">
         <div class="mui-container-fluid">
             <div class="mui-col-xs-12 mui-col-md-12">
                 <p class="extensionInfo"></p>
@@ -310,7 +310,6 @@
     <input id="importFilePicker" accept="text/plain" type="file" hidden="true">
 
     <script src="../thirdparty/codemirror/lib/codemirror.js"></script>
-    <script src="../thirdparty/codemirror/addon/display/autorefresh.js"></script>
     <script src="../thirdparty/codemirror/addon/mode/simple.js"></script>
     <script src="../thirdparty/codemirror/addon/comment/comment.js"></script>
     <script src="../thirdparty/codemirror/addon/lint/lint.js"></script>
@@ -323,6 +322,8 @@
     <script src="linters.js"></script>
     <script src="filtersMode.js"></script>
     <script src="controlPanel.js"></script>
+    <script src="settings.js"></script>
+    <script src="userFilters__ExcludedList.js"></script>
 
     <iframe src="exportFile.html" class="exportFrame"></iframe>
 </body>
