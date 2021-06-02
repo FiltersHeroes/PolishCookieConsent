@@ -121,7 +121,8 @@ var userFilters = new CodeMirror(document.querySelector('#userFilters'), {
     matchBrackets: true,
     maxScanLines: 1,
     mode: "filters",
-    viewportMargin: Infinity
+    viewportMargin: Infinity,
+    styleActiveLine: true
 });
 
 restoreUserFilters();
@@ -207,7 +208,8 @@ var userWhitelist = new CodeMirror(document.querySelector('#userWhitelist'), {
     lineWrapping: true,
     lint: true,
     mode: "excludedList",
-    viewportMargin: Infinity
+    viewportMargin: Infinity,
+    styleActiveLine: true
 });
 restoreWhitelist();
 function restoreWhitelist() {

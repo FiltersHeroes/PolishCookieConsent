@@ -10,7 +10,8 @@ let assetEditor = new CodeMirror(document.querySelector('#content'), {
     matchBrackets: true,
     mode: "filters",
     readOnly: true,
-    maxScanLines: 1
+    maxScanLines: 1,
+    styleActiveLine: true
 });
 
 let url = new URLSearchParams(window.location.search).get("url");
