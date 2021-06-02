@@ -35,7 +35,7 @@
     "message":"Moje filtry"
   },
   "mfHelp":{
-    "message":"Jeden filtr zgodny ze $PCCsyntax$ na linię. Wiersze poprzedzone wykrzyknikiem lub kratką będą pomijane.",
+    "message":"Jeden filtr zgodny ze $mfHelpPCCsyntax$ na linię. Wiersze poprzedzone wykrzyknikiem lub kratką będą pomijane.",
     "placeholders": {
       "PCCsyntax": {
         "content": "$1",
@@ -141,5 +141,8 @@
   },
   "assetViewer": {
     "message": "Przeglądarka zasobów"
-  }
+  },
+  "viewContent": {
+    "message": "Zobacz zawartość"
+  },
 }
