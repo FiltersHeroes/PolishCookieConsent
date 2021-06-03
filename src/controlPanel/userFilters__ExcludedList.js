@@ -14,6 +14,11 @@ function refreshFocusEditor(editorID, tabID) {
         tabToggle.addEventListener('mui.tabs.showend', function () {
             editorID.refresh();
             editorID.focus();
+            if (editorID == userFilters) {
+                CodeMirror.commands.save = function () { saveEditorValue(userFilters, "userFilters", cachedValue, userFiltersApply, userFiltersRevert) };
+            } else {
+                CodeMirror.commands.save = function () { saveEditorValue(userWhitelist, "whitelist", cachedValue, whitelistApply, whitelistRevert) };
+            }
         });
     });
 }
