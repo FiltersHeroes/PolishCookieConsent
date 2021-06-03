@@ -282,3 +282,8 @@ button#updateCookieBase.active .icon {
     height: 16px;
     margin-left: 5px;
 }
+
+.settingsHeader {
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}

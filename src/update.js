@@ -27,10 +27,14 @@ function updateCookieBase(updateTime) {
             interval = 10;
         }
         setTimeout(function () {
-            fetch("https://raw.githubusercontent.com/PolishFiltersTeam/PolishCookieConsent/master/src/cookieBase/PCB.txt")
-                .then(handleTextResponse)
-                .catch(error => console.log(error));
-            setUpdateTime();
+            PCC_vAPI.storage.local.get("autoUpdateEnabled").then(function (autoUpdateEnabled) {
+                if (autoUpdateEnabled) {
+                    fetch("https://raw.githubusercontent.com/PolishFiltersTeam/PolishCookieConsent/master/src/cookieBase/PCB.txt")
+                        .then(handleTextResponse)
+                        .catch(error => console.log(error));
+                }
+                setUpdateTime();
+            });
         }, interval);
     }
 }
@@ -48,10 +52,10 @@ function fetchLocalCookieBase() {
 }
 
 function setDefaultSettings() {
-    const settings = ["userFiltersEnabled", "cookieBaseEnabled"];
+    const settings = ["userFiltersEnabled", "cookieBaseEnabled", "autoUpdateEnabled"];
     settings.forEach((setting) => {
         PCC_vAPI.storage.local.get(setting).then(function (sValue) {
-            if(sValue !== 'undefined') {
+            if (sValue === 'undefined') {
                 PCC_vAPI.storage.local.set(setting, "true");
             }
         })

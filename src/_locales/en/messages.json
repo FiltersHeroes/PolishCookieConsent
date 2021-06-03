@@ -101,9 +101,6 @@
   "version":{
     "message":"Version:"
   },
-  "cookieBase":{
-    "message":"Cookie database"
-  },
   "updateCookieBase":{
     "message":"Update cookie database"
   },
@@ -145,5 +142,14 @@
   },
   "viewContent": {
     "message": "View content"
+  },
+  "autoUpdate": {
+    "message": "Auto-update filter lists"
+  },
+  "settings": {
+    "message": "Settings"
+  },
+  "filterLists": {
+    "message": "Filter lists"
   }
 }

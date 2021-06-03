@@ -39,9 +39,9 @@
                     <li>
                         <a data-mui-toggle="tab" data-mui-controls="cookie-base-tab">
                             <svg class="icon">
-                                <use href="../thirdparty/octicons24.svg#database"></use>
+                                <use href="../thirdparty/octicons24.svg#tasklist"></use>
                             </svg>
-                            <span data-i18n="__MSG_cookieBase__"></span>
+                            <span data-i18n="__MSG_settings__"></span>
                         </a>
                     </li>
                     <li>
@@ -79,9 +79,9 @@
                 <li>
                     <a data-mui-toggle="tab" data-mui-controls="cookie-base-tab">
                         <svg class="icon mui--pull-left">
-                            <use href="../thirdparty/octicons24.svg#database"></use>
+                            <use href="../thirdparty/octicons24.svg#tasklist"></use>
                         </svg>
-                        <span data-i18n="__MSG_cookieBase__"></span>
+                        <span data-i18n="__MSG_settings__"></span>
                     </a>
                 </li>
                 <li>
@@ -115,35 +115,47 @@
     <div id="cookie-base-tab" class="mui-tabs__pane">
         <div class="mui-container-fluid">
             <div class="mui-col-xs-12 mui-col-md-12">
-                <div id="myFilters" class="database">
+                <div id="autoUpdate">
                     <div class="icheck-material-brown">
-                        <input type="checkbox" id="userFilters_toggle">
-                        <label for="userFilters_toggle">
-                            <div id="title" data-i18n="__MSG_myFilters__" data-opt-i18n-keep-children>
-                                <a href="assetViewer.html?url=userFilters" target="_blank" data-i18n
-                                    data-i18n-title="__MSG_viewContent__" data-opt-i18n-keep-children>
-                                    <svg class="settingsIcon">
-                                        <use href="../thirdparty/octicons24.svg#eye"></use>
-                                    </svg>
-                                </a>
+                        <input type="checkbox" id="autoUpdate_toggle">
+                        <label for="autoUpdate_toggle">
+                            <div id="title" data-i18n="__MSG_autoUpdate__" data-opt-i18n-keep-children>
                             </div>
                         </label>
                     </div>
                 </div>
-                <div id="cookieBase" class="database">
-                    <div class="icheck-material-brown">
-                        <input type="checkbox" id="cookieBase_toggle">
-                        <label for="cookieBase_toggle">
-                            <div id="title" data-i18n="__MSG_PolishCookieDatabase__" data-opt-i18n-keep-children>
-                                <a href="assetViewer.html?url=cookieBase" target="_blank" data-i18n
-                                    data-i18n-title="__MSG_viewContent__" data-opt-i18n-keep-children>
-                                    <svg class="settingsIcon">
-                                        <use href="../thirdparty/octicons24.svg#eye"></use>
-                                    </svg>
-                                </a>
-                            </div>
-                            <div id="version" data-i18n="__MSG_version__"></div>
-                        </label>
+                <hr>
+                <div id="filterLists" class="settingsHeader" data-i18n="__MSG_filterLists__" data-opt-i18n-keep-children>
+                    <div id="myFilters" class="database">
+                        <div class="icheck-material-brown">
+                            <input type="checkbox" id="userFilters_toggle">
+                            <label for="userFilters_toggle">
+                                <div id="title" data-i18n="__MSG_myFilters__" data-opt-i18n-keep-children>
+                                    <a href="assetViewer.html?url=userFilters" target="_blank" data-i18n
+                                        data-i18n-title="__MSG_viewContent__" data-opt-i18n-keep-children>
+                                        <svg class="settingsIcon">
+                                            <use href="../thirdparty/octicons24.svg#eye"></use>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                    <div id="cookieBase" class="database">
+                        <div class="icheck-material-brown">
+                            <input type="checkbox" id="cookieBase_toggle">
+                            <label for="cookieBase_toggle">
+                                <div id="title" data-i18n="__MSG_PolishCookieDatabase__" data-opt-i18n-keep-children>
+                                    <a href="assetViewer.html?url=cookieBase" target="_blank" data-i18n
+                                        data-i18n-title="__MSG_viewContent__" data-opt-i18n-keep-children>
+                                        <svg class="settingsIcon">
+                                            <use href="../thirdparty/octicons24.svg#eye"></use>
+                                        </svg>
+                                    </a>
+                                </div>
+                                <div id="version" data-i18n="__MSG_version__"></div>
+                            </label>
+                        </div>
                     </div>
                 </div>
 
@@ -213,9 +225,9 @@
                 <p>
                     <label class="tip" data-i18n="__MSG_whitelistHelp__" data-opt-i18n-keep-children>
                         <a href="https://polishannoyancefilters.netlify.app/PolishCookieConsent/keyboard-shortcuts/"
-                        target="_blank"><svg class="tipIcon">
-                            <use href="../thirdparty/octicons16.svg#question"></use>
-                        </svg>
+                            target="_blank"><svg class="tipIcon">
+                                <use href="../thirdparty/octicons16.svg#question"></use>
+                            </svg>
                         </a>
                     </label>
                 </p>

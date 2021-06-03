@@ -1,3 +1,19 @@
+// Toggle auto-update
+let autoUpdateToggle = document.querySelector('#autoUpdate_toggle');
+autoUpdateToggle.addEventListener('change', function() {
+    PCC_vAPI.storage.local.set("autoUpdateEnabled", this.checked).then(function () {
+        if(autoUpdateToggle.checked) {
+            PCC_vAPI.storage.local.set("updateTime", new Date().getTime() + 24 * 7 * 60 * 60 * 1000);
+        }
+    });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+    PCC_vAPI.storage.local.get("autoUpdateEnabled").then(function (result) {
+        autoUpdateToggle.checked = result;
+    });
+});
+
 // Enable/disable filterlists
 document.querySelectorAll('.database input[type="checkbox"').forEach((filterlist) => {
     filterlist.addEventListener('change', () => {

@@ -100,9 +100,6 @@
   "version":{
     "message":"Wersja:"
   },
-  "cookieBase":{
-    "message":"Baza ciasteczkowa"
-  },
   "updateCookieBase":{
     "message":"Aktualizuj bazę ciasteczkową"
   },
@@ -145,4 +142,13 @@
   "viewContent": {
     "message": "Zobacz zawartość"
   },
+  "autoUpdate": {
+    "message": "Automatycznie aktualizuj listy filtrów"
+  },
+  "settings": {
+    "message": "Ustawienia"
+  },
+  "filterLists": {
+    "message": "Listy filtrów"
+  }
 }
