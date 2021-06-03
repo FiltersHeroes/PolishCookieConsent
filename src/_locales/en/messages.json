@@ -101,8 +101,8 @@
   "version":{
     "message":"Version:"
   },
-  "updateCookieBase":{
-    "message":"Update cookie database"
+  "update":{
+    "message":"Update filter lists"
   },
   "extensionShortName":{
     "message":"PCC"

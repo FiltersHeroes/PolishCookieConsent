@@ -100,8 +100,8 @@
   "version":{
     "message":"Wersja:"
   },
-  "updateCookieBase":{
-    "message":"Aktualizuj bazę ciasteczkową"
+  "update":{
+    "message":"Aktualizuj listy filtrów"
   },
   "extensionShortName":{
     "message":"PCZ"
