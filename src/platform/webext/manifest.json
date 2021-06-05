@@ -47,6 +47,7 @@
   "permissions": [
     "storage",
     "tabs",
+    "notifications",
     "https://raw.githubusercontent.com/PolishFiltersTeam/PolishCookieConsent/master/src/cookieBase/PCB.txt"
   ],
   "background": {

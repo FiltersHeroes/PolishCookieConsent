@@ -151,5 +151,26 @@
   },
   "filterLists": {
     "message": "Filter lists"
+  },
+  "notificationsUpdate": {
+    "message": "Display desktop notifications about status of automatic filter lists update"
+  },
+  "updateSuccess": {
+    "message": "$filterList$ has been successfully updated.",
+    "placeholders": {
+      "filterList": {
+        "content": "$1",
+        "example": "Polish Cookie Database"
+      }
+    }
+  },
+  "updateFail": {
+    "message": "An error occurred while updating $filterList$.",
+    "placeholders": {
+      "filterList": {
+        "content": "$1",
+        "example": "Polish Cookie Database"
+      }
+    }
   }
 }

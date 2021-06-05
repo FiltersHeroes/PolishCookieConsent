@@ -1,71 +1,71 @@
 {
-  "extensionName":{
-    "message":"Polska Ciasteczkowa Zgoda",
-    "description":"Extension name."
+  "extensionName": {
+    "message": "Polska Ciasteczkowa Zgoda",
+    "description": "Extension name."
   },
-  "extensionDescription":{
-    "message":"Automatycznie akceptuje politykę ciasteczek/RODO na stronach dostępnych w języku polskim.",
-    "description":"Description of extension."
+  "extensionDescription": {
+    "message": "Automatycznie akceptuje politykę ciasteczek/RODO na stronach dostępnych w języku polskim.",
+    "description": "Description of extension."
   },
-  "reportIssueOnGitHub":{
-    "message":"Zgłoś problem na GitHubie"
+  "reportIssueOnGitHub": {
+    "message": "Zgłoś problem na GitHubie"
   },
-  "sourceCode":{
-    "message":"Kod źródłowy"
+  "sourceCode": {
+    "message": "Kod źródłowy"
   },
-  "license":{
-    "message":"Licencja"
+  "license": {
+    "message": "Licencja"
   },
-  "credits":{
-    "message":"Podziękowania"
+  "credits": {
+    "message": "Podziękowania"
   },
-  "changelog":{
-    "message":"Lista zmian"
+  "changelog": {
+    "message": "Lista zmian"
   },
-  "reportIssueWithoutLogin":{
-    "message":"Zgłoś problem bez logowania się"
+  "reportIssueWithoutLogin": {
+    "message": "Zgłoś problem bez logowania się"
   },
-  "apply":{
-    "message":"Zastosuj zmiany"
+  "apply": {
+    "message": "Zastosuj zmiany"
   },
-  "controlPanel":{
-    "message":"Panel sterowania"
+  "controlPanel": {
+    "message": "Panel sterowania"
   },
-  "myFilters":{
-    "message":"Moje filtry"
+  "myFilters": {
+    "message": "Moje filtry"
   },
-  "mfHelp":{
-    "message":"Jeden filtr zgodny ze $mfHelpPCCsyntax$ na linię. Wiersze poprzedzone wykrzyknikiem lub kratką będą pomijane.",
+  "mfHelp": {
+    "message": "Jeden filtr zgodny ze $mfHelpPCCsyntax$ na linię. Wiersze poprzedzone wykrzyknikiem lub kratką będą pomijane.",
     "placeholders": {
-      "PCCsyntax": {
+      "mfHelpPCCsyntax": {
         "content": "$1",
         "example": "<a href=\"https://polishannoyancefilters.netlify.com/cookieconsentsyntax/\" target=\"_blank\" rel=\"noopener\">PCC syntax</a>"
       }
     }
   },
   "mfHelpPCCsyntax": {
-    "message":"składnią PCZ"
+    "message": "składnią PCZ"
   },
-  "about":{
-    "message":"O rozszerzeniu"
+  "about": {
+    "message": "O rozszerzeniu"
   },
-  "whitelist":{
-    "message":"Lista wykluczonych"
+  "whitelist": {
+    "message": "Lista wykluczonych"
   },
-  "whitelistHelp":{
-    "message":"Lista wszystkich stron, na których rozszerzenie powinno zostać wyłączone. Jeden adres strony bez protokołu na linię. Wiersze poprzedzone wykrzyknikiem lub kratką będą pomijane."
+  "whitelistHelp": {
+    "message": "Lista wszystkich stron, na których rozszerzenie powinno zostać wyłączone. Jeden adres strony bez protokołu na linię. Wiersze poprzedzone wykrzyknikiem lub kratką będą pomijane."
   },
-  "popupDisable":{
-    "message":"Wyłącz PCZ na tej stronie"
+  "popupDisable": {
+    "message": "Wyłącz PCZ na tej stronie"
   },
-  "popupEnable":{
-    "message":"Włącz PCZ na tej stronie"
+  "popupEnable": {
+    "message": "Włącz PCZ na tej stronie"
   },
-  "externalDepends":{
-    "message":"Zewnętrzne zależności:"
+  "externalDepends": {
+    "message": "Zewnętrzne zależności:"
   },
-  "by":{
-    "message":"$Project$ autorstwa $author$",
+  "by": {
+    "message": "$Project$ autorstwa $author$",
     "placeholders": {
       "project": {
         "content": "$1",
@@ -77,8 +77,8 @@
       }
     }
   },
-  "byAnd":{
-    "message":"$Project$ autorstwa $author$ i $contributors$",
+  "byAnd": {
+    "message": "$Project$ autorstwa $author$ i $contributors$",
     "placeholders": {
       "project": {
         "content": "$1",
@@ -94,23 +94,23 @@
       }
     }
   },
-  "contributors":{
-    "message":"współtwórców"
+  "contributors": {
+    "message": "współtwórców"
   },
-  "version":{
-    "message":"Wersja:"
+  "version": {
+    "message": "Wersja:"
   },
-  "update":{
-    "message":"Aktualizuj listy filtrów"
+  "update": {
+    "message": "Aktualizuj listy filtrów"
   },
-  "extensionShortName":{
-    "message":"PCZ"
+  "extensionShortName": {
+    "message": "PCZ"
   },
   "export": {
-    "message":"Eksportuj"
+    "message": "Eksportuj"
   },
   "import": {
-    "message":"Importuj i dołącz"
+    "message": "Importuj i dołącz"
   },
   "revert": {
     "message": "Przywróć"
@@ -150,5 +150,26 @@
   },
   "filterLists": {
     "message": "Listy filtrów"
+  },
+  "notificationsUpdate": {
+    "message": "Wyświetlaj powiadomienia na pulpicie o statusie automatycznej aktualizacji list filtrów"
+  },
+  "updateSuccess": {
+    "message": "$filterList została pomyslnie zaktualizowana.",
+    "placeholders": {
+      "filterList": {
+        "content": "$1",
+        "example": "Polish Cookie Database"
+      }
+    }
+  },
+  "updateFail": {
+    "message": "Wystąpił błąd w trakcie aktualizacji listy $filterList$.",
+    "placeholders": {
+      "filterList": {
+        "content": "$1",
+        "example": "Polish Cookie Database"
+      }
+    }
   }
 }

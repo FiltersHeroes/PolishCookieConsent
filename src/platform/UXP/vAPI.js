@@ -102,6 +102,24 @@ var PCC_vAPI = {
         let eframeWidth = eframe.contentDocument.body.scrollWidth;
         let epanel = browserWindow.document.querySelector("#PolishFiltersTeam_PCC_popup_panel");
         epanel.style.height = eframe.style.height = eframeHeight + 1 + "px";
-        epanel.style.width = eframe.style.width = eframeWidth +1 + "px";
+        epanel.style.width = eframe.style.width = eframeWidth + 1 + "px";
+    },
+    runtime: {
+        getURL: (path) => {
+            return "chrome://PCC/content/" + path;
+        }
+    },
+    notifications: {
+        create: (id, iconURL, title, message) => {
+            const alertsService = Components.classes["@mozilla.org/alerts-service;1"].getService(Components.interfaces.nsIAlertsService);
+            try {
+                alertsService.showAlertNotification(iconURL,
+                    title, message,
+                    false, "", null, id);
+            } catch (e) {
+                // This can fail on Mac OS X
+                console.log(e);
+            }
+        }
     }
 }

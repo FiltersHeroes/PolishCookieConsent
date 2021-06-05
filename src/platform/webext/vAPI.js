@@ -45,6 +45,20 @@ var PCC_vAPI = {
     },
     hidePopup: () => {
         window.close();
+    },
+    runtime: {
+        getURL: (path) => {
+            return chrome.runtime.getURL(path);
+        }
+    },
+    notifications: {
+        create: (id, iconURL, title, message) => {
+            chrome.notifications.create(id, {
+                "type": "basic",
+                "iconUrl": iconURL,
+                "title": title,
+                "message": message
+            });
+        }
     }
-
 }

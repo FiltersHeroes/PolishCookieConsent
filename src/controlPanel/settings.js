@@ -1,17 +1,31 @@
 // Toggle auto-update
 let autoUpdateToggle = document.querySelector('#autoUpdate_toggle');
-autoUpdateToggle.addEventListener('change', function() {
+let autoUpdateNotificationsToggle = document.querySelector("#notificationsUpdate_toggle");
+autoUpdateToggle.addEventListener('change', function () {
     PCC_vAPI.storage.local.set("autoUpdateEnabled", this.checked).then(function () {
-        if(autoUpdateToggle.checked) {
+        if (autoUpdateToggle.checked) {
             PCC_vAPI.storage.local.set("updateTime", new Date().getTime() + 24 * 7 * 60 * 60 * 1000);
+            autoUpdateNotificationsToggle.removeAttribute("disabled");
+        } else {
+            autoUpdateNotificationsToggle.disabled = "true";
         }
     });
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-    PCC_vAPI.storage.local.get("autoUpdateEnabled").then(function (result) {
-        autoUpdateToggle.checked = result;
-    });
+PCC_vAPI.storage.local.get("autoUpdateEnabled").then(function (result) {
+    autoUpdateToggle.checked = result;
+    if (!autoUpdateToggle.checked) {
+        autoUpdateNotificationsToggle.disabled = "true";
+    }
+});
+
+// Toggle auto-update notifications
+autoUpdateNotificationsToggle.addEventListener('change', function () {
+    PCC_vAPI.storage.local.set("autoUpdateNotificationsEnabled", this.checked);
+});
+
+PCC_vAPI.storage.local.get("autoUpdateNotificationsEnabled").then(function (result) {
+    autoUpdateNotificationsToggle.checked = result;
 });
 
 // Enable/disable filterlists
@@ -19,10 +33,8 @@ document.querySelectorAll('.database input[type="checkbox"').forEach((filterlist
     filterlist.addEventListener('change', () => {
         PCC_vAPI.storage.local.set(filterlist.id.replace("_toggle", "Enabled"), filterlist.checked);
     });
-    document.addEventListener("DOMContentLoaded", () => {
-        PCC_vAPI.storage.local.get(filterlist.id.replace("_toggle", "Enabled")).then(function (result) {
-            filterlist.checked = result;
-        });
+    PCC_vAPI.storage.local.get(filterlist.id.replace("_toggle", "Enabled")).then(function (result) {
+        filterlist.checked = result;
     });
 });
 

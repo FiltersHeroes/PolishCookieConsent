@@ -273,7 +273,7 @@ button#updateCookieBase.active .icon {
     fill: inherit;
 }
 
-.database {
+.database:not(:last-child), .setting:not(:last-child) {
     padding-bottom: 1px;
 }
 

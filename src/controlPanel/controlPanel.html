@@ -37,7 +37,7 @@
             <div class="mui-container-fluid">
                 <ul class="mui-tabs__bar mui--visible-md-block mui--visible-lg-block mui--visible-xl-block">
                     <li>
-                        <a data-mui-toggle="tab" data-mui-controls="cookie-base-tab">
+                        <a data-mui-toggle="tab" data-mui-controls="settings-tab">
                             <svg class="icon">
                                 <use href="../thirdparty/octicons24.svg#tasklist"></use>
                             </svg>
@@ -77,7 +77,7 @@
         <ul>
             <ul class="mobileMenu">
                 <li>
-                    <a data-mui-toggle="tab" data-mui-controls="cookie-base-tab">
+                    <a data-mui-toggle="tab" data-mui-controls="settings-tab">
                         <svg class="icon mui--pull-left">
                             <use href="../thirdparty/octicons24.svg#tasklist"></use>
                         </svg>
@@ -112,15 +112,20 @@
         </ul>
     </div>
 
-    <div id="cookie-base-tab" class="mui-tabs__pane">
+    <div id="settings-tab" class="mui-tabs__pane">
         <div class="mui-container-fluid">
             <div class="mui-col-xs-12 mui-col-md-12">
-                <div id="autoUpdate">
+                <div id="autoUpdate" class="setting">
                     <div class="icheck-material-brown">
                         <input type="checkbox" id="autoUpdate_toggle">
-                        <label for="autoUpdate_toggle">
-                            <div id="title" data-i18n="__MSG_autoUpdate__" data-opt-i18n-keep-children>
-                            </div>
+                        <label for="autoUpdate_toggle" data-i18n="__MSG_autoUpdate__">
+                        </label>
+                    </div>
+                </div>
+                <div id="notificationsUpdate" class="setting">
+                    <div class="icheck-material-brown">
+                        <input type="checkbox" id="notificationsUpdate_toggle">
+                        <label for="notificationsUpdate_toggle" data-i18n="__MSG_notificationsUpdate__">
                         </label>
                     </div>
                 </div>
