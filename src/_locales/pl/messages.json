@@ -155,7 +155,7 @@
     "message": "Wyświetlaj powiadomienia na pulpicie o statusie automatycznej aktualizacji list filtrów"
   },
   "updateSuccess": {
-    "message": "$filterList została pomyslnie zaktualizowana.",
+    "message": "$filterList$ została pomyślnie zaktualizowana.",
     "placeholders": {
       "filterList": {
         "content": "$1",
