@@ -171,5 +171,8 @@
         "example": "Polish Cookie Database"
       }
     }
+  },
+  "helpTranslation": {
+    "message": "Pomóż w tłumaczeniu"
   }
 }

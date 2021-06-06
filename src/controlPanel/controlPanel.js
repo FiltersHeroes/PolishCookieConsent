@@ -49,4 +49,6 @@ PCC_vAPI.storage.local.get('lastOpenedTab').then(function (resultLastOpenedTab) 
 });
 
 // Add extension version to about tab
-document.querySelector("#about-tab .extensionInfo").textContent = PCC_vAPI.i18n.getMessage("extensionName") + " " + PCC_vAPI.getVersion();
+const version = PCC_vAPI.getVersion();
+document.querySelector("#about-tab .extensionInfo").textContent = PCC_vAPI.i18n.getMessage("extensionName") + " " + version;
+document.querySelector("#changelog").href += "/v" + version;

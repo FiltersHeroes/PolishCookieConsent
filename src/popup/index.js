@@ -1,6 +1,5 @@
 const version = PCC_vAPI.getVersion();
 document.querySelector(".title > p").textContent += " " + version;
-document.querySelector("#changelog").dataset.href += "/v" + version;
 
 const wrapper = document.querySelectorAll(".wrapper:not(.wrapper-switch)");
 
