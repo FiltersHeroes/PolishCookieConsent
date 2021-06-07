@@ -2,6 +2,8 @@
     --cm-def: #AF00DB;
     --cm-domain: #a31515;
     --cm-comment: #777;
+    --cm-func: #795E26;
+    --cm-arg: #001080;
 }
 
 .codeMirrorContainer {
@@ -24,6 +26,14 @@
 
 .cm-domainPart {
     color: var(--cm-domain);
+}
+
+.cm-func {
+    color: var(--cm-func);
+}
+
+.cm-arg {
+    color: var(--cm-arg);
 }
 
 div.CodeMirror span.CodeMirror-matchingbracket {

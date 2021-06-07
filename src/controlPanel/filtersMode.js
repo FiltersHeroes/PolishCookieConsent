@@ -18,17 +18,32 @@ CodeMirror.defineSimpleMode("filters", {
         },
         {
             regex: /##\+js/,
-            token: 'def'
-        },
-        {
-            regex: /[(].*/,
-            token: 'args'
+            token: 'def',
+            next: 'jsfunc'
         },
         {
             regex: /\/.*\//,
             token: 'domainPart',
             sol: true
         },
+    ],
+    jsfunc: [
+        {
+            regex: /\w[^,\(]*/,
+            token: 'func',
+            next: 'funcArgs'
+        }
+    ],
+    funcArgs: [
+        {
+            regex: /\)$/,
+            token: null,
+            next: 'start'
+        },
+        {
+            regex: /[^\)\(,]+/,
+            token: 'arg'
+        }
     ],
     meta: {
         lineComment: "#"
