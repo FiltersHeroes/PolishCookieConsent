@@ -1,6 +1,6 @@
 ! Polska Baza Ciasteczkowa
 ! Polish Cookie Database
-! Version: 2021.06.13.1
+! Version: 2021.06.13.2
 ! Copyright © 2021 Polish Filters Team
 !
 !
@@ -65,7 +65,7 @@ fandom.com##+js(clickTimeout, [data-tracking-opt-in-accept="true"], euconsent-v2
 redirect.global.commerce-connector.com/consent##+js(clickTimeout, .cookie-notice > .btn--blue.btn)
 rejestracja.pwik.gliwice.pl##+js(clickTimeout, .bp3-portal .bp3-dialog-footer-actions button[type="button"] ~ button[type="submit"])
 shinden.pl##+js(clickTimeout, div[class^="app_gdpr"] button[class*="details_save"])
-!sp215.info/s2/ccs.php##+js(clickTimeout, input[value="AKCEPTUJĘ PLIKI COOKIES"])
+sp215.info/s2/ccs.php##+js(clickTimeout, input[value="AKCEPTUJĘ PLIKI COOKIES"])
 /^https?:\/\/consent\.yahoo.com\/[a-z0-9]{2}\/collectConsent/##+js(clickTimeout, .btn[name="agree"])
 !
 !
@@ -76,7 +76,6 @@ gry.pl##+js(clickComplete, div[class*="app_gdpr"] button[class*="intro_acceptAll
 !
 ! redirect
 f1racing.pl##+js(redirect, x-set-cookie, true, x-id-cookie-yes)
-sp215.info/s2/ccs.php##+js(redirect, index.php, false)
 /^https?:\/\/(www\.)?biblioteka\.rawicz\.pl\/$/##+js(redirect, indexa.html, false)
 /^https?:\/\/(www\.)?edytor-serwis\.com\.pl\/$/##+js(redirect, index2.html, false)
 /^https?:\/\/(www\.)?tester\.net\.pl\/$/##+js(redirect, ?pl_witamy,1, false)
