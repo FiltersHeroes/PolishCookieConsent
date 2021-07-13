@@ -1,13 +1,13 @@
 ! Polska Baza Ciasteczkowa
 ! Polish Cookie Database
-! Version: 2021.06.13.2
+! Version: 2021.07.13.0
 ! Copyright © 2021 Polish Filters Team
 !
 !
 ! add to storage
 click.kaufland.com##+js(addToStorage, cookies, {"consent":"accepted"})
-gry.lotto.pl##+js(addToStorage, rodoConfirmation, true)
 gry.lotto.pl##+js(addToStorage, rodoConfirmation2, true)
+gry.lotto.pl##+js(addToStorage, rodoConfirmation, true)
 totalcasino.pl##+js(addToStorage, gdpr_popup, true)
 !
 ! bake cookie
@@ -28,18 +28,18 @@ hrkgame.com##+js(bakeCookie, gdpralert, done, 365)
 infor.pl##+js(bakeCookie, inforCookieWallCacheVal, 15, 365)
 laziska.com.pl,m-ce.pl,mojbytom.pl,mojegliwice.pl,mojekatowice.pl,mojmikolow.pl,orzesze.com.pl,piekaryslaskie.com.pl,pyskowice.com.pl,rudaslaska.com.pl,rybnicki.com,siemianowice.net.pl,sosnowiecki.pl,swiony.pl,wodzislaw.com.pl,zabrze.com.pl,zory.com.pl,silesia.info.pl##+js(bakeCookie, rodo, accept, 365)
 login.e-dowod.gov.pl##+js(bakeCookie, acceptRodoSie, hide, 365)
-mapa.szukacz.pl##+js(bakeCookie, gdprid, 1, 780)
 mapa.gdansk.gda.pl##+js(bakeCookie, ipg.splash, y, 365)
 mapa.gdansk.gda.pl##+js(bakeCookie, splash, y, 365)
+mapa.szukacz.pl##+js(bakeCookie, gdprid, 1, 780)
 mapy.geoportal.gov.pl##+js(bakeCookie, regulationsAccepted, true, 365)
 mapy.geoportal.gov.pl##+js(bakeCookie, rules, 1, 365)
 mini.com.pl##+js(bakeCookie, cc_consentCookie, {"mini_poland_family":{"consentMetadataModel":{"analytics":"GIVEN","functional":"GIVEN","advertising":"GIVEN"},"lastModifiedTimestamp":1619619734490,"crossDomainConsent":true}}, 365, .mini.com.pl)
 n26.com##+js(bakeCookie, num26GDPR, ACCEPTED, 365)
 parkiet.com,rp.pl##+js(bakeCookie, __gm_tcfconsent_v2, 1, 365)
-tv-trwam.pl##+js(bakeCookie, HAS_COOKIES_FORM_SHOWED, true, 365)
-tv-trwam.pl##+js(bakeCookie, ARE_REQUIRED_COOKIES_ACCEPTED, true, 365)
 tv-trwam.pl##+js(bakeCookie, ARE_FUNCTIONAL_COOKIES_ACCEPTED, true, 365)
 tv-trwam.pl##+js(bakeCookie, ARE_MARKETING_COOKIES_ACCEPTED, true, 365)
+tv-trwam.pl##+js(bakeCookie, ARE_REQUIRED_COOKIES_ACCEPTED, true, 365)
+tv-trwam.pl##+js(bakeCookie, HAS_COOKIES_FORM_SHOWED, true, 365)
 ubi2.wit.edu.pl##+js(bakeCookie, GPRD, 128, 365)
 vice.com##+js(bakeCookie, _vice_cmp_modal_viewed, true, 365)
 virustotal.com##+js(bakeCookie, euConsent, 1, 365)
@@ -51,16 +51,16 @@ www2.hm.com##+js(bakeCookie, hm_gdpr_read, true, 365)
 !
 ! click interactive
 odr.pl##+js(clickInteractive, .termsagree)
+facebook.com,messenger.com##+js(clickInteractive, body > div div[aria-label="Akceptuj wszystkie"])
 tumblr.com/privacy/consent##+js(clickInteractive, .btn.yes)
 !
 !
 ! click timeout
 bethesda.net,boomerang-tv.pl,eurogamer.pl,toteraz.pl,tvn24.pl##+js(clickTimeout, #onetrust-accept-btn-handler)
+click.kaufland.com/cookieconsent##+js(clickTimeout, button.primary)
 consent.google.com,consent.google.pl,consent.youtube.com##+js(clickTimeout, form[action*="consent."] [aria-label^="Zgadzasz się na wykorzystanie plików cookie"])
 downdetector.pl##+js(clickTimeout, .evidon-barrier-acceptbutton)
-facebook.com,messenger.com##+js(clickTimeout, body > div div[aria-label="Akceptuj wszystkie"])
 facebook.com,messenger.com##+js(clickTimeout, body > div button[title="Akceptuj wszystkie"])
-click.kaufland.com/cookieconsent##+js(clickTimeout, button.primary)
 fandom.com##+js(clickTimeout, [data-tracking-opt-in-accept="true"], euconsent-v2)
 redirect.global.commerce-connector.com/consent##+js(clickTimeout, .cookie-notice > .btn--blue.btn)
 rejestracja.pwik.gliwice.pl##+js(clickTimeout, .bp3-portal .bp3-dialog-footer-actions button[type="button"] ~ button[type="submit"])
@@ -72,6 +72,7 @@ sp215.info/s2/ccs.php##+js(clickTimeout, input[value="AKCEPTUJĘ PLIKI COOKIES"]
 ! click complete
 abczdrowie.pl,allani.pl,autocentrum.pl,autokult.pl,dobramama.pl,dobregry.pl,dobreprogramy.pl,domodi.pl,echirurgia.pl,extradom.pl,fotoblogia.pl,gadzetomania.pl,homebook.pl,jejswiat.pl,kafeteria.pl,kafeteria.tv,kardiolo.pl,kazimierzdolny.pl,komorkomania.pl,luxlux.pl,medycyna24.pl,mixer.pl,money.pl,nerwica.com,nocowanie.pl,o2.pl,open.fm,parenting.pl,pinger.pl,pogodnie.pl,polygamia.pl,pudelek.pl,pudelek.tv,pudelekx.pl,pytamy.pl,samosia.pl,smaczneblogi.pl,smog.pl,snobka.pl,so-magazyn.pl,superauto.pl,testwiedzy.pl,totalmoney.pl,vibez.pl,wakacje.pl,wp.pl##+js(clickComplete, button, 200, PRZECHODZ)
 gry.pl##+js(clickComplete, div[class*="app_gdpr"] button[class*="intro_acceptAll"], euconsent)
+instagram.com##+js(clickComplete, body[style*="overflow"] div[role="presentation"].RnEpo > div[role="dialog"] div > button:first-of-type, 200, Akceptuję wszystko)
 !
 !
 ! redirect
@@ -79,3 +80,5 @@ f1racing.pl##+js(redirect, x-set-cookie, true, x-id-cookie-yes)
 /^https?:\/\/(www\.)?biblioteka\.rawicz\.pl\/$/##+js(redirect, indexa.html, false)
 /^https?:\/\/(www\.)?edytor-serwis\.com\.pl\/$/##+js(redirect, index2.html, false)
 /^https?:\/\/(www\.)?tester\.net\.pl\/$/##+js(redirect, ?pl_witamy,1, false)
+!
+!
