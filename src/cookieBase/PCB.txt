@@ -1,6 +1,6 @@
 ! Polska Baza Ciasteczkowa
 ! Polish Cookie Database
-! Version: 2021.07.13.0
+! Version: 2021.07.19.0
 ! Copyright © 2021 Polish Filters Team
 !
 !
