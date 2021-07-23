@@ -1,6 +1,6 @@
 ! Polska Baza Ciasteczkowa
 ! Polish Cookie Database
-! Version: 2021.07.19.0
+! Version: 2021.07.23.0
 ! Copyright © 2021 Polish Filters Team
 !
 !
@@ -52,7 +52,6 @@ www2.hm.com##+js(bakeCookie, hm_gdpr_read, true, 365)
 !
 ! click interactive
 odr.pl##+js(clickInteractive, .termsagree)
-facebook.com,messenger.com##+js(clickInteractive, body > div div[aria-label="Akceptuj wszystkie"])
 tumblr.com/privacy/consent##+js(clickInteractive, .btn.yes)
 !
 !
@@ -61,8 +60,9 @@ bethesda.net,boomerang-tv.pl,eurogamer.pl,toteraz.pl,tvn24.pl##+js(clickTimeout,
 click.kaufland.com/cookieconsent##+js(clickTimeout, button.primary)
 consent.google.com,consent.google.pl,consent.youtube.com##+js(clickTimeout, form[action*="consent."] [aria-label^="Zgadzasz się na wykorzystanie plików cookie"])
 downdetector.pl##+js(clickTimeout, .evidon-barrier-acceptbutton)
-facebook.com,messenger.com##+js(clickTimeout, body > div button[title="Akceptuj wszystkie"])
+facebook.com,messenger.com##+js(clickTimeout, body > div [title="Akceptuj wszystkie"])
 fandom.com##+js(clickTimeout, [data-tracking-opt-in-accept="true"], euconsent-v2)
+instagram.com##+js(clickTimeout, body[style*="overflow"] div[role="presentation"].RnEpo > div[role="dialog"] div > button:nth-of-type(1):nth-last-of-type(2))
 redirect.global.commerce-connector.com/consent##+js(clickTimeout, .cookie-notice > .btn--blue.btn)
 rejestracja.pwik.gliwice.pl##+js(clickTimeout, .bp3-portal .bp3-dialog-footer-actions button[type="button"] ~ button[type="submit"])
 shinden.pl##+js(clickTimeout, div[class^="app_gdpr"] button[class*="details_save"])
@@ -73,7 +73,6 @@ sp215.info/s2/ccs.php##+js(clickTimeout, input[value="AKCEPTUJĘ PLIKI COOKIES"]
 ! click complete
 abczdrowie.pl,allani.pl,autocentrum.pl,autokult.pl,dobramama.pl,dobregry.pl,dobreprogramy.pl,domodi.pl,echirurgia.pl,extradom.pl,fotoblogia.pl,gadzetomania.pl,homebook.pl,jejswiat.pl,kafeteria.pl,kafeteria.tv,kardiolo.pl,kazimierzdolny.pl,komorkomania.pl,luxlux.pl,medycyna24.pl,mixer.pl,money.pl,nerwica.com,nocowanie.pl,o2.pl,open.fm,parenting.pl,pinger.pl,pogodnie.pl,polygamia.pl,pudelek.pl,pudelek.tv,pudelekx.pl,pytamy.pl,samosia.pl,smaczneblogi.pl,smog.pl,snobka.pl,so-magazyn.pl,superauto.pl,testwiedzy.pl,totalmoney.pl,vibez.pl,wakacje.pl,wp.pl##+js(clickComplete, button, 200, PRZECHODZ)
 gry.pl##+js(clickComplete, div[class*="app_gdpr"] button[class*="intro_acceptAll"], euconsent)
-instagram.com##+js(clickComplete, body[style*="overflow"] div[role="presentation"].RnEpo > div[role="dialog"] div > button:first-of-type, 200, Akceptuję wszystko)
 !
 !
 ! redirect
