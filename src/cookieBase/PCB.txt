@@ -1,6 +1,6 @@
 ! Polska Baza Ciasteczkowa
 ! Polish Cookie Database
-! Version: 2021.07.23.0
+! Version: 2021.07.26.0
 ! Copyright © 2021 Polish Filters Team
 !
 !
@@ -56,7 +56,7 @@ tumblr.com/privacy/consent##+js(clickInteractive, .btn.yes)
 !
 !
 ! click timeout
-bethesda.net,boomerang-tv.pl,eurogamer.pl,toteraz.pl,tvn24.pl##+js(clickTimeout, #onetrust-accept-btn-handler)
+bethesda.net,boomerang-tv.pl,eurogamer.pl,player.pl,toteraz.pl,tvn24.pl##+js(clickTimeout, #onetrust-accept-btn-handler)
 click.kaufland.com/cookieconsent##+js(clickTimeout, button.primary)
 consent.google.com,consent.google.pl,consent.youtube.com##+js(clickTimeout, form[action*="consent."] [aria-label^="Zgadzasz się na wykorzystanie plików cookie"])
 downdetector.pl##+js(clickTimeout, .evidon-barrier-acceptbutton)
