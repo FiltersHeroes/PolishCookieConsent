@@ -1,6 +1,6 @@
 ! Polska Baza Ciasteczkowa
 ! Polish Cookie Database
-! Version: 2021.07.26.0
+! Version: 2021.08.15.0
 ! Copyright © 2021 Polish Filters Team
 !
 !
@@ -21,6 +21,7 @@ cineman.pl##+js(bakeCookie, HAS_COOKIES_FORM_SHOWED, true, 3650)
 electronicbeats.pl##+js(bakeCookie, borlabs-cookie, %7B%22consents%22%3A%7B%22external-media%22%3A%5B%22youtube%22%5D%2C%22essential%22%3A%5B%22borlabs-cookie%22%2C%22google-tag-manager%22%5D%7D%2C%22domainPath%22%3A%22www.electronicbeats.net%2F%22%2C%22expires%22%3A%22Mon%2C%2006%20Jun%202022%2021%3A41%3A29%20GMT%22%2C%22version%22%3A%223%22%7D, 365)
 emuia1.gugik.gov.pl##+js(bakeCookie, cookieMessageHide, true, 365)
 espedytor.pl##+js(bakeCookie, zgodaRODO, true, 365)
+forgeofempires.com##+js(bakeCookie, CookieNotification, 0, 365)
 gamepedia.com,wikia.com,wikia.org##+js(bakeCookie, tracking-opt-in-status, accepted, 365)
 gisgminny.pl##+js(bakeCookie, cookiesDirective, 1, 365)
 hiszpanskidlapolakow.com##+js(bakeCookie, gdpr-accepted, {"ga":true,"facebook":true,"disqus":true}, 365)
