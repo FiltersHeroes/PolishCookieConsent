@@ -1,6 +1,6 @@
 ! Polska Baza Ciasteczkowa
 ! Polish Cookie Database
-! Version: 2021.08.15.2
+! Version: 2021.08.20.1
 ! Copyright © 2021 Polish Filters Team
 !
 !
@@ -38,6 +38,7 @@ mini.com.pl##+js(bakeCookie, cc_consentCookie, {"mini_poland_family":{"consentMe
 n26.com##+js(bakeCookie, num26GDPR, ACCEPTED, 365)
 nike.com##+js(bakeCookie, sq, 3, 365)
 parkiet.com,rp.pl##+js(bakeCookie, __gm_tcfconsent_v2, 1, 365)
+polsatgo.pl##+js(bakeCookie, rodo-modal-displayed, 1, 365)
 tv-trwam.pl##+js(bakeCookie, ARE_FUNCTIONAL_COOKIES_ACCEPTED, true, 365)
 tv-trwam.pl##+js(bakeCookie, ARE_MARKETING_COOKIES_ACCEPTED, true, 365)
 tv-trwam.pl##+js(bakeCookie, ARE_REQUIRED_COOKIES_ACCEPTED, true, 365)
