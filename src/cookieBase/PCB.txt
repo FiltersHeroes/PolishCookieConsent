@@ -1,6 +1,6 @@
 ! Polska Baza Ciasteczkowa
 ! Polish Cookie Database
-! Version: 2021.08.30.0
+! Version: 2021.09.02.0
 ! Copyright © 2021 Polish Filters Team
 !
 !
@@ -63,6 +63,7 @@ bethesda.net,boomerang-tv.pl,eurogamer.pl,player.pl,toteraz.pl,tvn24.pl##+js(cli
 click.kaufland.com/cookieconsent##+js(clickTimeout, button.primary)
 consent.google.com,consent.google.pl,consent.youtube.com##+js(clickTimeout, form[action*="consent."] [aria-label^="Zgadzasz się na wykorzystanie plików cookie"])
 downdetector.pl##+js(clickTimeout, .evidon-barrier-acceptbutton)
+!facebook.com,messenger.com##+js(clickTimeout, body > div [title="Akceptuj wszystkie"])
 facebook.com,messenger.com##+js(clickTimeout, body > div [data-cookiebanner="accept_button"])
 fandom.com##+js(clickTimeout, [data-tracking-opt-in-accept="true"], euconsent-v2)
 instagram.com##+js(clickTimeout, body[style*="overflow"] div[role="presentation"].RnEpo > div[role="dialog"] div > button:nth-of-type(1):nth-last-of-type(2))
