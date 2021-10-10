@@ -1,0 +1,19 @@
+{
+    "assets.json": {
+        "contentURL": [
+			"https://raw.githubusercontent.com/PolishFiltersTeam/PolishCookieConsent/master/PCDB.txt"
+		]
+    },
+	"cookieBase": {
+		"contentURL": [
+			"https://raw.githubusercontent.com/PolishFiltersTeam/PCCassets/main/PCDB.txt",
+			"assets/PCDB.txt"
+		]
+	},
+    "euCookieDB": {
+        "contentURL": [
+			"https://raw.githubusercontent.com/PolishFiltersTeam/PCCassets/main/ECDB.txt",
+			"assets/ECDB.txt"
+		]
+    }
+}
