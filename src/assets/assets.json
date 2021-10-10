@@ -1,7 +1,7 @@
 {
     "assets.json": {
         "contentURL": [
-			"https://raw.githubusercontent.com/PolishFiltersTeam/PolishCookieConsent/master/PCDB.txt"
+			"https://raw.githubusercontent.com/PolishFiltersTeam/PolishCookieConsent/master/src/assets/assets.json"
 		]
     },
 	"cookieBase": {
