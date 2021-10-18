@@ -132,7 +132,7 @@
                 <hr>
                 <div id="filterLists" class="settingsHeader" data-i18n="__MSG_filterLists__"
                     data-opt-i18n-keep-children>
-                    <div id="myFilters" class="database">
+                    <div id="userFilters" class="database">
                         <div class="icheck-material-brown">
                             <input type="checkbox" id="userFilters_toggle">
                             <label for="userFilters_toggle">
@@ -147,12 +147,28 @@
                             </label>
                         </div>
                     </div>
-                    <div id="cookieBase" class="database">
+                    <div id="plCDB" class="database">
                         <div class="icheck-material-brown">
-                            <input type="checkbox" id="cookieBase_toggle">
-                            <label for="cookieBase_toggle">
-                                <div id="title" data-i18n="__MSG_PolishCookieDatabase__" data-opt-i18n-keep-children>
-                                    <a href="assetViewer.html?url=cookieBase" target="_blank" data-i18n
+                            <input type="checkbox" id="plCDB_toggle">
+                            <label for="plCDB_toggle">
+                                <div id="title" data-i18n="__MSG_plCDB__" data-opt-i18n-keep-children>
+                                    <a href="assetViewer.html?url=plCDB" target="_blank" data-i18n
+                                        data-i18n-title="__MSG_viewContent__" data-opt-i18n-keep-children>
+                                        <svg class="settingsIcon">
+                                            <use href="../thirdparty/octicons24.svg#eye"></use>
+                                        </svg>
+                                    </a>
+                                </div>
+                                <div id="version" data-i18n="__MSG_version__"></div>
+                            </label>
+                        </div>
+                    </div>
+                    <div id="euCDB" class="database">
+                        <div class="icheck-material-brown">
+                            <input type="checkbox" id="euCDB_toggle">
+                            <label for="euCDB_toggle">
+                                <div id="title" data-i18n="__MSG_euCDB__" data-opt-i18n-keep-children>
+                                    <a href="assetViewer.html?url=euCDB" target="_blank" data-i18n
                                         data-i18n-title="__MSG_viewContent__" data-opt-i18n-keep-children>
                                         <svg class="settingsIcon">
                                             <use href="../thirdparty/octicons24.svg#eye"></use>
@@ -171,9 +187,6 @@
                         <use href="../thirdparty/octicons24.svg#sync"></use>
                     </svg>
                 </button>
-                <div class="mui-textfield cookieBaseContent" style="visibility: hidden;">
-                    <textarea id="cookieBaseContent" readonly></textarea>
-                </div>
             </div>
         </div>
     </div>
@@ -192,7 +205,7 @@
                         </a>
                     </label>
                 </p>
-                <div id="userFilters" class="codeMirrorContainer"></div>
+                <div id="myFilters" class="codeMirrorContainer"></div>
                 <p class="buttons">
                     <button id="userFiltersApply" class="mui-btn mui--bg-color-brown-600" type="button" disabled="true">
                         <span data-i18n="__MSG_apply__"></span>
@@ -273,7 +286,7 @@
             <div class="mui-col-xs-12 mui-col-md-12">
                 <p class="extensionInfo"></p>
                 <p>
-                    Copyright © 2021 Polish Filters Team
+                    Copyright © 2021 Filters Heroes
                 </p>
                 <p>
                     <i class="aboutIcon">
@@ -282,7 +295,7 @@
                         </svg>
                     </i>
                     <a data-i18n="__MSG_changelog__" id="changelog"
-                        href="https://github.com/PolishFiltersTeam/PolishCookieConsent/releases" target="_blank"></a>
+                        href="https://github.com/FiltersHeroes/PolishCookieConsent/releases" target="_blank"></a>
                 </p>
                 <p>
                     <i class="aboutIcon">
@@ -293,7 +306,7 @@
                     <a data-i18n="__MSG_license__" href="../LICENSE" target="_blank"></a>
                 </p>
                 <p>
-                    <a data-i18n="__MSG_sourceCode__" href="https://github.com/PolishFiltersTeam/PolishCookieConsent"
+                    <a data-i18n="__MSG_sourceCode__" href="https://github.com/FiltersHeroes/PolishCookieConsent"
                         target="_blank">
                     </a>
                     <svg class="aboutIcon">

@@ -38,8 +38,25 @@ for (var i = 0; i < tabs.length; i++) {
 // Get last opened tab ID and open it
 PCC_vAPI.storage.local.get('lastOpenedTab').then(function (resultLastOpenedTab) {
     if (resultLastOpenedTab) {
-        mui.tabs.activate(resultLastOpenedTab);
-        document.querySelector('.mobileMenu [data-mui-controls=' + resultLastOpenedTab + ']').parentNode.classList.add("mui--is-active");
+        let lastOpenedTab = resultLastOpenedTab;
+        if(lastOpenedTab == "cookie-base") {
+            lastOpenedTab = "settings-tab";
+            PCC_vAPI.storage.local.set("lastOpenedTab", lastOpenedTab);
+        }
+        else if (lastOpenedTab == "my-filters") {
+            lastOpenedTab = "my-filters-tab";
+            PCC_vAPI.storage.local.set("lastOpenedTab", lastOpenedTab);
+        }
+        else if (lastOpenedTab == "whitelist") {
+            lastOpenedTab = "excluded-list-tab";
+            PCC_vAPI.storage.local.set("lastOpenedTab", lastOpenedTab);
+        }
+        else if (lastOpenedTab == "about") {
+            lastOpenedTab = "about-tab";
+            PCC_vAPI.storage.local.set("lastOpenedTab", lastOpenedTab);
+        }
+        mui.tabs.activate(lastOpenedTab);
+        document.querySelector('.mobileMenu [data-mui-controls=' + lastOpenedTab + ']').parentNode.classList.add("mui--is-active");
     }
     else {
         var firstMobileTab = document.querySelectorAll('.mobileMenu li')[0];

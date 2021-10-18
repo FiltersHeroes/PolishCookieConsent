@@ -19,7 +19,17 @@ jq 'del(.applications)' manifest.json >manifest.json.temp
 rm -r manifest.json
 mv manifest.json.temp manifest.json
 rm -rf "$tymczasowy"/platform/
+
 rm -r "$tymczasowy"/PCB.txt
+rm -rf "$tymczasowy"/cookieBase/
+
+if [ "$CI" = "true" ]; then
+    wget "https://raw.githubusercontent.com/FiltersHeroes/PCCassets/main/plCDB.txt" -P "./assets/"
+    wget "https://raw.githubusercontent.com/FiltersHeroes/PCCassets/main/euCDB.txt" -P "./assets/"
+else
+    cp "$glowna_sciezka"/../PCCassets/plCDB.txt ./assets/
+    cp "$glowna_sciezka"/../PCCassets/euCDB.txt ./assets/
+fi
 
 if [ "$CI" = "true" ]; then
     npx shipit chrome ./

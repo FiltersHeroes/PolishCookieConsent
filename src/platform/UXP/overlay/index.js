@@ -15,27 +15,6 @@ var PCC_overlay = {
                 document.persist(toolbar.id, "currentset");
             }
 
-            // Migrate Jetpack data
-            Components.utils.import('resource://gre/modules/osfile.jsm');
-            const jetpackFile = OS.Path.join(OS.Constants.Path.profileDir, "jetpack", "PolishCookieConsentExt@polishannoyancefilters.netlify.com", "simple-storage", "store.json");
-            OS.File.exists(jetpackFile).then(function (exists) {
-                if (exists) {
-                    OS.File.read(jetpackFile, { encoding: "utf-8" }).then(function (data) {
-                        const parsedD = JSON.parse(data, 'utf8');
-                        PCC_vAPI.storage.local.set("lastOpenedTab", parsedD.lastOpenedTab).then(function () {
-                            PCC_vAPI.storage.local.set("userFilters", parsedD.userFilters).then(function () {
-                                PCC_vAPI.storage.local.set("whitelist", parsedD.whitelist).then(function () {
-                                    PCC_vAPI_common.convertUFToNewSyntax();
-                                });
-                            });
-                        });
-                        const backupFile = OS.Path.join(OS.Constants.Path.profileDir, "jetpack", "PolishCookieConsentExt@polishannoyancefilters.netlify.com", "simple-storage", "store.json.migrated");
-                        OS.File.move(jetpackFile, backupFile);
-                        alert("[Polish Cookie Consent] Settings migration completed. If all is fine, then you can remove file '" + backupFile + "' now.");
-                    });
-                }
-            });
-
             prefService.setBoolPref(basePrefPart + "firstRunDone", true);
         }
 

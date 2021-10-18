@@ -133,8 +133,11 @@
   "tooManyArgs": {
     "message": "Podano zbyt dużo argumentów."
   },
-  "PolishCookieDatabase": {
+  "plCDB": {
     "message": "Polska Baza Ciasteczkowa"
+  },
+  "euCDB": {
+    "message": "Europejska Baza Ciasteczkowa"
   },
   "assetViewer": {
     "message": "Przeglądarka zasobów"

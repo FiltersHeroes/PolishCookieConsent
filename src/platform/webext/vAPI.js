@@ -33,6 +33,18 @@ var PCC_vAPI = {
                         resolve(result[name]);
                     });
                 });
+            },
+            remove: (name) => {
+                return new Promise(function (resolve, reject) {
+                    chrome.storage.local.remove(name, function () {
+                        var error = chrome.runtime.lastError;
+                        if (error) {
+                            reject(new Error(error));
+                        } else {
+                            resolve();
+                        }
+                    });
+                });
             }
         }
     },

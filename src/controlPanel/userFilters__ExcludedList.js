@@ -24,13 +24,14 @@ function refreshFocusEditor(editorID, tabID) {
 }
 
 // Add user filters to textarea
-var userFilters = new CodeMirror(document.querySelector('#userFilters'), {
+var userFilters = new CodeMirror(document.querySelector('#myFilters'), {
     autoCloseBrackets: true,
     autofocus: true,
     extraKeys: {
         "Ctrl-/": function (cm) {
             cm.toggleComment();
-        }
+        },
+        'Ctrl-Space': 'autocomplete',
     },
     gutters: ['CodeMirror-lint-markers', 'CodeMirror-linenumbers'],
     lineNumbers: true,

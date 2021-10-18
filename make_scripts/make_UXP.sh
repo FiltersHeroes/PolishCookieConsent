@@ -46,9 +46,19 @@ sed -i "s|_localized_|$localized|" "$tymczasowy"/install.rdf
 
 python3 "$sciezka"/convert_locales_to_legacy_version.py "$tymczasowy"
 rm -r "$tymczasowy"/_locales/*/messages.json
-rm -r "$tymczasowy"/PCB.txt
 rm -r "$tymczasowy"/icons/icon96.png
 rm -r "$tymczasowy"/icons/icon128.png
+
+rm -r "$tymczasowy"/PCB.txt
+rm -rf "$tymczasowy"/cookieBase
+
+if [ "$CI" = "true" ]; then
+    wget "https://raw.githubusercontent.com/FiltersHeroes/PCCassets/main/plCDB.txt" -P "./assets/"
+    wget "https://raw.githubusercontent.com/FiltersHeroes/PCCassets/main/euCDB.txt" -P "./assets/"
+else
+    cp "$glowna_sciezka"/../PCCassets/plCDB.txt ./assets/
+    cp "$glowna_sciezka"/../PCCassets/euCDB.txt ./assets/
+fi
 
 zip -r9 PolishCookieConsent_UXP.xpi ./*
 

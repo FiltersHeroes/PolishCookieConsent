@@ -1,22 +1,17 @@
-function handleTextResponse(response) {
-    return response.text()
-        .then(text => {
-            if (response.ok) {
-                PCC_vAPI.storage.local.set("cookieBase", text).then(function(){
-                    PCC_vAPI.storage.local.get("autoUpdateNotificationsEnabled").then(function (autoUpdateNotificationsEnabled) {
-                        if(autoUpdateNotificationsEnabled) {
-                            PCC_vAPI.notifications.create("autoUpdatePCC", PCC_vAPI.runtime.getURL("icons/icon48.png"), PCC_vAPI.i18n.getMessage("extensionName"), PCC_vAPI.i18n.getMessage("updateSuccess", new Array(PCC_vAPI.i18n.getMessage("PolishCookieDatabase"))));
-                        }
-                    });
-                });
-            } else {
-                return Promise.reject({
-                    status: response.status,
-                    statusText: response.statusText,
-                    err: text
-                })
-            }
-        })
+function handleTextResponse(text, filterListID, updateNotification) {
+    PCC_vAPI.storage.local.set(filterListID, text).then(function () {
+        if (updateNotification) {
+            PCC_vAPI.storage.local.get("userSettings").then(function (userSettings) {
+                if (userSettings) {
+                    if (JSON.parse(userSettings)["autoUpdateNotifications"]) {
+                        PCC_vAPI.notifications.create("autoUpdatePCC", PCC_vAPI.runtime.getURL("icons/icon48.png"), PCC_vAPI.i18n.getMessage("extensionName"), PCC_vAPI.i18n.getMessage("updateSuccess", new Array(PCC_vAPI.i18n.getMessage(filterListID))));
+                    }
+                }
+            });
+        } else {
+            console.log("[Polish Cookie Consent] Fetched " + filterListID);
+        }
+    });
 }
 
 function setUpdateTime() {
@@ -33,74 +28,144 @@ function updateCookieBase(updateTime) {
             interval = 10;
         }
         setTimeout(function () {
-            PCC_vAPI.storage.local.get("autoUpdateEnabled").then(function (autoUpdateEnabled) {
-                if (autoUpdateEnabled) {
-                    fetch("https://raw.githubusercontent.com/PolishFiltersTeam/PolishCookieConsent/master/src/cookieBase/PCB.txt")
-                        .then(handleTextResponse)
-                        .catch(function(error) {
-                            console.log("[Polish Cookie Consent] "+error);
-                            PCC_vAPI.storage.local.get("autoUpdateNotificationsEnabled").then(function (autoUpdateNotificationsEnabled) {
-                                if(autoUpdateNotificationsEnabled) {
-                                    PCC_vAPI.notifications.create("autoUpdatePCC", PCC_vAPI.runtime.getURL("icons/icon48.png"), PCC_vAPI.i18n.getMessage("extensionName"), PCC_vAPI.i18n.getMessage("updateFail", new Array(PCC_vAPI.i18n.getMessage("PolishCookieDatabase"))));
-                                }
-                            });
+            PCC_vAPI.storage.local.get("userSettings").then(function (userSettingsResult) {
+                if (userSettingsResult) {
+                    const userSettings = JSON.parse(userSettingsResult);
+                    if (userSettings["autoUpdate"]) {
+                        PCC_vAPI.storage.local.get("assetsJSON").then(function (aJSONresult) {
+                            const aJSON = JSON.parse(aJSONresult);
+                            fetch(aJSON["assets.json"].contentURL[0])
+                                .then(response => {
+                                    if (!response.ok) {
+                                        return Promise.reject({
+                                            status: response.status,
+                                            statusText: response.statusText,
+                                            err: text
+                                        })
+                                    }
+                                    return response.json();
+                                })
+                                .then(assetsJSON => {
+                                    PCC_vAPI.storage.local.set('assetsJSON', JSON.stringify(assetsJSON));
+                                    PCC_vAPI.storage.local.get("selectedFilterLists").then(function (sFLresult) {
+                                        const sFLnewResult = sFLresult.filter(item => item !== "userFilters");
+                                        sFLnewResult.reduce(async (seq, selectedFL) => {
+                                            await seq;
+                                            fetch(assetsJSON[selectedFL].contentURL[0])
+                                                .then(response => {
+                                                    if (!response.ok) {
+                                                        return Promise.reject({
+                                                            status: response.status,
+                                                            statusText: response.statusText,
+                                                            err: text
+                                                        })
+                                                    }
+                                                    return response.text();
+                                                })
+                                                .then(text => {
+                                                    handleTextResponse(text, selectedFL, true);
+                                                })
+                                                .catch(function (error) {
+                                                    console.log("[Polish Cookie Consent] " + error);
+                                                    if (userSettings["autoUpdateNotifications"]) {
+                                                        PCC_vAPI.notifications.create("autoUpdatePCC", PCC_vAPI.runtime.getURL("icons/icon48.png"), PCC_vAPI.i18n.getMessage("extensionName"), PCC_vAPI.i18n.getMessage("updateFail", new Array(PCC_vAPI.i18n.getMessage(selectedFL))));
+                                                    }
+                                                });
+                                            return await new Promise(res => setTimeout(res, 1000));
+                                        }, Promise.resolve());
+                                    });
+                                })
+                                .catch(function (error) {
+                                    console.log("[Polish Cookie Consent] " + error);
+                                });
                         });
+                    }
                 }
+            }).then(function () {
                 setUpdateTime();
             });
         }, interval);
     }
 }
 
-function fetchLocalCookieBase() {
-    let cookieBaseURL;
+function fetchLocalAssets() {
+    let rootURL;
     if (PCC_vAPI.isWebExtension() == true) {
-        cookieBaseURL = "/cookieBase/PCB.txt";
+        rootURL = "/";
     } else {
-        cookieBaseURL = "chrome://PCC/content/cookieBase/PCB.txt";
+        rootURL = "chrome://PCC/content/";
     }
-    fetch(cookieBaseURL)
-        .then(handleTextResponse)
-        .catch(error => console.log("[Polish Cookie Consent] "+error));
+    fetch(rootURL + "assets/assets.json")
+        .then(response => {
+            if (!response.ok) {
+                return Promise.reject({
+                    status: response.status,
+                    statusText: response.statusText
+                })
+            }
+            return response.json();
+        })
+        .then(assetsJSON => {
+            PCC_vAPI.storage.local.set('assetsJSON', JSON.stringify(assetsJSON)).then(function () {
+                const filerLists = Object.keys(assetsJSON).filter(item => item !== "assets.json");
+                filerLists.reduce(async (seq, localFL) => {
+                    await seq;
+                    fetch(rootURL + assetsJSON[localFL].contentURL[1])
+                        .then(response => {
+                            if (!response.ok) {
+                                return Promise.reject({
+                                    status: response.status,
+                                    statusText: response.statusText,
+                                    err: text
+                                });
+                            }
+                            return response.text();
+                        })
+                        .then(text => {
+                            handleTextResponse(text, localFL, false);
+                        })
+                        .catch(error => console.log("[Polish Cookie Consent] " + error));
+                    return await new Promise(res => setTimeout(res, 1000));
+                }, Promise.resolve());
+            });
+        })
+        .catch(error => console.log("[Polish Cookie Consent] " + error));
+        setUpdateTime();
 }
 
 function setDefaultSettings() {
-    const settings = ["userFiltersEnabled", "cookieBaseEnabled", "autoUpdateEnabled", "autoUpdateNotificationsEnabled"];
-    settings.forEach((setting) => {
-        PCC_vAPI.storage.local.get(setting).then(function (sValue) {
-            if (!sValue) {
-                PCC_vAPI.storage.local.set(setting, "true");
+    PCC_vAPI.storage.local.get("cookieBase").then(function(result){
+        if (typeof result !== "undefined" || result) {
+            PCC_vAPI.storage.local.remove("cookieBase");
+        }
+    }).then(function(){
+        PCC_vAPI.storage.local.get("selectedFilterLists").then(function (sFLvalue) {
+            if (typeof sFLvalue == "undefined" || !sFLvalue) {
+                PCC_vAPI.storage.local.set("selectedFilterLists", new Array("userFilters", "plCDB")).then(function () {
+                    PCC_vAPI.storage.local.get("userSettings").then(function (sValue) {
+                        if (typeof sValue == "undefined" || !sValue) {
+                            let usObj = Object.create({});
+                            usObj.autoUpdate = true;
+                            usObj.autoUpdateNotifications = true;
+                            PCC_vAPI.storage.local.set("userSettings", JSON.stringify(usObj)).then(function () {
+                                fetchLocalAssets();
+                            });
+                        }
+                    })
+                });
             }
-        })
+        });
     });
 }
 
 PCC_vAPI.onFirstRunOrUpdate().then(function (result) {
-    if (PCC_vAPI.isWebExtension() == true && result == "update") {
+    if (result == "install" || result == "update") {
         setDefaultSettings();
-        fetchLocalCookieBase();
-        setUpdateTime();
-        PCC_vAPI_common.convertUFToNewSyntax();
-    }
-    else if (result == "install" || result == "update") {
-        setDefaultSettings();
-        fetchLocalCookieBase();
-        setUpdateTime();
-    } else if (PCC_vAPI.isWebExtension() == false) {
-        if (result == "nothing") {
-            PCC_vAPI.storage.local.get("updateTime").then(function (resultUpdateTime) {
-                if (resultUpdateTime) {
-                    updateCookieBase(resultUpdateTime);
-                }
-            });
-        }
     }
 });
 
-if (PCC_vAPI.isWebExtension() == true) {
-    PCC_vAPI.storage.local.get("updateTime").then(function (resultUpdateTime) {
-        if (resultUpdateTime) {
-            updateCookieBase(resultUpdateTime);
-        }
-    });
-}
+PCC_vAPI.storage.local.get("updateTime").then(function (resultUpdateTime) {
+    if (resultUpdateTime) {
+        updateCookieBase(resultUpdateTime);
+    }
+});

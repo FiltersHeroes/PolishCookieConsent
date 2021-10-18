@@ -1,6 +1,6 @@
 {
   "manifest_version": 2,
-  "author": "PolishFiltersTeam",
+  "author": "FiltersHeroes",
   "name": "__MSG_extensionName__",
   "description": "__MSG_extensionDescription__",
   "version": "1.43.5",
@@ -48,12 +48,12 @@
     "storage",
     "tabs",
     "notifications",
-    "https://raw.githubusercontent.com/PolishFiltersTeam/PolishCookieConsent/master/src/cookieBase/PCB.txt"
+    "unlimitedStorage",
+    "<all_urls>"
   ],
   "background": {
     "scripts": [
       "vAPI.js",
-      "vAPI_common.js",
       "update.js"
     ]
   },

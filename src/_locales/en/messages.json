@@ -134,8 +134,11 @@
   "tooManyArgs": {
     "message": "Too many arguments were given."
   },
-  "PolishCookieDatabase": {
+  "plCDB": {
     "message": "Polish Cookie Database"
+  },
+  "euCDB": {
+    "message": "European Cookie Database"
   },
   "assetViewer": {
     "message": "Asset Viewer"

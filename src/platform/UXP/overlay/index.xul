@@ -4,7 +4,6 @@
 <overlay id="PCC_browser_overlay"
     xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
     <script src="chrome://PCC/content/vAPI.js"/>
-    <script src="chrome://PCC/content/vAPI_common.js"/>
     <script src="chrome://PCC/content/update.js"/>
     <script src="chrome://PCC/content/overlay/index.js"/>
     <toolbarpalette id="BrowserToolbarPalette">

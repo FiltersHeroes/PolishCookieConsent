@@ -37,36 +37,60 @@ var PCC_vAPI = {
         local: {
             set: (name, value) => {
                 Components.utils.import('resource://gre/modules/osfile.jsm');
-                const path = OS.Path.join(OS.Constants.Path.profileDir, "extension-data");
-                OS.File.makeDir(path, { unixMode: parseInt('0774', 8) });
-                const file = OS.Path.join(path, "PolishCookieConsentExt@polishannoyancefilters.netlify.com.json");
+                let path = OS.Path.join(OS.Constants.Path.profileDir, "extension-data");
+                let file = OS.Path.join(path, "PolishCookieConsentExt@polishannoyancefilters.netlify.com.json");
 
                 return new Promise(function (resolve, reject) {
-                    OS.File.exists(file).then(function (exists) {
-                        if (exists) {
-                            OS.File.read(file, { encoding: "utf-8" }).then(function (existingData) {
-                                const parsedED = JSON.parse(existingData, 'utf8');
-                                parsedED[name] = value;
-                                resolve(OS.File.writeAtomic(file, JSON.stringify(parsedED)));
-                            });
-                        }
-                        else {
+                    OS.File.read(file, { encoding: "utf-8" }).then(function (data) {
+                        const parsedED = JSON.parse(data, 'utf8');
+                        parsedED[name] = value;
+                        resolve(OS.File.writeAtomic(file, JSON.stringify(parsedED)));
+                    }).catch(err => {
+                        if (err instanceof OS.File.Error && err.becauseNoSuchFile) {
                             const obj = {};
                             obj[name] = value;
-                            resolve(OS.File.writeAtomic(file, JSON.stringify(obj)));
+                            OS.File.makeDir(path, { unixMode: parseInt('0774', 8) });
+                            OS.File.writeAtomic(file, JSON.stringify(obj));
+                            resolve(undefined);
+                        } else {
+                            reject(err);
                         }
                     });
                 });
             },
             get: (name) => {
                 Components.utils.import('resource://gre/modules/osfile.jsm');
-                const file = OS.Path.join(OS.Constants.Path.profileDir, "extension-data", "PolishCookieConsentExt@polishannoyancefilters.netlify.com.json");
+                let path = OS.Path.join(OS.Constants.Path.profileDir, "extension-data");
+                let file = OS.Path.join(path, "PolishCookieConsentExt@polishannoyancefilters.netlify.com.json");
+
                 return new Promise(function (resolve, reject) {
                     OS.File.read(file, { encoding: "utf-8" }).then(function (data) {
                         const parsedD = JSON.parse(data, 'utf8');
                         resolve(parsedD[name]);
                     }).catch(err => {
-                        console.log(err);
+                        if (err instanceof OS.File.Error && err.becauseNoSuchFile) {
+                            const obj = {};
+                            OS.File.makeDir(path, { unixMode: parseInt('0774', 8) });
+                            OS.File.writeAtomic(file, JSON.stringify(obj));
+                            resolve(undefined);
+                        } else {
+                            reject(new Error(err));
+                        }
+                    });
+                });
+            },
+            remove: (name) => {
+                Components.utils.import('resource://gre/modules/osfile.jsm');
+                let path = OS.Path.join(OS.Constants.Path.profileDir, "extension-data");
+                let file = OS.Path.join(path, "PolishCookieConsentExt@polishannoyancefilters.netlify.com.json");
+
+                return new Promise(function (resolve, reject) {
+                    OS.File.read(file, { encoding: "utf-8" }).then(function (data) {
+                        const parsedED = JSON.parse(data, 'utf8');
+                        delete parsedED[name];
+                        resolve(OS.File.writeAtomic(file, JSON.stringify(parsedED)));
+                    }).catch(err => {
+                        reject(new Error(err));
                     });
                 });
             }

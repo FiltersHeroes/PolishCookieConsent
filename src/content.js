@@ -253,31 +253,18 @@ function initArgs(filter) {
     }
 }
 
-function userFilters() {
-    PCC_vAPI.storage.local.get('userFiltersEnabled').then(function (enabled) {
-        if (enabled) {
-            PCC_vAPI.storage.local.get('userFilters').then(function (resultUserFilters) {
-                if (typeof resultUserFilters !== "undefined" && resultUserFilters != "") {
-                    var filters = resultUserFilters.split("\n");
-                    for (var i = 0; i < filters.length; i++) {
-                        initArgs(filters[i]);
+function runFilterLists() {
+    PCC_vAPI.storage.local.get('selectedFilterLists').then(function (resultSelectedFL) {
+        if (typeof resultSelectedFL !== "undefined" && resultSelectedFL != "") {
+            resultSelectedFL.forEach((selectedFL) => {
+                PCC_vAPI.storage.local.get(selectedFL).then(function (resultFilterList) {
+                    if (typeof resultFilterList !== "undefined" && resultFilterList != "") {
+                        var filters = resultFilterList.split("\n");
+                        for (var i = 0; i < filters.length; i++) {
+                            initArgs(filters[i]);
+                        }
                     }
-                }
-            });
-        }
-    });
-}
-
-function cookieBaseFilters() {
-    PCC_vAPI.storage.local.get('cookieBaseEnabled').then(function (enabled) {
-        if (enabled) {
-            PCC_vAPI.storage.local.get('cookieBase').then(function (resultCookieBase) {
-                if (typeof resultCookieBase !== "undefined" && resultCookieBase != "") {
-                    var filters = resultCookieBase.split("\n");
-                    for (var i = 0; i < filters.length; i++) {
-                        initArgs(filters[i]);
-                    }
-                }
+                });
             });
         }
     });
@@ -290,12 +277,10 @@ PCC_vAPI.storage.local.get('whitelist').then(function (resultWhitelist) {
         }
         var whitelist = resultWhitelist.split("\n").filter(containsCommentSign).join([separator = ',']);
         if (!getUrlCondition(whitelist)) {
-            userFilters();
-            cookieBaseFilters();
+            runFilterLists();
         }
     }
     else {
-        userFilters();
-        cookieBaseFilters();
+        runFilterLists();
     }
 });
