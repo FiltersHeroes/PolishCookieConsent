@@ -4,7 +4,7 @@
     "description":"Extension name."
   },
   "extensionDescription":{
-    "message":"Automatically accepts cookie policy/GDPR on pages available in Polish.",
+    "message":"Automatically accepts cookie policy/GDPR on websites.",
     "description":"Description of extension."
   },
   "reportIssueOnGitHub":{
