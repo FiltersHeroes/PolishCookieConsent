@@ -16,9 +16,6 @@
   "license":{
     "message":"License"
   },
-  "credits":{
-    "message":"Credits"
-  },
   "changelog":{
     "message":"Changelog"
   },
@@ -39,7 +36,7 @@
     "placeholders": {
       "mfHelpPCCsyntax": {
         "content": "$1",
-        "example": "<a href=\"https://polishannoyancefilters.netlify.com/cookieconsentsyntax/\" target=\"_blank\" rel=\"noopener\">PCC syntax</a>"
+        "example": "<a href=\"https://polishannoyancefilters.netlify.app/cookieconsentsyntax/\" target=\"_blank\" rel=\"noopener\">PCC syntax</a>"
       }
     }
   },
