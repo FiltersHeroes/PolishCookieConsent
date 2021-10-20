@@ -79,6 +79,9 @@ var PCC_vAPI = {
     runtime: {
         getURL: (path) => {
             return chrome.runtime.getURL(path);
+        },
+        reload: () => {
+            chrome.runtime.reload();
         }
     },
     notifications: {

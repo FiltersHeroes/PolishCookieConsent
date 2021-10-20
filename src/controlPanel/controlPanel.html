@@ -187,6 +187,23 @@
                         <use href="../thirdparty/octicons24.svg#sync"></use>
                     </svg>
                 </button>
+
+                <hr>
+
+                <div>
+                    <button class="mui-btn mui--bg-color-brown-600" id="createBackup">
+                        <span data-i18n="__MSG_createBackup__"></span>
+                        <svg class="icon">
+                            <use href="../thirdparty/octicons24.svg#upload"></use>
+                        </svg>
+                    </button>
+                    <button class="mui-btn mui--bg-color-brown-600" id="restoreSettings">
+                        <span data-i18n="__MSG_restoreSettings__"></span>
+                        <svg class="icon">
+                            <use href="../thirdparty/octicons24.svg#download"></use>
+                        </svg>
+                    </button>
+                </div>
             </div>
         </div>
     </div>
@@ -348,6 +365,7 @@
     </div>
 
     <input id="importFilePicker" accept="text/plain" type="file" hidden="true">
+    <input id="restoreFilePicker" accept="application/JSON" type="file" hidden="true">
 
     <script src="../thirdparty/codemirror/lib/codemirror.js"></script>
     <script src="../thirdparty/codemirror/addon/mode/simple.js"></script>

@@ -17,6 +17,7 @@
 */
 
 var PCC_vAPI = {
+    extensionID: 'PolishCookieConsentExt@polishannoyancefilters.netlify.com',
     isWebExtension: () => {
         return false;
     },
@@ -56,7 +57,7 @@ var PCC_vAPI = {
             set: (name, value) => {
                 Components.utils.import('resource://gre/modules/osfile.jsm');
                 let path = OS.Path.join(OS.Constants.Path.profileDir, "extension-data");
-                let file = OS.Path.join(path, "PolishCookieConsentExt@polishannoyancefilters.netlify.com.json");
+                let file = OS.Path.join(path, PCC_vAPI.extensionID + ".json");
 
                 return new Promise(function (resolve, reject) {
                     OS.File.read(file, { encoding: "utf-8" }).then(function (data) {
@@ -79,7 +80,7 @@ var PCC_vAPI = {
             get: (name) => {
                 Components.utils.import('resource://gre/modules/osfile.jsm');
                 let path = OS.Path.join(OS.Constants.Path.profileDir, "extension-data");
-                let file = OS.Path.join(path, "PolishCookieConsentExt@polishannoyancefilters.netlify.com.json");
+                let file = OS.Path.join(path, PCC_vAPI.extensionID + ".json");
 
                 return new Promise(function (resolve, reject) {
                     OS.File.read(file, { encoding: "utf-8" }).then(function (data) {
@@ -100,7 +101,7 @@ var PCC_vAPI = {
             remove: (name) => {
                 Components.utils.import('resource://gre/modules/osfile.jsm');
                 let path = OS.Path.join(OS.Constants.Path.profileDir, "extension-data");
-                let file = OS.Path.join(path, "PolishCookieConsentExt@polishannoyancefilters.netlify.com.json");
+                let file = OS.Path.join(path, PCC_vAPI.extensionID + ".json");
 
                 return new Promise(function (resolve, reject) {
                     OS.File.read(file, { encoding: "utf-8" }).then(function (data) {
@@ -119,7 +120,7 @@ var PCC_vAPI = {
         let { Services } = Components.utils.import("resource://gre/modules/Services.jsm");
         let prefService = Services.prefs;
         return new Promise(function (resolve, reject) {
-            AddonManager.getAddonByID("PolishCookieConsentExt@polishannoyancefilters.netlify.com", function (addon) {
+            AddonManager.getAddonByID(PCC_vAPI.extensionID, function (addon) {
                 var currentVersion = addon.version;
                 var isNewVersion = Services.vc.compare(currentVersion, prefService.getCharPref("extensions.PolishFiltersTeam.PCC.version"));
                 if (isNewVersion == 1) {
@@ -149,6 +150,11 @@ var PCC_vAPI = {
     runtime: {
         getURL: (path) => {
             return "chrome://PCC/content/" + path;
+        },
+        reload: () => {
+            const currentExtensionURL = location.href;
+            window.close();
+            PCC_vAPI.tabs.create(currentExtensionURL);
         }
     },
     notifications: {

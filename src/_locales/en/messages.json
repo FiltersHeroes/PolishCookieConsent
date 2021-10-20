@@ -175,5 +175,34 @@
   },
   "helpTranslation": {
     "message": "Help with translation"
+  },
+  "createBackup": {
+    "message": "Create a backup"
+  },
+  "restoreSettings": {
+    "message": "Restore from file..."
+  },
+  "backupFilename": {
+    "message": "PCC-backup_$datetime$",
+    "placeholders": {
+      "datetime": {
+        "content": "$1",
+        "example": "2021-10-19_21.58.06"
+      }
+    }
+  },
+  "restoreDataConfirm": {
+    "message": "All your settings will be overwritten with data from backup created on $time$, and Polish Cookie Consent will be restarted after the process.\n\nAre you sure you want to do this?",
+    "description": "Message asking user to confirm restore.",
+    "placeholders": {
+        "time": {
+          "content": "$1",
+          "example": "2021-10-19, 21:58:06"
+        }
+      }
+  },
+  "restoreDataError": {
+    "message": "The data could not be read or is invalid.",
+    "description": "Message to display when an error occurred during restore."
   }
 }
