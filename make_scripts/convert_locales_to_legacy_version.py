@@ -13,11 +13,13 @@ from collections import OrderedDict
 if len(sys.argv) == 1 or not sys.argv[1]:
     raise SystemExit('Build dir missing.')
 
+
 def mkdirs(path):
     try:
         os.makedirs(path)
     finally:
         return os.path.exists(path)
+
 
 pj = os.path.join
 
@@ -35,7 +37,23 @@ for alpha2 in sorted(os.listdir(locale_dir)):
     locale_path = pj(locale_dir, alpha2, 'messages.properties')
     with open(locale_path, 'wt', encoding='utf-8', newline='\n') as f:
         for string_name in strings:
-            string = strings[string_name]['message'].replace("$mfHelpPCCsyntax$", "%S").replace("$Project$", "%1$S").replace("$author$", "%2$S").replace("$contributors$", "%3$S").replace("$function$", "%S").replace("$filterList$", "%S")
+            string = strings[string_name]['message']
+
+            placeholders = ''
+            placeholders_content = ''
+            if 'placeholders' in strings[string_name]:
+                placeholders = strings[string_name]['placeholders']
+
+            for placeholder_name in placeholders:
+                placeholder = placeholders[placeholder_name]
+                if "content" in placeholder:
+                    placeholder_content = placeholder["content"].replace(
+                        "$", "%")
+                    placeholder_content = re.sub(
+                        re.escape(placeholder_content), r'\g<0>'+"$S", placeholder_content)
+                    string = re.sub(re.escape("$"+placeholder_name+"$"),
+                                    placeholder_content, string, flags=re.IGNORECASE)
+
             f.write(string_name)
             f.write(u'=')
             f.write(string.replace('\n', r'\n'))
