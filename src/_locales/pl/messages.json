@@ -41,7 +41,8 @@
     }
   },
   "mfHelpPCCsyntax": {
-    "message": "składnią PCZ"
+    "message": "składnią PCZ",
+    "description": "Part with URL for user filters tip."
   },
   "about": {
     "message": "O rozszerzeniu"
@@ -174,5 +175,41 @@
   },
   "helpTranslation": {
     "message": "Pomóż w tłumaczeniu"
+  },
+  "createBackup": {
+    "message": "Utwórz kopię zapasową"
+  },
+  "restoreSettings": {
+    "message": "Przywróć z pliku..."
+  },
+  "backupFilename": {
+    "message": "PCC-kopia-zapasowa_$datetime$",
+    "placeholders": {
+      "datetime": {
+        "content": "$1",
+        "example": "2021-10-19_21.58.06"
+      }
+    }
+  },
+  "restoreSettingsConfirm": {
+    "message": "Wszystkie Twoje ustawienia zostaną nadpisane danymi z kopii stworzonej $time$, a Polska Ciasteczkowa Zgoda zostanie ponownie uruchomiona po zakończeniu procesu.\n\nCzy na pewno chcesz to zrobić?",
+    "description": "Message asking user to confirm restore.",
+    "placeholders": {
+      "time": {
+        "content": "$1",
+        "example": "2021-10-19, 21:58:06"
+      }
+    }
+  },
+  "restoreSettingsError": {
+    "message": "Danych nie można odczytać lub są nieprawidłowe.",
+    "description": "Message to display when an error occurred during restore."
+  },
+  "factoryReset": {
+    "message": "Przywróć ustawienia domyślne..."
+  },
+  "factoryResetConfirm": {
+    "message": "Wszystkie Twoje ustawienia zostaną przywrócone do wartości domyślnych, a Polska Ciasteczkowa Zgoda zostanie ponownie uruchomiona po zakończeniu procesu.\n\nCzy na pewno chcesz to zrobić?",
+    "description": "Message asking user to confirm reset."
   }
 }
