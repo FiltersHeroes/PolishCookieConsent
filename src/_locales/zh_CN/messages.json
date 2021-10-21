@@ -1,38 +1,38 @@
 {
   "extensionName": {
-    "message": "Polska Ciasteczkowa Zgoda",
+    "message": "Polish Cookie Consent",
     "description": "Extension name."
   },
   "extensionDescription": {
-    "message": "Automatycznie akceptuje politykę ciasteczek/RODO na stronach internetowych.",
+    "message": "Automatically accepts cookie policy/GDPR on websites.",
     "description": "Description of extension."
   },
   "reportIssueOnGitHub": {
-    "message": "Zgłoś problem na GitHubie"
+    "message": "通过 GitHub 反馈问题"
   },
   "sourceCode": {
-    "message": "Kod źródłowy"
+    "message": "源码"
   },
   "license": {
-    "message": "Licencja"
+    "message": "许可协议"
   },
   "changelog": {
-    "message": "Lista zmian"
+    "message": "更新日志"
   },
   "reportIssueWithoutLogin": {
-    "message": "Zgłoś problem bez logowania się"
+    "message": "Report an issue without logging in"
   },
   "apply": {
-    "message": "Zastosuj zmiany"
+    "message": "Apply changes"
   },
   "controlPanel": {
-    "message": "Panel sterowania"
+    "message": "控制面板"
   },
   "myFilters": {
-    "message": "Moje filtry"
+    "message": "My filters"
   },
   "mfHelp": {
-    "message": "Jeden filtr zgodny ze $mfHelpPCCsyntax$ na linię. Wiersze poprzedzone wykrzyknikiem lub kratką będą pomijane.",
+    "message": "One filter compatible with $mfHelpPCCsyntax$ per line. Lines prefixed with exclamation mark or hash will be ignored.",
     "placeholders": {
       "mfHelpPCCsyntax": {
         "content": "$1",
@@ -41,29 +41,29 @@
     }
   },
   "mfHelpPCCsyntax": {
-    "message": "składnią PCZ",
+    "message": "PCC syntax",
     "description": "Part with URL for user filters tip."
   },
   "about": {
-    "message": "O rozszerzeniu"
+    "message": "关于"
   },
   "whitelist": {
-    "message": "Lista wykluczonych"
+    "message": "排除列表"
   },
   "whitelistHelp": {
-    "message": "Lista wszystkich stron, na których rozszerzenie powinno zostać wyłączone. Jeden adres strony bez protokołu na linię. Wiersze poprzedzone wykrzyknikiem lub kratką będą pomijane."
+    "message": "List of all websites on which the extension should be disabled. One website address without protocol per line. Lines prefixed with exclamation mark or hash will be ignored."
   },
   "popupDisable": {
-    "message": "Wyłącz PCZ na tej stronie"
+    "message": "Disable PCC on this site"
   },
   "popupEnable": {
-    "message": "Włącz PCZ na tej stronie"
+    "message": "Enable PCC on this site"
   },
   "externalDepends": {
-    "message": "Zewnętrzne zależności:"
+    "message": "External dependencies:"
   },
   "by": {
-    "message": "$Project$ autorstwa $author$",
+    "message": "$Project$ by $author$",
     "placeholders": {
       "project": {
         "content": "$1",
@@ -76,7 +76,7 @@
     }
   },
   "byAnd": {
-    "message": "$Project$ autorstwa $author$ i $contributors$",
+    "message": "$Project$ by $author$ and $contributors$",
     "placeholders": {
       "project": {
         "content": "$1",
@@ -93,31 +93,31 @@
     }
   },
   "contributors": {
-    "message": "współtwórców"
+    "message": "contributors"
   },
   "version": {
-    "message": "Wersja:"
+    "message": "Version:"
   },
   "update": {
-    "message": "Aktualizuj listy filtrów"
+    "message": "更新过滤规则列表"
   },
   "extensionShortName": {
-    "message": "PCZ"
+    "message": "PCC"
   },
   "export": {
-    "message": "Eksportuj"
+    "message": "导出"
   },
   "import": {
-    "message": "Importuj i dołącz"
+    "message": "Import and append"
   },
   "revert": {
-    "message": "Przywróć"
+    "message": "复原"
   },
   "invalidEntry": {
-    "message": "Ten wpis jest nieprawidłowy."
+    "message": "This entry is invalid."
   },
   "invalidFunction": {
-    "message": "Funkcja $function$ nie została odnaleziona.",
+    "message": "The function $function$ couldn't be found.",
     "placeholders": {
       "function": {
         "content": "$1",
@@ -126,37 +126,37 @@
     }
   },
   "tooFewArgs": {
-    "message": "Podano zbyt mało argumentów."
+    "message": "Too few arguments were given."
   },
   "tooManyArgs": {
-    "message": "Podano zbyt dużo argumentów."
+    "message": "Too many arguments were given."
   },
   "plCDB": {
-    "message": "Polska Baza Ciasteczkowa"
+    "message": "Polish Cookie Database"
   },
   "euCDB": {
-    "message": "Europejska Baza Ciasteczkowa"
+    "message": "European Cookie Database"
   },
   "assetViewer": {
-    "message": "Przeglądarka zasobów"
+    "message": "Asset Viewer"
   },
   "viewContent": {
-    "message": "Zobacz zawartość"
+    "message": "View content"
   },
   "autoUpdate": {
-    "message": "Automatycznie aktualizuj listy filtrów"
+    "message": "Auto-update filter lists"
   },
   "settings": {
-    "message": "Ustawienia"
+    "message": "设置"
   },
   "filterLists": {
-    "message": "Listy filtrów"
+    "message": "Filter lists"
   },
   "notificationsUpdate": {
-    "message": "Wyświetlaj powiadomienia na pulpicie o statusie automatycznej aktualizacji list filtrów"
+    "message": "Display desktop notifications about status of automatic filter lists update"
   },
   "updateSuccess": {
-    "message": "$filterList$ została pomyślnie zaktualizowana.",
+    "message": "$filterList$ has been successfully updated.",
     "placeholders": {
       "filterList": {
         "content": "$1",
@@ -165,7 +165,7 @@
     }
   },
   "updateFail": {
-    "message": "Wystąpił błąd w trakcie aktualizacji listy $filterList$.",
+    "message": "An error occurred while updating $filterList$.",
     "placeholders": {
       "filterList": {
         "content": "$1",
@@ -174,16 +174,16 @@
     }
   },
   "helpTranslation": {
-    "message": "Pomóż w tłumaczeniu"
+    "message": "Help with translation"
   },
   "createBackup": {
-    "message": "Utwórz kopię zapasową"
+    "message": "Create a backup"
   },
   "restoreSettings": {
-    "message": "Przywróć z pliku..."
+    "message": "Restore from file..."
   },
   "backupFilename": {
-    "message": "PCC-kopia-zapasowa_$datetime$",
+    "message": "PCC-backup_$datetime$",
     "placeholders": {
       "datetime": {
         "content": "$1",
@@ -192,7 +192,7 @@
     }
   },
   "restoreSettingsConfirm": {
-    "message": "Wszystkie Twoje ustawienia zostaną nadpisane danymi z kopii stworzonej $time$, a Polska Ciasteczkowa Zgoda zostanie ponownie uruchomiona po zakończeniu procesu.\n\nCzy na pewno chcesz to zrobić?",
+    "message": "All your settings will be overwritten with data from backup created on $time$, and Polish Cookie Consent will be restarted after the process.\n\nAre you sure you want to do this?",
     "description": "Message asking user to confirm restore.",
     "placeholders": {
       "time": {
@@ -202,14 +202,14 @@
     }
   },
   "restoreSettingsError": {
-    "message": "Danych nie można odczytać lub są nieprawidłowe.",
+    "message": "The data could not be read or is invalid.",
     "description": "Message to display when an error occurred during restore."
   },
   "factoryReset": {
-    "message": "Przywróć ustawienia domyślne..."
+    "message": "Reset to default settings..."
   },
   "factoryResetConfirm": {
-    "message": "Wszystkie Twoje ustawienia zostaną przywrócone do wartości domyślnych, a Polska Ciasteczkowa Zgoda zostanie ponownie uruchomiona po zakończeniu procesu.\n\nCzy na pewno chcesz to zrobić?",
+    "message": "All your settings will be restored to default values, and Polish Cookie Consent will be restarted after the process.\n\nAre you sure you want to do this?",
     "description": "Message asking user to confirm reset."
   }
 }
