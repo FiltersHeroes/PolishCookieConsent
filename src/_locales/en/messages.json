@@ -191,7 +191,7 @@
       }
     }
   },
-  "restoreDataConfirm": {
+  "restoreSettingsConfirm": {
     "message": "All your settings will be overwritten with data from backup created on $time$, and Polish Cookie Consent will be restarted after the process.\n\nAre you sure you want to do this?",
     "description": "Message asking user to confirm restore.",
     "placeholders": {
@@ -201,8 +201,15 @@
         }
       }
   },
-  "restoreDataError": {
+  "restoreSettingsError": {
     "message": "The data could not be read or is invalid.",
     "description": "Message to display when an error occurred during restore."
+  },
+  "factoryReset": {
+    "message": "Reset to default settings..."
+  },
+  "factoryResetConfirm": {
+    "message": "All your settings will be restored to default values, and Polish Cookie Consent will be restarted after the process.\n\nAre you sure you want to do this?",
+    "description": "Message asking user to confirm reset."
   }
 }

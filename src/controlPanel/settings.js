@@ -218,18 +218,17 @@ document.querySelector("#restoreSettings").addEventListener("click", function ()
             }
             finally {
                 if (jsonR === undefined) {
-                    window.alert(PCC_vAPI.i18n.getMessage('restoreDataError'));
+                    window.alert(PCC_vAPI.i18n.getMessage('restoreSettingsError'));
                     return;
                 } else {
-                    const proceed = window.confirm(PCC_vAPI.i18n.getMessage("restoreDataConfirm", new Array(new Date(jsonR["timeStamp"]).toLocaleString())));
+                    const proceed = window.confirm(PCC_vAPI.i18n.getMessage("restoreSettingsConfirm", new Array(new Date(jsonR["timeStamp"]).toLocaleString())));
                     if (proceed !== true) {
-                        jsonR = undefined;
                         return;
                     }
                     PCC_vAPI.storage.local.set("userSettings", JSON.stringify(userSettings)).then(function () {
-                        PCC_vAPI.storage.local.set("selectedFilterLists", jsonR["selectedFilterLists"]).then(function () {
-                            PCC_vAPI.storage.local.set("userFilters", jsonR["userFilters"]).then(function () {
-                                PCC_vAPI.storage.local.set("whitelist", jsonR["whitelist"]).then(function () {
+                        PCC_vAPI.storage.local.set("selectedFilterLists", selectedFilterLists).then(function () {
+                            PCC_vAPI.storage.local.set("userFilters", userFilters).then(function () {
+                                PCC_vAPI.storage.local.set("whitelist", excludedList).then(function () {
                                     PCC_vAPI.runtime.reload();
                                 });
                             })
@@ -242,4 +241,35 @@ document.querySelector("#restoreSettings").addEventListener("click", function ()
     };
     fp.value = '';
     fp.click();
+});
+
+document.querySelector("#factoryReset").addEventListener("click", function () {
+    const proceed = window.confirm(PCC_vAPI.i18n.getMessage("factoryResetConfirm"));
+    if (proceed !== true) {
+        return;
+    }
+    fetch(PCC_vAPI.runtime.getURL("controlPanel/defaultSettings.json"))
+        .then(response => {
+            if (!response.ok) {
+                return Promise.reject({
+                    status: response.status,
+                    statusText: response.statusText,
+                    err: response.statusText
+                })
+            }
+            return response.json();
+        }).then(defaultSettings => {
+            PCC_vAPI.storage.local.set("selectedFilterLists", defaultSettings["selectedFilterLists"]).then(function () {
+                PCC_vAPI.storage.local.set("userSettings", JSON.stringify(defaultSettings["userSettings"])).then(function () {
+                    PCC_vAPI.storage.local.set("userFilters", defaultSettings["userFilters"]).then(function () {
+                        PCC_vAPI.storage.local.set("whitelist", defaultSettings["whitelist"]).then(function () {
+                            PCC_vAPI.runtime.reload();
+                        });
+                    });
+                });
+            });
+        })
+        .catch(function (error) {
+            console.log("[Polish Cookie Consent] " + error);
+        });
 });

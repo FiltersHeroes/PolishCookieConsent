@@ -58,7 +58,7 @@ function updateCookieBase(updateTime) {
                                         return Promise.reject({
                                             status: response.status,
                                             statusText: response.statusText,
-                                            err: text
+                                            err: response.statusText
                                         })
                                     }
                                     return response.json();
@@ -75,7 +75,7 @@ function updateCookieBase(updateTime) {
                                                         return Promise.reject({
                                                             status: response.status,
                                                             statusText: response.statusText,
-                                                            err: text
+                                                            err: response.statusText
                                                         })
                                                     }
                                                     return response.text();
@@ -107,18 +107,13 @@ function updateCookieBase(updateTime) {
 }
 
 function fetchLocalAssets() {
-    let rootURL;
-    if (PCC_vAPI.isWebExtension() == true) {
-        rootURL = "/";
-    } else {
-        rootURL = "chrome://PCC/content/";
-    }
-    fetch(rootURL + "assets/assets.json")
+    fetch(PCC_vAPI.runtime.getURL("assets/assets.json"))
         .then(response => {
             if (!response.ok) {
                 return Promise.reject({
                     status: response.status,
-                    statusText: response.statusText
+                    statusText: response.statusText,
+                    err: response.statusText
                 })
             }
             return response.json();
@@ -128,13 +123,13 @@ function fetchLocalAssets() {
                 const filerLists = Object.keys(assetsJSON).filter(item => item !== "assets.json");
                 filerLists.reduce(async (seq, localFL) => {
                     await seq;
-                    fetch(rootURL + assetsJSON[localFL].contentURL[1])
+                    fetch(PCC_vAPI.runtime.getURL(assetsJSON[localFL].contentURL[1]))
                         .then(response => {
                             if (!response.ok) {
                                 return Promise.reject({
                                     status: response.status,
                                     statusText: response.statusText,
-                                    err: text
+                                    err: response.statusText
                                 });
                             }
                             return response.text();
@@ -157,22 +152,34 @@ function setDefaultSettings() {
             PCC_vAPI.storage.local.remove("cookieBase");
         }
     }).then(function () {
-        PCC_vAPI.storage.local.get("selectedFilterLists").then(function (sFLvalue) {
-            if (typeof sFLvalue == "undefined" || !sFLvalue) {
-                PCC_vAPI.storage.local.set("selectedFilterLists", new Array("userFilters", "plCDB")).then(function () {
-                    PCC_vAPI.storage.local.get("userSettings").then(function (sValue) {
-                        if (typeof sValue == "undefined" || !sValue) {
-                            let usObj = Object.create({});
-                            usObj.autoUpdate = true;
-                            usObj.autoUpdateNotifications = true;
-                            PCC_vAPI.storage.local.set("userSettings", JSON.stringify(usObj)).then(function () {
-                                fetchLocalAssets();
-                            });
-                        }
+        fetch(PCC_vAPI.runtime.getURL("controlPanel/defaultSettings.json"))
+            .then(response => {
+                if (!response.ok) {
+                    return Promise.reject({
+                        status: response.status,
+                        statusText: response.statusText,
+                        err: response.statusText
                     })
+                }
+                return response.json();
+            }).then(defaultSettings => {
+                PCC_vAPI.storage.local.get("selectedFilterLists").then(function (sFLvalue) {
+                    if (typeof sFLvalue == "undefined" || !sFLvalue) {
+                        PCC_vAPI.storage.local.set("selectedFilterLists", defaultSettings["selectedFilterLists"]).then(function () {
+                            PCC_vAPI.storage.local.get("userSettings").then(function (sValue) {
+                                if (typeof sValue == "undefined" || !sValue) {
+                                    PCC_vAPI.storage.local.set("userSettings", JSON.stringify(defaultSettings["userSettings"])).then(function () {
+                                        fetchLocalAssets();
+                                    });
+                                }
+                            })
+                        });
+                    }
                 });
-            }
-        });
+            })
+            .catch(function (error) {
+                console.log("[Polish Cookie Consent] " + error);
+            });
     });
 }
 
