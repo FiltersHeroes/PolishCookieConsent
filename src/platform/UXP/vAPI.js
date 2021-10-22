@@ -153,8 +153,13 @@ var PCC_vAPI = {
         },
         reload: () => {
             const currentExtensionURL = location.href;
-            window.close();
-            PCC_vAPI.tabs.create(currentExtensionURL);
+            const browserWindow = Components.classes["@mozilla.org/appshell/window-mediator;1"].getService(Components.interfaces.nsIWindowMediator).getMostRecentWindow("navigator:browser");
+            if(browserWindow.gBrowser.tabContainer.childNodes.length > 1) {
+                browserWindow.gBrowser.removeTab(browserWindow.gBrowser.selectedTab);
+                PCC_vAPI.tabs.create(currentExtensionURL);
+            } else {
+                location.reload();
+            }
         }
     },
     notifications: {
