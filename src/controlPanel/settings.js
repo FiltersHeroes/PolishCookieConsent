@@ -180,10 +180,33 @@ document.querySelector("#createBackup").addEventListener("click", function () {
                 a.click();
                 a.href = "";
                 a.download = "";
+                PCC_vAPI.storage.local.set("lastBackupTime", tStamp).then(function () {
+                    showLastBackupTime();
+                });
             });
         });
     });
 });
+
+// Show info about last backup
+function showLastBackupTime() {
+    PCC_vAPI.storage.local.get("lastBackupTime").then(function (result) {
+        if (result) {
+            const timeOptions = {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                hour: 'numeric',
+                minute: 'numeric',
+                timeZoneName: 'short'
+            };
+            document.querySelector("#lastBackupPrompt").textContent = PCC_vAPI.i18n.getMessage("lastBackupPrompt") + " " + new Date(result).toLocaleString(PCC_vAPI.i18n.getUILanguage(), timeOptions);
+            document.querySelector("#lastBackupPrompt").removeAttribute("hidden");
+        }
+    });
+}
+showLastBackupTime();
 
 // Restore settings from file
 document.querySelector("#restoreSettings").addEventListener("click", function () {
@@ -263,7 +286,9 @@ document.querySelector("#factoryReset").addEventListener("click", function () {
                 PCC_vAPI.storage.local.set("userSettings", JSON.stringify(defaultSettings["userSettings"])).then(function () {
                     PCC_vAPI.storage.local.set("userFilters", defaultSettings["userFilters"]).then(function () {
                         PCC_vAPI.storage.local.set("whitelist", defaultSettings["whitelist"]).then(function () {
-                            PCC_vAPI.runtime.reload();
+                            PCC_vAPI.storage.local.set("lastBackupTime", "").then(function () {
+                                PCC_vAPI.runtime.reload();
+                            });
                         });
                     });
                 });

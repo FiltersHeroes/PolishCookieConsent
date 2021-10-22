@@ -211,5 +211,8 @@
   "factoryResetConfirm": {
     "message": "All your settings will be restored to default values, and Polish Cookie Consent will be restarted after the process.\n\nAre you sure you want to do this?",
     "description": "Message asking user to confirm reset."
+  },
+  "lastBackupPrompt": {
+    "message": "Last backup:"
   }
 }
