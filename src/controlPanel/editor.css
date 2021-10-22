@@ -6,6 +6,14 @@
     --cm-arg: #001080;
 }
 
+:root.dark {
+    --cm-def: #C586C0;
+    --cm-domain: #CE9178;
+    --cm-comment: #888;
+    --cm-func: #DCDCAA;
+    --cm-arg: #9CDCFE;
+}
+
 .codeMirrorContainer {
     flex-grow: 1;
     min-height: 2em;
@@ -36,7 +44,7 @@
     color: var(--cm-arg);
 }
 
-div.CodeMirror span.CodeMirror-matchingbracket {
+:root:not(.dark) div.CodeMirror span.CodeMirror-matchingbracket {
     color: inherit;
     background-color: #afa;
     font-weight: bold;

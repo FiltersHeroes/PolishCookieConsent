@@ -1,0 +1,8 @@
+:root.dark {
+    --currentColor: rgba(255, 255, 255, 0.87);
+}
+
+:root.dark body {
+    color: var(--currentColor);
+    background-color: rgba(0, 0, 0, 0.87);
+}

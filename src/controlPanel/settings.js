@@ -16,6 +16,38 @@
     along with Polish Cookie Consent. If not, see {http://www.gnu.org/licenses/}.
 */
 
+let rootH = document.querySelector(":root");
+
+// Apply dark theme
+let colorSchemeToggle = document.querySelector("#darkTheme_toggle");
+PCC_vAPI.storage.local.get("colorScheme").then(function (colorScheme) {
+    let condition;
+    if (colorScheme) {
+        condition = colorScheme == "dark";
+    } else {
+        condition = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    }
+    if (condition) {
+        rootH.classList.add("dark");
+        colorSchemeToggle.checked = true;
+    }
+});
+
+// Save color scheme choice
+colorSchemeToggle.addEventListener('change', function () {
+    let colorScheme;
+    if (this.checked) {
+        colorScheme = "dark";
+        rootH.classList.add("dark");
+    } else {
+        colorScheme = "light";
+        if (rootH.classList.contains("dark")) {
+            rootH.classList.remove("dark");
+        }
+    }
+    PCC_vAPI.storage.local.set("colorScheme", colorScheme);
+});
+
 // Save auto-update settings
 // Is auto-update enabled?
 let autoUpdateToggle = document.querySelector('#autoUpdate_toggle');
@@ -287,7 +319,9 @@ document.querySelector("#factoryReset").addEventListener("click", function () {
                     PCC_vAPI.storage.local.set("userFilters", defaultSettings["userFilters"]).then(function () {
                         PCC_vAPI.storage.local.set("whitelist", defaultSettings["whitelist"]).then(function () {
                             PCC_vAPI.storage.local.set("lastBackupTime", "").then(function () {
-                                PCC_vAPI.runtime.reload();
+                                PCC_vAPI.storage.local.set("colorScheme", "").then(function () {
+                                    PCC_vAPI.runtime.reload();
+                                });
                             });
                         });
                     });

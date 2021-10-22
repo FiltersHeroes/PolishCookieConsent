@@ -214,5 +214,8 @@
   },
   "lastBackupPrompt": {
     "message": "Last backup:"
+  },
+  "darkTheme": {
+    "message": "Use a dark theme"
   }
 }

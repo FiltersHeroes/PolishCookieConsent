@@ -19,6 +19,19 @@
 // Title
 document.querySelector("title").textContent = PCC_vAPI.i18n.getMessage("extensionName") + " - " + PCC_vAPI.i18n.getMessage("assetViewer");
 
+// Apply dark theme
+let rootH = document.querySelector(":root");
+PCC_vAPI.storage.local.get("colorScheme").then(function (colorScheme) {
+    let condition;
+    if (colorScheme) {
+        condition = colorScheme == "dark";
+    } else {
+        condition = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    }
+    if (condition) {
+        rootH.classList.add("dark");
+    }
+});
 
 let assetEditor = new CodeMirror(document.querySelector('#content'), {
     autofocus: true,
@@ -37,3 +50,4 @@ let url = new URLSearchParams(window.location.search).get("url");
 PCC_vAPI.storage.local.get(url).then(function (result) {
     assetEditor.setValue(result);
 });
+

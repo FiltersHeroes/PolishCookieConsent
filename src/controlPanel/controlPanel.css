@@ -1,3 +1,16 @@
+:root {
+    --currentColor: rgba(0, 0, 0, 0.87);
+    --tipColor: rgba(0, 0, 0, 0.54);
+}
+
+:root.dark {
+    --tipColor: rgba(255, 255, 255, 0.64);
+}
+
+:root.dark .aboutIcon svg {
+    fill: var(--currentColor);
+}
+
 svg.icon {
     fill: white;
 }
@@ -252,7 +265,7 @@ button#updateCookieBase.active .icon {
 }
 
 .tip {
-    color: rgba(0, 0, 0, 0.54);
+    color: var(--tipColor);
 }
 
 .database #version{
@@ -270,7 +283,7 @@ button#updateCookieBase.active .icon {
 
 .settingsIcon:hover,
 .tipIcon:hover {
-    fill: inherit;
+    fill: var(--currentColor);
 }
 
 .database:not(:last-child), .setting:not(:last-child) {
@@ -286,4 +299,8 @@ button#updateCookieBase.active .icon {
 .settingsHeader {
     font-weight: 600;
     letter-spacing: 0.5px;
+}
+
+:root.dark hr {
+    background-color: rgba(255, 255, 255, 0.12);
 }

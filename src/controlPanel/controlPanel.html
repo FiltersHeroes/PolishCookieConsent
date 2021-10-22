@@ -11,8 +11,10 @@
     <link rel="stylesheet" href="../thirdparty/mui.css" />
     <link rel="stylesheet" href="../thirdparty/mui-colors.css" />
     <link rel="stylesheet" href="../thirdparty/icheck-material.css" />
+    <link rel="stylesheet" href="common.css" />
     <link rel="stylesheet" href="controlPanel.css" />
     <link rel="stylesheet" href="editor.css" />
+    <link rel="stylesheet" href="editor_dark.css" />
     <link rel="shortcut icon" type="image/png" href="../icons/icon16.png" />
 </head>
 
@@ -115,6 +117,13 @@
     <div id="settings-tab" class="mui-tabs__pane">
         <div class="mui-container-fluid">
             <div class="mui-col-xs-12 mui-col-md-12">
+                <div id="darkTheme" class="setting">
+                    <div class="icheck-material-brown">
+                        <input type="checkbox" id="darkTheme_toggle">
+                        <label for="darkTheme_toggle" data-i18n="__MSG_darkTheme__">
+                        </label>
+                    </div>
+                </div>
                 <div id="autoUpdate" class="setting">
                     <div class="icheck-material-brown">
                         <input type="checkbox" id="autoUpdate_toggle">

@@ -1,0 +1,129 @@
+/*
+http://lesscss.org/ dark theme
+Ported to CodeMirror by Peter Kroon
+Modified by Filters Heroes
+*/
+:root.dark .CodeMirror {
+    line-height: 1.3em;
+}
+:root.dark .CodeMirror {
+    background: #262626;
+    color: #ebefe7;
+    text-shadow: 0 -1px 1px #262626;
+}
+:root.dark .CodeMirror div.CodeMirror-selected {
+    background: #45443b;
+} /* 33322B*/
+:root.dark .CodeMirror .CodeMirror-line::selection,
+:root.dark .CodeMirror .CodeMirror-line > span::selection,
+:root.dark .CodeMirror .CodeMirror-line > span > span::selection {
+    background: rgba(69, 68, 59, 0.99);
+}
+:root.dark .CodeMirror .CodeMirror-line::-moz-selection,
+:root.dark .CodeMirror .CodeMirror-line > span::-moz-selection,
+:root.dark .CodeMirror .CodeMirror-line > span > span::-moz-selection {
+    background: rgba(69, 68, 59, 0.99);
+}
+:root.dark .CodeMirror .CodeMirror-cursor {
+    border-left: 1px solid white;
+}
+:root.dark .CodeMirror pre {
+    padding: 0 8px;
+} /*editable code holder*/
+
+:root.dark .CodeMirror.CodeMirror span.CodeMirror-matchingbracket {
+    color: #7efc7e;
+} /*65FC65*/
+
+:root.dark .CodeMirror .CodeMirror-gutters {
+    background: #262626;
+    border-right: 1px solid #aaa;
+}
+:root.dark .CodeMirror .CodeMirror-guttermarker {
+    color: #599eff;
+}
+:root.dark .CodeMirror .CodeMirror-guttermarker-subtle {
+    color: #777;
+}
+:root.dark .CodeMirror .CodeMirror-linenumber {
+    color: #777;
+}
+
+/* :root.dark .CodeMirror span.cm-header {
+    color: #a0a;
+}
+:root.dark .CodeMirror span.cm-quote {
+    color: #090;
+}
+:root.dark .CodeMirror span.cm-keyword {
+    color: #599eff;
+}
+:root.dark .CodeMirror span.cm-atom {
+    color: #c2b470;
+}
+:root.dark .CodeMirror span.cm-number {
+    color: #b35e4d;
+}
+:root.dark .CodeMirror span.cm-def {
+    color: white;
+}
+:root.dark .CodeMirror span.cm-variable {
+    color: #d9bf8c;
+}
+:root.dark .CodeMirror span.cm-variable-2 {
+    color: #669199;
+}
+:root.dark .CodeMirror span.cm-variable-3,
+:root.dark .CodeMirror span.cm-type {
+    color: white;
+}
+:root.dark .CodeMirror span.cm-property {
+    color: #92a75c;
+}
+:root.dark .CodeMirror span.cm-operator {
+    color: #92a75c;
+}
+:root.dark .CodeMirror span.cm-comment {
+    color: #666;
+}
+:root.dark .CodeMirror span.cm-string {
+    color: #bcd279;
+}
+:root.dark .CodeMirror span.cm-string-2 {
+    color: #f50;
+}
+:root.dark .CodeMirror span.cm-meta {
+    color: #738c73;
+}
+:root.dark .CodeMirror span.cm-qualifier {
+    color: #555;
+}
+:root.dark .CodeMirror span.cm-builtin {
+    color: #ff9e59;
+}
+:root.dark .CodeMirror span.cm-bracket {
+    color: #ebefe7;
+}
+:root.dark .CodeMirror span.cm-tag {
+    color: #669199;
+}
+:root.dark .CodeMirror span.cm-attribute {
+    color: #81a4d5;
+}
+:root.dark .CodeMirror span.cm-hr {
+    color: #999;
+}
+:root.dark .CodeMirror span.cm-link {
+    color: #7070e6;
+}
+:root.dark .CodeMirror span.cm-error {
+    color: #9d1e15;
+} */
+
+:root.dark .CodeMirror .CodeMirror-activeline-background {
+    background: #3c3a3a;
+}
+:root.dark .CodeMirror .CodeMirror-matchingbracket {
+    outline: 1px solid grey;
+    color: white !important;
+}
