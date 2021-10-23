@@ -211,5 +211,11 @@
   "factoryResetConfirm": {
     "message": "Wszystkie Twoje ustawienia zostaną przywrócone do wartości domyślnych, a Polska Ciasteczkowa Zgoda zostanie ponownie uruchomiona po zakończeniu procesu.\n\nCzy na pewno chcesz to zrobić?",
     "description": "Message asking user to confirm reset."
+  },
+  "lastBackupPrompt": {
+    "message": "Ostatnia kopia zapasowa:"
+  },
+  "darkTheme": {
+    "message": "Używaj ciemnego motywu"
   }
 }
