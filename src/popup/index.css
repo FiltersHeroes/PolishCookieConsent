@@ -1,18 +1,32 @@
+:root {
+    --currentColor: rgba(0, 0, 0, 0.87);
+    --currentBgColor: #ffffff;
+    --wrapperHoverColor: #d8ad6a;
+}
+
+:root.dark {
+    --currentColor: rgba(255, 255, 255, 0.87);
+    --currentBgColor: rgba(0, 0, 0, 0.87);
+    --wrapperHoverColor: #5D4037;
+}
+
 body {
     margin: 0px;
     min-width: 250px;
     width: auto;
     font-family: sans-serif;
-    background-color: #ffffff;
+    background-color: var(--currentBgColor);
     user-select: none;
+    color: var(--currentColor);
 }
 
 .title {
     background-color: #6a4000;
-    color: #ffffff;
+    color: rgba(255, 255, 255, 0.87);
     font-size: 15px;
     text-align: center;
     padding: 5px;
+    border-bottom: 2px solid #8D6E63;
 }
 
 .title > p {
@@ -26,7 +40,7 @@ body {
 }
 
 .wrapper:hover {
-    background-color: #d8ad6a;
+    background-color: var(--wrapperHoverColor);
 }
 
 .wrapper > svg {
@@ -51,4 +65,8 @@ body {
 .wrapper-switch,
 .separator-switch {
     display: none;
+}
+
+:root.dark svg {
+    fill: var(--currentColor);
 }
