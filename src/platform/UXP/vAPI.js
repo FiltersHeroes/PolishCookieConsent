@@ -144,8 +144,10 @@ var PCC_vAPI = {
         let eframeHeight = eframe.contentDocument.body.scrollHeight;
         let eframeWidth = eframe.contentDocument.body.scrollWidth;
         let epanel = browserWindow.document.querySelector("#PolishFiltersTeam_PCC_popup_panel");
-        epanel.style.height = eframe.style.height = eframeHeight + 1 + "px";
-        epanel.style.width = eframe.style.width = eframeWidth + 1 + "px";
+        epanel.style.height = eframe.style.height + "px";
+        epanel.style.width = eframe.style.width + "px";
+        eframe.style.height = eframeHeight + "px";
+        eframe.style.width = eframeWidth + "px";
     },
     runtime: {
         getURL: (path) => {
