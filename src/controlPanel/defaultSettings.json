@@ -6,7 +6,5 @@
     "selectedFilterLists": [
         "userFilters",
         "plCDB"
-    ],
-    "userFilters": "",
-    "whitelist": ""
+    ]
 }

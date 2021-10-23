@@ -298,6 +298,7 @@ document.querySelector("#restoreSettings").addEventListener("click", function ()
     fp.click();
 });
 
+// Make factory reset
 document.querySelector("#factoryReset").addEventListener("click", function () {
     const proceed = window.confirm(PCC_vAPI.i18n.getMessage("factoryResetConfirm"));
     if (proceed !== true) {
@@ -316,8 +317,8 @@ document.querySelector("#factoryReset").addEventListener("click", function () {
         }).then(defaultSettings => {
             PCC_vAPI.storage.local.set("selectedFilterLists", defaultSettings["selectedFilterLists"]).then(function () {
                 PCC_vAPI.storage.local.set("userSettings", JSON.stringify(defaultSettings["userSettings"])).then(function () {
-                    PCC_vAPI.storage.local.set("userFilters", defaultSettings["userFilters"]).then(function () {
-                        PCC_vAPI.storage.local.set("whitelist", defaultSettings["whitelist"]).then(function () {
+                    PCC_vAPI.storage.local.set("userFilters", "").then(function () {
+                        PCC_vAPI.storage.local.set("whitelist", "").then(function () {
                             PCC_vAPI.storage.local.set("lastBackupTime", "").then(function () {
                                 PCC_vAPI.storage.local.set("colorScheme", "").then(function () {
                                     PCC_vAPI.runtime.reload();

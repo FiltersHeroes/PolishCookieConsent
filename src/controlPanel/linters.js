@@ -84,7 +84,7 @@ CodeMirror.registerHelper("lint", "excludedList", function (text) {
     let badEntry = /(^[^.]+$)|[^a-z0-9.\-_\[\]:]/;
     for (let i = 0; i < lines.length; i++) {
         let line = lines[i];
-        if (badEntry.test(line)) {
+        if (badEntry.test(line) && !/^(!|#)/.test(line)) {
             found.push({
                 from: CodeMirror.Pos(i, 0),
                 to: CodeMirror.Pos(i, line.length),

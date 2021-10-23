@@ -4,7 +4,7 @@
   xmlns:em="http://www.mozilla.org/2004/em-rdf#">
   <Description about="urn:mozilla:install-manifest"
     em:name="Polish Cookie Consent"
-    em:description="Automatically accepts cookie policy/GDPR on pages available in Polish."
+    em:description="Automatically accepts cookie policy/GDPR on websites."
     em:creator="Filters Heroes"
     em:homepageURL="https://github.com/FiltersHeroes/PolishCookieConsent"
     em:id="PolishCookieConsentExt@polishannoyancefilters.netlify.com"
