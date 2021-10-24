@@ -1,16 +1,18 @@
 ! Polska Baza Ciasteczkowa
 ! Polish Cookie Database
-! Version: 2021.09.19.0
-! Copyright © 2021 Polish Filters Team
+! Version: 2021.10.12.0
+! License: MIT
+! Copyright © 2021 Filters Heroes
 !
 !
-! add to storage
+! Local storage
 click.kaufland.com##+js(addToStorage, cookies, {"consent":"accepted"})
 gry.lotto.pl##+js(addToStorage, rodoConfirmation2, true)
 gry.lotto.pl##+js(addToStorage, rodoConfirmation, true)
 totalcasino.pl##+js(addToStorage, gdpr_popup, true)
 !
-! bake cookie
+!
+! Cookies
 action.com##+js(bakeCookie, CookieConsent, true, 365)
 al.to,combat.pl,x-kom.pl##+js(bakeCookie, cookieAccept, true, 365)
 budujmase.pl,drogerium.pl,trec.pl,wylecz.to##+js(bakeCookie, rodoHfM, true, 365)
@@ -27,7 +29,7 @@ gisgminny.pl##+js(bakeCookie, cookiesDirective, 1, 365)
 hiszpanskidlapolakow.com##+js(bakeCookie, gdpr-accepted, {"ga":true,"facebook":true,"disqus":true}, 365)
 hrkgame.com##+js(bakeCookie, gdpralert, done, 365)
 infor.pl##+js(bakeCookie, inforCookieWallCacheVal, 15, 365)
-laziska.com.pl,m-ce.pl,mojbytom.pl,mojegliwice.pl,mojekatowice.pl,mojmikolow.pl,orzesze.com.pl,piekaryslaskie.com.pl,pyskowice.com.pl,rudaslaska.com.pl,rybnicki.com,siemianowice.net.pl,sosnowiecki.pl,swiony.pl,wodzislaw.com.pl,zabrze.com.pl,zory.com.pl,silesia.info.pl##+js(bakeCookie, rodo, accept, 365)
+laziska.com.pl,m-ce.pl,mojbytom.pl,mojegliwice.pl,mojekatowice.pl,mojmikolow.pl,orzesze.com.pl,piekaryslaskie.com.pl,pyskowice.com.pl,rudaslaska.com.pl,rybnicki.com,siemianowice.net.pl,silesia.info.pl,sosnowiecki.pl,swiony.pl,wodzislaw.com.pl,zabrze.com.pl,zory.com.pl##+js(bakeCookie, rodo, accept, 365)
 login.e-dowod.gov.pl##+js(bakeCookie, acceptRodoSie, hide, 365)
 mapa.gdansk.gda.pl##+js(bakeCookie, ipg.splash, y, 365)
 mapa.gdansk.gda.pl##+js(bakeCookie, splash, y, 365)
@@ -38,7 +40,7 @@ mini.com.pl##+js(bakeCookie, cc_consentCookie, {"mini_poland_family":{"consentMe
 n26.com##+js(bakeCookie, num26GDPR, ACCEPTED, 365)
 nike.com##+js(bakeCookie, sq, 3, 365)
 parkiet.com,rp.pl##+js(bakeCookie, __gm_tcfconsent_v2, 1, 365)
-polsatgo.pl,polsatboxgo.pl##+js(bakeCookie, rodo-modal-displayed, 1, 365)
+polsatboxgo.pl,polsatgo.pl##+js(bakeCookie, rodo-modal-displayed, 1, 365)
 tv-trwam.pl##+js(bakeCookie, ARE_FUNCTIONAL_COOKIES_ACCEPTED, true, 365)
 tv-trwam.pl##+js(bakeCookie, ARE_MARKETING_COOKIES_ACCEPTED, true, 365)
 tv-trwam.pl##+js(bakeCookie, ARE_REQUIRED_COOKIES_ACCEPTED, true, 365)
@@ -53,17 +55,16 @@ wunderground.com##+js(bakeCookie, notice_poptime, 1533920400000, 365)
 www2.hm.com##+js(bakeCookie, hm_gdpr_read, true, 365)
 !
 !
-! click interactive
+! Click interactive
 odr.pl##+js(clickInteractive, .termsagree)
 tumblr.com/privacy/consent##+js(clickInteractive, .btn.yes)
 !
 !
-! click timeout
-bankier.pl,bethesda.net,boomerang-tv.pl,claudia.pl,dyskusje24.pl,edziecko.pl,eurogamer.pl,gazeta.biz,gazeta.pl,gazetapraca.pl,haps.pl,moto.pl,player.pl,plotek.pl,sport.pl,tokfm.pl,toteraz.pl,tvn24.pl,ugotuj.to,wyborcza.biz,wyborcza.pl,wysokieobcasy.pl##+js(clickTimeout, #onetrust-accept-btn-handler)
+! Click timeout
+bethesda.net,boomerang-tv.pl,eurogamer.pl,player.pl,toteraz.pl,tvn24.pl##+js(clickTimeout, #onetrust-accept-btn-handler)
 click.kaufland.com/cookieconsent##+js(clickTimeout, button.primary)
 consent.google.com,consent.google.pl,consent.youtube.com##+js(clickTimeout, form[action*="consent."] [aria-label^="Zgadzasz się na wykorzystanie plików cookie"])
 downdetector.pl##+js(clickTimeout, .evidon-barrier-acceptbutton)
-!facebook.com,messenger.com##+js(clickTimeout, body > div [title="Akceptuj wszystkie"])
 facebook.com,messenger.com##+js(clickTimeout, body > div [data-cookiebanner="accept_button"])
 fandom.com##+js(clickTimeout, [data-tracking-opt-in-accept="true"], euconsent-v2)
 instagram.com##+js(clickTimeout, body[style*="overflow"] div[role="presentation"].RnEpo > div[role="dialog"] div > button:nth-of-type(1):nth-last-of-type(2))
@@ -74,15 +75,13 @@ sp215.info/s2/ccs.php##+js(clickTimeout, input[value="AKCEPTUJĘ PLIKI COOKIES"]
 /^https?:\/\/consent\.yahoo.com\/[a-z0-9]{2}\/collectConsent/##+js(clickTimeout, .btn[name="agree"])
 !
 !
-! click complete
+! Click complete
 abczdrowie.pl,allani.pl,autocentrum.pl,autokult.pl,dobramama.pl,dobregry.pl,dobreprogramy.pl,domodi.pl,echirurgia.pl,extradom.pl,fotoblogia.pl,gadzetomania.pl,homebook.pl,jejswiat.pl,kafeteria.pl,kafeteria.tv,kardiolo.pl,kazimierzdolny.pl,komorkomania.pl,luxlux.pl,medycyna24.pl,mixer.pl,money.pl,nerwica.com,nocowanie.pl,o2.pl,open.fm,parenting.pl,pinger.pl,pogodnie.pl,polygamia.pl,pudelek.pl,pudelek.tv,pudelekx.pl,pytamy.pl,samosia.pl,smaczneblogi.pl,smog.pl,snobka.pl,so-magazyn.pl,superauto.pl,testwiedzy.pl,totalmoney.pl,vibez.pl,wakacje.pl,wp.pl##+js(clickComplete, button, 200, PRZECHODZ)
 gry.pl##+js(clickComplete, div[class*="app_gdpr"] button[class*="intro_acceptAll"], euconsent)
 !
 !
-! redirect
+! Redirect
 f1racing.pl##+js(redirect, x-set-cookie, true, x-id-cookie-yes)
 /^https?:\/\/(www\.)?biblioteka\.rawicz\.pl\/$/##+js(redirect, indexa.html, false)
 /^https?:\/\/(www\.)?edytor-serwis\.com\.pl\/$/##+js(redirect, index2.html, false)
 /^https?:\/\/(www\.)?tester\.net\.pl\/$/##+js(redirect, ?pl_witamy,1, false)
-!
-!
