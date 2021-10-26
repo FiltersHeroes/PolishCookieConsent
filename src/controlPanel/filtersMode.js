@@ -31,7 +31,7 @@ CodeMirror.defineSimpleMode("filters", {
             sol: true
         },
         {
-            regex: /([a-zA-Z0-9][a-zA-Z0-9-]{0,}[a-zA-Z0-9]\.)+[a-zA-Z\/]{0,}/,
+            regex: /([a-zA-Z0-9-]{0,}[a-zA-Z0-9-]\.)+[a-zA-Z0-9\.\/]{0,}/,
             token: 'domainPart',
         },
         {
