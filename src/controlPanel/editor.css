@@ -1,23 +1,24 @@
 :root {
-    --cm-def: #AF00DB;
+    --cm-def: #af00db;
     --cm-domain: #a31515;
     --cm-comment: #777;
-    --cm-func: #795E26;
+    --cm-func: #795e26;
     --cm-arg: #001080;
 }
 
 :root.dark {
-    --cm-def: #C586C0;
-    --cm-domain: #CE9178;
+    --cm-def: #c586c0;
+    --cm-domain: #ce9178;
     --cm-comment: #888;
-    --cm-func: #DCDCAA;
-    --cm-arg: #9CDCFE;
+    --cm-func: #dcdcaa;
+    --cm-arg: #9cdcfe;
 }
 
 .codeMirrorContainer {
     flex-grow: 1;
     min-height: 2em;
     position: relative;
+    overflow: hidden;
 }
 
 .CodeMirror {

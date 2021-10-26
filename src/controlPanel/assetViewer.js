@@ -49,5 +49,13 @@ let url = new URLSearchParams(window.location.search).get("url");
 
 PCC_vAPI.storage.local.get(url).then(function (result) {
     assetEditor.setValue(result);
+    if(url !== "userFilters") {
+        PCC_vAPI.storage.local.get("assetsJSON").then(function (aJSONresult) {
+            const aJSON = JSON.parse(aJSONresult);
+            document.querySelector("#sourceURL").href = aJSON[url].contentURL[0];
+            document.querySelector("#sourceURL").title = aJSON[url].contentURL[0];
+            document.querySelector("#sourceURL").removeAttribute("hidden");
+        });
+    }
 });
 
