@@ -138,7 +138,8 @@ document.querySelector("#updateCookieBase").addEventListener("click", function (
     PCC_vAPI.storage.local.get('assetsJSON').then(function (resultAssets) {
         if (resultAssets) {
             const localAssetsJSON = JSON.parse(resultAssets);
-            const jsonURL = localAssetsJSON["assets.json"].contentURL[0];
+            const randomNumber = Math.floor(Math.random() * localAssetsJSON["assets.json"].cdnURLs.length);
+            const jsonURL = localAssetsJSON["assets.json"].cdnURLs[randomNumber];
             fetch(jsonURL)
                 .then(response => {
                     if (!response.ok) {
@@ -155,7 +156,7 @@ document.querySelector("#updateCookieBase").addEventListener("click", function (
                     const selectedFilterLists = getSelectedFilterLists().filter(item => item !== "userFilters");
                     selectedFilterLists.reduce(async (seq, selectedFL) => {
                         await seq;
-                        fetch(assetsJSON[selectedFL].contentURL[0])
+                        fetch(assetsJSON[selectedFL].cdnURLs[randomNumber])
                             .then(response => {
                                 if (!response.ok) {
                                     return Promise.reject({

@@ -52,7 +52,8 @@ function updateCookieBase(updateTime) {
                     if (userSettings["autoUpdate"]) {
                         PCC_vAPI.storage.local.get("assetsJSON").then(function (aJSONresult) {
                             const aJSON = JSON.parse(aJSONresult);
-                            fetch(aJSON["assets.json"].contentURL[0])
+                            const randomNumber = Math.floor(Math.random() * aJSON["assets.json"].cdnURLs.length);
+                            fetch(aJSON["assets.json"].cdnURLs[randomNumber])
                                 .then(response => {
                                     if (!response.ok) {
                                         return Promise.reject({
@@ -69,7 +70,7 @@ function updateCookieBase(updateTime) {
                                         const sFLnewResult = sFLresult.filter(item => item !== "userFilters");
                                         sFLnewResult.reduce(async (seq, selectedFL) => {
                                             await seq;
-                                            fetch(assetsJSON[selectedFL].contentURL[0])
+                                            fetch(assetsJSON[selectedFL].contentURL)
                                                 .then(response => {
                                                     if (!response.ok) {
                                                         return Promise.reject({
@@ -123,7 +124,7 @@ function fetchLocalAssets() {
                 const filerLists = Object.keys(assetsJSON).filter(item => item !== "assets.json");
                 filerLists.reduce(async (seq, localFL) => {
                     await seq;
-                    fetch(PCC_vAPI.runtime.getURL(assetsJSON[localFL].contentURL[1]))
+                    fetch(PCC_vAPI.runtime.getURL(assetsJSON[localFL].localURL))
                         .then(response => {
                             if (!response.ok) {
                                 return Promise.reject({
