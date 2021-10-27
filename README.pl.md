@@ -95,4 +95,4 @@ Polska Ciasteczkowa Zgoda korzysta z otwartoźródłowego kodu następujących p
 
 * [MUI](https://github.com/muicss/mui)
 
-* [primer/octicons](https://github.com/primer/octicons/)
+* [Octicons](https://github.com/primer/octicons/)

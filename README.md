@@ -83,7 +83,7 @@ Crowdin: [![Crowdin](https://badges.crowdin.net/polish-cookie-consent/localized.
 
 ## **Credits**
 
-Polish Cookie Consent extensions uses open-source code from following projects (according to alphabetical order):
+Polish Cookie Consent extension uses open-source code from following projects (according to alphabetical order):
 
 * [CodeMirror](https://github.com/codemirror/codemirror)
 
@@ -93,4 +93,4 @@ Polish Cookie Consent extensions uses open-source code from following projects (
 
 * [MUI](https://github.com/muicss/mui)
 
-* [primer/octicons](https://github.com/primer/octicons/)
+* [Octicons](https://github.com/primer/octicons/)
