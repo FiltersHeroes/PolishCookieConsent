@@ -57,7 +57,7 @@ for (var i = 0; i < tabs.length; i++) {
 PCC_vAPI.storage.local.get('lastOpenedTab').then(function (resultLastOpenedTab) {
     if (resultLastOpenedTab) {
         let lastOpenedTab = resultLastOpenedTab;
-        if(lastOpenedTab == "cookie-base") {
+        if (lastOpenedTab == "cookie-base") {
             lastOpenedTab = "settings-tab";
             PCC_vAPI.storage.local.set("lastOpenedTab", lastOpenedTab);
         }
@@ -82,6 +82,16 @@ PCC_vAPI.storage.local.get('lastOpenedTab').then(function (resultLastOpenedTab) 
         mui.tabs.activate(firstMobileTab.querySelector("a").getAttribute("data-mui-controls"));
     }
 });
+
+// Add URLs to Polish docs
+let keySE = document.querySelector("#my-filters-tab .keyboardS");
+let keyS2E = document.querySelector("#excluded-list-tab .keyboardS");
+let syntaxE = document.querySelector("#my-filters-tab .syntax");
+if (PCC_vAPI.i18n.getUILanguage() == "pl") {
+    keySE.href = keySE.href.replace("/en", "");
+    keyS2E.href = keyS2E.href.replace("/en", "");
+    syntaxE.href = syntaxE.href.replace("/en", "");
+}
 
 // Add extension version to about tab
 const version = PCC_vAPI.getVersion();
