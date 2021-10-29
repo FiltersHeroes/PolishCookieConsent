@@ -6,7 +6,7 @@
     --tipColor: rgba(255, 255, 255, 0.64);
 }
 
-:root.dark .aboutIcon svg {
+:root.dark .aboutIcon {
     fill: var(--currentColor);
 }
 
