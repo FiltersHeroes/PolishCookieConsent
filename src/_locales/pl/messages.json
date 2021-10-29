@@ -7,8 +7,8 @@
     "message": "Automatycznie akceptuje politykę ciasteczek/RODO na stronach internetowych.",
     "description": "Description of extension."
   },
-  "reportIssueOnGitHub": {
-    "message": "Zgłoś problem na GitHubie"
+  "reportIssue": {
+    "message": "Zgłoś problem"
   },
   "sourceCode": {
     "message": "Kod źródłowy"
