@@ -48,14 +48,15 @@ let assetEditor = new CodeMirror(document.querySelector('#content'), {
 let url = new URLSearchParams(window.location.search).get("url");
 
 PCC_vAPI.storage.local.get(url).then(function (result) {
-    assetEditor.setValue(result);
-    if(url !== "userFilters") {
-        PCC_vAPI.storage.local.get("assetsJSON").then(function (aJSONresult) {
-            const aJSON = JSON.parse(aJSONresult);
-            document.querySelector("#sourceURL").href = aJSON[url].contentURL;
-            document.querySelector("#sourceURL").title = aJSON[url].contentURL;
-            document.querySelector("#sourceURL").removeAttribute("hidden");
-        });
+    let flContent;
+    if (url !== "userFilters") {
+        const flResult = JSON.parse(result);
+        flContent = flResult["content"];
+        document.querySelector("#sourceURL").href = flResult["sourceURL"];
+        document.querySelector("#sourceURL").title = flResult["sourceURL"];
+        document.querySelector("#sourceURL").removeAttribute("hidden");
+    } else {
+        flContent = result;
     }
+    assetEditor.setValue(flContent);
 });
-

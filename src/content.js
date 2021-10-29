@@ -277,7 +277,12 @@ function runFilterLists() {
             resultSelectedFL.forEach((selectedFL) => {
                 PCC_vAPI.storage.local.get(selectedFL).then(function (resultFilterList) {
                     if (typeof resultFilterList !== "undefined" && resultFilterList != "") {
-                        var filters = resultFilterList.split("\n");
+                        var filters;
+                        if(selectedFL == "userFilters") {
+                            filters = resultFilterList.split("\n");
+                        } else {
+                            filters = JSON.parse(resultFilterList)["content"].split("\n");
+                        }
                         for (var i = 0; i < filters.length; i++) {
                             initArgs(filters[i]);
                         }

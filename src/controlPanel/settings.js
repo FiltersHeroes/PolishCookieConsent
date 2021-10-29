@@ -115,10 +115,10 @@ PCC_vAPI.storage.local.get("selectedFilterLists").then(function (result) {
 document.addEventListener("DOMContentLoaded", updateVersion);
 
 function updateVersion() {
-    document.querySelectorAll('.database:not(#myFilters)').forEach((filterList) => {
+    document.querySelectorAll('.database:not(#userFilters)').forEach((filterList) => {
         PCC_vAPI.storage.local.get(filterList.id).then(function (result) {
             if (result) {
-                var filterListLine = result.split("\n");
+                var filterListLine = JSON.parse(result)["content"].split("\n");
                 for (var i = 0; i < filterListLine.length; i++) {
                     if (filterListLine[i].match("Version")) {
                         var fLV = document.querySelector("#" + filterList.id + " #version");
@@ -138,8 +138,7 @@ document.querySelector("#updateCookieBase").addEventListener("click", function (
     PCC_vAPI.storage.local.get('assetsJSON').then(function (resultAssets) {
         if (resultAssets) {
             const localAssetsJSON = JSON.parse(resultAssets);
-            const randomNumber = Math.floor(Math.random() * localAssetsJSON["assets.json"].cdnURLs.length);
-            const jsonURL = localAssetsJSON["assets.json"].cdnURLs[randomNumber];
+            const jsonURL = localAssetsJSON["assets.json"].contentURL;
             fetch(jsonURL)
                 .then(response => {
                     if (!response.ok) {
@@ -156,7 +155,8 @@ document.querySelector("#updateCookieBase").addEventListener("click", function (
                     const selectedFilterLists = getSelectedFilterLists().filter(item => item !== "userFilters");
                     selectedFilterLists.reduce(async (seq, selectedFL) => {
                         await seq;
-                        fetch(assetsJSON[selectedFL].cdnURLs[randomNumber])
+                        const assetURL = assetsJSON[selectedFL].contentURL;
+                        fetch(assetURL)
                             .then(response => {
                                 if (!response.ok) {
                                     return Promise.reject({
@@ -168,7 +168,10 @@ document.querySelector("#updateCookieBase").addEventListener("click", function (
                                 return response.text();
                             })
                             .then(text => {
-                                PCC_vAPI.storage.local.set(selectedFL, text).then(function () {
+                                const obj = {};
+                                obj["content"] = text;
+                                obj["sourceURL"] = assetURL;
+                                PCC_vAPI.storage.local.set(selectedFL, JSON.stringify(obj)).then(function () {
                                     updateBtn.classList.remove("active");
                                     updateVersion();
                                 });

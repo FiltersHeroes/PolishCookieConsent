@@ -16,8 +16,11 @@
     along with Polish Cookie Consent. If not, see {http://www.gnu.org/licenses/}.
 */
 
-function handleTextResponse(text, filterListID, updateNotification) {
-    PCC_vAPI.storage.local.set(filterListID, text).then(function () {
+function handleTextResponse(text, filterListID, updateNotification, flURL) {
+    const obj = {};
+    obj["content"] = text;
+    obj["sourceURL"] = flURL;
+    PCC_vAPI.storage.local.set(filterListID, JSON.stringify(obj)).then(function () {
         if (updateNotification) {
             PCC_vAPI.storage.local.get("userSettings").then(function (userSettings) {
                 if (userSettings) {
@@ -52,7 +55,7 @@ function updateCookieBase(updateTime) {
                     if (userSettings["autoUpdate"]) {
                         PCC_vAPI.storage.local.get("assetsJSON").then(function (aJSONresult) {
                             const aJSON = JSON.parse(aJSONresult);
-                            const randomNumber = Math.floor(Math.random() * aJSON["assets.json"].cdnURLs.length);
+                            var randomNumber = Math.floor(Math.random() * aJSON["assets.json"].cdnURLs.length);
                             fetch(aJSON["assets.json"].cdnURLs[randomNumber])
                                 .then(response => {
                                     if (!response.ok) {
@@ -70,7 +73,9 @@ function updateCookieBase(updateTime) {
                                         const sFLnewResult = sFLresult.filter(item => item !== "userFilters");
                                         sFLnewResult.reduce(async (seq, selectedFL) => {
                                             await seq;
-                                            fetch(assetsJSON[selectedFL].contentURL)
+                                            randomNumber = Math.floor(Math.random() * aJSON[selectedFL].cdnURLs.length);
+                                            const assetURL = assetsJSON[selectedFL].cdnURLs[randomNumber];
+                                            fetch(assetURL)
                                                 .then(response => {
                                                     if (!response.ok) {
                                                         return Promise.reject({
@@ -82,7 +87,7 @@ function updateCookieBase(updateTime) {
                                                     return response.text();
                                                 })
                                                 .then(text => {
-                                                    handleTextResponse(text, selectedFL, true);
+                                                    handleTextResponse(text, selectedFL, true, assetURL);
                                                 })
                                                 .catch(function (error) {
                                                     console.log("[Polish Cookie Consent] " + error);
@@ -136,7 +141,7 @@ function fetchLocalAssets() {
                             return response.text();
                         })
                         .then(text => {
-                            handleTextResponse(text, localFL, false);
+                            handleTextResponse(text, localFL, false, assetsJSON[localFL].contentURL);
                         })
                         .catch(error => console.log("[Polish Cookie Consent] " + error));
                     return await new Promise(res => setTimeout(res, 1000));
