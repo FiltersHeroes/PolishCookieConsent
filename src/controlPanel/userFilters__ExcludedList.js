@@ -169,7 +169,6 @@ var cachedValue = {
 };
 
 function saveEditorValue(editor, settingName, cachedValue, applyBtn, revertBtn) {
-    editor.setValue([...new Set(editor.getValue().toString().split("\n"))].join("\n").trim());
     cachedValue[settingName] = editor.getValue();
     PCC_vAPI.storage.local.set(settingName, cachedValue[settingName]);
     applyBtn.disabled = true;
