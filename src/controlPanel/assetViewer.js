@@ -53,7 +53,6 @@ PCC_vAPI.storage.local.get(url).then(function (result) {
         const flResult = JSON.parse(result);
         flContent = flResult["content"];
         document.querySelector("#sourceURL").href = flResult["sourceURL"];
-        document.querySelector("#sourceURL").title = flResult["sourceURL"];
         document.querySelector("#sourceURL").removeAttribute("hidden");
     } else {
         flContent = result;

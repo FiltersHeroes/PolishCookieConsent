@@ -220,5 +220,17 @@
   },
   "forum": {
     "message": "Forum"
+  },
+  "source": {
+    "message": "Source"
+  },
+  "find": {
+    "message": "Find"
+  },
+  "prevMatch": {
+    "message": "Previous match"
+  },
+  "nextMatch": {
+    "message": "Next match"
   }
 }

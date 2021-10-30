@@ -8,13 +8,14 @@
     --infoPanelBg: #333;
 }
 
-:root #searchbar {
+#searchbar {
     color: var(--currentColor);
     background-color: var(--sBgColor);
     border: 2px solid transparent;
+    padding-left: 2px;
 }
 
-:root #searchbar:focus {
+#searchbar:focus {
     border: 2px solid var(--cm-comment);
 }
 

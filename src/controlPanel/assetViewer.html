@@ -23,17 +23,22 @@
                 <svg class="panelIcon" id="searchIcon">
                     <use href="../thirdparty/octicons24.svg#search"></use>
                 </svg>
-                <input type="search" id="searchbar" spellcheck="false">
-                <svg class="panelIcon cm-search-widget-up">
-                    <use href="../thirdparty/octicons24.svg#chevron-up"></use>
-                </svg>
-                <svg class="panelIcon cm-search-widget-down">
-                    <use href="../thirdparty/octicons24.svg#chevron-down"></use>
-                </svg>
+                <input type="search" id="searchbar" spellcheck="false" data-i18n data-i18n-placeholder="__MSG_find__">
+                <span data-i18n data-i18n-title="__MSG_prevMatch__" data-opt-i18n-keep-children>
+                    <svg class="panelIcon cm-search-widget-up">
+                        <use href="../thirdparty/octicons24.svg#chevron-up"></use>
+                    </svg>
+                </span>
+                <span data-i18n data-i18n-title="__MSG_nextMatch__" data-opt-i18n-keep-children>
+                    <svg class="panelIcon cm-search-widget-down">
+                        <use href="../thirdparty/octicons24.svg#chevron-down"></use>
+                    </svg>
+                </span>
                 <span class="cm-search-widget-count">
                 </span>
             </div>
-            <a id="sourceURL" class="rightSide" target="_blank" hidden>
+            <a id="sourceURL" class="rightSide" target="_blank" data-i18n data-i18n-title="__MSG_source__"
+                data-opt-i18n-keep-children hidden>
                 <svg class="panelIcon">
                     <use href="../thirdparty/octicons24.svg#link-external"></use>
                 </svg>
@@ -49,8 +54,8 @@
     <script src="../thirdparty/codemirror/addon/search/matchesonscrollbar.js"></script>
     <script src="../thirdparty/codemirror/addon/search/searchcursor.js"></script>
     <script src="../thirdparty/codemirror/addon/search/search_mod.js"></script>
-    <script src="../thirdparty/mui.js"></script>
     <script src="../vAPI.js"></script>
+    <script src="../thirdparty/Localizer.js"></script>
     <script src="filtersMode.js"></script>
     <script src="assetViewer.js"></script>
 </body>
