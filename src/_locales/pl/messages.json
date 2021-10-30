@@ -19,9 +19,6 @@
   "changelog": {
     "message": "Lista zmian"
   },
-  "reportIssueWithoutLogin": {
-    "message": "Zgłoś problem bez logowania się"
-  },
   "apply": {
     "message": "Zastosuj zmiany"
   },
@@ -217,5 +214,20 @@
   },
   "darkTheme": {
     "message": "Używaj ciemnego motywu"
+  },
+  "forum": {
+    "message": "Forum"
+  },
+  "source": {
+    "message": "Źródło"
+  },
+  "find": {
+    "message": "Znajdź"
+  },
+  "prevMatch": {
+    "message": "Poprzednie dopasowanie"
+  },
+  "nextMatch": {
+    "message": "Następne dopasowanie"
   }
 }
