@@ -19,9 +19,6 @@
   "changelog":{
     "message":"Changelog"
   },
-  "reportIssueWithoutLogin":{
-    "message":"Report an issue without logging in"
-  },
   "apply":{
     "message":"Apply changes"
   },
