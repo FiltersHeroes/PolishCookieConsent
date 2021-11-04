@@ -1,7 +1,7 @@
 ! Polska Baza Ciasteczkowa
 ! Polish Cookie Database
-! Version: 2021.11.04.0
-! License: MIT
+! Version: 2021.11.5.0
+! License: MIT (https://opensource.org/licenses/MIT)
 ! Copyright © 2021 Filters Heroes
 !
 !
@@ -29,8 +29,8 @@ gisgminny.pl##+js(bakeCookie, cookiesDirective, 1, 365)
 hiszpanskidlapolakow.com##+js(bakeCookie, gdpr-accepted, {"ga":true,"facebook":true,"disqus":true}, 365)
 hrkgame.com##+js(bakeCookie, gdpralert, done, 365)
 infor.pl##+js(bakeCookie, inforCookieWallCacheVal, 15, 365)
-laziska.com.pl,m-ce.pl,mojbytom.pl,mojegliwice.pl,mojekatowice.pl,mojmikolow.pl,orzesze.com.pl,piekaryslaskie.com.pl,pyskowice.com.pl,rudaslaska.com.pl,rybnicki.com,siemianowice.net.pl,silesia.info.pl,sosnowiecki.pl,swiony.pl,wodzislaw.com.pl,zabrze.com.pl,zory.com.pl##+js(bakeCookie, rodo, accept, 365)
 lawyerka.pl##+js(bakeCookie, ginger-cookie, Y, 365)
+laziska.com.pl,m-ce.pl,mojbytom.pl,mojegliwice.pl,mojekatowice.pl,mojmikolow.pl,orzesze.com.pl,piekaryslaskie.com.pl,pyskowice.com.pl,rudaslaska.com.pl,rybnicki.com,siemianowice.net.pl,silesia.info.pl,sosnowiecki.pl,swiony.pl,wodzislaw.com.pl,zabrze.com.pl,zory.com.pl##+js(bakeCookie, rodo, accept, 365)
 login.e-dowod.gov.pl##+js(bakeCookie, acceptRodoSie, hide, 365)
 mapa.gdansk.gda.pl##+js(bakeCookie, ipg.splash, y, 365)
 mapa.gdansk.gda.pl##+js(bakeCookie, splash, y, 365)
