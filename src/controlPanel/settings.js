@@ -120,7 +120,7 @@ function updateVersion() {
             if (result) {
                 var filterListLine = JSON.parse(result)["content"].split("\n");
                 for (var i = 0; i < filterListLine.length; i++) {
-                    if (filterListLine[i].match("Version")) {
+                    if (filterListLine[i].match(/(!|#) Version/g)) {
                         var fLV = document.querySelector("#" + filterList.id + " #version");
                         fLV.textContent = fLV.textContent.split(':')[0] + ": " + filterListLine[i].split(":")[1].trim();
                     }
