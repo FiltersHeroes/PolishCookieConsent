@@ -232,5 +232,8 @@
   },
   "email": {
     "message": "Wyślij e-mail"
+  },
+  "privacyPolicy": {
+    "message": "Polityka prywatności"
   }
 }

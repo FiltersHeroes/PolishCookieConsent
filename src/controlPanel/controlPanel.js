@@ -87,10 +87,12 @@ PCC_vAPI.storage.local.get('lastOpenedTab').then(function (resultLastOpenedTab) 
 let keySE = document.querySelector("#my-filters-tab .keyboardS");
 let keyS2E = document.querySelector("#excluded-list-tab .keyboardS");
 let syntaxE = document.querySelector("#my-filters-tab .syntax");
+let privacyPolicy = document.querySelector("#about-tab .privacyPolicy");
 if (PCC_vAPI.i18n.getUILanguage() == "pl") {
     keySE.href = keySE.href.replace("/en", "");
     keyS2E.href = keyS2E.href.replace("/en", "");
     syntaxE.href = syntaxE.href.replace("/en", "");
+    privacyPolicy.href = privacyPolicy.href.replace("/en", "");
 }
 
 // Add extension version to about tab
