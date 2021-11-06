@@ -18,7 +18,9 @@
             "https://cdn.statically.io/gh/FiltersHeroes/PCCassets/main/plCDB.txt",
             "https://filtersheroes.gitlab.io/AssetsMirror/plCDB.txt",
             "https://raw.githubusercontent.com/FiltersHeroes/PCCassets/main/plCDB.txt"
-        ]
+        ],
+        "supportURL": "https://github.com/FiltersHeroes/PCCassets/issues",
+        "supportEmail": "contact-project+filtersheroes-pccassets-30920945-issue- at incoming dot gitlab dot com"
     },
     "euCDB": {
         "localURL": "assets/euCDB.txt",
@@ -28,6 +30,8 @@
             "https://combinatronics.io/FiltersHeroes/PCCassets/main/euCDB.txt",
             "https://cdn.statically.io/gh/FiltersHeroes/PCCassets/main/euCDB.txt",
             "https://filtersheroes.gitlab.io/AssetsMirror/euCDB.txt"
-        ]
+        ],
+        "supportURL": "https://github.com/FiltersHeroes/PCCassets/issues",
+        "supportEmail": "contact-project+filtersheroes-pccassets-30920945-issue- at incoming dot gitlab dot com"
     }
 }

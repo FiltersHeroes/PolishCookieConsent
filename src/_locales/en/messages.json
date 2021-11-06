@@ -1,35 +1,35 @@
 {
-  "extensionName":{
-    "message":"Polish Cookie Consent",
-    "description":"Extension name."
+  "extensionName": {
+    "message": "Polish Cookie Consent",
+    "description": "Extension name."
   },
-  "extensionDescription":{
-    "message":"Automatically accepts cookie policy/GDPR on websites.",
-    "description":"Description of extension."
+  "extensionDescription": {
+    "message": "Automatically accepts cookie policy/GDPR on websites.",
+    "description": "Description of extension."
   },
-  "reportIssue":{
-    "message":"Report an issue"
+  "reportIssue": {
+    "message": "Report an issue"
   },
-  "sourceCode":{
-    "message":"Source code"
+  "sourceCode": {
+    "message": "Source code"
   },
-  "license":{
-    "message":"License"
+  "license": {
+    "message": "License"
   },
-  "changelog":{
-    "message":"Changelog"
+  "changelog": {
+    "message": "Changelog"
   },
-  "apply":{
-    "message":"Apply changes"
+  "apply": {
+    "message": "Apply changes"
   },
-  "controlPanel":{
-    "message":"Control Panel"
+  "controlPanel": {
+    "message": "Control Panel"
   },
-  "myFilters":{
-    "message":"My filters"
+  "myFilters": {
+    "message": "My filters"
   },
-  "mfHelp":{
-    "message":"One filter compatible with $mfHelpPCCsyntax$ per line. Lines prefixed with exclamation mark or hash will be ignored.",
+  "mfHelp": {
+    "message": "One filter compatible with $mfHelpPCCsyntax$ per line. Lines prefixed with exclamation mark or hash will be ignored.",
     "placeholders": {
       "mfHelpPCCsyntax": {
         "content": "$1",
@@ -38,29 +38,29 @@
     }
   },
   "mfHelpPCCsyntax": {
-    "message":"PCC syntax",
+    "message": "PCC syntax",
     "description": "Part with URL for user filters tip."
   },
-  "about":{
-    "message":"About"
+  "about": {
+    "message": "About"
   },
-  "whitelist":{
-    "message":"Excluded list"
+  "whitelist": {
+    "message": "Excluded list"
   },
-  "whitelistHelp":{
-    "message":"List of all websites on which the extension should be disabled. One website address without protocol per line. Lines prefixed with exclamation mark or hash will be ignored."
+  "whitelistHelp": {
+    "message": "List of all websites on which the extension should be disabled. One website address without protocol per line. Lines prefixed with exclamation mark or hash will be ignored."
   },
-  "popupDisable":{
-    "message":"Disable PCC on this site"
+  "popupDisable": {
+    "message": "Disable PCC on this site"
   },
-  "popupEnable":{
-    "message":"Enable PCC on this site"
+  "popupEnable": {
+    "message": "Enable PCC on this site"
   },
-  "externalDepends":{
-    "message":"External dependencies:"
+  "externalDepends": {
+    "message": "External dependencies:"
   },
-  "by":{
-    "message":"$Project$ by $author$",
+  "by": {
+    "message": "$Project$ by $author$",
     "placeholders": {
       "project": {
         "content": "$1",
@@ -72,8 +72,8 @@
       }
     }
   },
-  "byAnd":{
-    "message":"$Project$ by $author$ and $contributors$",
+  "byAnd": {
+    "message": "$Project$ by $author$ and $contributors$",
     "placeholders": {
       "project": {
         "content": "$1",
@@ -89,23 +89,23 @@
       }
     }
   },
-  "contributors":{
-    "message":"contributors"
+  "contributors": {
+    "message": "contributors"
   },
-  "version":{
-    "message":"Version:"
+  "version": {
+    "message": "Version:"
   },
-  "update":{
-    "message":"Update filter lists"
+  "update": {
+    "message": "Update filter lists"
   },
-  "extensionShortName":{
-    "message":"PCC"
+  "extensionShortName": {
+    "message": "PCC"
   },
   "export": {
-    "message":"Export"
+    "message": "Export"
   },
   "import": {
-    "message":"Import and append"
+    "message": "Import and append"
   },
   "revert": {
     "message": "Revert"
@@ -192,11 +192,11 @@
     "message": "All your settings will be overwritten with data from backup created on $time$, and Polish Cookie Consent will be restarted after the process.\n\nAre you sure you want to do this?",
     "description": "Message asking user to confirm restore.",
     "placeholders": {
-        "time": {
-          "content": "$1",
-          "example": "2021-10-19, 21:58:06"
-        }
+      "time": {
+        "content": "$1",
+        "example": "2021-10-19, 21:58:06"
       }
+    }
   },
   "restoreSettingsError": {
     "message": "The data could not be read or is invalid.",
@@ -229,5 +229,8 @@
   },
   "nextMatch": {
     "message": "Next match"
+  },
+  "email": {
+    "message": "Send an email "
   }
 }

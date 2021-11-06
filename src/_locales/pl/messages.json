@@ -229,5 +229,8 @@
   },
   "nextMatch": {
     "message": "Następne dopasowanie"
+  },
+  "email": {
+    "message": "Wyślij e-mail"
   }
 }

@@ -111,10 +111,10 @@ PCC_vAPI.storage.local.get("selectedFilterLists").then(function (result) {
 });
 
 
-// Show version number of all filter lists
-document.addEventListener("DOMContentLoaded", updateVersion);
+// Show version number and links of all filter lists
+document.addEventListener("DOMContentLoaded", updateDetails);
 
-function updateVersion() {
+function updateDetails() {
     document.querySelectorAll('.database:not(#userFilters)').forEach((filterList) => {
         PCC_vAPI.storage.local.get(filterList.id).then(function (result) {
             if (result) {
@@ -125,6 +125,17 @@ function updateVersion() {
                         fLV.textContent = fLV.textContent.split(':')[0] + ": " + filterListLine[i].split(":")[1].trim();
                     }
                 }
+                PCC_vAPI.storage.local.get('assetsJSON').then(function (resultAssets) {
+                    if (resultAssets) {
+                        const localAssetsJSON = JSON.parse(resultAssets);
+                        filterList.querySelector("#supportURL").href = localAssetsJSON[filterList.id].supportURL;
+                        const supportEmail = localAssetsJSON[filterList.id].supportEmail;
+                        if(supportEmail) {
+                            filterList.querySelector("#supportEmail").href = "mailto:" + supportEmail.replace(" at ", "@").replace(new RegExp(" dot ", 'g'), ".");
+                            filterList.querySelector("#supportEmail").removeAttribute("hidden");
+                        }
+                    }
+                });
             }
         });
     });
@@ -173,7 +184,7 @@ document.querySelector("#updateCookieBase").addEventListener("click", function (
                                 obj["sourceURL"] = assetURL;
                                 PCC_vAPI.storage.local.set(selectedFL, JSON.stringify(obj)).then(function () {
                                     updateBtn.classList.remove("active");
-                                    updateVersion();
+                                    updateDetails();
                                 });
                             })
                             .catch(error => console.log(error));
