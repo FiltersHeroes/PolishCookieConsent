@@ -20,7 +20,7 @@ Basilisk Add-ons: [![Basilisk Add-ons version](https://img.shields.io/badge/BA-v
 
 Crowdin: [![Crowdin](https://badges.crowdin.net/polish-cookie-consent/localized.svg)](https://crowdin.com/project/polish-cookie-consent)
 
-## **How to install it?**
+## <span name="jak-zainstalowac">**How to install it?**</span>
 ### **I. ![Firefox][Firefox]Firefox/![Waterfox][Waterfox]Waterfox (Classic and G4)**
 1. Install latest extension version from [AMO](https://addons.mozilla.org/pl/firefox/addon/polish-cookie-consent?utm_source=git) (just double click **add**).
 2. Ready :tada: !
