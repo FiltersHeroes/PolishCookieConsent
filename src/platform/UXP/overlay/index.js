@@ -36,6 +36,12 @@ var PCC_overlay = {
             prefService.setBoolPref(basePrefPart + "firstRunDone", true);
         }
 
+        // Set tooltip text for toolbar button
+        const PCC_toolbar_btn = document.querySelector("#nav-bar #PolishFiltersTeam_PCC_btn");
+        if (PCC_toolbar_btn) {
+            PCC_toolbar_btn.setAttribute("tooltiptext", PCC_vAPI.i18n.getMessage("extensionName"));
+        }
+
         // Remove extension preferences when uninstalling
         AddonManager.addAddonListener({
             onUninstalling: function (addon) {
