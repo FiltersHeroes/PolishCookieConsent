@@ -73,13 +73,13 @@ redirect.global.commerce-connector.com/consent##+js(clickTimeout, .cookie-notice
 rejestracja.pwik.gliwice.pl##+js(clickTimeout, .bp3-portal .bp3-dialog-footer-actions button[type="button"] ~ button[type="submit"])
 shinden.pl##+js(clickTimeout, div[class^="app_gdpr"] button[class*="details_save"])
 sp215.info/s2/ccs.php##+js(clickTimeout, input[value="AKCEPTUJĘ PLIKI COOKIES"])
+stooq.pl##+js(clickTimeout, .fc-cta-consent[aria-label^="Zgadzam"], privacy)
 /^https?:\/\/consent\.yahoo.com\/[a-z0-9]{2}\/collectConsent/##+js(clickTimeout, .btn[name="agree"])
 !
 !
 ! Click complete
 abczdrowie.pl,allani.pl,autocentrum.pl,autokult.pl,dobramama.pl,dobregry.pl,dobreprogramy.pl,domodi.pl,echirurgia.pl,extradom.pl,fotoblogia.pl,gadzetomania.pl,homebook.pl,jejswiat.pl,kafeteria.pl,kafeteria.tv,kardiolo.pl,kazimierzdolny.pl,komorkomania.pl,luxlux.pl,medycyna24.pl,mixer.pl,money.pl,nerwica.com,nocowanie.pl,o2.pl,open.fm,parenting.pl,pinger.pl,pogodnie.pl,polygamia.pl,pudelek.pl,pudelek.tv,pudelekx.pl,pytamy.pl,samosia.pl,smaczneblogi.pl,smog.pl,snobka.pl,so-magazyn.pl,superauto.pl,testwiedzy.pl,totalmoney.pl,vibez.pl,wakacje.pl,wp.pl##+js(clickComplete, button, 200, PRZECHODZ)
 gry.pl##+js(clickComplete, div[class*="app_gdpr"] button[class*="intro_acceptAll"], euconsent)
-stooq.pl##+js(clickTimeout, .fc-cta-consent[aria-label^="Zgadzam"], privacy)
 !
 !
 ! Redirect
