@@ -1,6 +1,6 @@
 ! Polska Baza Ciasteczkowa
 ! Polish Cookie Database
-! Version: 2021.11.7.1
+! Version: 2021.11.21.1
 ! License: MIT (https://opensource.org/licenses/MIT)
 ! Copyright © 2021 Filters Heroes
 !
@@ -79,6 +79,7 @@ sp215.info/s2/ccs.php##+js(clickTimeout, input[value="AKCEPTUJĘ PLIKI COOKIES"]
 ! Click complete
 abczdrowie.pl,allani.pl,autocentrum.pl,autokult.pl,dobramama.pl,dobregry.pl,dobreprogramy.pl,domodi.pl,echirurgia.pl,extradom.pl,fotoblogia.pl,gadzetomania.pl,homebook.pl,jejswiat.pl,kafeteria.pl,kafeteria.tv,kardiolo.pl,kazimierzdolny.pl,komorkomania.pl,luxlux.pl,medycyna24.pl,mixer.pl,money.pl,nerwica.com,nocowanie.pl,o2.pl,open.fm,parenting.pl,pinger.pl,pogodnie.pl,polygamia.pl,pudelek.pl,pudelek.tv,pudelekx.pl,pytamy.pl,samosia.pl,smaczneblogi.pl,smog.pl,snobka.pl,so-magazyn.pl,superauto.pl,testwiedzy.pl,totalmoney.pl,vibez.pl,wakacje.pl,wp.pl##+js(clickComplete, button, 200, PRZECHODZ)
 gry.pl##+js(clickComplete, div[class*="app_gdpr"] button[class*="intro_acceptAll"], euconsent)
+stooq.pl##+js(clickTimeout, .fc-cta-consent[aria-label^="Zgadzam"], privacy)
 !
 !
 ! Redirect
