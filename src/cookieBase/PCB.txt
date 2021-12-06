@@ -1,6 +1,6 @@
 ! Polska Baza Ciasteczkowa
 ! Polish Cookie Database
-! Version: 2021.12.5.1
+! Version: 2021.12.6.0
 ! License: MIT (https://opensource.org/licenses/MIT)
 ! Copyright © 2021 Filters Heroes
 !
