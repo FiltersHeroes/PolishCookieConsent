@@ -64,7 +64,6 @@ Crowdin: [![Crowdin](https://badges.crowdin.net/polish-cookie-consent/localized.
 10. Listę reszty dopuszczonych dodatków przez Moz://ę znajdziesz pod adresem: [https://addons.mozilla.org/pl/android/](https://addons.mozilla.org/pl/android/), rozwijając rekomendowane (od Firefox 85 część dodatków można ponownie instalować bezpośrednio z poziomu sklepu dodatków Moz://a).
 
 
-
 [Firefox]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/70.4.0/firefox/firefox_24x24.png "Mozilla Firefox"
 [Waterfox]: https://raw.githubusercontent.com/MrAlex94/Waterfox/classic/browser/branding/unofficial/default24.png "Waterfox"
 [Fennec]: https://i.imgur.com/CBLmX7q.png?1 "Fennec F-Droid"
