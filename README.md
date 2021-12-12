@@ -16,8 +16,6 @@ Pale Moon Add-ons: [![Pale Moon Add-ons version](https://img.shields.io/badge/PM
 
 Basilisk Add-ons: [![Basilisk Add-ons version](https://img.shields.io/badge/BA-v1.45.0-%23007ec6.svg "Basilisk Add-ons version")](https://addons.basilisk-browser.org/addon/pcc/ "Basilisk Add-ons version")
 
-<!-- Whale Store: [![Whale Store version](https://img.shields.io/badge/WS%20🐳%20-v1.41.0-%23007ec6.svg "Whale Store 🐳 version")](https://store.whale.naver.com/detail/micngbppijeajicgilihpkkbkgibmjhb?hl=pl) -->
-
 Crowdin: [![Crowdin](https://badges.crowdin.net/polish-cookie-consent/localized.svg)](https://crowdin.com/project/polish-cookie-consent)
 
 ## **How to install it?**<a name="jak-zainstalowac"></a><a name="jak-zainstalować"></a>
@@ -65,22 +63,22 @@ Crowdin: [![Crowdin](https://badges.crowdin.net/polish-cookie-consent/localized.
 10. You can find a list of rest allowed add-ons by Moz://a on: [https://addons.mozilla.org/android/](https://addons.mozilla.org/pl/android/), expanding those recommended (from Firefox 85 some of addons can be installed again directly from Moz://a Addons Store).
 
 
-[Firefox]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/70.0.0/firefox/firefox_24x24.png "Mozilla Firefox"
+[Firefox]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/70.4.0/firefox/firefox_24x24.png "Mozilla Firefox"
 [Waterfox]: https://raw.githubusercontent.com/MrAlex94/Waterfox/classic/browser/branding/unofficial/default24.png "Waterfox"
 [Fennec]: https://i.imgur.com/CBLmX7q.png?1 "Fennec F-Droid"
 [Iceraven]: https://i.imgur.com/jpbS8lO.png?1 "Iceraven"
-[Nightly]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/70.0.0/firefox-nightly/firefox-nightly_24x24.png "Firefox Nightly"
-[Chrome]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/70.0.0/chrome/chrome_24x24.png "Google Chrome"
-[Chromium]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/70.0.0/chromium/chromium_24x24.png "Chromium"
-[Vivaldi]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/70.0.0/vivaldi/vivaldi_24x24.png "Vivaldi"
-[Opera]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/70.0.0/opera/opera_24x24.png "Opera"
+[Nightly]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/70.4.0/firefox-nightly/firefox-nightly_24x24.png "Firefox Nightly"
+[Chrome]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/70.4.0/chrome/chrome_24x24.png "Google Chrome"
+[Chromium]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/70.4.0/chromium/chromium_24x24.png "Chromium"
+[Vivaldi]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/70.4.0/vivaldi/vivaldi_24x24.png "Vivaldi"
+[Opera]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/70.4.0/opera/opera_24x24.png "Opera"
 [Cent]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/48.0.4/cent/cent_24x24.png "Cent Browser"
-[Yandex]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/70.0.0/yandex/yandex_24x24.png "Yandex Browser"
+[Yandex]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/70.4.0/yandex/yandex_24x24.png "Yandex Browser"
 [Kiwi]: https://raw.githubusercontent.com/scribblemaniac/browser-logos/41d6542b2d122f5b65d8f259cf5ffbdb3b89831d/src/kiwi/kiwi_24x24.png "Kiwi Browser"
 [Whale]: https://i.imgur.com/r8YdC2G.png?1 "NAVER Whale Browser"
-[Edge]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/70.0.0/edge/edge_24x24.png "Microsoft ChromEdge"
-[Pale Moon]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/70.0.0/pale-moon/pale-moon_24x24.png "Pale Moon"
-[Basilisk]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/70.0.0/basilisk/basilisk_24x24.png "Basilisk"
+[Edge]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/70.4.0/edge/edge_24x24.png "Microsoft ChromEdge"
+[Pale Moon]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/70.4.0/pale-moon/pale-moon_24x24.png "Pale Moon"
+[Basilisk]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/70.4.0/basilisk/basilisk_24x24.png "Basilisk"
 
 ## **Credits**
 
