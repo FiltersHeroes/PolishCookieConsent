@@ -1,6 +1,6 @@
 ! Polska Baza Ciasteczkowa
 ! Polish Cookie Database
-! Version: 2021.12.6.1
+! Version: 2021.12.12.1
 ! License: MIT (https://opensource.org/licenses/MIT)
 ! Copyright © 2021 Filters Heroes
 !
@@ -50,6 +50,7 @@ ubi2.wit.edu.pl##+js(bakeCookie, GPRD, 128, 365)
 vice.com##+js(bakeCookie, _vice_cmp_modal_viewed, true, 365)
 virustotal.com##+js(bakeCookie, euConsent, 1, 365)
 vivaldi.com##+js(bakeCookie, acceptedCookies, true, 365)
+warszawskakranowka.pl+js(bakeCookie, rodo_warszawskakranowka, 1, 365)
 wroclaw.pl##+js(bakeCookie, iRodoInfo, 1, 365)
 wunderground.com##+js(bakeCookie, notice_gdpr_prefs, 0,1,2,3:, 365)
 wunderground.com##+js(bakeCookie, notice_poptime, 1533920400000, 365)
