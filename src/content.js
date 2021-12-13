@@ -252,10 +252,12 @@ function initArgs(filter) {
                 var cookieValue = arg2;
                 var expiresDays = arg3;
                 var domain = arg4;
-                if (arglen == 4) {
-                    bakeCookie(urlArg, cookieName, cookieValue, expiresDays, domain);
-                } else if (arglen == 3) {
-                    bakeCookie(urlArg, cookieName, cookieValue, expiresDays);
+                if (!isNaN(expiresDays) && expiresDays > 0) {
+                    if (arglen == 4) {
+                        bakeCookie(urlArg, cookieName, cookieValue, expiresDays, domain);
+                    } else if (arglen == 3) {
+                        bakeCookie(urlArg, cookieName, cookieValue, expiresDays);
+                    }
                 }
             }
             else if (jsfunc == "redirect") {
