@@ -65,7 +65,7 @@ Crowdin: [![Crowdin](https://badges.crowdin.net/polish-cookie-consent/localized.
 
 
 [Firefox]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/70.4.0/firefox/firefox_24x24.png "Mozilla Firefox"
-[Waterfox]: https://raw.githubusercontent.com/MrAlex94/Waterfox/classic/browser/branding/unofficial/default24.png "Waterfox"
+[Waterfox]: https://raw.githubusercontent.com/WaterfoxCo/Waterfox/current/browser/branding/waterfox/default24.png "Waterfox"
 [Fennec]: https://i.imgur.com/CBLmX7q.png?1 "Fennec F-Droid"
 [Iceraven]: https://i.imgur.com/jpbS8lO.png?1 "Iceraven"
 [Nightly]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/70.4.0/firefox-nightly/firefox-nightly_24x24.png "Firefox Nightly"
