@@ -241,9 +241,11 @@ function initArgs(filter) {
                 }
             }
             else if (jsfunc == "addToStorage") {
-                var storageKey = arg;
-                var storageValue = arg2;
-                addToStorage(urlArg, storageKey, storageValue);
+                if (arglen == 2) {
+                    var storageKey = arg;
+                    var storageValue = arg2;
+                    addToStorage(urlArg, storageKey, storageValue);
+                }
             }
             else if (jsfunc == "bakeCookie") {
                 var cookieName = arg;
@@ -252,7 +254,7 @@ function initArgs(filter) {
                 var domain = arg4;
                 if (arglen == 4) {
                     bakeCookie(urlArg, cookieName, cookieValue, expiresDays, domain);
-                } else {
+                } else if (arglen == 3) {
                     bakeCookie(urlArg, cookieName, cookieValue, expiresDays);
                 }
             }
@@ -262,7 +264,7 @@ function initArgs(filter) {
                 if (arglen == 3) {
                     var cookieName = arg3;
                     redirect(urlArg, redirectPoint, path, cookieName);
-                } else {
+                } else if (arglen == 2) {
                     path = arg2.replace(")", "");
                     redirect(urlArg, redirectPoint, path);
                 }
