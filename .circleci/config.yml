@@ -7,11 +7,11 @@ jobs:
     - checkout
     - run:
         command: |
-          sudo apt-get update && sudo apt-get install -y software-properties-common python3
+          sudo apt-get update && sudo apt-get install -y software-properties-common python3-requests
           curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg
           echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
           sudo apt-get update && sudo apt-get install -y gh
-          ./make_scripts/make_UXP.sh
+          ./make_scripts/make_UXP.py
           npm set prefix=/home/circleci/npm && echo 'export PATH=$HOME/circleci/npm/bin:$PATH' >> /home/circleci/.bashrc && npm install @wext/shipit && ./make_scripts/make_firefox.sh && ./make_scripts/make_chromium.sh
     - run:
         command: |
