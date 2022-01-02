@@ -3,25 +3,25 @@
 # Sciezka to miejsce, w którym znajduje się skrypt
 sciezka=$(dirname "$(realpath -s "$0")")
 
-glowna_sciezka=$(git -C "$sciezka" rev-parse --show-toplevel)
+glowna_sciezka="$sciezka"/..
 tymczasowy="$glowna_sciezka"/src_temp
 
-cd "$glowna_sciezka"/src || exit
+cd "$glowna_sciezka" || exit
 
 mkdir "$tymczasowy"
-cp -r "$glowna_sciezka"/src/* "$tymczasowy"/
+cp -r ./src/* "$tymczasowy"/
+cp ./LICENSE "$tymczasowy"/
 
 cd "$tymczasowy" || exit
 
-cp ../LICENSE "$tymczasowy"/
-mv "$tymczasowy"/platform/UXP/* "$tymczasowy"/
-rm -rf "$tymczasowy"/platform/
+mv ./platform/UXP/* ./
+rm -rf ./platform/
 
-mapfile -t locales < <(find "$tymczasowy"/_locales -maxdepth 1 -exec basename {} \; | sed s/en$// | sed s/_locales$// | sed -r '/^\s*$/d' | sort -u)
+mapfile -t locales < <(find ./_locales -maxdepth 1 -exec basename {} \; | sed s/en$// | sed s/_locales$// | sed -r '/^\s*$/d' | sort -u)
 
 for locale in "${locales[@]}"; do
-    extName=$(jq -r '.extensionName.message' "$tymczasowy"/_locales/"$locale"/messages.json)
-    extDesc=$(jq -r '.extensionDescription.message' "$tymczasowy"/_locales/"$locale"/messages.json)
+    extName=$(jq -r '.extensionName.message' ./_locales/"$locale"/messages.json)
+    extDesc=$(jq -r '.extensionDescription.message' ./_locales/"$locale"/messages.json)
     localized+=$(
         cat <<EOF
 
@@ -35,22 +35,23 @@ for locale in "${locales[@]}"; do
 EOF
     )
 
-    cat >>"$tymczasowy"/locales.manifest <<END
+    cat >>./locales.manifest <<END
 locale PCC $locale ./_locales/$locale/
 END
 
 done
 
 localized=$(echo "${localized}" | sed '/^$/d' | sed ':a;N;$!ba;s/\n/\\n/g' | sed 's/\$/\\$/g')
-sed -i "s|_localized_|$localized|" "$tymczasowy"/install.rdf
+sed -i "s|_localized_|$localized|" ./install.rdf
 
-python3 "$sciezka"/convert_locales_to_legacy_version.py "$tymczasowy"
-rm -r "$tymczasowy"/_locales/*/messages.json
-rm -r "$tymczasowy"/icons/icon96.png
-rm -r "$tymczasowy"/icons/icon128.png
+python3 -c "import sys;sys.path.insert(0,'$sciezka');import convert_locales_to_legacy_version as ljson2prop;ljson2prop.run('$tymczasowy')"
 
-rm -r "$tymczasowy"/PCB.txt
-rm -rf "$tymczasowy"/cookieBase
+rm -r ./_locales/*/messages.json
+rm -r ./icons/icon96.png
+rm -r ./icons/icon128.png
+
+rm -r ./PCB.txt
+rm -rf ./cookieBase
 
 if [ "$CI" = "true" ]; then
     wget "https://raw.githubusercontent.com/FiltersHeroes/PCCassets/main/plCDB.txt" -P "./assets/"
