@@ -17,7 +17,7 @@ temp_path = pj(main_path, "src_temp")
 if os.path.exists(temp_path):
     shutil.rmtree(temp_path)
 
-os.chdir(pj(main_path))
+os.chdir(main_path)
 
 shutil.copytree(pn("./src"), temp_path)
 shutil.copy(pn("./LICENSE"), temp_path)
@@ -88,4 +88,5 @@ os.rename(pj(artifacts_path, "PolishCookieConsent_UXP.zip"),
           pj(artifacts_path, "PolishCookieConsent_UXP.xpi"))
 
 # Cleanup
+os.chdir(main_path)
 shutil.rmtree(temp_path)
