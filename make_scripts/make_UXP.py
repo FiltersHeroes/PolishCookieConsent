@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# pylint: disable=C0103
 """Depends: Python 3.6+, Requests"""
 import os
 import json
@@ -52,7 +53,7 @@ for locale in sorted(os.listdir(locales_dir)):
       em:description="{extDesc}"/>
   </em:localized>\
 '''
-            with open(pn("./locales.manifest"), "a+", encoding='utf-8') as l_m:
+            with open(pn("./locales.manifest"), "a", encoding='utf-8') as l_m:
                 l_m.write("locale PCC "+locale+" ./_locales/"+locale+"/\n")
 
 install_file = pn("./install.rdf")
@@ -78,14 +79,14 @@ mkassets.run(main_path)
 
 # Create xpi
 artifacts_path = pj(main_path, "artifacts")
-UXP_xpi = pj(artifacts_path, "PolishCookieConsent_UXP.xpi")
+f_name = "PolishCookieConsent_UXP"
+UXP_xpi = pj(artifacts_path, f_name + ".xpi")
 if os.path.exists(UXP_xpi):
     os.remove(UXP_xpi)
 if not os.path.exists(artifacts_path):
     os.makedirs(artifacts_path)
-shutil.make_archive(pj(artifacts_path, "PolishCookieConsent_UXP"), 'zip', "./")
-os.rename(pj(artifacts_path, "PolishCookieConsent_UXP.zip"),
-          pj(artifacts_path, "PolishCookieConsent_UXP.xpi"))
+shutil.make_archive(pj(artifacts_path, f_name), 'zip', "./")
+os.rename(pj(artifacts_path, f_name + ".zip"), UXP_xpi)
 
 # Cleanup
 os.chdir(main_path)
