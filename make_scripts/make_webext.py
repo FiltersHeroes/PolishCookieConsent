@@ -47,7 +47,7 @@ if sys.argv[1] == "chromium":
 mkassets.run(main_path)
 
 # Send extension to browser's store
-if os.environ.get("CI") == "true":
+if os.environ.get("TEST_MODE") != "true" and os.environ.get("CI") == "true":
     if sys.argv[1] == "chromium":
         browser = "chrome"
     elif sys.argv[1] == "firefox":
