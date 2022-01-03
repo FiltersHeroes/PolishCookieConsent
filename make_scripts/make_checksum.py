@@ -2,6 +2,7 @@
 # pylint: disable=C0103
 """Create checksum file"""
 import os
+import sys
 import hashlib
 
 pj = os.path.join
@@ -10,14 +11,24 @@ pn = os.path.normpath
 script_path = os.path.dirname(os.path.realpath(__file__))
 main_path = pn(script_path+"/..")
 artifacts_path = pj(main_path, "artifacts")
-checksum_file_path = pj(artifacts_path, "PolishCookieConsent.sha256")
+
+# Set correct extension version
+ext_version = "dev-build"
+if "PCC_VERSION" in os.environ:
+    ext_version = os.environ.get("PCC_VERSION")
+elif len(sys.argv) >= 2:
+    ext_version = sys.argv[1]
+
+checksum_file_path = pj(
+    artifacts_path, "PolishCookieConsent-"+ext_version+".sha256")
 
 if os.path.exists(checksum_file_path):
     os.remove(checksum_file_path)
 
-ext_files = [pj(artifacts_path, "PolishCookieConsent_Chromium.zip"),
-             pj(artifacts_path, "PolishCookieConsent_Firefox.xpi"),
-             pj(artifacts_path, "PolishCookieConsent_UXP.xpi")]
+first_part_name = "PolishCookieConsent-"+ext_version+"_"
+ext_files = [pj(artifacts_path, first_part_name+"Chromium.zip"),
+             pj(artifacts_path, first_part_name+"Firefox.xpi"),
+             pj(artifacts_path, first_part_name+"UXP.xpi")]
 
 for ext_file in ext_files:
     if os.path.exists(ext_file):

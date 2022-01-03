@@ -4,9 +4,8 @@
 import os
 import sys
 import shutil
+import json
 import make_assets as mkassets
-if sys.argv[1] == "chromium":
-    import json
 
 pj = os.path.join
 pn = os.path.normpath
@@ -36,10 +35,18 @@ for u_f in unnecessary_folders:
     shutil.rmtree(u_f)
 os.remove(pn("./PCB.txt"))
 
-if sys.argv[1] == "chromium":
-    with open(pj(temp_path, "manifest.json"), "r", encoding='utf-8') as m_f:
-        manifest = json.load(m_f)
-    del manifest['applications']
+# Set correct version for extension and cleanup manifest
+ext_version = "dev-build"
+if "PCC_VERSION" in os.environ:
+    ext_version = os.environ.get("PCC_VERSION")
+elif len(sys.argv) >= 3:
+    ext_version = sys.argv[2]
+
+with open(pj(temp_path, "manifest.json"), "r", encoding='utf-8') as m_f:
+    manifest = json.load(m_f)
+    if sys.argv[1] == "chromium":
+        del manifest['applications']
+    manifest['version'] = ext_version
     with open(pj(temp_path, "manifest.json"), "w", encoding='utf-8') as m_f:
         json.dump(manifest, m_f, indent=2)
 
@@ -65,15 +72,15 @@ browser = sys.argv[1].title()
 webext_ext = "xpi"
 if sys.argv[1] == "chromium":
     webext_ext = "zip"
-webext = pj(artifacts_path, "PolishCookieConsent_"+browser+"."+webext_ext)
+webext = pj(artifacts_path, "PolishCookieConsent-"+ext_version+"_"+browser+"."+webext_ext)
 if os.path.exists(webext):
     os.remove(webext)
 if not os.path.exists(artifacts_path):
     os.makedirs(artifacts_path)
 shutil.make_archive(
-    pj(artifacts_path, "PolishCookieConsent_"+browser), 'zip', "./")
+    pj(artifacts_path, "PolishCookieConsent-"+ext_version+"_"+browser), 'zip', "./")
 if sys.argv[1] == "firefox":
-    os.rename(pj(artifacts_path, "PolishCookieConsent_Firefox.zip"), webext)
+    os.rename(pj(artifacts_path, "PolishCookieConsent-"+ext_version+"_Firefox.zip"), webext)
 
 # Cleanup
 os.chdir(main_path)

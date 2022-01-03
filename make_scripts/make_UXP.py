@@ -2,6 +2,7 @@
 # pylint: disable=C0103
 """Depends: Python 3.6+, Requests"""
 import os
+import sys
 import json
 import glob
 import shutil
@@ -32,7 +33,7 @@ for f in os.listdir(UXP_path):
 
 shutil.rmtree(pn("./platform"))
 
-# Add info about locales to manifest files
+# Add info about locales and version to manifest files
 locales_dir = pn("./_locales")
 localized = ''
 pos = 0
@@ -56,10 +57,17 @@ for locale in sorted(os.listdir(locales_dir)):
             with open(pn("./locales.manifest"), "a", encoding='utf-8') as l_m:
                 l_m.write("locale PCC "+locale+" ./_locales/"+locale+"/\n")
 
+ext_version = "dev-build"
+if "PCC_VERSION" in os.environ:
+    ext_version = os.environ.get("PCC_VERSION")
+elif len(sys.argv) >= 2:
+    ext_version = sys.argv[1]
+
 install_file = pn("./install.rdf")
 with open(install_file, 'r', encoding='utf-8') as install_f:
     data = install_f.read()
     data = data.replace("_localized_", localized)
+    data = data.replace("_version_", ext_version)
 with open(install_file, 'w', encoding='utf-8') as install_f:
     install_f.write(data)
 
@@ -79,7 +87,7 @@ mkassets.run(main_path)
 
 # Create xpi
 artifacts_path = pj(main_path, "artifacts")
-f_name = "PolishCookieConsent_UXP"
+f_name = "PolishCookieConsent-"+ext_version+"_UXP"
 UXP_xpi = pj(artifacts_path, f_name + ".xpi")
 if os.path.exists(UXP_xpi):
     os.remove(UXP_xpi)
