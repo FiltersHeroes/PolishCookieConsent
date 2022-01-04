@@ -18,7 +18,7 @@ jobs:
           ./make_scripts/make_checksum.py
           gh release create "$CIRCLE_TAG" ./artifacts/* --notes "WIP"
     environment:
-      TEST_MODE: "true"
+      TEST_MODE: "false"
 workflows:
   version: 2
   workflow:
