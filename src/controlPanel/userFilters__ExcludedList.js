@@ -1,5 +1,5 @@
 /*******************************************************************************
-    Copyright (C) 2021 Filters Heroes
+    Copyright (C) 2022 Filters Heroes
     This file is part of Polish Cookie Consent.
 
     Polish Cookie Consent is free software: you can redistribute it and/or modify
@@ -136,18 +136,18 @@ function todayDate() {
 function exportText(field, fileNamePart) {
     // We need an iframe to workaround bug in Waterfox Classic/Firefox<63 on Linux (https://discourse.mozilla.org/t/bug-exporting-files-via-javascript/13116)
     var a = document.querySelector('iframe[src="exportFile.html"]').contentWindow.document.getElementById("download");
-    a.href = "data:text/plain;charset=utf-8," + encodeURIComponent(document.getElementById(field).value);
+    a.href = "data:text/plain;charset=utf-8," + encodeURIComponent(field.getValue());
     a.download = PCC_vAPI.i18n.getMessage("extensionShortName") + "-" + PCC_vAPI.i18n.getMessage(fileNamePart).replace(" ", "-").toLowerCase() + "_" + todayDate() + ".txt";
     a.click();
     a.href = "";
     a.download = "";
 }
 document.querySelector('#userFiltersExport').addEventListener('click', function () {
-    exportText("userFilters", "myFilters");
+    exportText(userFilters, "myFilters");
 });
 
 document.querySelector('#whitelistExport').addEventListener('click', function () {
-    exportText("userWhitelist", "whitelist");
+    exportText(userWhitelist, "whitelist");
 });
 
 // Revert user filters text area to original value
