@@ -1,5 +1,5 @@
 /*******************************************************************************
-    Copyright (C) 2021 Filters Heroes
+    Copyright (C) 2022 Filters Heroes
     This file is part of Polish Cookie Consent.
 
     Polish Cookie Consent is free software: you can redistribute it and/or modify
@@ -118,19 +118,14 @@ function updateDetails() {
     document.querySelectorAll('.database:not(#userFilters)').forEach((filterList) => {
         PCC_vAPI.storage.local.get(filterList.id).then(function (result) {
             if (result) {
-                var filterListLine = JSON.parse(result)["content"].split("\n");
-                for (var i = 0; i < filterListLine.length; i++) {
-                    if (filterListLine[i].match(/(!|#) Version/g)) {
-                        var fLV = document.querySelector("#" + filterList.id + " #version");
-                        fLV.textContent = fLV.textContent.split(':')[0] + ": " + filterListLine[i].split(":")[1].trim();
-                    }
-                }
+                var fLV = document.querySelector("#" + filterList.id + " #version");
+                fLV.textContent = fLV.textContent.split(':')[0] + ": " + JSON.parse(result)["version"];
                 PCC_vAPI.storage.local.get('assetsJSON').then(function (resultAssets) {
                     if (resultAssets) {
                         const localAssetsJSON = JSON.parse(resultAssets);
                         filterList.querySelector("#supportURL").href = localAssetsJSON[filterList.id].supportURL;
                         const supportEmail = localAssetsJSON[filterList.id].supportEmail;
-                        if(supportEmail) {
+                        if (supportEmail) {
                             filterList.querySelector("#supportEmail").href = "mailto:" + supportEmail.replace(" at ", "@").replace(new RegExp(" dot ", 'g'), ".");
                             filterList.querySelector("#supportEmail").removeAttribute("hidden");
                         }
@@ -182,6 +177,13 @@ document.querySelector("#updateCookieBase").addEventListener("click", function (
                                 const obj = {};
                                 obj["content"] = text;
                                 obj["sourceURL"] = assetURL;
+                                const filterListLine = text.split("\n");
+                                for (var i = 0; i < filterListLine.length; i++) {
+                                    if (filterListLine[i].match(/(!|#) Version/g)) {
+                                        obj["version"] = filterListLine[i].split(":")[1].trim();
+                                        break;
+                                    }
+                                }
                                 PCC_vAPI.storage.local.set(selectedFL, JSON.stringify(obj)).then(function () {
                                     updateBtn.classList.remove("active");
                                     updateDetails();

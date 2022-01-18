@@ -1,5 +1,5 @@
 /*******************************************************************************
-    Copyright (C) 2021 Filters Heroes
+    Copyright (C) 2022 Filters Heroes
     This file is part of Polish Cookie Consent.
 
     Polish Cookie Consent is free software: you can redistribute it and/or modify
@@ -20,18 +20,34 @@ function handleTextResponse(text, filterListID, updateNotification, flURL) {
     const obj = {};
     obj["content"] = text;
     obj["sourceURL"] = flURL;
-    PCC_vAPI.storage.local.set(filterListID, JSON.stringify(obj)).then(function () {
-        if (updateNotification) {
-            PCC_vAPI.storage.local.get("userSettings").then(function (userSettings) {
-                if (userSettings) {
-                    if (JSON.parse(userSettings)["autoUpdateNotifications"]) {
-                        PCC_vAPI.notifications.create("autoUpdatePCC", PCC_vAPI.runtime.getURL("icons/icon48.png"), PCC_vAPI.i18n.getMessage("extensionName"), PCC_vAPI.i18n.getMessage("updateSuccess", new Array(PCC_vAPI.i18n.getMessage(filterListID))));
-                    }
-                }
-            });
-        } else {
-            console.log("[Polish Cookie Consent] Fetched " + filterListID);
+
+    const filterListLine = text.split("\n");
+    for (var i = 0; i < filterListLine.length; i++) {
+        if (filterListLine[i].match(/(!|#) Version/g)) {
+            obj["version"] = filterListLine[i].split(":")[1].trim();
+            break;
         }
+    }
+
+    PCC_vAPI.storage.local.get(filterListID).then(function (resultOldFL) {
+        let oldVersion = "0";
+        if (typeof resultOldFL !== "undefined" && resultOldFL != "") {
+            oldVersion = JSON.parse(resultOldFL)["version"];
+        }
+        PCC_vAPI.storage.local.set(filterListID, JSON.stringify(obj)).then(function () {
+            console.log("[Polish Cookie Consent] Fetched " + filterListID);
+            if (updateNotification) {
+                if(oldVersion !== obj["version"]) {
+                    PCC_vAPI.storage.local.get("userSettings").then(function (userSettings) {
+                        if (userSettings) {
+                            if (JSON.parse(userSettings)["autoUpdateNotifications"]) {
+                                PCC_vAPI.notifications.create("autoUpdatePCC", PCC_vAPI.runtime.getURL("icons/icon48.png"), PCC_vAPI.i18n.getMessage("extensionName"), PCC_vAPI.i18n.getMessage("updateSuccess", new Array(PCC_vAPI.i18n.getMessage(filterListID))));
+                            }
+                        }
+                    });
+                }
+            }
+        });
     });
 }
 
@@ -180,6 +196,8 @@ function setDefaultSettings() {
                                 }
                             })
                         });
+                    } else {
+                        fetchLocalAssets();
                     }
                 });
             })
