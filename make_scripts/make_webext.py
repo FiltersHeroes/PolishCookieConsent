@@ -3,6 +3,7 @@
 """Depends: Python 3.6+, Requests"""
 import os
 import sys
+import subprocess
 import shutil
 import json
 import make_assets as mkassets
@@ -56,10 +57,9 @@ mkassets.run(main_path)
 # Send extension to browser's store
 if os.environ.get("TEST_MODE") != "true" and os.environ.get("CI") == "true":
     if sys.argv[1] == "chromium":
-        browser = "chrome"
+        subprocess.run(["npx", "chrome-webstore-upload", "upload", "--auto-publish"], check=True)
     elif sys.argv[1] == "firefox":
-        browser = "firefox"
-    os.system("npx shipit "+browser+" ./")
+        subprocess.run(["npx", "web-ext-submit"], check=True)
 
     # Cleanup
     we_artifacts_path = pn("./web-ext-artifacts")
