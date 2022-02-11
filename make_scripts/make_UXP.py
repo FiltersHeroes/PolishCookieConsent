@@ -76,7 +76,7 @@ ljson2prop.run(temp_path)
 
 # Cleanup
 unnecessary_f = [pn("./icons/icon96.png"),
-                 pn("./icons/icon128.png"), pn("./PCB.txt")]
+                 pn("./icons/icon128.png")]
 unnecessary_f += glob.glob(pn("./_locales/*/messages.json"))
 for u_f in unnecessary_f:
     os.remove(u_f)

@@ -34,7 +34,6 @@ for f in os.listdir(webext_path):
 unnecessary_folders = [pn("./platform"), pn("./cookieBase")]
 for u_f in unnecessary_folders:
     shutil.rmtree(u_f)
-os.remove(pn("./PCB.txt"))
 
 # Set correct version for extension and cleanup manifest
 ext_version = "dev-build"
