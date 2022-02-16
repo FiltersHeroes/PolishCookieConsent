@@ -1,5 +1,6 @@
 // CodeMirror, copyright (c) by Marijn Haverbeke and others
 // Distributed under an MIT license: https://codemirror.net/LICENSE
+// Modified by Filters Heroes (removed unsafe assignment to innerHTML)
 
 (function(mod) {
   if (typeof exports == "object" && typeof module == "object") // CommonJS
@@ -141,11 +142,11 @@
     if (!severity) severity = "error";
     var tip = document.createElement("div");
     tip.className = "CodeMirror-lint-message CodeMirror-lint-message-" + severity;
-    if (typeof ann.messageHTML != 'undefined') {
-      tip.innerHTML = ann.messageHTML;
-    } else {
-      tip.appendChild(document.createTextNode(ann.message));
-    }
+    // if (typeof ann.messageHTML != 'undefined') {
+    //   tip.innerHTML = ann.messageHTML;
+    // } else {
+    tip.appendChild(document.createTextNode(ann.message));
+    // }
     return tip;
   }
 
