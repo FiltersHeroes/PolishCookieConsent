@@ -2,7 +2,7 @@
  * Localizer (https://tinywebex.github.io/Localizer/)
  * Copyright (c) 2018 rugk and contributors
  * MIT License (https://raw.githubusercontent.com/TinyWebEx/Localizer/master/LICENSE.md)
- * Modified by Polish Filters Team for using with XUL extensions.
+ * Modified by Filters Heroes for using with XUL extensions.
  */
 
 /**
