@@ -1,6 +1,6 @@
 ! Polska Baza Ciasteczkowa
 ! Polish Cookie Database
-! Version: 2022.3.27.0
+! Version: 2022.3.27.1
 ! License: MIT (https://opensource.org/licenses/MIT)
 ! Copyright © 2022 Filters Heroes
 !
@@ -60,7 +60,7 @@ tumblr.com/privacy/consent##+js(clickInteractive, .btn.yes)
 !
 !
 ! Click timeout
-bethesda.net,blaklader.pl,boomerang-tv.pl,carrefour.pl,essilor.pl,eurogamer.pl,player.pl,toteraz.pl,tvn.pl,tvn24.pl##+js(clickTimeout, #onetrust-accept-btn-handler)
+bankier.pl,bethesda.net,blaklader.pl,boomerang-tv.pl,carrefour.pl,claudia.pl,dyskusje24.pl,edziecko.pl,essilor.pl,eurogamer.pl,gazeta.pl,haps.pl,infoladnydom.pl,infozdrowie24.pl,kobieta.pl,moto.pl,player.pl,sport.pl,tokfm.pl,toteraz.pl,transfery.info,tvn.pl,tvn24.pl,ugotuj.to,wyborcza.pl##+js(clickTimeout, #onetrust-accept-btn-handler)
 click.kaufland.com/cookieconsent##+js(clickTimeout, button.primary)
 consent.google.com,consent.google.pl,consent.youtube.com##+js(clickTimeout, form[action*="consent."] [aria-label^="Zgadzasz się na wykorzystanie plików cookie"])
 downdetector.pl##+js(clickTimeout, .evidon-barrier-acceptbutton)
