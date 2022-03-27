@@ -1,14 +1,11 @@
 ! Polska Baza Ciasteczkowa
 ! Polish Cookie Database
-! Version: 2022.3.14.1
+! Version: 2022.3.27.0
 ! License: MIT (https://opensource.org/licenses/MIT)
 ! Copyright © 2022 Filters Heroes
 !
 !
 ! Local storage
-click.kaufland.com##+js(addToStorage, cookies, {"consent":"accepted"})
-gry.lotto.pl##+js(addToStorage, rodoConfirmation2, true)
-gry.lotto.pl##+js(addToStorage, rodoConfirmation, true)
 totalcasino.pl##+js(addToStorage, gdpr_popup, true)
 !
 !
