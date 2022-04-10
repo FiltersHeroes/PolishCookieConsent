@@ -1,6 +1,6 @@
 ! Polska Baza Ciasteczkowa
 ! Polish Cookie Database
-! Version: 2022.4.3.1
+! Version: 2022.4.10.1
 ! License: MIT (https://opensource.org/licenses/MIT)
 ! Copyright © 2022 Filters Heroes
 !
@@ -25,6 +25,7 @@ gamepedia.com,wikia.com,wikia.org##+js(bakeCookie, tracking-opt-in-status, accep
 gisgminny.pl##+js(bakeCookie, cookiesDirective, 1, 365)
 hiszpanskidlapolakow.com##+js(bakeCookie, gdpr-accepted, {"ga":true,"facebook":true,"disqus":true}, 365)
 hrkgame.com##+js(bakeCookie, gdpralert, done, 365)
+hummel.pl##+js(bakeCookie, CookieInformationConsent, 1, 365)
 infor.pl##+js(bakeCookie, inforCookieWallCacheVal, 15, 365)
 lawyerka.pl##+js(bakeCookie, ginger-cookie, Y, 365)
 laziska.com.pl,m-ce.pl,mojbytom.pl,mojegliwice.pl,mojekatowice.pl,mojmikolow.pl,orzesze.com.pl,piekaryslaskie.com.pl,pyskowice.com.pl,rudaslaska.com.pl,rybnicki.com,siemianowice.net.pl,silesia.info.pl,sosnowiecki.pl,swiony.pl,wodzislaw.com.pl,zabrze.com.pl,zory.com.pl##+js(bakeCookie, rodo, accept, 365)
