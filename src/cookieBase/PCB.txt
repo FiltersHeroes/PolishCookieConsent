@@ -1,6 +1,6 @@
 ! Polska Baza Ciasteczkowa
 ! Polish Cookie Database
-! Version: 2022.4.10.1
+! Version: 2022.6.6.1
 ! License: MIT (https://opensource.org/licenses/MIT)
 ! Copyright © 2022 Filters Heroes
 !
@@ -11,7 +11,8 @@ totalcasino.pl##+js(addToStorage, gdpr_popup, true)
 !
 ! Cookies
 action.com##+js(bakeCookie, CookieConsent, true, 365)
-al.to,combat.pl,x-kom.pl##+js(bakeCookie, trackingPermissionValueCookie, true, 365)
+al.to,combat.pl##+js(bakeCookie, trackingPermissionValueCookie, true, 365)
+al.to,combat.pl,x-kom.pl##+js(trackingPermissionConsentsValue, {%22cookies_analytics%22:true%2C%22cookies_personalization%22:true%2C%22cookies_advertisement%22:true}, 365)
 budujmase.pl,drogerium.pl,trec.pl,wylecz.to##+js(bakeCookie, rodoHfM, true, 365)
 cineman.pl##+js(bakeCookie, ARE_FUNCTIONAL_COOKIES_ACCEPTED, true, 3650)
 cineman.pl##+js(bakeCookie, ARE_MARKETING_COOKIES_ACCEPTED, true, 3650)
