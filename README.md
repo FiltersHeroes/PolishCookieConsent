@@ -1,8 +1,10 @@
 # Polish Cookie Consent
 
-<p align="center">
-  <span>English</span> | <a href="/README.pl.md">Polski</a>
-</p>
+<div align="center">
+
+  English [(wide version)](/README.md) | [Polski](/README.pl.md)
+  
+</div>
 
 -----------------------------
 An extension, which automatically accepts privacy policy/GDPR on websites. It's a supplement for [Polish GDPR-Cookies Filters](https://subscribe.adblockplus.org/?location=https://raw.githubusercontent.com/MajkiIT/polish-ads-filter/master/cookies_filters/adblock_cookies.txt&title=Polskie%20Filtry%20RODO-Ciasteczkowe) (included also in **Polish Annoyance Filters**) and [I don't care about cookies](https://subscribe.adblockplus.org/?location=https://www.i-dont-care-about-cookies.eu/abp/&title=I%20dont%20care%20about%20cookies).
