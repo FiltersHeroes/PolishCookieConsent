@@ -1,8 +1,9 @@
 # Polska Ciasteczkowa Zgoda
+<div align="center">
 
-<p align="center">
-    <a href="/README.md">English</a> | <span>Polski</span>
-</p>
+  [English](/README.md "wide") | Polski
+  
+</div>
 
 -----------------------------
 Rozszerzenie automatycznie akceptujące politykę ciasteczek/RODO na stronach internetowych. Stanowi ono uzupełnienie [Polskich Filtrów Rodo-Ciasteczkowych](https://subscribe.adblockplus.org/?location=https://raw.githubusercontent.com/MajkiIT/polish-ads-filter/master/cookies_filters/adblock_cookies.txt&title=Polskie%20Filtry%20RODO-Ciasteczkowe) (wchodzących też w skład **Polskich Filtrów Elementów Irytujących**) oraz listy [I don't care about cookies](https://subscribe.adblockplus.org/?location=https://www.i-dont-care-about-cookies.eu/abp/&title=I%20dont%20care%20about%20cookies).
