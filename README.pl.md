@@ -19,15 +19,15 @@ Basilisk Add-ons: [![Basilisk Add-ons version](https://img.shields.io/badge/BA-v
 Crowdin: [![Crowdin](https://badges.crowdin.net/polish-cookie-consent/localized.svg)](https://crowdin.com/project/polish-cookie-consent)
 
 ## **Jak zainstalować?**
-### **I. ![Firefox][Firefox]Firefox/![Waterfox][Waterfox]Waterfox (Classic i G4)**
+### **I. ![Firefox][Firefox]Firefox/![Waterfox][Waterfox]Waterfox (Classic i G5)**
 1. Zainstaluj najnowszą wersję rozszerzenia z [AMO](https://addons.mozilla.org/pl/firefox/addon/polish-cookie-consent?utm_source=git) (kliknij dwukrotnie **dodaj**).
 2. Gotowe :tada: !
 
-### **II. ![Chrome][Chrome]Chrome/![Chromium][Chromium]Chromium/![Vivaldi][Vivaldi]Vivaldi/![Cent][Cent]Cent/![Yandex][Yandex]Yandex/![Kiwi][Kiwi]Kiwi/![Whale][Whale]NAVER Whale/![Edge][Edge](Chrom)Edge**
+### **II. ![Chrome][Chrome]Chrome/![Chromium][Chromium]Chromium/![Brave][Brave]Brave/![Vivaldi][Vivaldi]Vivaldi/![Cent][Cent]Cent/![Yandex][Yandex]Yandex/![Kiwi][Kiwi]Kiwi/![Whale][Whale]NAVER Whale/![Edge][Edge](Chrom)Edge/![Opera][Opera](Chr)Opera 76+**<a name="ii-chromechromiumvivaldicentyandexkiwinaver-whalechromedge"></a><a name="iii-chropera"></a>
 1. Zainstaluj najnowszą wersję rozszerzenia z [CWS](https://chrome.google.com/webstore/detail/polish-cookie-consent/bniijddcmabghibaojbkbnngbedopbno) (kliknij dwukrotnie **dodaj**).
 2. Gotowe :tada: !
 
-### **III. ![Opera][Opera](Chr)Opera**
+### **III. ![Opera][Opera](Chr)Opera (starsza niż 76)**
 <!-- 1. Zainstaluj najnowszą wersję rozszerzenia z [OA](https://addons.opera.com/pl/extensions/details/polish-cookie-consent/) (kliknij **dodaj**).
 2. Gotowe :tada: ! -->
 1. Zainstaluj rozszerzenie [Install Chrome Extensions](https://addons.opera.com/pl/extensions/details/install-chrome-extensions/).
@@ -51,7 +51,7 @@ Crowdin: [![Crowdin](https://badges.crowdin.net/polish-cookie-consent/localized.
 5. Dotknij `+` przy PCZ i `Dodaj`.
 6. Gotowe :tada: !
 
-### **VII. ![Fennec][Fennec][Fennec F-Droid](https://f-droid.org/en/packages/org.mozilla.fennec_fdroid/)/![Nightly][Nightly][Firefox Nightly (Android)](https://play.google.com/store/apps/details?id=org.mozilla.fenix)**
+### **VII. ![Fennec][Fennec][Fennec F-Droid](https://f-droid.org/en/packages/org.mozilla.fennec_fdroid/)/![Nightly][Nightly][Firefox Nightly (Android)](https://play.google.com/store/apps/details?id=org.mozilla.fenix)**<a name="vii-fennec-f-droidfirefox-nightly-android"></a>
 1. Wejdź w Ustawienia -> O programie Fennec/Firefox Nightly.
 2. Dotknij 5 razy w szybkim tempie logo programu - aby odblokować tryb developera.
 3. Wróć do głównych ustawień programu -> Inna kolekcja dodatków.
@@ -64,22 +64,23 @@ Crowdin: [![Crowdin](https://badges.crowdin.net/polish-cookie-consent/localized.
 10. Listę reszty dopuszczonych dodatków przez Moz://ę znajdziesz pod adresem: [https://addons.mozilla.org/pl/android/](https://addons.mozilla.org/pl/android/), rozwijając rekomendowane (od Firefox 85 część dodatków można ponownie instalować bezpośrednio z poziomu sklepu dodatków Moz://a).
 
 
-[Firefox]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/70.4.0/firefox/firefox_24x24.png "Mozilla Firefox"
-[Waterfox]: https://raw.githubusercontent.com/WaterfoxCo/Waterfox/current/browser/branding/waterfox/default24.png "Waterfox"
+[Firefox]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/73.0.0/firefox/firefox_24x24.png "Mozilla Firefox"
+[Waterfox]: https://raw.githubusercontent.com/WaterfoxCo/Waterfox/current-esr91/browser/branding/waterfox/default24.png "Waterfox"
 [Fennec]: https://i.imgur.com/CBLmX7q.png?1 "Fennec F-Droid"
 [Iceraven]: https://i.imgur.com/jpbS8lO.png?1 "Iceraven"
-[Nightly]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/70.4.0/firefox-nightly/firefox-nightly_24x24.png "Firefox Nightly"
-[Chrome]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/70.4.0/chrome/chrome_24x24.png "Google Chrome"
-[Chromium]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/70.4.0/chromium/chromium_24x24.png "Chromium"
-[Vivaldi]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/70.4.0/vivaldi/vivaldi_24x24.png "Vivaldi"
-[Opera]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/70.4.0/opera/opera_24x24.png "Opera"
+[Nightly]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/73.0.0/firefox-nightly/firefox-nightly_24x24.png "Firefox Nightly"
+[Brave]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/73.0.0/brave/brave_24x24.png "Brave"
+[Chrome]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/73.0.0/chrome/chrome_24x24.png "Google Chrome"
+[Chromium]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/73.0.0/chromium/chromium_24x24.png "Chromium"
+[Vivaldi]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/73.0.0/vivaldi/vivaldi_24x24.png "Vivaldi"
+[Opera]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/73.0.0/opera/opera_24x24.png "Opera"
 [Cent]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/48.0.4/cent/cent_24x24.png "Cent Browser"
-[Yandex]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/70.4.0/yandex/yandex_24x24.png "Yandex Browser"
+[Yandex]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/73.0.0/yandex/yandex_24x24.png "Yandex Browser"
 [Kiwi]: https://raw.githubusercontent.com/scribblemaniac/browser-logos/41d6542b2d122f5b65d8f259cf5ffbdb3b89831d/src/kiwi/kiwi_24x24.png "Kiwi Browser"
 [Whale]: https://i.imgur.com/r8YdC2G.png?1 "NAVER Whale Browser"
-[Edge]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/70.4.0/edge/edge_24x24.png "Microsoft ChromEdge"
-[Pale Moon]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/70.4.0/pale-moon/pale-moon_24x24.png "Pale Moon"
-[Basilisk]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/70.4.0/basilisk/basilisk_24x24.png "Basilisk"
+[Edge]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/73.0.0/edge/edge_24x24.png "Microsoft ChromEdge"
+[Pale Moon]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/73.0.0/pale-moon/pale-moon_24x24.png "Pale Moon"
+[Basilisk]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/73.0.0/basilisk/basilisk_24x24.png "Basilisk"
 
 ## **Podziękowania**
 
