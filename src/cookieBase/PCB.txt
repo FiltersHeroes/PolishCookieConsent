@@ -1,6 +1,6 @@
 ! Polska Baza Ciasteczkowa
 ! Polish Cookie Database
-! Version: 2022.11.30.0
+! Version: 2023.1.1.0
 ! License: MIT (https://opensource.org/licenses/MIT)
 ! Copyright © 2022 Filters Heroes
 !
@@ -40,7 +40,6 @@ mapa.szukacz.pl##+js(bakeCookie, gdprid, 1, 780)
 mapy.geoportal.gov.pl##+js(bakeCookie, regulationsAccepted, true, 365)
 mapy.geoportal.gov.pl##+js(bakeCookie, rules, 1, 365)
 mini.com.pl##+js(bakeCookie, cc_consentCookie, {"mini_poland_family":{"consentMetadataModel":{"analytics":"GIVEN","functional":"GIVEN","advertising":"GIVEN"},"lastModifiedTimestamp":1619619734490,"crossDomainConsent":true}}, 365, .mini.com.pl)
-n26.com##+js(bakeCookie, num26GDPR, ACCEPTED, 365)
 nike.com##+js(bakeCookie, sq, 3, 365)
 parkiet.com,rp.pl##+js(bakeCookie, __gm_tcfconsent_v2, 1, 365)
 polsatboxgo.pl,polsatgo.pl##+js(bakeCookie, rodo-modal-displayed, 1, 365)
@@ -51,7 +50,6 @@ tv-trwam.pl##+js(bakeCookie, ARE_MARKETING_COOKIES_ACCEPTED, true, 365)
 tv-trwam.pl##+js(bakeCookie, ARE_REQUIRED_COOKIES_ACCEPTED, true, 365)
 tv-trwam.pl##+js(bakeCookie, HAS_COOKIES_FORM_SHOWED, true, 365)
 ubi2.wit.edu.pl##+js(bakeCookie, GPRD, 128, 365)
-vice.com##+js(bakeCookie, _vice_cmp_modal_viewed, true, 365)
 virustotal.com##+js(bakeCookie, euConsent, 1, 365)
 vivaldi.com##+js(bakeCookie, acceptedCookies, true, 365)
 warszawskakranowka.pl##+js(bakeCookie, rodo_warszawskakranowka, 1, 365)
