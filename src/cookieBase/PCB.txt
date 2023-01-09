@@ -1,6 +1,6 @@
 ! Polska Baza Ciasteczkowa
 ! Polish Cookie Database
-! Version: 2023.1.1.0
+! Version: 2023.1.9.0
 ! License: MIT (https://opensource.org/licenses/MIT)
 ! Copyright © 2022 Filters Heroes
 !
@@ -43,6 +43,7 @@ mini.com.pl##+js(bakeCookie, cc_consentCookie, {"mini_poland_family":{"consentMe
 nike.com##+js(bakeCookie, sq, 3, 365)
 parkiet.com,rp.pl##+js(bakeCookie, __gm_tcfconsent_v2, 1, 365)
 polsatboxgo.pl,polsatgo.pl##+js(bakeCookie, rodo-modal-displayed, 1, 365)
+senda.pl##+js(bakeCookie, cookieConsent3, true, 365)
 tumblr.com##+js(bakeCookie, euconsent-v2, CPcxQAAPcxQAAECABAPLCZCgAPLAAHLAAKiQI7Nd_X__bX9n-_7_6ft0eY1f9_r37uQzDhfNs-8F3L_W_LwX32E7NF36tq4KmR4ku1bBIQNtHMnUDUmxaolVrzHsak2cpyNKJ_JkknsZe2dYGF9Pn9lD-YKZ7_5_9_f52T_9_9_-39z3_9f___dv_-__-vjf_599n_v9fV_78_Kf9______-____________8EdgCTDVuIAuzLHBm0DCKFECMKwkKoFABBQDC0QWADg4KdlYBLrCFgAgFSEYEQIMQUYMAgAEEgCQiACQIsEAiAIgEAAIAEQCEADEwCCwAsDAIAAQDQsQAoABAkIMiAiOUwICoEgoJbKxBKCvQ0wgDrPACgURsVAAiSQEUgICQsHAMESAl4skDTFG-QAjBCgFEqAA, 360)
 tumblr.com##+js(bakeCookie, euconsent-v2-noniab, AAZG, 360)
 tv-trwam.pl##+js(bakeCookie, ARE_FUNCTIONAL_COOKIES_ACCEPTED, true, 365)
