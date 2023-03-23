@@ -3,7 +3,6 @@
         "contentURL": "https://raw.githubusercontent.com/FiltersHeroes/PolishCookieConsent/master/src/assets/assets.json",
         "cdnURLs": [
             "https://cdn.jsdelivr.net/gh/FiltersHeroes/PolishCookieConsent@master/src/assets/assets.json",
-            "https://combinatronics.io/FiltersHeroes/PolishCookieConsent/master/src/assets/assets.json",
             "https://cdn.statically.io/gh/FiltersHeroes/PolishCookieConsent/master/src/assets/assets.json",
             "https://filtersheroes.gitlab.io/AssetsMirror/assets.json",
             "https://raw.githubusercontent.com/FiltersHeroes/PolishCookieConsent/master/src/assets/assets.json"
@@ -14,7 +13,6 @@
         "contentURL": "https://raw.githubusercontent.com/FiltersHeroes/PCCassets/main/plCDB.txt",
         "cdnURLs": [
             "https://cdn.jsdelivr.net/gh/FiltersHeroes/PCCassets@main/plCDB.txt",
-            "https://combinatronics.io/FiltersHeroes/PCCassets/main/plCDB.txt",
             "https://cdn.statically.io/gh/FiltersHeroes/PCCassets/main/plCDB.txt",
             "https://filtersheroes.gitlab.io/AssetsMirror/plCDB.txt",
             "https://raw.githubusercontent.com/FiltersHeroes/PCCassets/main/plCDB.txt"
@@ -27,7 +25,6 @@
         "contentURL": "https://raw.githubusercontent.com/FiltersHeroes/PCCassets/main/euCDB.txt",
         "cdnURLs": [
             "https://cdn.jsdelivr.net/gh/FiltersHeroes/PCCassets@main/euCDB.txt",
-            "https://combinatronics.io/FiltersHeroes/PCCassets/main/euCDB.txt",
             "https://cdn.statically.io/gh/FiltersHeroes/PCCassets/main/euCDB.txt",
             "https://filtersheroes.gitlab.io/AssetsMirror/euCDB.txt"
         ],
