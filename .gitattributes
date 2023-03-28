@@ -1,0 +1,2 @@
+*.txt linguist-language=AdBlock linguist-detectable
+templates/*.template linguist-language=AdBlock linguist-detectable.gitattributes
