@@ -1,6 +1,6 @@
 ! Polska Baza Ciasteczkowa
 ! Polish Cookie Database
-! Version: 2023.4.16.0
+! Version: 2023.4.19.0
 ! License: MIT (https://opensource.org/licenses/MIT)
 ! Copyright © 2023 Filters Heroes
 !
@@ -65,16 +65,15 @@ odr.pl##+js(clickInteractive, .termsagree)
 !
 !
 ! Click timeout
-!dziennikbaltycki.pl,dzienniklodzki.pl,dziennikpolski24.pl,dziennikzachodni.pl,echodnia.eu,expressbydgoski.pl,expressilustrowany.pl,gazetakrakowska.pl,gazetalubuska.pl,gazetawroclawska.pl,gk24.pl,gloswielkopolski.pl,gol24.pl,gp24.pl,gra.pl,gs24.pl,kurierlubelski.pl,motofakty.pl,naszemiasto.pl,nowiny24.pl,nowosci.com.pl,nto.pl,polskatimes.pl,pomorska.pl,poranny.pl,sportowy24.pl,strefaagro.pl,strefabiznesu.pl,stronakobiet.pl,telemagazyn.pl,to.com.pl,wspolczesna.pl,strefaedukacji.pl,mp.pl##+js(clickTimeout, .qc-cmp2-footer button + button, euconsent-v2)
 !fly4free.pl##+js(clickTimeout, .qc-cmp2-container .qc-cmp2-summary-buttons button[mode="primary"], euconsent-v2)
 /^https?:\/\/consent\.yahoo.com\/[a-z0-9]{2}\/collectConsent/##+js(clickTimeout, .btn[name="agree"])
-bankier.pl,bethesda.net,blaklader.pl,boomerang-tv.pl,carrefour.pl,claudia.pl,dyskusje24.pl,edziecko.pl,elle.pl,elleman.pl,essilor.pl,eurogamer.pl,focus.pl,focusnauka.pl,gala.pl,gazeta.pl,glamour.pl,haps.pl,ikea.com,infoladnydom.pl,infozdrowie24.pl,kobieta.pl,mojegotowanie.pl,mojpieknyogrod.pl,moto.pl,national-geographic.pl,olx.pl,pizzahut.pl,player.pl,przyslijprzepis.pl,sport.pl,tokfm.pl,toteraz.pl,tvn.pl,tvn24.pl,ugotuj.to,vod.pl,wyborcza.pl##+js(clickTimeout, #onetrust-accept-btn-handler)
+bankier.pl,bethesda.net,blaklader.pl,boomerang-tv.pl,carrefour.pl,claudia.pl,dyskusje24.pl,edziecko.pl,elle.pl,elleman.pl,essilor.pl,eurogamer.pl,focus.pl,focusnauka.pl,gala.pl,gazeta.pl,glamour.pl,gry.pl,haps.pl,ikea.com,infoladnydom.pl,infozdrowie24.pl,kobieta.pl,mojegotowanie.pl,mojpieknyogrod.pl,moto.pl,national-geographic.pl,olx.pl,pizzahut.pl,player.pl,przyslijprzepis.pl,sport.pl,tokfm.pl,toteraz.pl,tvn.pl,tvn24.pl,ugotuj.to,vod.pl,wyborcza.pl##+js(clickTimeout, #onetrust-accept-btn-handler)
 consent.google.com,consent.google.pl,consent.youtube.com##+js(clickTimeout, form[action*="consent."] button[aria-label^="Zaakceptuj"])
 downdetector.pl##+js(clickTimeout, .evidon-barrier-acceptbutton)
 facebook.com,instagram.com##+js(clickTimeout, div[aria-label="Zezwól tylko na niezbędne pliki cookie"] span)
 facebook.com,messenger.com##+js(clickTimeout, body > div div[aria-label="Zezwól tylko na niezbędne pliki cookie"][role="button"])
 fandom.com##+js(clickTimeout, [data-tracking-opt-in-accept="true"], euconsent-v2)
-fandom.com,fly4free.pl,gry.pl,wpolityce.pl##+js(clickTimeout, .qc-cmp2-footer button + button, euconsent-v2)
+fandom.com,fly4free.pl,wpolityce.pl##+js(clickTimeout, .qc-cmp2-footer button + button, euconsent-v2)
 instagram.com##+js(clickTimeout, body[style*="overflow"] div[role="presentation"].RnEpo > div[role="dialog"] div > button:nth-of-type(1):nth-last-of-type(2))
 redirect.global.commerce-connector.com/consent##+js(clickTimeout, .cookie-notice > .btn--blue.btn)
 rejestracja.pwik.gliwice.pl##+js(clickTimeout, .bp3-portal .bp3-dialog-footer-actions button[type="button"] ~ button[type="submit"])
@@ -86,7 +85,6 @@ www.google.com,www.google.pl##+js(clickTimeout, [aria-label="Zanim przejdziesz d
 !
 ! Click complete
 abczdrowie.pl,allani.pl,autocentrum.pl,autokult.pl,benchmark.pl,dobramama.pl,dobregry.pl,dobreprogramy.pl,domodi.pl,echirurgia.pl,extradom.pl,fotoblogia.pl,gadzetomania.pl,genialne.pl,homebook.pl,jastrzabpost.pl,kafeteria.pl,kafeteria.tv,kardiolo.pl,kazimierzdolny.pl,komorkomania.pl,luxlux.pl,medycyna24.pl,mixer.pl,money.pl,nerwica.com,nocowanie.pl,o2.pl,open.fm,parenting.pl,pinger.pl,pogodnie.pl,polygamia.pl,pudelek.pl,pudelek.tv,pudelekx.pl,pytamy.pl,samosia.pl,smaczneblogi.pl,smog.pl,snobka.pl,so-magazyn.pl,superauto.pl,testwiedzy.pl,totalmoney.pl,vibez.pl,vpolshchi.pl,wakacje.pl,wp.pl##+js(clickComplete, button, 200, PRZECHODZ)
-gry.pl##+js(clickComplete, div[class*="app_gdpr"] button[class*="intro_acceptAll"], euconsent)
 !
 !
 ! Redirect
