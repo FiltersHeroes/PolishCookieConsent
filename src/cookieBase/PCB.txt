@@ -1,6 +1,6 @@
 ! Polska Baza Ciasteczkowa
 ! Polish Cookie Database
-! Version: 2023.4.19.0
+! Version: 2023.5.14.0
 ! License: MIT (https://opensource.org/licenses/MIT)
 ! Copyright © 2023 Filters Heroes
 !
@@ -67,7 +67,7 @@ odr.pl##+js(clickInteractive, .termsagree)
 ! Click timeout
 !fly4free.pl##+js(clickTimeout, .qc-cmp2-container .qc-cmp2-summary-buttons button[mode="primary"], euconsent-v2)
 /^https?:\/\/consent\.yahoo.com\/[a-z0-9]{2}\/collectConsent/##+js(clickTimeout, .btn[name="agree"])
-bankier.pl,bethesda.net,blaklader.pl,boomerang-tv.pl,carrefour.pl,claudia.pl,dyskusje24.pl,edziecko.pl,elle.pl,elleman.pl,essilor.pl,eurogamer.pl,focus.pl,focusnauka.pl,gala.pl,gazeta.pl,glamour.pl,gry.pl,haps.pl,ikea.com,infoladnydom.pl,infozdrowie24.pl,kobieta.pl,mojegotowanie.pl,mojpieknyogrod.pl,moto.pl,national-geographic.pl,olx.pl,pizzahut.pl,player.pl,przyslijprzepis.pl,sport.pl,tokfm.pl,toteraz.pl,tvn.pl,tvn24.pl,ugotuj.to,vod.pl,wyborcza.pl##+js(clickTimeout, #onetrust-accept-btn-handler)
+avanti24.pl,bankier.pl,bethesda.net,blaklader.pl,boomerang-tv.pl,carrefour.pl,claudia.pl,czterykaty.pl,dyskusje24.pl,edziecko.pl,elle.pl,elleman.pl,essilor.pl,eurogamer.pl,focus.pl,focusnauka.pl,gala.pl,gazeta.pl,gazeta.tv,glamour.pl,gry.pl,haps.pl,hapsvod.pl,ikea.com,infoladnydom.pl,infozdrowie24.pl,kobieta.pl,magazyn-kuchnia.pl,mojegotowanie.pl,mojpieknyogrod.pl,moto-wiadomosci.pl,moto.pl,national-geographic.pl,olx.pl,pizzahut.pl,player.pl,plotek.pl,przyslijprzepis.pl,sport.gwar.pl,sport.pl,tokfm.pl,toteraz.pl,tvn.pl,tvn24.pl,ugotuj.to,vod.pl,wpodrozy24.pl,wyborcza.pl##+js(clickTimeout, #onetrust-accept-btn-handler)
 consent.google.com,consent.google.pl,consent.youtube.com##+js(clickTimeout, form[action*="consent."] button[aria-label^="Zaakceptuj"])
 downdetector.pl##+js(clickTimeout, .evidon-barrier-acceptbutton)
 facebook.com,instagram.com##+js(clickTimeout, div[aria-label="Zezwól tylko na niezbędne pliki cookie"] span)
