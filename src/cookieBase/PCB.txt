@@ -1,6 +1,6 @@
 ! Polska Baza Ciasteczkowa
 ! Polish Cookie Database
-! Version: 2023.5.14.1
+! Version: 2023.6.4.0
 ! License: MIT (https://opensource.org/licenses/MIT)
 ! Copyright © 2023 Filters Heroes
 !
@@ -70,8 +70,8 @@ odr.pl##+js(clickInteractive, .termsagree)
 avanti24.pl,bankier.pl,bethesda.net,blaklader.pl,boomerang-tv.pl,carrefour.pl,claudia.pl,czterykaty.pl,dyskusje24.pl,edziecko.pl,elle.pl,elleman.pl,essilor.pl,eurogamer.pl,focus.pl,focusnauka.pl,gala.pl,gazeta.pl,gazeta.tv,glamour.pl,gry.pl,haps.pl,hapsvod.pl,ikea.com,infoladnydom.pl,infozdrowie24.pl,kobieta.pl,magazyn-kuchnia.pl,mojegotowanie.pl,mojpieknyogrod.pl,moto-wiadomosci.pl,moto.pl,national-geographic.pl,olx.pl,pizzahut.pl,player.pl,plotek.pl,przyslijprzepis.pl,sport.gwar.pl,sport.pl,tokfm.pl,toteraz.pl,tvn.pl,tvn24.pl,ugotuj.to,vod.pl,wpodrozy24.pl,wyborcza.pl##+js(clickTimeout, #onetrust-accept-btn-handler)
 consent.google.com,consent.google.pl,consent.youtube.com##+js(clickTimeout, form[action*="consent."] button[aria-label^="Zaakceptuj"])
 downdetector.pl##+js(clickTimeout, .evidon-barrier-acceptbutton)
-facebook.com,instagram.com##+js(clickTimeout, div[aria-label="Zezwól tylko na niezbędne pliki cookie"] span)
-facebook.com,messenger.com##+js(clickTimeout, body > div div[aria-label="Zezwól tylko na niezbędne pliki cookie"][role="button"])
+facebook.com,instagram.com,messenger.com##+js(clickTimeout, body > div [data-cookiebanner="accept_button"])
+facebook.com,instagram.com,messenger.com##+js(clickTimeout, body > div div[aria-label^="Zezwól na wszystkie pliki cookie"][role="button"])
 fandom.com##+js(clickTimeout, [data-tracking-opt-in-accept="true"], euconsent-v2)
 fandom.com,fly4free.pl,wpolityce.pl##+js(clickTimeout, .qc-cmp2-footer button + button, euconsent-v2)
 instagram.com##+js(clickTimeout, body[style*="overflow"] div[role="presentation"].RnEpo > div[role="dialog"] div > button:nth-of-type(1):nth-last-of-type(2))
