@@ -31,10 +31,14 @@ Crowdin: [![Crowdin](https://badges.crowdin.net/polish-cookie-consent/localized.
 2. Ready :tada: !
 
 ### **III. ![Opera][Opera](Chr)Opera (older than 76)**
+<!--
 1. Install [Install Chrome Extensions](https://addons.opera.com/extensions/details/install-chrome-extensions/) extension.
 2. Go to [CWS](https://chrome.google.com/webstore/detail/polish-cookie-consent/bniijddcmabghibaojbkbnngbedopbno) and click `Add to Opera`, and then `OK`.
 2. Click `Install`.
 3. Ready :tada: !
+-->
+It is now recommended to update the browser, as the "Install Chrome Extensions" add-on has been withdrawn from the Opera store, and CRX viewer does not provide an update of the add-on to a newer version, nor do we want to link the nex file for "Install Chrome Extensions" from insecure sources or not in accordance with Opera's licenses/rights.
+
 
 ### **IV. ![Pale Moon][Pale Moon]Pale Moon**
 1. Install latest extension version from [PMA](https://addons.palemoon.org/addon/pcc/).
