@@ -1,6 +1,6 @@
 ! Polska Baza Ciasteczkowa
 ! Polish Cookie Database
-! Version: 2023.6.28.0
+! Version: 2023.6.28.1
 ! License: MIT (https://opensource.org/licenses/MIT)
 ! Copyright © 2023 Filters Heroes
 !
@@ -39,21 +39,21 @@ mapa.gdansk.gda.pl##+js(bakeCookie, splash, y, 365)
 mapa.szukacz.pl##+js(bakeCookie, gdprid, 1, 365)
 mapy.geoportal.gov.pl##+js(bakeCookie, regulationsAccepted, true, 365)
 mapy.geoportal.gov.pl##+js(bakeCookie, rules, 1, 365)
-mini.com.pl##+js(bakeCookie, cc_consentCookie, {"mini_poland_family":{"consentMetadataModel":{"analytics":"GIVEN","functional":"GIVEN","advertising":"GIVEN"},"lastModifiedTimestamp":1619619734490,"crossDomainConsent":true}}, 365, .mini.com.pl)
+mini.com.pl##+js(bakeCookie, cc_consentCookie, {"mini_poland_family":{"consentMetadataModel":{"analytics":"GIVEN","functional":"GIVEN","advertising":"GIVEN"},"lastModifiedTimestamp":1687980968000,"crossDomainConsent":true}}, 365, .mini.com.pl)
 nike.com##+js(bakeCookie, sq, 3, 365)
 parkiet.com,rp.pl##+js(bakeCookie, __gm_tcfconsent_v2, 1, 365)
 polsatboxgo.pl,polsatgo.pl##+js(bakeCookie, rodo-modal-displayed, 1, 365)
 senda.pl##+js(bakeCookie, cookieConsent3, true, 365)
-tumblr.com##+js(bakeCookie, euconsent-v2, CPuErAAPuErAAECABAPLDLCgAPLAAHLAAKiQJhNX_H__bX9v8f7_6ft0eY1f9_j77uQxBhfJs-4F3LvW-JwX_2E7NF36tq4KmR4Eu3LBIUNtHNnUTVmxaokVrzHsak2cpTNKJ-BkkHMRe2dYCF5vm5tjeQKZ5_p_d3f52T_9_dv-39z33913v3ddf-_1-Pjde5_9H_v_fRfb-_If9_7-_8v8_9_rk2_eT1_________-_____wTBAJMNS4gC7MocCbQMIoUQIwrCAigUAABAMDRAQAODAp0RgE-sIkAKEUARgRAhwBRkQCAAASAJCIAJAiwQAAACAQAAgAQCIQAMDAIKACwEAgABAdAxRCgAECQgSIiIhTAgKgSCAlsqEEoLpDTCAKssAKARGwUACIJARWAAICwcAwRICViwQJcQbRAAMACAUSoVqKT00BCgmbLAAAAA, 365)
-tumblr.com##+js(bakeCookie, euconsent-v2-analytics, 1, 365)
-tumblr.com##+js(bakeCookie, euconsent-v2-noniab, AAVE, 365)
+tumblr.com##+js(bakeCookie, euconsent-v2, CPuErAAPuErAAECABAPLDLCgAPLAAHLAAKiQJhNX_H__bX9v8f7_6ft0eY1f9_j77uQxBhfJs-4F3LvW-JwX_2E7NF36tq4KmR4Eu3LBIUNtHNnUTVmxaokVrzHsak2cpTNKJ-BkkHMRe2dYCF5vm5tjeQKZ5_p_d3f52T_9_dv-39z33913v3ddf-_1-Pjde5_9H_v_fRfb-_If9_7-_8v8_9_rk2_eT1_________-_____wTBAJMNS4gC7MocCbQMIoUQIwrCAigUAABAMDRAQAODAp0RgE-sIkAKEUARgRAhwBRkQCAAASAJCIAJAiwQAAACAQAAgAQCIQAMDAIKACwEAgABAdAxRCgAECQgSIiIhTAgKgSCAlsqEEoLpDTCAKssAKARGwUACIJARWAAICwcAwRICViwQJcQbRAAMACAUSoVqKT00BCgmbLAAAAA, 365, .tumblr.com)
+tumblr.com##+js(bakeCookie, euconsent-v2-analytics, 1, 365, .tumblr.com)
+tumblr.com##+js(bakeCookie, euconsent-v2-noniab, AAVE, 365, .tumblr.com)
 ubi2.wit.edu.pl##+js(bakeCookie, GPRD, 128, 365)
 virustotal.com##+js(bakeCookie, euConsent, 1, 365)
 vivaldi.com##+js(bakeCookie, acceptedCookies, true, 365)
 warszawskakranowka.pl##+js(bakeCookie, rodo_warszawskakranowka, 1, 365)
 wroclaw.pl##+js(bakeCookie, iRodoInfo, 1, 365)
 wunderground.com##+js(bakeCookie, notice_gdpr_prefs, 0,1,2,3:, 365)
-wunderground.com##+js(bakeCookie, notice_poptime, 1533920400000, 365)
+wunderground.com##+js(bakeCookie, notice_poptime, 1687980968000, 365)
 www2.hm.com##+js(bakeCookie, hm_gdpr_read, true, 365)
 !
 !
