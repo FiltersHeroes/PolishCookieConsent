@@ -1,6 +1,6 @@
 ! Polska Baza Ciasteczkowa
 ! Polish Cookie Database
-! Version: 2023.6.28.1
+! Version: 2023.7.16.0
 ! License: MIT (https://opensource.org/licenses/MIT)
 ! Copyright © 2023 Filters Heroes
 !
@@ -71,6 +71,7 @@ facebook.com,instagram.com,messenger.com##+js(clickTimeout, body > div [data-coo
 facebook.com,instagram.com,messenger.com##+js(clickTimeout, body > div div[aria-label^="Zezwól na wszystkie pliki cookie"][role="button"])
 fandom.com##+js(clickTimeout, [data-tracking-opt-in-accept="true"], euconsent-v2)
 fandom.com,fly4free.pl,wpolityce.pl##+js(clickTimeout, .qc-cmp2-footer button + button, euconsent-v2)
+filmweb.pl##+js(clickTimeout, #didomi-notice-agree-button)
 instagram.com##+js(clickTimeout, body[style*="overflow"] div[role="presentation"].RnEpo > div[role="dialog"] div > button:nth-of-type(1):nth-last-of-type(2))
 redirect.global.commerce-connector.com/consent##+js(clickTimeout, .cookie-notice > .btn--blue.btn)
 rejestracja.pwik.gliwice.pl##+js(clickTimeout, .bp3-portal .bp3-dialog-footer-actions button[type="button"] ~ button[type="submit"])
