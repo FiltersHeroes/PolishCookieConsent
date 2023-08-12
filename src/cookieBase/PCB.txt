@@ -1,6 +1,6 @@
 ! Polska Baza Ciasteczkowa
 ! Polish Cookie Database
-! Version: 2023.7.16.0
+! Version: 2023.8.12.0
 ! License: MIT (https://opensource.org/licenses/MIT)
 ! Copyright © 2023 Filters Heroes
 !
@@ -83,7 +83,8 @@ www.google.com,www.google.pl##+js(clickTimeout, [aria-label="Zanim przejdziesz d
 !
 !
 ! Click complete
-abczdrowie.pl,allani.pl,autocentrum.pl,autokult.pl,benchmark.pl,dobramama.pl,dobregry.pl,dobreprogramy.pl,domodi.pl,echirurgia.pl,extradom.pl,fotoblogia.pl,gadzetomania.pl,genialne.pl,homebook.pl,jastrzabpost.pl,kafeteria.pl,kafeteria.tv,kardiolo.pl,kazimierzdolny.pl,komorkomania.pl,luxlux.pl,medycyna24.pl,mixer.pl,money.pl,nerwica.com,nocowanie.pl,o2.pl,open.fm,parenting.pl,pogodnie.pl,polygamia.pl,pudelek.pl,pudelek.tv,pudelekx.pl,pytamy.pl,samosia.pl,smaczneblogi.pl,smog.pl,snobka.pl,so-magazyn.pl,superauto.pl,testwiedzy.pl,totalmoney.pl,vibez.pl,vpolshchi.pl,wakacje.pl,wp.pl##+js(clickComplete, button, 300, AKCEPTUJĘ I PRZECHODZĘ DO SERWISU)
+abczdrowie.pl,allani.pl,autocentrum.pl,autokult.pl,benchmark.pl,dobreprogramy.pl,domodi.pl,extradom.pl,fotoblogia.pl,gadzetomania.pl,genialne.pl,homebook.pl,jastrzabpost.pl,kafeteria.pl,kafeteria.tv,kazimierzdolny.pl,komorkomania.pl,money.pl,nerwica.com,nocowanie.pl,o2.pl,open.fm,parenting.pl,polygamia.pl,pudelek.pl,pudelek.tv,smaczneblogi.pl,so-magazyn.pl,superauto.pl,testwiedzy.pl,totalmoney.pl,vibez.pl,vpolshchi.pl,wakacje.pl,wp.pl##+js(clickComplete, button, 300, PRZECHODZ)
+vpolshchi.pl##+js(clickComplete, button, 300, ПЕРЕХОДЖУ)
 www.instagram.com##+js(clickComplete, div[contains(@role,'dialog')]/div[contains(@style,'flex')]/button[1], 200, Zezwól na wszystkie pliki cookie)
 !
 !
