@@ -15,6 +15,7 @@
   },
   "browser_action": {
     "browser_style": false,
+    "default_area": "navbar",
     "default_popup": "popup/index.html",
     "default_icon": {
       "16": "icons/icon16.png",
