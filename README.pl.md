@@ -56,6 +56,14 @@ Obecnie rekomendowana jest aktualizacja przeglądarki, gdyż wycofano dodatek "I
 6. Gotowe :tada: !
 
 ### **VII. ![Fennec][Fennec][Fennec F-Droid](https://f-droid.org/en/packages/org.mozilla.fennec_fdroid/)/![Nightly][Nightly][Firefox Nightly (Android)](https://play.google.com/store/apps/details?id=org.mozilla.fenix)**<a name="vii-fennec-f-droidfirefox-nightly-android"></a>
+
+Wydanie 119 bety/nocne Firefox zezwala na instalację dodatku spod strony dla PC: https://addons.mozilla.org/pl/firefox/addon/polish-cookie-consent/ <br>
+Mechanizm ten może wymagać dezaktywacji własnej kolekcji.
+
+Nie wiadomo kiedy ruszy to spod adresu dedykowanemu dla Androida (t.j. `https://addons.mozilla.org/android/addon/polish-cookie-consent/`).
+
+<details> <summary> mechanizmem własnej kolekcji  (Firefox 79 - 118 / Fennec) </summary>
+
 1. Wejdź w Ustawienia -> O programie Fennec/Firefox Nightly.
 2. Dotknij 5 razy w szybkim tempie logo programu - aby odblokować tryb developera.
 3. Wróć do głównych ustawień programu -> Inna kolekcja dodatków.
@@ -65,7 +73,9 @@ Obecnie rekomendowana jest aktualizacja przeglądarki, gdyż wycofano dodatek "I
 7. Wejdź w `Dodatki`.
 8. Dotknij `+` przy PCZ i `Dodaj`.
 9. Gotowe :tada: !
-10. Listę reszty dopuszczonych dodatków przez Moz://ę znajdziesz pod adresem: [https://addons.mozilla.org/pl/android/](https://addons.mozilla.org/pl/android/), rozwijając rekomendowane (od Firefox 85 część dodatków można ponownie instalować bezpośrednio z poziomu sklepu dodatków Moz://a).
+10. Listę reszty dopuszczonych dodatków przez Moz://ę znajdziesz pod adresem: [https://addons.mozilla.org/](https://addons.mozilla.org/), rozwijając rekomendowane (od Firefox 85 część dodatków można ponownie instalować bezpośrednio z poziomu sklepu dodatków Moz://a). Jeśli strona nie zezwala na instalację wąskiej grupy dodatków, można rozważyć wyłączenie dodanej tymczasowo kolekcji.
+
+</details>
 
 
 [Firefox]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/73.0.0/firefox/firefox_24x24.png "Mozilla Firefox"

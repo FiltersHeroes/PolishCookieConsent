@@ -57,6 +57,14 @@ It is now recommended to update the browser, as the "Install Chrome Extensions" 
 6. Ready :tada: !
 
 ### **VII. ![Fennec][Fennec][Fennec F-Droid](https://f-droid.org/en/packages/org.mozilla.fennec_fdroid/)/![Firefox-Beta][Firefox-Beta]Firefox [Beta](https://play.google.com/store/apps/details?id=org.mozilla.firefox_beta)/![Nightly][Nightly][Nightly](https://play.google.com/store/apps/details?id=org.mozilla.fenix)** (Android)<a name="vii-fennec-f-droidfirefox-nightly-android"></a>
+
+The 119th beta/Nightly Firefox release allows the add-on to be installed from under the site for PC: https://addons.mozilla.org/firefox/addon/polish-cookie-consent/ <br>
+This mechanism may require deactivating your own collection.
+
+It is not known when it will launch from under the address dedicated for Android (`https://addons.mozilla.org/android/addon/polish-cookie-consent/`).
+
+<details> <summary> by custom collection mechanism (Firefox 79 - 118 / Fennec) </summary>
+
 1. Tap on the three dot menu and select Settings => About Fennec/Firefox Nightly.
 2. Tap the app logo five times until the “Debug menu enabled” notification appears.
 3. Navigate back to main app settings => Custom Add-on collection.
@@ -66,7 +74,9 @@ It is now recommended to update the browser, as the "Install Chrome Extensions" 
 7. Go to `Addons`.
 8. Tap `+` near PCC and `Add`.
 9. Ready :tada: !
-10. You can find a list of rest allowed add-ons by Moz://a on: [https://addons.mozilla.org/android/](https://addons.mozilla.org/pl/android/), expanding those recommended (since Firefox 85 some of addons can be installed again directly from Moz://a Addons Store).
+10. You can find a list of rest allowed add-ons by Moz://a on: [https://addons.mozilla.org/](https://addons.mozilla.org/), expanding those recommended (since Firefox 85 some of addons can be installed again directly from Moz://a Addons Store). If the site does not allow the installation of a narrow group of add-ons, you may want to consider disabling the temporarily added collection.
+
+</details>
 
 
 [Firefox]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/73.0.0/firefox/firefox_24x24.png "Mozilla Firefox"
