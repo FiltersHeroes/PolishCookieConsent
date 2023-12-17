@@ -1,18 +1,31 @@
 ! Polska Baza Ciasteczkowa
 ! Polish Cookie Database
-! Version: 2023.11.19.0
+! Version: 2023.12.17.0
 ! License: MIT (https://opensource.org/licenses/MIT)
 ! Copyright © 2023 Filters Heroes
 !
 !
 ! Local storage
-totalcasino.pl##+js(addToStorage, gdpr_popup, true)
+!
 !
 !
 ! Cookies
+al.to,combat.pl,x-kom.pl##+js(bakeCookie, trackingPermissionConsentsValue, {%22cookies_analytics%22:true%2C%22cookies_personalization%22:true%2C%22cookies_advertisement%22:true}, 365)
+electronicbeats.pl##+js(bakeCookie, borlabs-cookie, %7B%22consents%22%3A%7B%22essential%22%3A%5B%22borlabs-cookie%22%2C%22google-tag-manager%22%5D%2C%22statistics%22%3A%5B%22google-analytics%22%5D%2C%22marketing%22%3A%5B%22facebook_share_button%22%2C%22twitter_share_button%22%5D%2C%22external-media%22%3A%5B%22facebook%22%2C%22bandcamp%22%2C%22mixcloud%22%2C%22soundcloud%22%2C%22spotify%22%2C%22googlemaps%22%2C%22instagram%22%2C%22openstreetmap%22%2C%22twitter%22%2C%22vimeo%22%2C%22youtube%22%2C%22externalmedia%22%5D%7D%2C%22domainPath%22%3A%22www.electronicbeats.net%2F%22%2C%22expires%22%3A%22Tue%2C%2006%20Dec%202022%2009%3A36%3A44%20GMT%22%2C%22uid%22%3A%22y8b4cd84-vcupvedk-9sbqhj37-x0h579ap%22%2C%22version%22%3A%223%22%7D, 365)
+eurogamer.pl##+js(bakeCookie, consentUUID, 7bb276c0-2469-4a2a-8264-61e7edf46065_25, 365)
+hiszpanskidlapolakow.com##+js(bakeCookie, gdpr-accepted, {"ga":true,"facebook":true,"disqus":true}, 365)
+hrkgame.com##+js(bakeCookie, gdpralert, done, 365)
+login.e-dowod.gov.pl##+js(bakeCookie, acceptRodoSie, hide, 365)
+mini.com.pl##+js(bakeCookie, cc_consentCookie, {"mini_poland_family":{"consentMetadataModel":{"analytics":"GIVEN","functional":"GIVEN","advertising":"GIVEN"},"lastModifiedTimestamp":1687980968000,"crossDomainConsent":true}}, 365, .mini.com.pl)
+tumblr.com##+js(bakeCookie, euconsent-v2, CPuErAAPuErAAECABAPLDLCgAPLAAHLAAKiQJhNX_H__bX9v8f7_6ft0eY1f9_j77uQxBhfJs-4F3LvW-JwX_2E7NF36tq4KmR4Eu3LBIUNtHNnUTVmxaokVrzHsak2cpTNKJ-BkkHMRe2dYCF5vm5tjeQKZ5_p_d3f52T_9_dv-39z33913v3ddf-_1-Pjde5_9H_v_fRfb-_If9_7-_8v8_9_rk2_eT1_________-_____wTBAJMNS4gC7MocCbQMIoUQIwrCAigUAABAMDRAQAODAp0RgE-sIkAKEUARgRAhwBRkQCAAASAJCIAJAiwQAAACAQAAgAQCIQAMDAIKACwEAgABAdAxRCgAECQgSIiIhTAgKgSCAlsqEEoLpDTCAKssAKARGwUACIJARWAAICwcAwRICViwQJcQbRAAMACAUSoVqKT00BCgmbLAAAAA, 365, .tumblr.com)
+tumblr.com##+js(bakeCookie, euconsent-v2-analytics, 1, 365, .tumblr.com)
+tumblr.com##+js(bakeCookie, euconsent-v2-noniab, AAVE, 365, .tumblr.com)
+ubi2.wit.edu.pl##+js(bakeCookie, GPRD, 128, 365)
+wunderground.com##+js(bakeCookie, notice_gdpr_prefs, 0,1,2,3:, 365)
+wunderground.com##+js(bakeCookie, notice_poptime, 1687980968000, 365)
+! compatible with uBo 1.51.0+: https://github.com/gorhill/uBlock/wiki/Resources-Library#set-cookiejs-
 action.com##+js(bakeCookie, CookieConsent, true, 365)
 al.to,combat.pl##+js(bakeCookie, trackingPermissionValueCookie, true, 365)
-al.to,combat.pl,x-kom.pl##+js(bakeCookie, trackingPermissionConsentsValue, {%22cookies_analytics%22:true%2C%22cookies_personalization%22:true%2C%22cookies_advertisement%22:true}, 365)
 amway.pl##+js(bakeCookie, isAnalyticsCookiesAccepted, false, 365)
 amway.pl##+js(bakeCookie, isCookieConsentAccepted, true, 365)
 amway.pl##+js(bakeCookie, isMarketingCookiesAccepted, false, 365)
@@ -21,40 +34,28 @@ cineman.pl,tv-trwam.pl##+js(bakeCookie, ARE_FUNCTIONAL_COOKIES_ACCEPTED, true, 3
 cineman.pl,tv-trwam.pl##+js(bakeCookie, ARE_MARKETING_COOKIES_ACCEPTED, true, 365)
 cineman.pl,tv-trwam.pl##+js(bakeCookie, ARE_REQUIRED_COOKIES_ACCEPTED, true, 365)
 cineman.pl,tv-trwam.pl##+js(bakeCookie, HAS_COOKIES_FORM_SHOWED, true, 365)
-electronicbeats.pl##+js(bakeCookie, borlabs-cookie, %7B%22consents%22%3A%7B%22essential%22%3A%5B%22borlabs-cookie%22%2C%22google-tag-manager%22%5D%2C%22statistics%22%3A%5B%22google-analytics%22%5D%2C%22marketing%22%3A%5B%22facebook_share_button%22%2C%22twitter_share_button%22%5D%2C%22external-media%22%3A%5B%22facebook%22%2C%22bandcamp%22%2C%22mixcloud%22%2C%22soundcloud%22%2C%22spotify%22%2C%22googlemaps%22%2C%22instagram%22%2C%22openstreetmap%22%2C%22twitter%22%2C%22vimeo%22%2C%22youtube%22%2C%22externalmedia%22%5D%7D%2C%22domainPath%22%3A%22www.electronicbeats.net%2F%22%2C%22expires%22%3A%22Tue%2C%2006%20Dec%202022%2009%3A36%3A44%20GMT%22%2C%22uid%22%3A%22y8b4cd84-vcupvedk-9sbqhj37-x0h579ap%22%2C%22version%22%3A%223%22%7D, 365)
 emuia1.gugik.gov.pl##+js(bakeCookie, cookieMessageHide, true, 365)
 espedytor.pl##+js(bakeCookie, zgodaRODO, true, 365)
-eurogamer.pl##+js(bakeCookie, consentUUID, 7bb276c0-2469-4a2a-8264-61e7edf46065_25, 365)
 forgeofempires.com##+js(bakeCookie, CookieNotification, 0, 365)
 gamepedia.com,wikia.com,wikia.org##+js(bakeCookie, tracking-opt-in-status, accepted, 365)
 gisgminny.pl##+js(bakeCookie, cookiesDirective, 1, 365)
-hiszpanskidlapolakow.com##+js(bakeCookie, gdpr-accepted, {"ga":true,"facebook":true,"disqus":true}, 365)
-hrkgame.com##+js(bakeCookie, gdpralert, done, 365)
 hummel.pl##+js(bakeCookie, CookieInformationConsent, 1, 365)
 infor.pl##+js(bakeCookie, inforCookieWallCacheVal, 15, 365)
 lawyerka.pl##+js(bakeCookie, ginger-cookie, Y, 365)
 laziska.com.pl,m-ce.pl,mojbytom.pl,mojegliwice.pl,mojekatowice.pl,mojmikolow.pl,orzesze.com.pl,piekaryslaskie.com.pl,pyskowice.com.pl,rudaslaska.com.pl,rybnicki.com,siemianowice.net.pl,silesia.info.pl,sosnowiecki.pl,swiony.pl,wodzislaw.com.pl,zabrze.com.pl,zory.com.pl##+js(bakeCookie, rodo, accept, 365)
-login.e-dowod.gov.pl##+js(bakeCookie, acceptRodoSie, hide, 365)
 mapa.gdansk.gda.pl##+js(bakeCookie, ipg.splash, y, 365)
 mapa.gdansk.gda.pl##+js(bakeCookie, splash, y, 365)
 mapa.szukacz.pl##+js(bakeCookie, gdprid, 1, 365)
 mapy.geoportal.gov.pl##+js(bakeCookie, regulationsAccepted, true, 365)
 mapy.geoportal.gov.pl##+js(bakeCookie, rules, 1, 365)
-mini.com.pl##+js(bakeCookie, cc_consentCookie, {"mini_poland_family":{"consentMetadataModel":{"analytics":"GIVEN","functional":"GIVEN","advertising":"GIVEN"},"lastModifiedTimestamp":1687980968000,"crossDomainConsent":true}}, 365, .mini.com.pl)
 nike.com##+js(bakeCookie, sq, 3, 365)
 parkiet.com,rp.pl##+js(bakeCookie, __gm_tcfconsent_v2, 1, 365)
 polsatboxgo.pl,polsatgo.pl##+js(bakeCookie, rodo-modal-displayed, 1, 365)
 senda.pl##+js(bakeCookie, cookieConsent3, true, 365)
-tumblr.com##+js(bakeCookie, euconsent-v2, CPuErAAPuErAAECABAPLDLCgAPLAAHLAAKiQJhNX_H__bX9v8f7_6ft0eY1f9_j77uQxBhfJs-4F3LvW-JwX_2E7NF36tq4KmR4Eu3LBIUNtHNnUTVmxaokVrzHsak2cpTNKJ-BkkHMRe2dYCF5vm5tjeQKZ5_p_d3f52T_9_dv-39z33913v3ddf-_1-Pjde5_9H_v_fRfb-_If9_7-_8v8_9_rk2_eT1_________-_____wTBAJMNS4gC7MocCbQMIoUQIwrCAigUAABAMDRAQAODAp0RgE-sIkAKEUARgRAhwBRkQCAAASAJCIAJAiwQAAACAQAAgAQCIQAMDAIKACwEAgABAdAxRCgAECQgSIiIhTAgKgSCAlsqEEoLpDTCAKssAKARGwUACIJARWAAICwcAwRICViwQJcQbRAAMACAUSoVqKT00BCgmbLAAAAA, 365, .tumblr.com)
-tumblr.com##+js(bakeCookie, euconsent-v2-analytics, 1, 365, .tumblr.com)
-tumblr.com##+js(bakeCookie, euconsent-v2-noniab, AAVE, 365, .tumblr.com)
-ubi2.wit.edu.pl##+js(bakeCookie, GPRD, 128, 365)
 virustotal.com##+js(bakeCookie, euConsent, 1, 365)
 vivaldi.com##+js(bakeCookie, acceptedCookies, true, 365)
 warszawskakranowka.pl##+js(bakeCookie, rodo_warszawskakranowka, 1, 365)
 wroclaw.pl##+js(bakeCookie, iRodoInfo, 1, 365)
-wunderground.com##+js(bakeCookie, notice_gdpr_prefs, 0,1,2,3:, 365)
-wunderground.com##+js(bakeCookie, notice_poptime, 1687980968000, 365)
 www2.hm.com##+js(bakeCookie, hm_gdpr_read, true, 365)
 !
 !
