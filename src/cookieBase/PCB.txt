@@ -1,6 +1,6 @@
 ! Polska Baza Ciasteczkowa
 ! Polish Cookie Database
-! Version: 2023.12.17.0
+! Version: 2023.12.24.0
 ! License: MIT (https://opensource.org/licenses/MIT)
 ! Copyright © 2023 Filters Heroes
 !
@@ -50,7 +50,7 @@ mapy.geoportal.gov.pl##+js(bakeCookie, regulationsAccepted, true, 365)
 mapy.geoportal.gov.pl##+js(bakeCookie, rules, 1, 365)
 nike.com##+js(bakeCookie, sq, 3, 365)
 parkiet.com,rp.pl##+js(bakeCookie, __gm_tcfconsent_v2, 1, 365)
-polsatboxgo.pl,polsatgo.pl##+js(bakeCookie, rodo-modal-displayed, 1, 365)
+polsatboxgo.pl##+js(bakeCookie, rodo-modal-displayed, 1, 365)
 senda.pl##+js(bakeCookie, cookieConsent3, true, 365)
 virustotal.com##+js(bakeCookie, euConsent, 1, 365)
 vivaldi.com##+js(bakeCookie, acceptedCookies, true, 365)
