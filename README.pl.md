@@ -24,6 +24,9 @@ Crowdin: [![Crowdin](https://badges.crowdin.net/polish-cookie-consent/localized.
 1. Zainstaluj najnowszą wersję rozszerzenia z [AMO](https://addons.mozilla.org/pl/firefox/addon/polish-cookie-consent?utm_source=git) (kliknij dwukrotnie **dodaj**).
 2. Gotowe :tada: !
 
+PS. Firefox 120.1.0+ dodał obługę instalacji na Androidzie dodatku z tego samego linku co dla komputerów (patrz krok pierwszy), nie wiadomo kiedy ruszy to spod adresu dedykowanego dla Androida (t.j. `https://addons.mozilla.org/android/addon/polish-cookie-consent/`).
+
+
 ### **II. ![Chrome][Chrome]Chrome/![Chromium][Chromium]Chromium/![Brave][Brave]Brave/![Vivaldi][Vivaldi]Vivaldi/![Cent][Cent]Cent/![Lemur][Lemur]Lemur/![Kiwi][Kiwi]Kiwi/![Whale][Whale]NAVER Whale/![Edge][Edge](Chrom)Edge/![Opera][Opera](Chr)Opera 76+**<a name="ii-chromiumandlemurs"></a><a name="ii-chromechromiumvivaldicentyandexkiwinaver-whalechromedge"></a><a name="iii-chropera"></a>
 1. Zainstaluj najnowszą wersję rozszerzenia z [CWS](https://chrome.google.com/webstore/detail/polish-cookie-consent/bniijddcmabghibaojbkbnngbedopbno) (kliknij dwukrotnie **dodaj**).
 2. Gotowe :tada: !
@@ -47,6 +50,9 @@ Obecnie rekomendowana jest aktualizacja przeglądarki, gdyż wycofano dodatek "I
 1. Zainstaluj najnowszą wersję rozszerzenia z [BA](https://addons.basilisk-browser.org/addon/pcc/).
 2. Gotowe :tada: !
 
+
+### Mobilne bazujące na Firefox 79.0-120.0:
+
 ### **VI. ![Iceraven][Iceraven][Iceraven](https://github.com/fork-maintainers/iceraven-browser)**
 1. Wejdź w Ustawienia -> Dostosuj i zjeżdżaj w dół, aż znajdziesz `Set custom add-ons account`.
 2. Dotknij `Set custom add-ons account`, wpisz `12377843` i `OK`.
@@ -55,12 +61,12 @@ Obecnie rekomendowana jest aktualizacja przeglądarki, gdyż wycofano dodatek "I
 5. Dotknij `+` przy PCZ i `Dodaj`.
 6. Gotowe :tada: !
 
-### **VII. ![Fennec][Fennec][Fennec F-Droid](https://f-droid.org/en/packages/org.mozilla.fennec_fdroid/)/![Nightly][Nightly][Firefox Nightly (Android)](https://play.google.com/store/apps/details?id=org.mozilla.fenix)**<a name="vii-fennec-f-droidfirefox-nightly-android"></a>
+### **VII. ![Fennec][Fennec][Fennec F-Droid](https://f-droid.org/en/packages/org.mozilla.fennec_fdroid/)/![Firefox-Beta][Firefox-Beta]Firefox [Beta](https://play.google.com/store/apps/details?id=org.mozilla.firefox_beta)/![Nightly][Nightly][Firefox Nightly (Android)](https://play.google.com/store/apps/details?id=org.mozilla.fenix)**<a name="vii-fennec-f-droidfirefox-nightly-android"></a>
 
 Wydanie 119 bety/nocne Firefox zezwala na instalację dodatku spod strony dla PC: https://addons.mozilla.org/pl/firefox/addon/polish-cookie-consent/ <br>
 Mechanizm ten może wymagać dezaktywacji własnej kolekcji.
 
-Nie wiadomo kiedy ruszy to spod adresu dedykowanemu dla Androida (t.j. `https://addons.mozilla.org/android/addon/polish-cookie-consent/`).
+Nie wiadomo kiedy ruszy to spod adresu dedykowanego dla Androida (t.j. `https://addons.mozilla.org/android/addon/polish-cookie-consent/`).
 
 <details> <summary> mechanizmem własnej kolekcji  (Firefox 79 - 118 / Fennec) </summary>
 
@@ -79,6 +85,7 @@ Nie wiadomo kiedy ruszy to spod adresu dedykowanemu dla Androida (t.j. `https://
 
 
 [Firefox]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/73.0.0/firefox/firefox_24x24.png "Mozilla Firefox"
+[Firefox-Beta]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/73.0.0/firefox-beta/firefox-beta_24x24.png "Mozilla Firefox Beta"
 [Waterfox]: https://raw.githubusercontent.com/WaterfoxCo/Waterfox/current-esr91/browser/branding/waterfox/default24.png "Waterfox"
 [Fennec]: https://i.imgur.com/CBLmX7q.png?1 "Fennec F-Droid"
 [Iceraven]: https://i.imgur.com/jpbS8lO.png?1 "Iceraven"

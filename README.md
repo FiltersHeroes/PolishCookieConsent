@@ -26,6 +26,8 @@ Crowdin: [![Crowdin](https://badges.crowdin.net/polish-cookie-consent/localized.
 1. Install latest extension version from [AMO](https://addons.mozilla.org/pl/firefox/addon/polish-cookie-consent?utm_source=git) (just double click **add**).
 2. Ready :tada: !
 
+The 120.1.0+ Firefox Stable release for Android allows the add-on to be installed from under the site for PC (see step 1), it is not known when it will launch from under the address dedicated for Android (`https://addons.mozilla.org/android/addon/polish-cookie-consent/`).
+
 ### **II. ![Chrome][Chrome]Chrome/![Chromium][Chromium]Chromium/![Brave][Brave]Brave/![Vivaldi][Vivaldi]Vivaldi/![Cent][Cent]Cent/![Lemur][Lemur]Lemur/![Kiwi][Kiwi]Kiwi/![Whale][Whale]NAVER Whale/![Edge][Edge](Chrom)Edge/![Opera][Opera](Chr)Opera 76+**<a name="ii-chromiumandlemurs"></a><a name="ii-chromechromiumvivaldicentyandexkiwinaver-whalechromedge"></a><a name="iii-chropera"></a>
 1. Install latest extension version from [CWS](https://chrome.google.com/webstore/detail/polish-cookie-consent/bniijddcmabghibaojbkbnngbedopbno) (just double click **add**).
 2. Ready :tada: !
@@ -47,6 +49,9 @@ It is now recommended to update the browser, as the "Install Chrome Extensions" 
 ### **V. ![Basilisk][Basilisk]Basilisk**
 1. Install latest extension version from [BA](https://addons.basilisk-browser.org/addon/pcc/).
 2. Ready :tada: !
+
+
+### Mobile based on Firefox 79.0-120.0:
 
 ### **VI. ![Iceraven][Iceraven][Iceraven](https://github.com/fork-maintainers/iceraven-browser)**
 1. Go to Settings -> Customize and scroll down, till you find `Set custom add-ons account`.
@@ -97,6 +102,7 @@ It is not known when it will launch from under the address dedicated for Android
 [Edge]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/73.0.0/edge/edge_24x24.png "Microsoft ChromEdge"
 [Pale Moon]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/73.0.0/pale-moon/pale-moon_24x24.png "Pale Moon"
 [Basilisk]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/73.0.0/basilisk/basilisk_24x24.png "Basilisk"
+
 ## **Credits**
 
 Polish Cookie Consent extension uses open-source code from following projects (according to alphabetical order):
