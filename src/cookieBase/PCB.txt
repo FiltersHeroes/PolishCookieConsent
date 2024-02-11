@@ -1,6 +1,6 @@
 ! Polska Baza Ciasteczkowa
 ! Polish Cookie Database
-! Version: 2023.12.24.0
+! Version: 2024.2.11.0
 ! License: MIT (https://opensource.org/licenses/MIT)
 ! Copyright © 2023 Filters Heroes
 !
@@ -40,7 +40,6 @@ forgeofempires.com##+js(bakeCookie, CookieNotification, 0, 365)
 gamepedia.com,wikia.com,wikia.org##+js(bakeCookie, tracking-opt-in-status, accepted, 365)
 gisgminny.pl##+js(bakeCookie, cookiesDirective, 1, 365)
 hummel.pl##+js(bakeCookie, CookieInformationConsent, 1, 365)
-infor.pl##+js(bakeCookie, inforCookieWallCacheVal, 15, 365)
 lawyerka.pl##+js(bakeCookie, ginger-cookie, Y, 365)
 laziska.com.pl,m-ce.pl,mojbytom.pl,mojegliwice.pl,mojekatowice.pl,mojmikolow.pl,orzesze.com.pl,piekaryslaskie.com.pl,pyskowice.com.pl,rudaslaska.com.pl,rybnicki.com,siemianowice.net.pl,silesia.info.pl,sosnowiecki.pl,swiony.pl,wodzislaw.com.pl,zabrze.com.pl,zory.com.pl##+js(bakeCookie, rodo, accept, 365)
 mapa.gdansk.gda.pl##+js(bakeCookie, ipg.splash, y, 365)
@@ -50,13 +49,12 @@ mapy.geoportal.gov.pl##+js(bakeCookie, regulationsAccepted, true, 365)
 mapy.geoportal.gov.pl##+js(bakeCookie, rules, 1, 365)
 nike.com##+js(bakeCookie, sq, 3, 365)
 parkiet.com,rp.pl##+js(bakeCookie, __gm_tcfconsent_v2, 1, 365)
+pepper.pl##+js(bakeCookie, cookie_policy_agreement, 3)
 polsatboxgo.pl##+js(bakeCookie, rodo-modal-displayed, 1, 365)
-senda.pl##+js(bakeCookie, cookieConsent3, true, 365)
+senda.pl##+js(bakeCookie,sendapl_phpbb3_ca, 1, 365)
 virustotal.com##+js(bakeCookie, euConsent, 1, 365)
 vivaldi.com##+js(bakeCookie, acceptedCookies, true, 365)
-warszawskakranowka.pl##+js(bakeCookie, rodo_warszawskakranowka, 1, 365)
 wroclaw.pl##+js(bakeCookie, iRodoInfo, 1, 365)
-www2.hm.com##+js(bakeCookie, hm_gdpr_read, true, 365)
 !
 !
 ! Click interactive
@@ -84,7 +82,7 @@ www.google.com,www.google.pl##+js(clickTimeout, [aria-label="Zanim przejdziesz d
 !
 !
 ! Click complete
-5mindlazdrowia.pl,abczdrowie.pl,allani.pl,autocentrum.pl,autokult.pl,benchmark.pl,dobreprogramy.pl,domodi.pl,extradom.pl,fotoblogia.pl,gadzetomania.pl,genialne.pl,homebook.pl,jastrzabpost.pl,kafeteria.pl,kafeteria.tv,kazimierzdolny.pl,komorkomania.pl,money.pl,nerwica.com,nocowanie.pl,o2.pl,open.fm,parenting.pl,polygamia.pl,pudelek.pl,pudelek.tv,smaczneblogi.pl,so-magazyn.pl,superauto.pl,testwiedzy.pl,totalmoney.pl,vibez.pl,vpolshchi.pl,wakacje.pl,wp.pl##+js(clickComplete, button, 300, PRZECHODZ)
+5mindlazdrowia.pl,abczdrowie.pl,allani.pl,autocentrum.pl,autokult.pl,benchmark.pl,dobreprogramy.pl,domodi.pl,extradom.pl,fotoblogia.pl,gadzetomania.pl,genialne.pl,homebook.pl,jastrzabpost.pl,kafeteria.pl,kafeteria.tv,kazimierzdolny.pl,komorkomania.pl,money.pl,nauka.rocks,nerwica.com,nocowanie.pl,o2.pl,open.fm,parenting.pl,polygamia.pl,pudelek.pl,pudelek.tv,smaczneblogi.pl,so-magazyn.pl,superauto.pl,testwiedzy.pl,totalmoney.pl,vibez.pl,vpolshchi.pl,wakacje.pl,wp.pl##+js(clickComplete, button, 300, PRZECHODZ)
 chrono24.pl##+js(clickComplete, button[data-label="accept-button"], 200, porządku)
 vpolshchi.pl##+js(clickComplete, button, 300, ПЕРЕХОДЖУ)
 www.instagram.com##+js(clickComplete, div[contains(@role,'dialog')]/div[contains(@style,'flex')]/button[1], 200, Zezwól na wszystkie pliki cookie)
