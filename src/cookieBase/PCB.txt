@@ -1,12 +1,14 @@
 ! Polska Baza Ciasteczkowa
 ! Polish Cookie Database
-! Version: 2024.3.9.0
+! Version: 2024.3.10.0
 ! License: MIT (https://opensource.org/licenses/MIT)
 ! Copyright © 2023 Filters Heroes
 !
 !
 ! Local storage
 app.pitbot.pl##+js(addToStorage, cookieConsent true)
+grupapsb.com.pl,mrowka.com.pl##+js(addToStorage, CookiesAcceptedv2, true)
+hbomax.com##+js(addToStorage, consentChoices, {"allowFunctionalCookies":true,"allowPerformanceCookies":true,"allowTargetingCookies":true,"timestamp":"2024-03-10T16:48:57.101Z"})
 przystanki.bialystok.pl##+js(addToStorage, cookie-accepted, 1)
 !
 !
