@@ -1,6 +1,6 @@
 ! Polska Baza Ciasteczkowa
 ! Polish Cookie Database
-! Version: 2024.3.10.0
+! Version: 2024.3.24.0
 ! License: MIT (https://opensource.org/licenses/MIT)
 ! Copyright © 2023 Filters Heroes
 !
@@ -23,7 +23,6 @@ mini.com.pl##+js(bakeCookie, cc_consentCookie, {"mini_poland_family":{"consentMe
 tumblr.com##+js(bakeCookie, euconsent-v2, CPuErAAPuErAAECABAPLDLCgAPLAAHLAAKiQJhNX_H__bX9v8f7_6ft0eY1f9_j77uQxBhfJs-4F3LvW-JwX_2E7NF36tq4KmR4Eu3LBIUNtHNnUTVmxaokVrzHsak2cpTNKJ-BkkHMRe2dYCF5vm5tjeQKZ5_p_d3f52T_9_dv-39z33913v3ddf-_1-Pjde5_9H_v_fRfb-_If9_7-_8v8_9_rk2_eT1_________-_____wTBAJMNS4gC7MocCbQMIoUQIwrCAigUAABAMDRAQAODAp0RgE-sIkAKEUARgRAhwBRkQCAAASAJCIAJAiwQAAACAQAAgAQCIQAMDAIKACwEAgABAdAxRCgAECQgSIiIhTAgKgSCAlsqEEoLpDTCAKssAKARGwUACIJARWAAICwcAwRICViwQJcQbRAAMACAUSoVqKT00BCgmbLAAAAA, 365, .tumblr.com)
 tumblr.com##+js(bakeCookie, euconsent-v2-analytics, 1, 365, .tumblr.com)
 tumblr.com##+js(bakeCookie, euconsent-v2-noniab, AAVE, 365, .tumblr.com)
-ubi2.wit.edu.pl##+js(bakeCookie, GPRD, 128, 365)
 wunderground.com##+js(bakeCookie, notice_gdpr_prefs, 0,1,2,3:, 365)
 wunderground.com##+js(bakeCookie, notice_poptime, 1687980968000, 365)
 ! compatible with uBo 1.51.0+: https://github.com/gorhill/uBlock/wiki/Resources-Library#set-cookiejs-
@@ -54,6 +53,7 @@ nike.com##+js(bakeCookie, sq, 3, 365)
 pepper.pl##+js(bakeCookie, cookie_policy_agreement, 3)
 polsatboxgo.pl##+js(bakeCookie, rodo-modal-displayed, 1, 365)
 senda.pl##+js(bakeCookie,sendapl_phpbb3_ca, 1, 365)
+ubi2.wit.edu.pl##+js(bakeCookie, GPRD, 128, 365)
 virustotal.com##+js(bakeCookie, euConsent, 1, 365)
 vivaldi.com##+js(bakeCookie, acceptedCookies, true, 365)
 wroclaw.pl##+js(bakeCookie, iRodoInfo, 1, 365)
@@ -84,7 +84,7 @@ www.google.com,www.google.pl##+js(clickTimeout, [aria-label="Zanim przejdziesz d
 !
 !
 ! Click complete
-17bankow.com,5mindlazdrowia.pl,abczdrowie.pl,allani.pl,autocentrum.pl,autokult.pl,benchmark.pl,dobreprogramy.pl,domodi.pl,extradom.pl,fotoblogia.pl,gadzetomania.pl,genialne.pl,homebook.pl,jastrzabpost.pl,kafeteria.pl,kafeteria.tv,kazimierzdolny.pl,komorkomania.pl,money.pl,nauka.rocks,nerwica.com,nocowanie.pl,o2.pl,open.fm,parenting.pl,polygamia.pl,pudelek.pl,pudelek.tv,smaczneblogi.pl,so-magazyn.pl,superauto.pl,testwiedzy.pl,totalmoney.pl,vibez.pl,vpolshchi.pl,wakacje.pl,wp.pl##+js(clickComplete, button, 300, PRZECHODZ)
+17bankow.com,5mindlazdrowia.pl,abczdrowie.pl,allani.pl,autocentrum.pl,autokult.pl,benchmark.pl,deliciousmagazine.pl,dobreprogramy.pl,domodi.pl,extradom.pl,fotoblogia.pl,gadzetomania.pl,genialne.pl,homebook.pl,jastrzabpost.pl,kafeteria.pl,kafeteria.tv,kazimierzdolny.pl,komorkomania.pl,money.pl,nauka.rocks,nerwica.com,nocowanie.pl,o2.pl,open.fm,parenting.pl,polygamia.pl,pudelek.pl,pudelek.tv,smaczneblogi.pl,so-magazyn.pl,superauto.pl,testwiedzy.pl,totalmoney.pl,vibez.pl,vpolshchi.pl,wakacje.pl,wp.pl##+js(clickComplete, button, 300, PRZECHODZ)
 chrono24.pl##+js(clickComplete, button[data-label="accept-button"], 200, porządku)
 vpolshchi.pl##+js(clickComplete, button, 300, ПЕРЕХОДЖУ)
 www.instagram.com##+js(clickComplete, div[contains(@role,'dialog')]/div[contains(@style,'flex')]/button[1], 200, Zezwól na wszystkie pliki cookie)
