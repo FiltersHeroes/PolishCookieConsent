@@ -1,6 +1,6 @@
 ! Polska Baza Ciasteczkowa
 ! Polish Cookie Database
-! Version: 2024.4.7.0
+! Version: 2024.4.7.1
 ! License: MIT (https://opensource.org/licenses/MIT)
 ! Copyright © 2023 Filters Heroes
 !
@@ -32,6 +32,7 @@ al.to,combat.pl##+js(bakeCookie, trackingPermissionValueCookie, true, 365)
 amway.pl##+js(bakeCookie, isAnalyticsCookiesAccepted, false, 365)
 amway.pl##+js(bakeCookie, isCookieConsentAccepted, true, 365)
 amway.pl##+js(bakeCookie, isMarketingCookiesAccepted, false, 365)
+bebiprogram.pl,bobovita.pl##+js(bakeCookie, cookie_necessary, 1, 365)
 budujmase.pl,drogerium.pl,trec.pl,wylecz.to##+js(bakeCookie, rodoHfM, true, 365)
 cineman.pl,tv-trwam.pl##+js(bakeCookie, ARE_FUNCTIONAL_COOKIES_ACCEPTED, true, 365)
 cineman.pl,tv-trwam.pl##+js(bakeCookie, ARE_MARKETING_COOKIES_ACCEPTED, true, 365)
@@ -54,6 +55,7 @@ nike.com##+js(bakeCookie, sq, 3, 365)
 pepper.pl##+js(bakeCookie, cookie_policy_agreement, 3)
 polsatboxgo.pl##+js(bakeCookie, rodo-modal-displayed, 1, 365)
 senda.pl##+js(bakeCookie,sendapl_phpbb3_ca, 1, 365)
+tvsmart.elsat.pl,tvsmart.jambox.pl,tvsmart.multimedia.pl,tvsmart.pl,tvsmart.vectra.pl,tvsmartgo.elsat.pl##+js(bakeCookie, cookie-notice, 1, 365)
 ubi2.wit.edu.pl##+js(bakeCookie, GPRD, 128, 365)
 virustotal.com##+js(bakeCookie, euConsent, 1, 365)
 vivaldi.com##+js(bakeCookie, acceptedCookies, true, 365)
