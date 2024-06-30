@@ -1,6 +1,6 @@
 ! Polska Baza Ciasteczkowa
 ! Polish Cookie Database
-! Version: 2024.6.23.0
+! Version: 2024.6.30.0
 ! License: MIT (https://opensource.org/licenses/MIT)
 ! Copyright © 2023 Filters Heroes
 !
@@ -14,11 +14,10 @@ przystanki.bialystok.pl##+js(addToStorage, cookie-accepted, 1)
 ! Cookies
 al.to,combat.pl,x-kom.pl##+js(bakeCookie, trackingPermissionConsentsValue, {%22cookies_analytics%22:true%2C%22cookies_personalization%22:true%2C%22cookies_advertisement%22:true}, 365)
 electronicbeats.pl##+js(bakeCookie, borlabs-cookie, %7B%22consents%22%3A%7B%22essential%22%3A%5B%22borlabs-cookie%22%2C%22google-tag-manager%22%5D%2C%22statistics%22%3A%5B%22google-analytics%22%5D%2C%22marketing%22%3A%5B%22facebook_share_button%22%2C%22twitter_share_button%22%5D%2C%22external-media%22%3A%5B%22facebook%22%2C%22bandcamp%22%2C%22mixcloud%22%2C%22soundcloud%22%2C%22spotify%22%2C%22googlemaps%22%2C%22instagram%22%2C%22openstreetmap%22%2C%22twitter%22%2C%22vimeo%22%2C%22youtube%22%2C%22externalmedia%22%5D%7D%2C%22domainPath%22%3A%22www.electronicbeats.net%2F%22%2C%22expires%22%3A%22Tue%2C%2006%20Dec%202022%2009%3A36%3A44%20GMT%22%2C%22uid%22%3A%22y8b4cd84-vcupvedk-9sbqhj37-x0h579ap%22%2C%22version%22%3A%223%22%7D, 365)
-entra.pl,grupabiwakowa.pl##+js(bakeCookie, cmplz_banner-status, dismissed, 365)
+entra.pl,grupabiwakowa.pl,nowymarketing.pl##+js(bakeCookie, cmplz_banner-status, dismissed, 365)
 eurogamer.pl##+js(bakeCookie, consentUUID, 7bb276c0-2469-4a2a-8264-61e7edf46065_25, 365)
 hiszpanskidlapolakow.com##+js(bakeCookie, gdpr-accepted, {"ga":true,"facebook":true,"disqus":true}, 365)
 hrkgame.com##+js(bakeCookie, gdpralert, done, 365)
-login.e-dowod.gov.pl##+js(bakeCookie, acceptRodoSie, hide, 365)
 mini.com.pl##+js(bakeCookie, cc_consentCookie, {"mini_poland_family":{"consentMetadataModel":{"analytics":"GIVEN","functional":"GIVEN","advertising":"GIVEN"},"lastModifiedTimestamp":1687980968000,"crossDomainConsent":true}}, 365, .mini.com.pl)
 myphone.pl##+js(bakeCookie, cookies-settings, %7B%22necessary%22%3Atrue%2C%22functional%22%3Atrue%2C%22statistical%22%3Afalse%2C%22marketing%22%3Afalse%7D, 365)
 tumblr.com##+js(bakeCookie, euconsent-v2, CPuErAAPuErAAECABAPLDLCgAPLAAHLAAKiQJhNX_H__bX9v8f7_6ft0eY1f9_j77uQxBhfJs-4F3LvW-JwX_2E7NF36tq4KmR4Eu3LBIUNtHNnUTVmxaokVrzHsak2cpTNKJ-BkkHMRe2dYCF5vm5tjeQKZ5_p_d3f52T_9_dv-39z33913v3ddf-_1-Pjde5_9H_v_fRfb-_If9_7-_8v8_9_rk2_eT1_________-_____wTBAJMNS4gC7MocCbQMIoUQIwrCAigUAABAMDRAQAODAp0RgE-sIkAKEUARgRAhwBRkQCAAASAJCIAJAiwQAAACAQAAgAQCIQAMDAIKACwEAgABAdAxRCgAECQgSIiIhTAgKgSCAlsqEEoLpDTCAKssAKARGwUACIJARWAAICwcAwRICViwQJcQbRAAMACAUSoVqKT00BCgmbLAAAAA, 365, .tumblr.com)
@@ -49,6 +48,7 @@ grupabiwakowa.pl##+js(bakeCookie, cmplz_marketing, allow, 365)
 hummel.pl##+js(bakeCookie, CookieInformationConsent, 1, 365)
 lawyerka.pl##+js(bakeCookie, ginger-cookie, Y, 365)
 laziska.com.pl,m-ce.pl,mojbytom.pl,mojegliwice.pl,mojekatowice.pl,mojmikolow.pl,orzesze.com.pl,piekaryslaskie.com.pl,pyskowice.com.pl,rudaslaska.com.pl,rybnicki.com,siemianowice.net.pl,silesia.info.pl,sosnowiecki.pl,swiony.pl,wodzislaw.com.pl,zabrze.com.pl,zory.com.pl##+js(bakeCookie, rodo, accept, 365)
+login.e-dowod.gov.pl##+js(bakeCookie, acceptRodoSie, hide, 365)
 mapa.gdansk.gda.pl##+js(bakeCookie, ipg.splash, y, 365)
 mapa.gdansk.gda.pl##+js(bakeCookie, splash, y, 365)
 mapa.szukacz.pl##+js(bakeCookie, gdprid, 1, 365)
@@ -72,7 +72,7 @@ odr.pl##+js(clickInteractive, .termsagree)
 ! Click timeout
 !fly4free.pl##+js(clickTimeout, .qc-cmp2-container .qc-cmp2-summary-buttons button[mode="primary"], euconsent-v2)
 /^https?:\/\/consent\.yahoo.com\/[a-z0-9]{2}\/collectConsent/##+js(clickTimeout, .btn[name="agree"])
-avanti24.pl,bankier.pl,bethesda.net,blaklader.pl,carrefour.pl,cartoonito.pl,czterykaty.pl,dyskusje24.pl,edziecko.pl,elle.pl,elleman.pl,essilor.pl,focus.pl,focusnauka.pl,g.pl,gazeta.pl,gazeta.tv,glamour.pl,gry.pl,haps.pl,hapsvod.pl,ikea.com,infoladnydom.pl,infozdrowie24.pl,kobieta.pl,magazyn-kuchnia.pl,mojegotowanie.pl,mojpieknyogrod.pl,moto-wiadomosci.pl,moto.pl,national-geographic.pl,olx.pl,parkiet.com,pizzahut.pl,player.pl,plotek.pl,przyslijprzepis.pl,rp.pl,sport.gwar.pl,sport.pl,tokfm.pl,toteraz.pl,tvn.pl,tvn24.pl,ugotuj.to,wpodrozy24.pl,wyborcza.pl##+js(clickTimeout, #onetrust-accept-btn-handler)
+avanti24.pl,bankier.pl,bethesda.net,blaklader.pl,carrefour.pl,cartoonito.pl,czterykaty.pl,dyskusje24.pl,edziecko.pl,elle.pl,elleman.pl,essilor.pl,focus.pl,focusnauka.pl,g.pl,gazeta.pl,gazeta.tv,glamour.pl,gry.pl,haps.pl,hapsvod.pl,ikea.com,infoladnydom.pl,infozdrowie24.pl,kobieta.pl,magazyn-kuchnia.pl,mojegotowanie.pl,mojpieknyogrod.pl,moto-wiadomosci.pl,moto.pl,national-geographic.pl,olx.pl,parkiet.com,pizzahut.pl,player.pl,plotek.pl,przyslijprzepis.pl,rossmann.pl,rp.pl,sport.gwar.pl,sport.pl,tokfm.pl,toteraz.pl,tvn.pl,tvn24.pl,ugotuj.to,wpodrozy24.pl,wyborcza.pl##+js(clickTimeout, #onetrust-accept-btn-handler)
 consent.google.com,consent.google.pl,consent.youtube.com##+js(clickTimeout, form[action*="consent."] button[aria-label^="Zaakceptuj"])
 downdetector.pl##+js(clickTimeout, .evidon-barrier-acceptbutton)
 facebook.com,instagram.com,messenger.com##+js(clickTimeout, body > div [data-cookiebanner="accept_button"])
