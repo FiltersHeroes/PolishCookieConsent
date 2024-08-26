@@ -5,7 +5,6 @@
             "https://cdn.jsdelivr.net/gh/FiltersHeroes/PolishCookieConsent@master/src/assets/assets.json",
             "https://cdn.statically.io/gh/FiltersHeroes/PolishCookieConsent/master/src/assets/assets.json",
             "https://filtersheroes.gitlab.io/AssetsMirror/assets.json",
-            "https://gitloaf.com/cdn/FiltersHeroes/PolishCookieConsent/master/src/assets/assets.json",
             "https://raw.githubusercontent.com/FiltersHeroes/PolishCookieConsent/master/src/assets/assets.json"			
         ]
     },
@@ -16,7 +15,6 @@
             "https://cdn.jsdelivr.net/gh/FiltersHeroes/PCCassets@main/plCDB.txt",
             "https://cdn.statically.io/gh/FiltersHeroes/PCCassets/main/plCDB.txt",
             "https://filtersheroes.gitlab.io/AssetsMirror/plCDB.txt",
-            "https://gitloaf.com/cdn/FiltersHeroes/PCCassets/main/plCDB.txt",
             "https://raw.githubusercontent.com/FiltersHeroes/PCCassets/main/plCDB.txt"
         ],
         "supportURL": "https://github.com/FiltersHeroes/PCCassets/issues",
@@ -28,7 +26,6 @@
         "cdnURLs": [
             "https://cdn.jsdelivr.net/gh/FiltersHeroes/PCCassets@main/euCDB.txt",
             "https://cdn.statically.io/gh/FiltersHeroes/PCCassets/main/euCDB.txt",
-            "https://gitloaf.com/cdn/FiltersHeroes/PCCassets/main/euCDB.txt",
             "https://filtersheroes.gitlab.io/AssetsMirror/euCDB.txt"
         ],
         "supportURL": "https://github.com/FiltersHeroes/PCCassets/issues",
