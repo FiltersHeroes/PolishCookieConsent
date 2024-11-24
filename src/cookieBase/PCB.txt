@@ -2,7 +2,7 @@
 ! Polish Cookie Database
 ! Version: 2024.11.24.0
 ! License: MIT (https://opensource.org/licenses/MIT)
-! Copyright © 2023 Filters Heroes
+! Copyright © 2024 Filters Heroes
 !
 !
 ! Local storage
