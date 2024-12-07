@@ -1,6 +1,6 @@
 ! Polska Baza Ciasteczkowa
 ! Polish Cookie Database
-! Version: 2024.11.24.0
+! Version: 2024.12.7.0
 ! License: MIT (https://opensource.org/licenses/MIT)
 ! Copyright © 2024 Filters Heroes
 !
@@ -15,11 +15,11 @@ przystanki.bialystok.pl##+js(addToStorage, cookie-accepted, 1)
 al.to,x-kom.pl##+js(bakeCookie, trackingPermissionConsentsValue, {%22cookies_analytics%22:true%2C%22cookies_personalization%22:true%2C%22cookies_advertisement%22:true}, 365)
 bing.com##+js(bakeCookie, BCP, AD=0&AL=0&SM=0, 1)
 electronicbeats.pl##+js(bakeCookie, borlabs-cookie, %7B%22consents%22%3A%7B%22essential%22%3A%5B%22borlabs-cookie%22%2C%22google-tag-manager%22%5D%2C%22statistics%22%3A%5B%22google-analytics%22%5D%2C%22marketing%22%3A%5B%22facebook_share_button%22%2C%22twitter_share_button%22%5D%2C%22external-media%22%3A%5B%22facebook%22%2C%22bandcamp%22%2C%22mixcloud%22%2C%22soundcloud%22%2C%22spotify%22%2C%22googlemaps%22%2C%22instagram%22%2C%22openstreetmap%22%2C%22twitter%22%2C%22vimeo%22%2C%22youtube%22%2C%22externalmedia%22%5D%7D%2C%22domainPath%22%3A%22www.electronicbeats.net%2F%22%2C%22expires%22%3A%22Tue%2C%2006%20Dec%202022%2009%3A36%3A44%20GMT%22%2C%22uid%22%3A%22y8b4cd84-vcupvedk-9sbqhj37-x0h579ap%22%2C%22version%22%3A%223%22%7D, 365)
-entra.pl,grupabiwakowa.pl,nowymarketing.pl##+js(bakeCookie, cmplz_banner-status, dismissed, 365)
 eurogamer.pl##+js(bakeCookie, consentUUID, 7bb276c0-2469-4a2a-8264-61e7edf46065_25, 365)
 hiszpanskidlapolakow.com##+js(bakeCookie, gdpr-accepted, {"ga":true,"facebook":true,"disqus":true}, 365)
 hrkgame.com##+js(bakeCookie, gdpralert, done, 365)
 mini.com.pl##+js(bakeCookie, cc_consentCookie, {"mini_poland_family":{"consentMetadataModel":{"analytics":"GIVEN","functional":"GIVEN","advertising":"GIVEN"},"lastModifiedTimestamp":1687980968000,"crossDomainConsent":true}}, 365, .mini.com.pl)
+msec.gdata.de##+js(bakeCookie, cookiepolicy, strictly_necessary_cookies, 400)
 myphone.pl##+js(bakeCookie, cookies-settings, %7B%22necessary%22%3Atrue%2C%22functional%22%3Atrue%2C%22statistical%22%3Afalse%2C%22marketing%22%3Afalse%7D, 365)
 tumblr.com##+js(bakeCookie, euconsent-v2, CPuErAAPuErAAECABAPLDLCgAPLAAHLAAKiQJhNX_H__bX9v8f7_6ft0eY1f9_j77uQxBhfJs-4F3LvW-JwX_2E7NF36tq4KmR4Eu3LBIUNtHNnUTVmxaokVrzHsak2cpTNKJ-BkkHMRe2dYCF5vm5tjeQKZ5_p_d3f52T_9_dv-39z33913v3ddf-_1-Pjde5_9H_v_fRfb-_If9_7-_8v8_9_rk2_eT1_________-_____wTBAJMNS4gC7MocCbQMIoUQIwrCAigUAABAMDRAQAODAp0RgE-sIkAKEUARgRAhwBRkQCAAASAJCIAJAiwQAAACAQAAgAQCIQAMDAIKACwEAgABAdAxRCgAECQgSIiIhTAgKgSCAlsqEEoLpDTCAKssAKARGwUACIJARWAAICwcAwRICViwQJcQbRAAMACAUSoVqKT00BCgmbLAAAAA, 365, .tumblr.com)
 tumblr.com##+js(bakeCookie, euconsent-v2-analytics, 1, 365, .tumblr.com)
@@ -40,6 +40,7 @@ cineman.pl,tv-trwam.pl##+js(bakeCookie, ARE_MARKETING_COOKIES_ACCEPTED, true, 36
 cineman.pl,tv-trwam.pl##+js(bakeCookie, ARE_REQUIRED_COOKIES_ACCEPTED, true, 365)
 cineman.pl,tv-trwam.pl##+js(bakeCookie, HAS_COOKIES_FORM_SHOWED, true, 365)
 emuia1.gugik.gov.pl##+js(bakeCookie, cookieMessageHide, true, 365)
+entra.pl,grupabiwakowa.pl,nowymarketing.pl##+js(bakeCookie, cmplz_banner-status, dismissed, 365)
 espedytor.pl##+js(bakeCookie, zgodaRODO, true, 365)
 forgeofempires.com##+js(bakeCookie, CookieNotification, 0, 365)
 gamepedia.com,wikia.com,wikia.org##+js(bakeCookie, tracking-opt-in-status, accepted, 365)
