@@ -1,8 +1,8 @@
 ! Polska Baza Ciasteczkowa
 ! Polish Cookie Database
-! Version: 2024.12.30.0
+! Version: 2025.1.5.0
 ! License: MIT (https://opensource.org/licenses/MIT)
-! Copyright © 2024 Filters Heroes
+! Copyright © 2025 Filters Heroes
 !
 !
 ! Local storage
@@ -17,7 +17,6 @@ bing.com##+js(bakeCookie, BCP, AD=0&AL=0&SM=0, 1)
 electronicbeats.pl##+js(bakeCookie, borlabs-cookie, %7B%22consents%22%3A%7B%22essential%22%3A%5B%22borlabs-cookie%22%2C%22google-tag-manager%22%5D%2C%22statistics%22%3A%5B%22google-analytics%22%5D%2C%22marketing%22%3A%5B%22facebook_share_button%22%2C%22twitter_share_button%22%5D%2C%22external-media%22%3A%5B%22facebook%22%2C%22bandcamp%22%2C%22mixcloud%22%2C%22soundcloud%22%2C%22spotify%22%2C%22googlemaps%22%2C%22instagram%22%2C%22openstreetmap%22%2C%22twitter%22%2C%22vimeo%22%2C%22youtube%22%2C%22externalmedia%22%5D%7D%2C%22domainPath%22%3A%22www.electronicbeats.net%2F%22%2C%22expires%22%3A%22Tue%2C%2006%20Dec%202022%2009%3A36%3A44%20GMT%22%2C%22uid%22%3A%22y8b4cd84-vcupvedk-9sbqhj37-x0h579ap%22%2C%22version%22%3A%223%22%7D, 365)
 eurogamer.pl##+js(bakeCookie, consentUUID, 7bb276c0-2469-4a2a-8264-61e7edf46065_25, 365)
 hiszpanskidlapolakow.com##+js(bakeCookie, gdpr-accepted, {"ga":true,"facebook":true,"disqus":true}, 365)
-hrkgame.com##+js(bakeCookie, gdpralert, done, 365)
 mini.com.pl##+js(bakeCookie, cc_consentCookie, {"mini_poland_family":{"consentMetadataModel":{"analytics":"GIVEN","functional":"GIVEN","advertising":"GIVEN"},"lastModifiedTimestamp":1687980968000,"crossDomainConsent":true}}, 365, .mini.com.pl)
 msec.gdata.de##+js(bakeCookie, cookiepolicy, strictly_necessary_cookies, 400)
 myphone.pl##+js(bakeCookie, cookies-settings, %7B%22necessary%22%3Atrue%2C%22functional%22%3Atrue%2C%22statistical%22%3Afalse%2C%22marketing%22%3Afalse%7D, 365)
@@ -47,6 +46,7 @@ gamepedia.com,wikia.com,wikia.org##+js(bakeCookie, tracking-opt-in-status, accep
 gisgminny.pl##+js(bakeCookie, cookiesDirective, 1, 365)
 grupabiwakowa.pl##+js(bakeCookie, cmplz_functional, allow, 365)
 grupabiwakowa.pl##+js(bakeCookie, cmplz_marketing, allow, 365)
+hrkgame.com##+js(bakeCookie, gdpralert, done, 365)
 hummel.pl##+js(bakeCookie, CookieInformationConsent, 1, 365)
 lawyerka.pl##+js(bakeCookie, ginger-cookie, Y, 365)
 laziska.com.pl,m-ce.pl,mojbytom.pl,mojegliwice.pl,mojekatowice.pl,mojmikolow.pl,orzesze.com.pl,piekaryslaskie.com.pl,pyskowice.com.pl,rudaslaska.com.pl,rybnicki.com,siemianowice.net.pl,silesia.info.pl,sosnowiecki.pl,swiony.pl,wodzislaw.com.pl,zabrze.com.pl,zory.com.pl##+js(bakeCookie, rodo, accept, 365)
