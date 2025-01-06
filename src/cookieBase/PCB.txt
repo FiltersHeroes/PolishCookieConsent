@@ -1,13 +1,16 @@
 ! Polska Baza Ciasteczkowa
 ! Polish Cookie Database
-! Version: 2025.1.5.0
+! Version: 2025.1.6.0
 ! License: MIT (https://opensource.org/licenses/MIT)
 ! Copyright © 2025 Filters Heroes
 !
 !
 ! Local storage
 goodie.pl##+js(addToStorage, cookies-consent, "1.0")
+! compatible with uBo 1.51.0+: https://github.com/gorhill/uBlock/wiki/Resources-Library#set-local-storage-itemjs-
 grupapsb.com.pl,mrowka.com.pl##+js(addToStorage, CookiesAcceptedv2, true)
+hrkgame.com##+js(addToStorage, gdpralert, done)
+m.aliexpress.com##+js(addToStorage, MSITE_GDPR, true)
 przystanki.bialystok.pl##+js(addToStorage, cookie-accepted, 1)
 !
 !
@@ -46,7 +49,6 @@ gamepedia.com,wikia.com,wikia.org##+js(bakeCookie, tracking-opt-in-status, accep
 gisgminny.pl##+js(bakeCookie, cookiesDirective, 1, 365)
 grupabiwakowa.pl##+js(bakeCookie, cmplz_functional, allow, 365)
 grupabiwakowa.pl##+js(bakeCookie, cmplz_marketing, allow, 365)
-hrkgame.com##+js(bakeCookie, gdpralert, done, 365)
 hummel.pl##+js(bakeCookie, CookieInformationConsent, 1, 365)
 lawyerka.pl##+js(bakeCookie, ginger-cookie, Y, 365)
 laziska.com.pl,m-ce.pl,mojbytom.pl,mojegliwice.pl,mojekatowice.pl,mojmikolow.pl,orzesze.com.pl,piekaryslaskie.com.pl,pyskowice.com.pl,rudaslaska.com.pl,rybnicki.com,siemianowice.net.pl,silesia.info.pl,sosnowiecki.pl,swiony.pl,wodzislaw.com.pl,zabrze.com.pl,zory.com.pl##+js(bakeCookie, rodo, accept, 365)
