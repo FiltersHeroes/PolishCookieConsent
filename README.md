@@ -12,7 +12,7 @@ An extension, which automatically accepts privacy policy/GDPR on websites. It's 
 Addons.mozilla.org: [![Moz://a AMO version](https://img.shields.io/amo/v/polish-cookie-consent.svg?label=AMO "Moz://a AMO version")](https://addons.mozilla.org/firefox/addon/polish-cookie-consent?utm_source=git "Moz://a AMO version") ![Firefox week download](https://img.shields.io/amo/dw/polish-cookie-consent.svg?label=downloads "Firefox week download")
 ![Firefox users](https://img.shields.io/amo/users/polish-cookie-consent.svg?label=users "Firefox week users")
 
-Chrome Web Store: [![Chrome Web Store version](https://img.shields.io/chrome-web-store/v/bniijddcmabghibaojbkbnngbedopbno.svg?label=CWS "Chrome Web Store version")](https://chrome.google.com/webstore/detail/polish-cookie-consent/bniijddcmabghibaojbkbnngbedopbno "Chrome Web Store version") ![Chromium users](https://img.shields.io/chrome-web-store/users/bniijddcmabghibaojbkbnngbedopbno.svg?label=users "Chromium users")
+Chrome Web Store: [![Chrome Web Store version](https://img.shields.io/chrome-web-store/v/bniijddcmabghibaojbkbnngbedopbno.svg?label=CWS "Chrome Web Store version")](https://chromewebstore.google.com/detail/polish-cookie-consent/bniijddcmabghibaojbkbnngbedopbno?hl=en "Chrome Web Store version") ![Chromium users](https://img.shields.io/chrome-web-store/users/bniijddcmabghibaojbkbnngbedopbno.svg?label=users "Chromium users")
 
 Pale Moon Add-ons: [![Pale Moon Add-ons version](https://img.shields.io/badge/PMA-v1.45.1-%23007ec6.svg "Pale Moon Add-ons version")](https://addons.palemoon.org/addon/pcc/ "Pale Moon Add-ons version")
 
@@ -29,13 +29,13 @@ Crowdin: [![Crowdin](https://badges.crowdin.net/polish-cookie-consent/localized.
 The 120.1.0+ Firefox Stable release for Android allows the add-on to be installed from under the site for PC (see step 1), it is not known when it will launch from under the address dedicated for Android (`https://addons.mozilla.org/android/addon/polish-cookie-consent/`).
 
 ### **II. ![Chrome][Chrome]Chrome/![Chromium][Chromium]Chromium/![Brave][Brave]Brave/![Vivaldi][Vivaldi]Vivaldi/![Cent][Cent]Cent/![Lemur][Lemur]Lemur/![Kiwi][Kiwi]Kiwi/![Whale][Whale]NAVER Whale/![Edge][Edge](Chrom)Edge/![Opera][Opera](Chr)Opera 76+**<a name="ii-chromiumandlemurs"></a><a name="ii-chromechromiumvivaldicentyandexkiwinaver-whalechromedge"></a><a name="iii-chropera"></a>
-1. Install latest extension version from [CWS](https://chrome.google.com/webstore/detail/polish-cookie-consent/bniijddcmabghibaojbkbnngbedopbno) (just double click **add**).
+1. Install latest extension version from [CWS](https://chromewebstore.google.com/detail/polish-cookie-consent/bniijddcmabghibaojbkbnngbedopbno?hl=en) (just double click **add**).
 2. Ready :tada: !
 
 ### **III. ![Opera][Opera](Chr)Opera (older than 76)**
 <!--
 1. Install [Install Chrome Extensions](https://addons.opera.com/extensions/details/install-chrome-extensions/) extension.
-2. Go to [CWS](https://chrome.google.com/webstore/detail/polish-cookie-consent/bniijddcmabghibaojbkbnngbedopbno) and click `Add to Opera`, and then `OK`.
+2. Go to [CWS](https://chromewebstore.google.com/detail/polish-cookie-consent/bniijddcmabghibaojbkbnngbedopbno?hl=en) and click `Add to Opera`, and then `OK`.
 2. Click `Install`.
 3. Ready :tada: !
 -->

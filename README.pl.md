@@ -11,7 +11,7 @@ Rozszerzenie automatycznie akceptujące politykę ciasteczek/RODO na stronach in
 Addons.mozilla.org: [![Moz://a AMO version](https://img.shields.io/amo/v/polish-cookie-consent.svg?label=AMO "Moz://a AMO version")](https://addons.mozilla.org/pl/firefox/addon/polish-cookie-consent?utm_source=git "Moz://a AMO version") ![Firefox week download](https://img.shields.io/amo/dw/polish-cookie-consent.svg?label=pobrań "Firefox week download")
 ![Firefox users](https://img.shields.io/amo/users/polish-cookie-consent.svg?label=użytkowników "Firefox week users")
 
-Chrome Web Store: [![Chrome Web Store version](https://img.shields.io/chrome-web-store/v/bniijddcmabghibaojbkbnngbedopbno.svg?label=CWS "Chrome Web Store version")](https://chrome.google.com/webstore/detail/polish-cookie-consent/bniijddcmabghibaojbkbnngbedopbno?hl=pl "Chrome Web Store version") ![Chromium users](https://img.shields.io/chrome-web-store/users/bniijddcmabghibaojbkbnngbedopbno.svg?label=użytkowników "Chromium users")
+Chrome Web Store: [![Chrome Web Store version](https://img.shields.io/chrome-web-store/v/bniijddcmabghibaojbkbnngbedopbno.svg?label=CWS "Chrome Web Store version")](https://chromewebstore.google.com/detail/polska-ciasteczkowa-zgoda/bniijddcmabghibaojbkbnngbedopbno?hl=pl "Chrome Web Store version") ![Chromium users](https://img.shields.io/chrome-web-store/users/bniijddcmabghibaojbkbnngbedopbno.svg?label=użytkowników "Chromium users")
 
 Pale Moon Add-ons: [![Pale Moon Add-ons version](https://img.shields.io/badge/PMA-v1.45.1-%23007ec6.svg "Pale Moon Add-ons version")](https://addons.palemoon.org/addon/pcc/ "Pale Moon Add-ons version")
 
@@ -28,7 +28,7 @@ PS. Firefox 120.1.0+ dodał obługę instalacji na Androidzie dodatku z tego sam
 
 
 ### **II. ![Chrome][Chrome]Chrome/![Chromium][Chromium]Chromium/![Brave][Brave]Brave/![Vivaldi][Vivaldi]Vivaldi/![Cent][Cent]Cent/![Lemur][Lemur]Lemur/![Kiwi][Kiwi]Kiwi/![Whale][Whale]NAVER Whale/![Edge][Edge](Chrom)Edge/![Opera][Opera](Chr)Opera 76+**<a name="ii-chromiumandlemurs"></a><a name="ii-chromechromiumvivaldicentyandexkiwinaver-whalechromedge"></a><a name="iii-chropera"></a>
-1. Zainstaluj najnowszą wersję rozszerzenia z [CWS](https://chrome.google.com/webstore/detail/polish-cookie-consent/bniijddcmabghibaojbkbnngbedopbno) (kliknij dwukrotnie **dodaj**).
+1. Zainstaluj najnowszą wersję rozszerzenia z [CWS](https://chromewebstore.google.com/detail/polska-ciasteczkowa-zgoda/bniijddcmabghibaojbkbnngbedopbno?hl=pl) (kliknij dwukrotnie **dodaj**).
 2. Gotowe :tada: !
 
 ### **III. ![Opera][Opera](Chr)Opera (starsza niż 76)**
@@ -36,7 +36,7 @@ PS. Firefox 120.1.0+ dodał obługę instalacji na Androidzie dodatku z tego sam
 2. Gotowe :tada: ! -->
 <!--
 1. Zainstaluj rozszerzenie [Install Chrome Extensions](https://addons.opera.com/pl/extensions/details/install-chrome-extensions/).
-2. Wejdź na [CWS](https://chrome.google.com/webstore/detail/polish-cookie-consent/bniijddcmabghibaojbkbnngbedopbno) i kliknij `Dodaj do Opera`, a następnie `OK`.
+2. Wejdź na [CWS](https://chromewebstore.google.com/detail/polska-ciasteczkowa-zgoda/bniijddcmabghibaojbkbnngbedopbno?hl=pl) i kliknij `Dodaj do Opera`, a następnie `OK`.
 2. Kliknij `Zainstaluj`.
 3. Gotowe :tada: !
 -->
