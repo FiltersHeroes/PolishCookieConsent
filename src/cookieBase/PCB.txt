@@ -1,6 +1,6 @@
 ! Polska Baza Ciasteczkowa
 ! Polish Cookie Database
-! Version: 2025.1.26.0
+! Version: 2025.1.15.0
 ! License: MIT (https://opensource.org/licenses/MIT)
 ! Copyright © 2025 Filters Heroes
 !
@@ -75,7 +75,8 @@ pk.edu.pl,warzywapolowe.pl##+js(clickInteractive, div[consent-skip-blocker] dial
 !
 !
 ! Click timeout
-/^https?:\/\/consent\.yahoo\.com\/[a-z0-9]{2}\/collectConsent/##+js(clickTimeout, .btn[name="agree"])
+!fly4free.pl##+js(clickTimeout, .qc-cmp2-container .qc-cmp2-summary-buttons button[mode="primary"], euconsent-v2)
+/^https?:\/\/consent\.yahoo.com\/[a-z0-9]{2}\/collectConsent/##+js(clickTimeout, .btn[name="agree"])
 aszdziennik.pl,dadhero.pl,innpoland.pl,klubzwierzaki.pl,mamadu.pl,natemat.pl,topnewsy.pl##+js(clickTimeout, .qc-cmp2-header-links > button[mode="link"]:first-child, euconsent-v2)
 aszdziennik.pl,dadhero.pl,innpoland.pl,klubzwierzaki.pl,mamadu.pl,natemat.pl,topnewsy.pl##+js(clickTimeout, button[mode="secondary"], euconsent-v2)
 aszdziennik.pl,dadhero.pl,innpoland.pl,klubzwierzaki.pl,mamadu.pl,natemat.pl,topnewsy.pl##+js(clickTimeout, div[class^="qc-cmp2-buttons-"] > button[mode="primary"], euconsent-v2)
