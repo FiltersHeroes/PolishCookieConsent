@@ -1,6 +1,6 @@
 ! Polska Baza Ciasteczkowa
 ! Polish Cookie Database
-! Version: 2025.2.9.0
+! Version: 2025.2.23.0
 ! License: MIT (https://opensource.org/licenses/MIT)
 ! Copyright © 2025 Filters Heroes
 !
@@ -70,8 +70,8 @@ wroclaw.pl##+js(bakeCookie, iRodoInfo, 1, 365)
 !
 !
 ! Click interactive
+darlowo.pl,pk.edu.pl,warzywapolowe.pl##+js(clickInteractive, div[consent-skip-blocker] dialog a[href="#"][style="order: 0;"][data-order="0"][role="button"] span)
 odr.pl##+js(clickInteractive, .termsagree)
-pk.edu.pl,warzywapolowe.pl##+js(clickInteractive, div[consent-skip-blocker] dialog a[href="#"][style="order: 0;"][data-order="0"][role="button"] span)
 !
 !
 ! Click timeout
@@ -105,5 +105,4 @@ www.instagram.com##+js(clickComplete, div[contains(@role,'dialog')]/div[contains
 !
 ! Redirect
 /^https?:\/\/(www\.)?edytor-serwis\.com\.pl\/$/##+js(redirect, index2.html, false)
-/^https?:\/\/(www\.)?tester\.net\.pl\/$/##+js(redirect, ?pl_witamy,1, false)
 f1racing.pl##+js(redirect, x-set-cookie, true, x-id-cookie-yes)
