@@ -1,6 +1,6 @@
 ! Polska Baza Ciasteczkowa
 ! Polish Cookie Database
-! Version: 2025.4.27.0
+! Version: 2025.5.4.0
 ! License: MIT (https://opensource.org/licenses/MIT)
 ! Copyright © 2025 Filters Heroes
 !
@@ -16,6 +16,11 @@ przystanki.bialystok.pl##+js(addToStorage, cookie-accepted, 1)
 !
 ! Cookies
 al.to,x-kom.pl##+js(bakeCookie, trackingPermissionConsentsValue, {%22cookies_analytics%22:true%2C%22cookies_personalization%22:true%2C%22cookies_advertisement%22:true}, 365)
+beltone-polska.pl##+js(bakeCookie, ckies_cookielaw, allow, 365)
+beltone-polska.pl##+js(bakeCookie, ckies_google_maps, allow, 365)
+beltone-polska.pl##+js(bakeCookie, ckies_powr-v2, allow, 365)
+beltone-polska.pl##+js(bakeCookie, ckies_powr_marketing, allow, 365)
+beltone-polska.pl##+js(bakeCookie, ckies_youtu, allow, 365)
 bing.com##+js(bakeCookie, BCP, AD=0&AL=0&SM=0, 1)
 biuroprasowe.porta.com.pl##+js(bakeCookie, cookies-agreement, {"necessary":true,"preferences":true,"analytical":true,"marketing":true}, 30)
 electronicbeats.pl##+js(bakeCookie, borlabs-cookie, %7B%22consents%22%3A%7B%22essential%22%3A%5B%22borlabs-cookie%22%2C%22google-tag-manager%22%5D%2C%22statistics%22%3A%5B%22google-analytics%22%5D%2C%22marketing%22%3A%5B%22facebook_share_button%22%2C%22twitter_share_button%22%5D%2C%22external-media%22%3A%5B%22facebook%22%2C%22bandcamp%22%2C%22mixcloud%22%2C%22soundcloud%22%2C%22spotify%22%2C%22googlemaps%22%2C%22instagram%22%2C%22openstreetmap%22%2C%22twitter%22%2C%22vimeo%22%2C%22youtube%22%2C%22externalmedia%22%5D%7D%2C%22domainPath%22%3A%22www.electronicbeats.net%2F%22%2C%22expires%22%3A%22Tue%2C%2006%20Dec%202022%2009%3A36%3A44%20GMT%22%2C%22uid%22%3A%22y8b4cd84-vcupvedk-9sbqhj37-x0h579ap%22%2C%22version%22%3A%223%22%7D, 365)
