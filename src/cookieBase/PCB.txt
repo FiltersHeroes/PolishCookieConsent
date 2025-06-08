@@ -1,6 +1,6 @@
 ! Polska Baza Ciasteczkowa
 ! Polish Cookie Database
-! Version: 2025.5.4.1
+! Version: 2025.6.8.0
 ! License: MIT (https://opensource.org/licenses/MIT)
 ! Copyright © 2025 Filters Heroes
 !
@@ -87,7 +87,7 @@ odr.pl##+js(clickInteractive, .termsagree)
 aszdziennik.pl,dadhero.pl,innpoland.pl,klubzwierzaki.pl,mamadu.pl,natemat.pl,topnewsy.pl##+js(clickTimeout, .qc-cmp2-header-links > button[mode="link"]:first-child, euconsent-v2)
 aszdziennik.pl,dadhero.pl,innpoland.pl,klubzwierzaki.pl,mamadu.pl,natemat.pl,topnewsy.pl##+js(clickTimeout, button[mode="secondary"], euconsent-v2)
 aszdziennik.pl,dadhero.pl,innpoland.pl,klubzwierzaki.pl,mamadu.pl,natemat.pl,topnewsy.pl##+js(clickTimeout, div[class^="qc-cmp2-buttons-"] > button[mode="primary"], euconsent-v2)
-avanti24.pl,bankier.pl,bethesda.net,blaklader.pl,carrefour.pl,cartoonito.pl,czterykaty.pl,dyskusje24.pl,edziecko.pl,elle.pl,elleman.pl,essilor.pl,focus.pl,focusnauka.pl,g.pl,gazeta.pl,gazeta.tv,glamour.pl,gry.pl,haps.pl,hapsvod.pl,ikea.com,infoladnydom.pl,infozdrowie24.pl,kobieta.pl,magazyn-kuchnia.pl,mojegotowanie.pl,mojpieknyogrod.pl,moto-wiadomosci.pl,moto.pl,national-geographic.pl,olx.pl,parkiet.com,pizzahut.pl,player.pl,plotek.pl,przyslijprzepis.pl,rossmann.pl,rp.pl,sport.gwar.pl,sport.pl,tokfm.pl,toteraz.pl,tvn.pl,tvn24.pl,wpodrozy24.pl,wyborcza.pl##+js(clickTimeout, #onetrust-accept-btn-handler)
+avanti24.pl,bankier.pl,bethesda.net,blaklader.pl,carrefour.pl,cartoonito.pl,czterykaty.pl,dyskusje24.pl,edziecko.pl,elle.pl,elleman.pl,essilor.pl,focus.pl,focusnauka.pl,g.pl,gazeta.pl,gazeta.tv,glamour.pl,gry.pl,haps.pl,hapsvod.pl,ikea.com,magazyn-kuchnia.pl,mojegotowanie.pl,mojpieknyogrod.pl,moto-wiadomosci.pl,moto.pl,national-geographic.pl,olx.pl,parkiet.com,pizzahut.pl,player.pl,plotek.pl,przyslijprzepis.pl,rossmann.pl,rp.pl,sport.gwar.pl,sport.pl,tokfm.pl,toteraz.pl,tvn.pl,tvn24.pl,wpodrozy24.pl,wyborcza.pl##+js(clickTimeout, #onetrust-accept-btn-handler)
 consent.google.com,consent.google.pl,consent.youtube.com##+js(clickTimeout, form[action*="consent."] button[aria-label^="Zaakceptuj"])
 downdetector.pl##+js(clickTimeout, .evidon-barrier-acceptbutton)
 facebook.com##+js(clickTimeout, div[class]:not([aria-hidden]) > div[aria-label*="cookie" i][role="button"]:not([aria-label*="picture"]):not([data-mcomponent="ImageArea"]):not([aria-label*="story"]))
