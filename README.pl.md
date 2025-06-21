@@ -6,12 +6,14 @@
 </div>
 
 -----------------------------
-Rozszerzenie automatycznie akceptujące politykę ciasteczek/RODO na stronach internetowych. Stanowi ono uzupełnienie [Polskich Filtrów Rodo-Ciasteczkowych](https://subscribe.adblockplus.org/?location=https://raw.githubusercontent.com/MajkiIT/polish-ads-filter/master/cookies_filters/adblock_cookies.txt&title=Polskie%20Filtry%20RODO-Ciasteczkowe) (wchodzących też w skład **Polskich Filtrów Elementów Irytujących**) oraz listy [I don't care about cookies](https://subscribe.adblockplus.org/?location=https://www.i-dont-care-about-cookies.eu/abp/&title=I%20dont%20care%20about%20cookies).
+Rozszerzenie automatycznie akceptujące politykę ciasteczek/RODO na stronach internetowych. Stanowi ono uzupełnienie [Polskich Filtrów Rodo-Ciasteczkowych](https://subscribe.adblockplus.org/?location=https://raw.githubusercontent.com/MajkiIT/polish-ads-filter/master/cookies_filters/adblock_cookies.txt&title=Polskie%20Filtry%20RODO-Ciasteczkowe) (wchodzących też w skład **Polskich Filtrów Elementów Irytujących**) oraz listy [Easylist Cookie](https://subscribe.adblockplus.org/?location=https%3A%2F%2Fublockorigin.github.io%2FuAssets%2Fthirdparties%2Feasylist.txt&title=ELC).
 
 Addons.mozilla.org: [![Moz://a AMO version](https://img.shields.io/amo/v/polish-cookie-consent.svg?label=AMO "Moz://a AMO version")](https://addons.mozilla.org/pl/firefox/addon/polish-cookie-consent?utm_source=git "Moz://a AMO version") ![Firefox week download](https://img.shields.io/amo/dw/polish-cookie-consent.svg?label=pobrań "Firefox week download")
 ![Firefox users](https://img.shields.io/amo/users/polish-cookie-consent.svg?label=użytkowników "Firefox week users")
 
-Chrome Web Store: [![Chrome Web Store version](https://img.shields.io/chrome-web-store/v/bniijddcmabghibaojbkbnngbedopbno.svg?label=CWS "Chrome Web Store version")](https://chromewebstore.google.com/detail/polska-ciasteczkowa-zgoda/bniijddcmabghibaojbkbnngbedopbno?hl=pl "Chrome Web Store version") ![Chromium users](https://img.shields.io/chrome-web-store/users/bniijddcmabghibaojbkbnngbedopbno.svg?label=użytkowników "Chromium users")
+<!-- bug "not found" Chrome Web Store: [![Chrome Web Store version](https://img.shields.io/chrome-web-store/v/bniijddcmabghibaojbkbnngbedopbno.svg?label=CWS "Chrome Web Store version")](https://chromewebstore.google.com/detail/polska-ciasteczkowa-zgoda/bniijddcmabghibaojbkbnngbedopbno?hl=pl "Chrome Web Store version") ![Chromium users](https://img.shields.io/chrome-web-store/users/bniijddcmabghibaojbkbnngbedopbno.svg?label=użytkowników "Chromium users") -->
+
+Chrome Web Store: [v.1.45.1](https://chromewebstore.google.com/detail/polish-cookie-consent/bniijddcmabghibaojbkbnngbedopbno?hl=pl "wersja z Chrome Web Store"), około 1000-1548 użytkowników
 
 Pale Moon Add-ons: [![Pale Moon Add-ons version](https://img.shields.io/badge/PMA-v1.45.1-%23007ec6.svg "Pale Moon Add-ons version")](https://addons.palemoon.org/addon/pcc/ "Pale Moon Add-ons version")
 
@@ -24,12 +26,26 @@ Crowdin: [![Crowdin](https://badges.crowdin.net/polish-cookie-consent/localized.
 1. Zainstaluj najnowszą wersję rozszerzenia z [AMO](https://addons.mozilla.org/pl/firefox/addon/polish-cookie-consent?utm_source=git) (kliknij dwukrotnie **dodaj**).
 2. Gotowe :tada: !
 
-PS. Firefox 120.1.0+ dodał obługę instalacji na Androidzie dodatku z tego samego linku co dla komputerów (patrz krok pierwszy), nie wiadomo kiedy ruszy to spod adresu dedykowanego dla Androida (t.j. `https://addons.mozilla.org/android/addon/polish-cookie-consent/`).
+<ol>
+  
+> [!TIP]
+> Firefox 120.1.0+ dodał obługę instalacji na Androidzie dodatku z tego samego linku co dla komputerów (patrz krok pierwszy), nie wiadomo kiedy ruszy to spod adresu dedykowanego dla Androida (t.j. https://addons.mozilla.org/android/addon/polish-cookie-consent/ &mdash; wydaje się działać z wydaniem 140).
 
+</ol>
 
-### **II. ![Chrome][Chrome]Chrome/![Chromium][Chromium]Chromium/![Brave][Brave]Brave/![Vivaldi][Vivaldi]Vivaldi/![Cent][Cent]Cent/![Lemur][Lemur]Lemur/![Kiwi][Kiwi]Kiwi/![Whale][Whale]NAVER Whale/![Edge][Edge](Chrom)Edge/![Opera][Opera](Chr)Opera 76+**<a name="ii-chromiumandlemurs"></a><a name="ii-chromechromiumvivaldicentyandexkiwinaver-whalechromedge"></a><a name="iii-chropera"></a>
+### **II. ![Chrome][Chrome]Chrome/![Chromium][Chromium]Chromium/![Brave][Brave]Brave/![Vivaldi][Vivaldi]Vivaldi/![Cent][Cent]Cent/![Lemur][Lemur]Lemur/![Whale][Whale]NAVER Whale/![Edge][Edge](Chrom)Edge/![Opera][Opera](Chr)Opera 76+**<a name="ii-chromiumandlemurs"></a><a name="ii-chromechromiumvivaldicentyandexkiwinaver-whalechromedge"></a><a name="iii-chropera"></a><a name="ii-chromechromiumbravevivaldicentlemurkiwinaver-whalechromedgechropera-76"></a>
 1. Zainstaluj najnowszą wersję rozszerzenia z [CWS](https://chromewebstore.google.com/detail/polska-ciasteczkowa-zgoda/bniijddcmabghibaojbkbnngbedopbno?hl=pl) (kliknij dwukrotnie **dodaj**).
 2. Gotowe :tada: !
+
+<ol>
+
+> [!CAUTION]
+> Dodatek przestanie działać z wydaniem 139 Chromium, z racji trudności zapewnienia aktualizacji list bez aktualizacji dodatku (może nas spotkać podobne szykanowanie co AdGuard MV3, podejrzane jest poprawne wdrożenie aktualizacji różnicowych w AdBlock i Adblock Plus).
+
+> [!TIP]
+> W celu dalszego działania (gdy nie nadejdzie żadna pomoc społeczności w celu przepisania go na Manifest V3 lub migracji filtrów do uAssets/AdGuardTeam) należy rozważyć zmianę przeglądarki na inną przeglądarkę np. Firefox i jego forki, Brave, podobno Operę.
+
+</ol>
 
 ### **III. ![Opera][Opera](Chr)Opera (starsza niż 76)**
 <!-- 1. Zainstaluj najnowszą wersję rozszerzenia z [OA](https://addons.opera.com/pl/extensions/details/polish-cookie-consent/) (kliknij **dodaj**).
@@ -40,7 +56,12 @@ PS. Firefox 120.1.0+ dodał obługę instalacji na Androidzie dodatku z tego sam
 2. Kliknij `Zainstaluj`.
 3. Gotowe :tada: !
 -->
-Obecnie rekomendowana jest aktualizacja przeglądarki, gdyż wycofano dodatek "Install Chrome Extensions" ze sklepu Opery, a "CRX viewer" nie zapewnia aktualizowania dodatku do nowszej wersji ani nie chcemy linkować pliku nex dla "Install Chrome Extensions" z niepewnych źródeł lub niezgodnie z licencjami/prawami Opery.
+<ol>
+
+> [!TIP]
+> Obecnie rekomendowana jest aktualizacja przeglądarki, gdyż wycofano dodatek "Install Chrome Extensions" ze sklepu Opery, a "CRX viewer" nie zapewnia aktualizowania dodatku do nowszej wersji ani nie chcemy linkować pliku nex dla "Install Chrome Extensions" z niepewnych źródeł lub niezgodnie z licencjami/prawami Opery.
+
+</ol>
 
 ### **IV. ![Pale Moon][Pale Moon]Pale Moon**
 1. Zainstaluj najnowszą wersję rozszerzenia z [PMA](https://addons.palemoon.org/addon/pcc/).
@@ -63,10 +84,13 @@ Obecnie rekomendowana jest aktualizacja przeglądarki, gdyż wycofano dodatek "I
 
 ### **VII. ![Fennec][Fennec][Fennec F-Droid](https://f-droid.org/en/packages/org.mozilla.fennec_fdroid/)/![Firefox-Beta][Firefox-Beta]Firefox [Beta](https://play.google.com/store/apps/details?id=org.mozilla.firefox_beta)/![Nightly][Nightly][Firefox Nightly (Android)](https://play.google.com/store/apps/details?id=org.mozilla.fenix)**<a name="vii-fennec-f-droidfirefox-nightly-android"></a>
 
-Wydanie 119 bety/nocne Firefox zezwala na instalację dodatku spod strony dla PC: https://addons.mozilla.org/pl/firefox/addon/polish-cookie-consent/ <br>
-Mechanizm ten może wymagać dezaktywacji własnej kolekcji.
+<ol>
 
-Nie wiadomo kiedy ruszy to spod adresu dedykowanego dla Androida (t.j. `https://addons.mozilla.org/android/addon/polish-cookie-consent/`).
+> [!TIP]
+> Wydanie 119 bety/nocne Firefox zezwala na instalację dodatku spod strony dla PC: https://addons.mozilla.org/pl/firefox/addon/polish-cookie-consent/ <br>
+> Mechanizm ten może wymagać dezaktywacji własnej kolekcji.
+>
+> Nie wiadomo kiedy ruszy to spod adresu dedykowanego dla Androida (t.j. https://addons.mozilla.org/android/addon/polish-cookie-consent/ &mdash; wydaje się działać z wydaniem 140).
 
 <details> <summary> mechanizmem własnej kolekcji  (Firefox 79 - 118 / Fennec) </summary>
 
@@ -81,7 +105,7 @@ Nie wiadomo kiedy ruszy to spod adresu dedykowanego dla Androida (t.j. `https://
 9. Gotowe :tada: !
 10. Listę reszty dopuszczonych dodatków przez Moz://ę znajdziesz pod adresem: [https://addons.mozilla.org/](https://addons.mozilla.org/), rozwijając rekomendowane (od Firefox 85 część dodatków można ponownie instalować bezpośrednio z poziomu sklepu dodatków Moz://a). Jeśli strona nie zezwala na instalację wąskiej grupy dodatków, można rozważyć wyłączenie dodanej tymczasowo kolekcji.
 
-</details>
+</details></ol>
 
 
 [Firefox]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/73.0.0/firefox/firefox_24x24.png "Mozilla Firefox"
@@ -97,7 +121,6 @@ Nie wiadomo kiedy ruszy to spod adresu dedykowanego dla Androida (t.j. `https://
 [Opera]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/73.0.0/opera/opera_24x24.png "Opera"
 [Cent]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/48.0.4/cent/cent_24x24.png "Cent Browser"
 [Lemur]: https://i.imgur.com/ASzfL56.png "Lemur Browser"
-[Kiwi]: https://raw.githubusercontent.com/scribblemaniac/browser-logos/41d6542b2d122f5b65d8f259cf5ffbdb3b89831d/src/kiwi/kiwi_24x24.png "Kiwi Browser"
 [Whale]: https://i.imgur.com/r8YdC2G.png?1 "NAVER Whale Browser"
 [Edge]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/73.0.0/edge/edge_24x24.png "Microsoft ChromEdge"
 [Pale Moon]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/73.0.0/pale-moon/pale-moon_24x24.png "Pale Moon"
