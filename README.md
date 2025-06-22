@@ -7,7 +7,7 @@
 </div>
 
 -----------------------------
-An extension, which automatically accepts privacy policy/GDPR on websites. It's a supplement for [Polish GDPR-Cookies Filters](https://subscribe.adblockplus.org/?location=https://raw.githubusercontent.com/MajkiIT/polish-ads-filter/master/cookies_filters/adblock_cookies.txt&title=Polskie%20Filtry%20RODO-Ciasteczkowe) (included also in **Polish Annoyance Filters**) and [Easylist Cookie](https://subscribe.adblockplus.org/?location=https%3A%2F%2Fublockorigin.github.io%2FuAssets%2Fthirdparties%2Feasylist.txt&title=ELC) List.
+An extension, which automatically accepts privacy policy/GDPR on websites. It's a supplement for [Polish GDPR-Cookies Filters](https://subscribe.adblockplus.org/?location=https://raw.githubusercontent.com/MajkiIT/polish-ads-filter/master/cookies_filters/adblock_cookies.txt&title=Polskie%20Filtry%20RODO-Ciasteczkowe) (included also in **Polish Annoyance Filters**) and [Easylist Cookie](https://subscribe.adblockplus.org/?location=https%3A%2F%2Fublockorigin.github.io%2FuAssets%2Fthirdparties%2Feasylist-cookies.txt&title=ELC) List.
 
 Addons.mozilla.org: [![Moz://a AMO version](https://img.shields.io/amo/v/polish-cookie-consent.svg?label=AMO "Moz://a AMO version")](https://addons.mozilla.org/firefox/addon/polish-cookie-consent?utm_source=git "Moz://a AMO version") ![Firefox week download](https://img.shields.io/amo/dw/polish-cookie-consent.svg?label=downloads "Firefox week download")
 ![Firefox users](https://img.shields.io/amo/users/polish-cookie-consent.svg?label=users "Firefox week users")

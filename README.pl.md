@@ -6,7 +6,7 @@
 </div>
 
 -----------------------------
-Rozszerzenie automatycznie akceptujące politykę ciasteczek/RODO na stronach internetowych. Stanowi ono uzupełnienie [Polskich Filtrów Rodo-Ciasteczkowych](https://subscribe.adblockplus.org/?location=https://raw.githubusercontent.com/MajkiIT/polish-ads-filter/master/cookies_filters/adblock_cookies.txt&title=Polskie%20Filtry%20RODO-Ciasteczkowe) (wchodzących też w skład **Polskich Filtrów Elementów Irytujących**) oraz listy [Easylist Cookie](https://subscribe.adblockplus.org/?location=https%3A%2F%2Fublockorigin.github.io%2FuAssets%2Fthirdparties%2Feasylist.txt&title=ELC).
+Rozszerzenie automatycznie akceptujące politykę ciasteczek/RODO na stronach internetowych. Stanowi ono uzupełnienie [Polskich Filtrów Rodo-Ciasteczkowych](https://subscribe.adblockplus.org/?location=https://raw.githubusercontent.com/MajkiIT/polish-ads-filter/master/cookies_filters/adblock_cookies.txt&title=Polskie%20Filtry%20RODO-Ciasteczkowe) (wchodzących też w skład **Polskich Filtrów Elementów Irytujących**) oraz listy [Easylist Cookie](https://subscribe.adblockplus.org/?location=https%3A%2F%2Fublockorigin.github.io%2FuAssets%2Fthirdparties%2Feasylist-cookies.txt&title=ELC).
 
 Addons.mozilla.org: [![Moz://a AMO version](https://img.shields.io/amo/v/polish-cookie-consent.svg?label=AMO "Moz://a AMO version")](https://addons.mozilla.org/pl/firefox/addon/polish-cookie-consent?utm_source=git "Moz://a AMO version") ![Firefox week download](https://img.shields.io/amo/dw/polish-cookie-consent.svg?label=pobrań "Firefox week download")
 ![Firefox users](https://img.shields.io/amo/users/polish-cookie-consent.svg?label=użytkowników "Firefox week users")
