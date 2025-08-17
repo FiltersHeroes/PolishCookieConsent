@@ -1,6 +1,6 @@
 ! Polska Baza Ciasteczkowa
 ! Polish Cookie Database
-! Version: 2025.7.22.0
+! Version: 2025.8.17.0
 ! License: MIT (https://opensource.org/licenses/MIT)
 ! Copyright © 2025 Filters Heroes
 !
@@ -44,7 +44,6 @@ amway.pl##+js(bakeCookie, isCookieConsentAccepted, true, 365)
 amway.pl##+js(bakeCookie, isMarketingCookiesAccepted, false, 365)
 bebiprogram.pl,bobovita.pl##+js(bakeCookie, cookie_necessary, 1, 365)
 biurobox.pl##+js(bakeCookie, cookies_message_bar_hidden, true, 365)
-budujmase.pl,drogerium.pl,trec.pl,wylecz.to##+js(bakeCookie, rodoHfM, true, 365)
 cineman.pl,tv-trwam.pl##+js(bakeCookie, ARE_FUNCTIONAL_COOKIES_ACCEPTED, true, 365)
 cineman.pl,tv-trwam.pl##+js(bakeCookie, ARE_MARKETING_COOKIES_ACCEPTED, true, 365)
 cineman.pl,tv-trwam.pl##+js(bakeCookie, ARE_REQUIRED_COOKIES_ACCEPTED, true, 365)
