@@ -40,7 +40,7 @@ Crowdin: [![Crowdin](https://badges.crowdin.net/polish-cookie-consent/localized.
 <ol>
 
 > [!CAUTION]
-> Dodatek przestanie działać z wydaniem 139 Chromium, z racji trudności zapewnienia aktualizacji list bez aktualizacji dodatku (może nas spotkać podobne szykanowanie co AdGuard MV3, podejrzane jest poprawne wdrożenie aktualizacji różnicowych w AdBlock i Adblock Plus).
+> Dodatek przestanie działać z wydaniem 140 Chromium, z racji trudności zapewnienia aktualizacji list bez aktualizacji dodatku (może nas spotkać podobne szykanowanie co AdGuard MV3, podejrzane jest poprawne wdrożenie aktualizacji różnicowych w AdBlock i Adblock Plus).
 
 > [!TIP]
 > W celu dalszego działania (gdy nie nadejdzie żadna pomoc społeczności w celu przepisania go na Manifest V3 lub migracji filtrów do uAssets/AdGuardTeam) należy rozważyć zmianę przeglądarki na inną przeglądarkę np. Firefox i jego forki, Brave, podobno Operę.
