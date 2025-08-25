@@ -42,7 +42,7 @@ Crowdin: [![Crowdin](https://badges.crowdin.net/polish-cookie-consent/localized.
 <ol>
 
 > [!CAUTION]
-> The add-on will cease to work with Chromium release 139, due to the difficulty of providing list updates without updating the add-on (we may face similar harassment as AdGuard MV3, the correct implementation of differential updates in AdBlock and Adblock Plus is suspect).
+> The add-on will cease to work with Chromium release 140, due to the difficulty of providing list updates without updating the add-on (we may face similar harassment as AdGuard MV3, the correct implementation of differential updates in AdBlock and Adblock Plus is suspect).
 
 > [!TIP]
 > For further action (when no community support is forthcoming to rewrite it to Manifest V3 or migrate the filters to uAssets/AdGuardTeam), consider changing to another browser e.g. Firefox and its forks, Brave, reportedly Opera.
