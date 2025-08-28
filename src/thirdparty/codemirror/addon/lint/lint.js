@@ -1,5 +1,5 @@
 // CodeMirror, copyright (c) by Marijn Haverbeke and others
-// Distributed under an MIT license: https://codemirror.net/LICENSE
+// Distributed under an MIT license: https://codemirror.net/5/LICENSE
 // Modified by Filters Heroes (removed unsafe assignment to innerHTML)
 
 (function(mod) {
@@ -25,8 +25,10 @@
 
     function position(e) {
       if (!tt.parentNode) return CodeMirror.off(document, "mousemove", position);
-      tt.style.top = Math.max(0, e.clientY - tt.offsetHeight - 5) + "px";
-      tt.style.left = (e.clientX + 5) + "px";
+      var top = Math.max(0, e.clientY - tt.offsetHeight - 5);
+      var left = Math.max(0, Math.min(e.clientX + 5, tt.ownerDocument.defaultView.innerWidth - tt.offsetWidth));
+      tt.style.top = top + "px"
+      tt.style.left = left + "px";
     }
     CodeMirror.on(document, "mousemove", position);
     position(e);
@@ -142,10 +144,11 @@
     if (!severity) severity = "error";
     var tip = document.createElement("div");
     tip.className = "CodeMirror-lint-message CodeMirror-lint-message-" + severity;
+    tip.appendChild(document.createTextNode(ann.message));
     // if (typeof ann.messageHTML != 'undefined') {
     //   tip.innerHTML = ann.messageHTML;
     // } else {
-    tip.appendChild(document.createTextNode(ann.message));
+    //   tip.appendChild(document.createTextNode(ann.message));
     // }
     return tip;
   }
@@ -200,10 +203,6 @@
       var anns = annotations[line];
       if (!anns) continue;
 
-      // filter out duplicate messages
-      var message = [];
-      anns = anns.filter(function(item) { return message.indexOf(item.message) > -1 ? false : message.push(item.message) });
-
       var maxSeverity = null;
       var tipLabel = state.hasGutter && document.createDocumentFragment();
 
@@ -221,9 +220,8 @@
           __annotation: ann
         }));
       }
-      // use original annotations[line] to show multiple messages
       if (state.hasGutter)
-        cm.setGutterMarker(line, GUTTER_ID, makeMarker(cm, tipLabel, maxSeverity, annotations[line].length > 1,
+        cm.setGutterMarker(line, GUTTER_ID, makeMarker(cm, tipLabel, maxSeverity, anns.length > 1,
                                                        options.tooltips));
 
       if (options.highlightLines)
