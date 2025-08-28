@@ -36,7 +36,7 @@ for u_f in unnecessary_folders:
     shutil.rmtree(u_f)
 
 # Set correct version for extension and cleanup manifest
-ext_version = "dev-build"
+ext_version = "1.47.0"
 if "PCC_VERSION" in os.environ:
     ext_version = os.environ.get("PCC_VERSION")
 elif len(sys.argv) >= 3:
@@ -45,7 +45,7 @@ elif len(sys.argv) >= 3:
 with open(pj(temp_path, "manifest.json"), "r", encoding='utf-8') as m_f:
     manifest = json.load(m_f)
     if sys.argv[1] == "chromium":
-        del manifest['applications']
+        del manifest['browser_specific_settings']
     manifest['version'] = ext_version
     with open(pj(temp_path, "manifest.json"), "w", encoding='utf-8') as m_f:
         json.dump(manifest, m_f, indent=2)
@@ -56,9 +56,9 @@ mkassets.run(main_path)
 # Send extension to browser's store
 if os.environ.get("TEST_MODE") != "true" and os.environ.get("CI") == "true":
     if sys.argv[1] == "chromium":
-        subprocess.run(["npx", "chrome-webstore-upload", "upload", "--auto-publish"], check=True)
+        subprocess.run(["npx", "chrome-webstore-upload", "upload"], check=True)
     elif sys.argv[1] == "firefox":
-        subprocess.run(["npx", "web-ext-submit"], check=True)
+        subprocess.run(["npx", "web-ext", "sign", "--channel", "listed"], check=True)
 
     # Cleanup
     we_artifacts_path = pn("./web-ext-artifacts")

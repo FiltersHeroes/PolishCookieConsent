@@ -14,7 +14,7 @@ jobs:
           PCC_VERSION="$(echo "$CIRCLE_TAG" | sed 's/^v//')"
           export PCC_VERSION
           ./make_scripts/make_UXP.py
-          npm set prefix=/home/circleci/npm && echo 'export PATH=$HOME/circleci/npm/bin:$PATH' >> /home/circleci/.bashrc && npm install web-ext-submit chrome-webstore-upload-cli && ./make_scripts/make_webext.py firefox && ./make_scripts/make_webext.py chromium
+          npm set prefix=/home/circleci/npm && echo 'export PATH=$HOME/circleci/npm/bin:$PATH' >> /home/circleci/.bashrc && npm install web-ext chrome-webstore-upload-cli && ./make_scripts/make_webext.py firefox && ./make_scripts/make_webext.py chromium
           ./make_scripts/make_checksum.py
           gh release create "$CIRCLE_TAG" ./artifacts/* --notes "WIP"
     environment:

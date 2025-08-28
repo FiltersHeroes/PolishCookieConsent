@@ -1,5 +1,5 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
   "author": "FiltersHeroes",
   "name": "__MSG_extensionName__",
   "description": "__MSG_extensionDescription__",
@@ -13,8 +13,7 @@
     "96": "icons/icon96.png",
     "128": "icons/icon128.png"
   },
-  "browser_action": {
-    "browser_style": false,
+  "action": {
     "default_area": "navbar",
     "default_popup": "popup/index.html",
     "default_icon": {
@@ -22,10 +21,10 @@
       "32": "icons/icon32.png"
     }
   },
-  "applications": {
+   "browser_specific_settings": {
     "gecko": {
       "id": "PolishCookieConsentExt@polishannoyancefilters.netlify.com",
-      "strict_min_version": "56.0"
+      "strict_min_version": "109.0"
     }
   },
   "content_scripts": [
@@ -46,17 +45,18 @@
     "open_in_tab": true
   },
   "permissions": [
+    "alarms",
     "storage",
     "tabs",
     "notifications",
-    "unlimitedStorage",
+    "unlimitedStorage"
+  ],
+  "host_permissions": [
     "<all_urls>"
   ],
   "background": {
-    "scripts": [
-      "vAPI.js",
-      "update.js"
-    ]
+    "service_worker": "background.js",
+    "type": "module"
   },
   "short_name": "__MSG_extensionShortName__"
 }

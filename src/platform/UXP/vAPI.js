@@ -176,5 +176,19 @@ var PCC_vAPI = {
                 console.log(e);
             }
         }
-    }
+    },
+    runLater: (() => {
+        let timerId = null;
+
+        return (intervalMs, callback) => {
+            if (timerId) {
+                clearTimeout(timerId);
+                timerId = null;
+            }
+            timerId = setTimeout(() => {
+                callback();
+                timerId = null;
+            }, intervalMs);
+        };
+    })()
 }

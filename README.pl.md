@@ -37,15 +37,6 @@ Crowdin: [![Crowdin](https://badges.crowdin.net/polish-cookie-consent/localized.
 1. Zainstaluj najnowszą wersję rozszerzenia z [CWS](https://chromewebstore.google.com/detail/polska-ciasteczkowa-zgoda/bniijddcmabghibaojbkbnngbedopbno?hl=pl) (kliknij dwukrotnie **dodaj**).
 2. Gotowe :tada: !
 
-<ol>
-
-> [!CAUTION]
-> Dodatek przestanie działać z wydaniem 140 Chromium, z racji trudności zapewnienia aktualizacji list bez aktualizacji dodatku (może nas spotkać podobne szykanowanie co AdGuard MV3, podejrzane jest poprawne wdrożenie aktualizacji różnicowych w AdBlock i Adblock Plus).
-
-> [!TIP]
-> W celu dalszego działania (gdy nie nadejdzie żadna pomoc społeczności w celu przepisania go na Manifest V3 lub migracji filtrów do uAssets/AdGuardTeam) należy rozważyć zmianę przeglądarki na inną przeglądarkę np. Firefox i jego forki, Brave, podobno Operę.
-
-</ol>
 
 ### **III. ![Opera][Opera](Chr)Opera (starsza niż 76)**
 <!-- 1. Zainstaluj najnowszą wersję rozszerzenia z [OA](https://addons.opera.com/pl/extensions/details/polish-cookie-consent/) (kliknij **dodaj**).

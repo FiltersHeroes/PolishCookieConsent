@@ -64,7 +64,7 @@ function updateCookieBase(updateTime) {
         if (interval < 0) {
             interval = 10;
         }
-        setTimeout(function () {
+        PCC_vAPI.runLater(interval, function () {
             PCC_vAPI.storage.local.get("userSettings").then(function (userSettingsResult) {
                 if (userSettingsResult) {
                     const userSettings = JSON.parse(userSettingsResult);
@@ -124,7 +124,7 @@ function updateCookieBase(updateTime) {
             }).then(function () {
                 setUpdateTime();
             });
-        }, interval);
+        });
     }
 }
 

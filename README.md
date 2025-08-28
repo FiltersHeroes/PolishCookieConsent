@@ -39,17 +39,6 @@ Crowdin: [![Crowdin](https://badges.crowdin.net/polish-cookie-consent/localized.
 1. Install latest extension version from [CWS](https://chromewebstore.google.com/detail/polish-cookie-consent/bniijddcmabghibaojbkbnngbedopbno?hl=en) (just double click **add**).
 2. Ready :tada: !
 
-<ol>
-
-> [!CAUTION]
-> The add-on will cease to work with Chromium release 140, due to the difficulty of providing list updates without updating the add-on (we may face similar harassment as AdGuard MV3, the correct implementation of differential updates in AdBlock and Adblock Plus is suspect).
-
-> [!TIP]
-> For further action (when no community support is forthcoming to rewrite it to Manifest V3 or migrate the filters to uAssets/AdGuardTeam), consider changing to another browser e.g. Firefox and its forks, Brave, reportedly Opera.
-
-</ol>
-
-
 ### **III. ![Opera][Opera](Chr)Opera (older than 76)**
 <!--
 1. Install [Install Chrome Extensions](https://addons.opera.com/extensions/details/install-chrome-extensions/) extension.
