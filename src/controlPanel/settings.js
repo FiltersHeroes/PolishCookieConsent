@@ -1,5 +1,5 @@
 /*******************************************************************************
-    Copyright (C) 2022 Filters Heroes
+    Copyright (C) 2025 Filters Heroes
     This file is part of Polish Cookie Consent.
 
     Polish Cookie Consent is free software: you can redistribute it and/or modify
@@ -16,24 +16,9 @@
     along with Polish Cookie Consent. If not, see {http://www.gnu.org/licenses/}.
 */
 
-let rootH = document.querySelector(":root");
-
-// Apply dark theme
-let colorSchemeToggle = document.querySelector("#darkTheme_toggle");
-PCC_vAPI.storage.local.get("colorScheme").then(function (colorScheme) {
-    let condition;
-    if (colorScheme) {
-        condition = colorScheme == "dark";
-    } else {
-        condition = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    }
-    if (condition) {
-        rootH.classList.add("dark");
-        colorSchemeToggle.checked = true;
-    }
-});
-
 // Save color scheme choice
+let colorSchemeToggle = document.querySelector("#darkTheme_toggle");
+let rootH = document.querySelector(":root");
 colorSchemeToggle.addEventListener('change', function () {
     let colorScheme;
     if (this.checked) {
@@ -47,6 +32,7 @@ colorSchemeToggle.addEventListener('change', function () {
     }
     PCC_vAPI.storage.local.set("colorScheme", colorScheme);
 });
+
 
 // Save auto-update settings
 // Is auto-update enabled?

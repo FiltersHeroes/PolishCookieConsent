@@ -87,23 +87,6 @@ function setSwitch(url) {
             PCC_vAPI.resizePopup();
         }
     }
-    // Apply dark theme
-    let rootH = document.querySelector(":root");
-    PCC_vAPI.storage.local.get("colorScheme").then(function (colorScheme) {
-        let condition;
-        if (colorScheme) {
-            condition = colorScheme == "dark";
-        } else {
-            condition = window.matchMedia("(prefers-color-scheme: dark)").matches;
-        }
-        if (condition) {
-            rootH.classList.add("dark");
-        } else {
-            if (rootH.classList.contains("dark")) {
-                rootH.classList.remove("dark");
-            }
-        }
-    });
 }
 
 if (PCC_vAPI.isWebExtension() == true) {
