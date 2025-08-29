@@ -22,7 +22,7 @@ if os.path.exists(temp_path):
 os.chdir(main_path)
 
 shutil.copytree(pn("./src"), temp_path)
-shutil.copy(pn("./LICENSE"), temp_path)
+shutil.copy(pn("./LICENSE"), pj(temp_path, "LICENSE.txt"))
 
 os.chdir(temp_path)
 
