@@ -56,45 +56,51 @@ var PCC_overlay = {
         let browserWindow = wm.getMostRecentWindow("navigator:browser");
 
         // Run content script in the context of web pages
-        browserWindow.document.getElementById("appcontent").addEventListener("DOMDocElementInserted", function (e) {
-            let win = e.originalTarget;
-            if (win.ownerDocument) {
-                win = win.ownerDocument;
-            }
-            if (win.defaultView) {
-                win = win.defaultView;
-            }
-            let sandbox = Components.utils.Sandbox(browserWindow, {
-                sameZoneAs: win.top,
-                sandboxPrototype: win,
-                wantXrays: true,
-                wantComponents: false,
-            });
-            var PCC_vAPI = {
-                storage: {
-                    local: {
-                        get: function (name) {
-                            Components.utils.import('resource://gre/modules/osfile.jsm');
-                            const file = OS.Path.join(OS.Constants.Path.profileDir, "extension-data", "PolishCookieConsentExt@polishannoyancefilters.netlify.com.json");
-                            return new Promise(function (resolve, reject) {
-                                OS.File.read(file, { encoding: "utf-8" }).then(function (data) {
-                                    const parsedD = JSON.parse(data, 'utf8');
-                                    resolve(parsedD[name]);
+        let appcontent = browserWindow.document.getElementById("appcontent");
+        if (appcontent) {
+            appcontent.addEventListener("DOMDocElementInserted", function (e) {
+                let win = e.originalTarget;
+                if (win.ownerDocument) {
+                    win = win.ownerDocument;
+                }
+                if (win.defaultView) {
+                    win = win.defaultView;
+                }
+                let sandbox = Components.utils.Sandbox(browserWindow, {
+                    sameZoneAs: win.top,
+                    sandboxPrototype: win,
+                    wantXrays: true,
+                    wantComponents: false,
+                });
+                var PCC_vAPI = {
+                    storage: {
+                        local: {
+                            get: function (name) {
+                                Components.utils.import('resource://gre/modules/osfile.jsm');
+                                const file = OS.Path.join(OS.Constants.Path.profileDir, "extension-data", "PolishCookieConsentExt@polishannoyancefilters.netlify.com.json");
+                                return new Promise(function (resolve, reject) {
+                                    OS.File.read(file, { encoding: "utf-8" }).then(function (data) {
+                                        const parsedD = JSON.parse(data, 'utf8');
+                                        resolve(parsedD[name]);
+                                    });
                                 });
-                            });
+                            }
                         }
                     }
-                }
-            };
-            sandbox.PCC_vAPI = Components.utils.cloneInto(PCC_vAPI, sandbox, { cloneFunctions: true });
-            Services.scriptloader.loadSubScript("chrome://PCC/content/content.js", sandbox);
-        }, true);
+                };
+                sandbox.PCC_vAPI = Components.utils.cloneInto(PCC_vAPI, sandbox, { cloneFunctions: true });
+                Services.scriptloader.loadSubScript("chrome://PCC/content/content.js", sandbox);
+            }, true);
+        }
     },
     placePopup: () => {
         let wm = Components.classes["@mozilla.org/appshell/window-mediator;1"].getService(Components.interfaces.nsIWindowMediator);
         let browserWindow = wm.getMostRecentWindow("navigator:browser");
         let ebtn = browserWindow.document.querySelector("#PolishFiltersTeam_PCC_btn");
         let epanel = browserWindow.document.querySelector("#PolishFiltersTeam_PCC_popup_panel");
+
+        if (!epanel || !ebtn) return;
+
         if (epanel.hasAttribute("hidden")) {
             epanel.removeAttribute("hidden");
         }
@@ -105,9 +111,12 @@ var PCC_overlay = {
         epanel.addEventListener("popuphiding", function () {
             ebtn.checked = false;
             epanel.setAttribute("hidden", true);
-        });
+        }, { once: true });
 
-        browserWindow.document.querySelector("#PolishFiltersTeam_PCC_popup_frame").contentWindow.postMessage({ what: 'tabURL', value: browserWindow.gBrowser.currentURI.spec }, "*");
+        let iframe = browserWindow.document.getElementById("PolishFiltersTeam_PCC_popup_frame");
+        if (iframe && iframe.contentWindow && iframe.contentWindow.document.readyState === "complete") {
+            iframe.contentWindow.setSwitch(browserWindow.gBrowser.currentURI.spec);
+        }
     }
 }
 

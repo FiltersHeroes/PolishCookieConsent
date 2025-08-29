@@ -89,17 +89,8 @@ function setSwitch(url) {
     }
 }
 
-if (PCC_vAPI.isWebExtension() == true) {
-    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+if (PCC_vAPI.isWebExtension() === true) {
+    chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
         setSwitch(tabs[0].url);
     });
-} else {
-    window.onmessage = function (e) {
-        const msg = e.data;
-        let aTabURL;
-        if (msg.what == "tabURL") {
-            aTabURL = msg.value;
-        }
-        setSwitch(aTabURL);
-    }
 }
