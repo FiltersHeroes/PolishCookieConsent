@@ -1,5 +1,5 @@
 /*******************************************************************************
-    Copyright (C) 2021 Filters Heroes
+    Copyright (C) 2025 Filters Heroes
     This file is part of Polish Cookie Consent.
 
     Polish Cookie Consent is free software: you can redistribute it and/or modify
@@ -18,20 +18,6 @@
 
 // Title
 document.querySelector("title").textContent = PCC_vAPI.i18n.getMessage("extensionName") + " - " + PCC_vAPI.i18n.getMessage("assetViewer");
-
-// Apply dark theme
-let rootH = document.querySelector(":root");
-PCC_vAPI.storage.local.get("colorScheme").then(function (colorScheme) {
-    let condition;
-    if (colorScheme) {
-        condition = colorScheme == "dark";
-    } else {
-        condition = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    }
-    if (condition) {
-        rootH.classList.add("dark");
-    }
-});
 
 let assetEditor = new CodeMirror(document.querySelector('#content'), {
     autofocus: true,
