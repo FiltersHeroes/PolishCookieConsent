@@ -1,5 +1,5 @@
 /*******************************************************************************
-    Copyright (C) 2022 Filters Heroes
+    Copyright (C) 2025 Filters Heroes
     This file is part of Polish Cookie Consent.
 
     Polish Cookie Consent is free software: you can redistribute it and/or modify
