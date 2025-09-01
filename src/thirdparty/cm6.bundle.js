@@ -10688,6 +10688,29 @@ var cm6 = (function (exports) {
 	            return pos;
 	    }
 	}
+	function skipAtomsForSelection(atoms, sel) {
+	    let ranges = null;
+	    for (let i = 0; i < sel.ranges.length; i++) {
+	        let range = sel.ranges[i], updated = null;
+	        if (range.empty) {
+	            let pos = skipAtomicRanges(atoms, range.from, 0);
+	            if (pos != range.from)
+	                updated = EditorSelection.cursor(pos, -1);
+	        }
+	        else {
+	            let from = skipAtomicRanges(atoms, range.from, -1);
+	            let to = skipAtomicRanges(atoms, range.to, 1);
+	            if (from != range.from || to != range.to)
+	                updated = EditorSelection.range(range.from == range.anchor ? from : to, range.from == range.head ? from : to);
+	        }
+	        if (updated) {
+	            if (!ranges)
+	                ranges = sel.ranges.slice();
+	            ranges[i] = updated;
+	        }
+	    }
+	    return ranges ? EditorSelection.create(ranges, sel.mainIndex) : sel;
+	}
 	function skipAtoms(view, oldPos, pos) {
 	    let newPos = skipAtomicRanges(view.state.facet(atomicRanges).map(f => f(view)), pos.from, oldPos.head > pos.from ? -1 : 1);
 	    return newPos == pos.from ? pos : EditorSelection.cursor(newPos, newPos < pos.from ? 1 : -1);
@@ -10923,6 +10946,8 @@ var cm6 = (function (exports) {
 	            if (view.inputState.lastSelectionOrigin == "select")
 	                scrollIntoView = true;
 	            userEvent = view.inputState.lastSelectionOrigin;
+	            if (userEvent == "select.pointer")
+	                newSel = skipAtomsForSelection(view.state.facet(atomicRanges).map(f => f(view)), newSel);
 	        }
 	        view.dispatch({ selection: newSel, scrollIntoView, userEvent });
 	        return true;
@@ -11400,31 +11425,8 @@ var cm6 = (function (exports) {
 	        if (this.dragging === false)
 	            this.select(this.lastEvent);
 	    }
-	    skipAtoms(sel) {
-	        let ranges = null;
-	        for (let i = 0; i < sel.ranges.length; i++) {
-	            let range = sel.ranges[i], updated = null;
-	            if (range.empty) {
-	                let pos = skipAtomicRanges(this.atoms, range.from, 0);
-	                if (pos != range.from)
-	                    updated = EditorSelection.cursor(pos, -1);
-	            }
-	            else {
-	                let from = skipAtomicRanges(this.atoms, range.from, -1);
-	                let to = skipAtomicRanges(this.atoms, range.to, 1);
-	                if (from != range.from || to != range.to)
-	                    updated = EditorSelection.range(range.from == range.anchor ? from : to, range.from == range.head ? from : to);
-	            }
-	            if (updated) {
-	                if (!ranges)
-	                    ranges = sel.ranges.slice();
-	                ranges[i] = updated;
-	            }
-	        }
-	        return ranges ? EditorSelection.create(ranges, sel.mainIndex) : sel;
-	    }
 	    select(event) {
-	        let { view } = this, selection = this.skipAtoms(this.style.get(event, this.extend, this.multiple));
+	        let { view } = this, selection = skipAtomsForSelection(this.atoms, this.style.get(event, this.extend, this.multiple));
 	        if (this.mustSelect || !selection.eq(view.state.selection, this.dragging === false))
 	            this.view.dispatch({
 	                selection,
@@ -11576,6 +11578,9 @@ var cm6 = (function (exports) {
 	            mouseSel.start(event);
 	            return mouseSel.dragging === false;
 	        }
+	    }
+	    else {
+	        view.inputState.setSelectionOrigin("select.pointer");
 	    }
 	    return false;
 	};
@@ -14901,7 +14906,7 @@ var cm6 = (function (exports) {
 	    }
 	    /**
 	    Find the line block (see
-	    [`lineBlockAt`](https://codemirror.net/6/docs/ref/#view.EditorView.lineBlockAt) at the given
+	    [`lineBlockAt`](https://codemirror.net/6/docs/ref/#view.EditorView.lineBlockAt)) at the given
 	    height, again interpreted relative to the [top of the
 	    document](https://codemirror.net/6/docs/ref/#view.EditorView.documentTop).
 	    */
@@ -15688,7 +15693,7 @@ var cm6 = (function (exports) {
 	            // Ctrl-Alt may be used for AltGr on Windows
 	            !(browser.windows && event.ctrlKey && event.altKey) &&
 	            // Alt-combinations on macOS tend to be typed characters
-	            !(browser.mac && event.altKey && !event.ctrlKey) &&
+	            !(browser.mac && event.altKey && !(event.ctrlKey || event.metaKey)) &&
 	            (baseName = base[event.keyCode]) && baseName != name) {
 	            if (runFor(scopeObj[prefix + modifiers(baseName, event, true)])) {
 	                handled = true;
@@ -25878,6 +25883,367 @@ var cm6 = (function (exports) {
 	    return -1;
 	}
 
+	function _extends() {
+	  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+	    for (var e = 1; e < arguments.length; e++) {
+	      var t = arguments[e];
+	      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+	    }
+	    return n;
+	  }, _extends.apply(null, arguments);
+	}
+
+	var createTheme = _ref => {
+	  var {
+	    theme,
+	    settings = {},
+	    styles = []
+	  } = _ref;
+	  var themeOptions = {
+	    '.cm-gutters': {}
+	  };
+	  var baseStyle = {};
+	  if (settings.background) {
+	    baseStyle.backgroundColor = settings.background;
+	  }
+	  if (settings.backgroundImage) {
+	    baseStyle.backgroundImage = settings.backgroundImage;
+	  }
+	  if (settings.foreground) {
+	    baseStyle.color = settings.foreground;
+	  }
+	  if (settings.fontSize) {
+	    baseStyle.fontSize = settings.fontSize;
+	  }
+	  if (settings.background || settings.foreground) {
+	    themeOptions['&'] = baseStyle;
+	  }
+	  if (settings.fontFamily) {
+	    themeOptions['&.cm-editor .cm-scroller'] = {
+	      fontFamily: settings.fontFamily
+	    };
+	  }
+	  if (settings.gutterBackground) {
+	    themeOptions['.cm-gutters'].backgroundColor = settings.gutterBackground;
+	  }
+	  if (settings.gutterForeground) {
+	    themeOptions['.cm-gutters'].color = settings.gutterForeground;
+	  }
+	  if (settings.gutterBorder) {
+	    themeOptions['.cm-gutters'].borderRightColor = settings.gutterBorder;
+	  }
+	  if (settings.caret) {
+	    themeOptions['.cm-content'] = {
+	      caretColor: settings.caret
+	    };
+	    themeOptions['.cm-cursor, .cm-dropCursor'] = {
+	      borderLeftColor: settings.caret
+	    };
+	  }
+	  var activeLineGutterStyle = {};
+	  if (settings.gutterActiveForeground) {
+	    activeLineGutterStyle.color = settings.gutterActiveForeground;
+	  }
+	  if (settings.lineHighlight) {
+	    themeOptions['.cm-activeLine'] = {
+	      backgroundColor: settings.lineHighlight
+	    };
+	    activeLineGutterStyle.backgroundColor = settings.lineHighlight;
+	  }
+	  themeOptions['.cm-activeLineGutter'] = activeLineGutterStyle;
+	  if (settings.selection) {
+	    themeOptions['&.cm-focused .cm-selectionBackground, & .cm-line::selection, & .cm-selectionLayer .cm-selectionBackground, .cm-content ::selection'] = {
+	      background: settings.selection + ' !important'
+	    };
+	  }
+	  if (settings.selectionMatch) {
+	    themeOptions['& .cm-selectionMatch'] = {
+	      backgroundColor: settings.selectionMatch
+	    };
+	  }
+	  var themeExtension = EditorView.theme(themeOptions, {
+	    dark: theme === 'dark'
+	  });
+	  var highlightStyle = HighlightStyle.define(styles);
+	  var extension = [themeExtension, syntaxHighlighting(highlightStyle)];
+	  return extension;
+	};
+
+	var defaultSettingsGruvboxDark = {
+	  background: '#282828',
+	  foreground: '#ebdbb2',
+	  caret: '#ebdbb2',
+	  selection: '#b99d555c',
+	  selectionMatch: '#b99d555c',
+	  lineHighlight: '#baa1602b',
+	  gutterBackground: '#282828',
+	  gutterForeground: '#7c6f64'
+	};
+	var gruvboxDarkStyle = [{
+	  tag: tags.keyword,
+	  color: '#fb4934'
+	}, {
+	  tag: [tags.name, tags.deleted, tags.character, tags.propertyName, tags.macroName],
+	  color: '#8ec07c'
+	}, {
+	  tag: [tags.variableName],
+	  color: '#83a598'
+	}, {
+	  tag: [tags.function(tags.variableName)],
+	  color: '#b8bb26',
+	  fontStyle: 'bold'
+	}, {
+	  tag: [tags.labelName],
+	  color: '#ebdbb2'
+	}, {
+	  tag: [tags.color, tags.constant(tags.name), tags.standard(tags.name)],
+	  color: '#d3869b'
+	}, {
+	  tag: [tags.definition(tags.name), tags.separator],
+	  color: '#ebdbb2'
+	}, {
+	  tag: [tags.brace],
+	  color: '#ebdbb2'
+	}, {
+	  tag: [tags.annotation],
+	  color: '#fb4934d'
+	}, {
+	  tag: [tags.number, tags.changed, tags.annotation, tags.modifier, tags.self, tags.namespace],
+	  color: '#d3869b'
+	}, {
+	  tag: [tags.typeName, tags.className],
+	  color: '#fabd2f'
+	}, {
+	  tag: [tags.operator, tags.operatorKeyword],
+	  color: '#fb4934'
+	}, {
+	  tag: [tags.tagName],
+	  color: '#8ec07c',
+	  fontStyle: 'bold'
+	}, {
+	  tag: [tags.squareBracket],
+	  color: '#fe8019'
+	}, {
+	  tag: [tags.angleBracket],
+	  color: '#83a598'
+	}, {
+	  tag: [tags.attributeName],
+	  color: '#8ec07c'
+	}, {
+	  tag: [tags.regexp],
+	  color: '#8ec07c'
+	}, {
+	  tag: [tags.quote],
+	  color: '#928374'
+	}, {
+	  tag: [tags.string],
+	  color: '#ebdbb2'
+	}, {
+	  tag: tags.link,
+	  color: '#a89984',
+	  textDecoration: 'underline',
+	  textUnderlinePosition: 'under'
+	}, {
+	  tag: [tags.url, tags.escape, tags.special(tags.string)],
+	  color: '#d3869b'
+	}, {
+	  tag: [tags.meta],
+	  color: '#fabd2f'
+	}, {
+	  tag: [tags.comment],
+	  color: '#928374',
+	  fontStyle: 'italic'
+	}, {
+	  tag: tags.strong,
+	  fontWeight: 'bold',
+	  color: '#fe8019'
+	}, {
+	  tag: tags.emphasis,
+	  fontStyle: 'italic',
+	  color: '#b8bb26'
+	}, {
+	  tag: tags.strikethrough,
+	  textDecoration: 'line-through'
+	}, {
+	  tag: tags.heading,
+	  fontWeight: 'bold',
+	  color: '#b8bb26'
+	}, {
+	  tag: [tags.heading1, tags.heading2],
+	  fontWeight: 'bold',
+	  color: '#b8bb26'
+	}, {
+	  tag: [tags.heading3, tags.heading4],
+	  fontWeight: 'bold',
+	  color: '#fabd2f'
+	}, {
+	  tag: [tags.heading5, tags.heading6],
+	  color: '#fabd2f'
+	}, {
+	  tag: [tags.atom, tags.bool, tags.special(tags.variableName)],
+	  color: '#d3869b'
+	}, {
+	  tag: [tags.processingInstruction, tags.inserted],
+	  color: '#83a598'
+	}, {
+	  tag: [tags.contentSeparator],
+	  color: '#fb4934'
+	}, {
+	  tag: tags.invalid,
+	  color: '#fe8019',
+	  borderBottom: "1px dotted #fb4934d"
+	}];
+	var gruvboxDarkInit = options => {
+	  var {
+	    theme = 'dark',
+	    settings = {},
+	    styles = []
+	  } = {};
+	  return createTheme({
+	    theme: theme,
+	    settings: _extends({}, defaultSettingsGruvboxDark, settings),
+	    styles: [...gruvboxDarkStyle, ...styles]
+	  });
+	};
+	var gruvboxDark = gruvboxDarkInit();
+	var defaultSettingsGruvboxLight = {
+	  background: '#fbf1c7',
+	  foreground: '#3c3836',
+	  caret: '#af3a03',
+	  selection: '#bdae9391',
+	  selectionMatch: '#bdae9391',
+	  lineHighlight: '#a37f2238',
+	  gutterBackground: '#ebdbb2',
+	  gutterForeground: '#665c54',
+	  gutterBorder: 'transparent'
+	};
+	var gruvboxLightInit = options => {
+	  var {
+	    theme = 'light',
+	    settings = {},
+	    styles = []
+	  } = {};
+	  return createTheme({
+	    theme: theme,
+	    settings: _extends({}, defaultSettingsGruvboxLight, settings),
+	    styles: [{
+	      tag: tags.keyword,
+	      color: '#9d0006'
+	    }, {
+	      tag: [tags.name, tags.deleted, tags.character, tags.propertyName, tags.macroName],
+	      color: '#427b58'
+	    }, {
+	      tag: [tags.variableName],
+	      color: '#076678'
+	    }, {
+	      tag: [tags.function(tags.variableName)],
+	      color: '#79740e',
+	      fontStyle: 'bold'
+	    }, {
+	      tag: [tags.labelName],
+	      color: '#3c3836'
+	    }, {
+	      tag: [tags.color, tags.constant(tags.name), tags.standard(tags.name)],
+	      color: '#8f3f71'
+	    }, {
+	      tag: [tags.definition(tags.name), tags.separator],
+	      color: '#3c3836'
+	    }, {
+	      tag: [tags.brace],
+	      color: '#3c3836'
+	    }, {
+	      tag: [tags.annotation],
+	      color: '#9d0006'
+	    }, {
+	      tag: [tags.number, tags.changed, tags.annotation, tags.modifier, tags.self, tags.namespace],
+	      color: '#8f3f71'
+	    }, {
+	      tag: [tags.typeName, tags.className],
+	      color: '#b57614'
+	    }, {
+	      tag: [tags.operator, tags.operatorKeyword],
+	      color: '#9d0006'
+	    }, {
+	      tag: [tags.tagName],
+	      color: '#427b58',
+	      fontStyle: 'bold'
+	    }, {
+	      tag: [tags.squareBracket],
+	      color: '#af3a03'
+	    }, {
+	      tag: [tags.angleBracket],
+	      color: '#076678'
+	    }, {
+	      tag: [tags.attributeName],
+	      color: '#427b58'
+	    }, {
+	      tag: [tags.regexp],
+	      color: '#427b58'
+	    }, {
+	      tag: [tags.quote],
+	      color: '#928374'
+	    }, {
+	      tag: [tags.string],
+	      color: '#3c3836'
+	    }, {
+	      tag: tags.link,
+	      color: '#7c6f64',
+	      textDecoration: 'underline',
+	      textUnderlinePosition: 'under'
+	    }, {
+	      tag: [tags.url, tags.escape, tags.special(tags.string)],
+	      color: '#8f3f71'
+	    }, {
+	      tag: [tags.meta],
+	      color: '#b57614'
+	    }, {
+	      tag: [tags.comment],
+	      color: '#928374',
+	      fontStyle: 'italic'
+	    }, {
+	      tag: tags.strong,
+	      fontWeight: 'bold',
+	      color: '#af3a03'
+	    }, {
+	      tag: tags.emphasis,
+	      fontStyle: 'italic',
+	      color: '#79740e'
+	    }, {
+	      tag: tags.strikethrough,
+	      textDecoration: 'line-through'
+	    }, {
+	      tag: tags.heading,
+	      fontWeight: 'bold',
+	      color: '#79740e'
+	    }, {
+	      tag: [tags.heading1, tags.heading2],
+	      fontWeight: 'bold',
+	      color: '#79740e'
+	    }, {
+	      tag: [tags.heading3, tags.heading4],
+	      fontWeight: 'bold',
+	      color: '#b57614'
+	    }, {
+	      tag: [tags.heading5, tags.heading6],
+	      color: '#b57614'
+	    }, {
+	      tag: [tags.atom, tags.bool, tags.special(tags.variableName)],
+	      color: '#8f3f71'
+	    }, {
+	      tag: [tags.processingInstruction, tags.inserted],
+	      color: '#076678'
+	    }, {
+	      tag: [tags.contentSeparator],
+	      color: '#9d0006'
+	    }, {
+	      tag: tags.invalid,
+	      color: '#af3a03',
+	      borderBottom: "1px dotted #9d0006"
+	    }, ...styles]
+	  });
+	};
+	gruvboxLightInit();
+
 	// ================= Helpers =================
 	function setValue(editor, value) {
 	  editor.dispatch({
@@ -25941,14 +26307,30 @@ var cm6 = (function (exports) {
 	  return new LanguageSupport(language, [highlighter]);
 	}
 	function createEditor(config = {}) {
+	  let themeCompartment = new Compartment();
+	  let lightTheme = EditorView.theme({}, {
+	    dark: false
+	  });
+	  let currentTheme = lightTheme;
 	  var editorState = EditorState.create({
 	    doc: config.doc || "",
-	    extensions: [[...(config.extensions || [])]]
+	    extensions: [[...(config.extensions || []), themeCompartment.of(currentTheme)]]
 	  });
 	  var editorView = new EditorView({
 	    state: editorState,
 	    parent: config.parent,
 	    autofocus: config.autofocus !== false
+	  });
+	  document.addEventListener("colorSchemeChange", e => {
+	    let currentColorScheme = e.detail.currentColorScheme;
+	    if (currentColorScheme == "dark") {
+	      currentTheme = gruvboxDark;
+	    } else {
+	      currentTheme = lightTheme;
+	    }
+	    editorView.dispatch({
+	      effects: themeCompartment.reconfigure(currentTheme)
+	    });
 	  });
 	  return editorView;
 	}

@@ -25,10 +25,13 @@ Generate bundle with
 `
   },
   plugins: [
-    nodeResolve(),
+    nodeResolve({
+      browser: true,
+      preferBuiltins: false
+    }),
     commonjs(),
     babel({
-      babelHelpers: 'inline',
+      babelHelpers: 'bundled',
       exclude: 'node_modules/**'
     })
   ]

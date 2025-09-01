@@ -1,5 +1,5 @@
 // Core
-import { EditorState, StateEffect, EditorSelection } from '@codemirror/state';
+import { EditorState, StateEffect, EditorSelection, Compartment } from '@codemirror/state';
 import { EditorView, lineNumbers, highlightActiveLine, highlightActiveLineGutter, drawSelection, keymap } from '@codemirror/view';
 
 // Commands / history
@@ -18,6 +18,8 @@ import { highlightSelectionMatches, getSearchQuery, setSearchQuery, SearchCursor
 
 // Autocomplete / Brackets
 import { closeBrackets, closeBracketsKeymap } from "@codemirror/autocomplete";
+
+import { gruvboxDark as darkTheme } from '@uiw/codemirror-theme-gruvbox-dark';
 
 // ================= Helpers =================
 export function setValue(editor, value) {
@@ -101,10 +103,15 @@ export function createSimpleMode(states) {
 }
 
 export function createEditor(config = {}) {
+  let themeCompartment = new Compartment();
+  let lightTheme = EditorView.theme({}, { dark: false });
+  let currentTheme = lightTheme;
+
   var editorState = EditorState.create({
     doc: config.doc || "",
     extensions: [
-      [...(config.extensions || [])]
+      [...(config.extensions || []),
+      themeCompartment.of(currentTheme)],
     ]
   });
 
@@ -112,6 +119,16 @@ export function createEditor(config = {}) {
     state: editorState,
     parent: config.parent,
     autofocus: config.autofocus !== false
+  });
+  document.addEventListener("colorSchemeChange", (e) => {
+    let currentColorScheme = e.detail.currentColorScheme;
+    if (currentColorScheme == "dark") {
+      currentTheme = darkTheme;
+    }
+    else {
+      currentTheme = lightTheme;
+    }
+    editorView.dispatch({ effects: themeCompartment.reconfigure(currentTheme) })
   });
   return editorView;
 }

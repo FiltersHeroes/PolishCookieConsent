@@ -36,5 +36,9 @@ PCC_vAPI.storage.local.get("colorScheme").then(function (colorScheme) {
             rootSelector.classList.remove("dark");
         }
     }
+    let colorEvent = new CustomEvent("colorSchemeChange", {
+        detail: { currentColorScheme: colorScheme }
+    });
+    document.dispatchEvent(colorEvent);
 });
 

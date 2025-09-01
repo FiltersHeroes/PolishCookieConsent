@@ -37,6 +37,7 @@ let assetEditor = cm6.createEditor({
     ],
 });
 
+
 let url = new URLSearchParams(window.location.search).get("url");
 
 PCC_vAPI.storage.local.get(url).then(function (result) {

@@ -44,7 +44,6 @@ function refreshFocusEditor(editorID, tabID) {
     });
 }
 
-
 // Add user filters to textarea
 var userFilters = cm6.createEditor({
     parent: document.querySelector("#myFilters"),
