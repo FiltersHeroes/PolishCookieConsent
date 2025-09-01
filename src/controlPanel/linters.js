@@ -1,5 +1,5 @@
 /*******************************************************************************
-    Copyright (C) 2021 Filters Heroes
+    Copyright (C) 2025 Filters Heroes
     This file is part of Polish Cookie Consent.
 
     Polish Cookie Consent is free software: you can redistribute it and/or modify
@@ -16,82 +16,87 @@
     along with Polish Cookie Consent. If not, see {http://www.gnu.org/licenses/}.
 */
 
-CodeMirror.registerHelper("lint", "filters", function (text) {
-    const validFunctions = ["addToStorage", "bakeCookie", "clickInteractive", "clickTimeout", "clickComplete", "redirect"];
+let filtersLinter = cm6.linter(view => {
+  let validFunctions = {
+    addToStorage: { min: 2, max: 2 },
+    bakeCookie: { min: 3, max: 4 },
+    clickInteractive: { min: 1, max: 3 },
+    clickTimeout: { min: 1, max: 3 },
+    clickComplete: { min: 1, max: 3 },
+    redirect: { min: 2, max: 3 }
+  };
 
-    let found = [];
-    let lines = text.split("\n");
-    for (let i = 0; i < lines.length; i++) {
-        let line = lines[i];
-        let funcArgs = line.split("##+js(")[1];
+  let found = [];
+  let doc = view.state.doc;
 
-        if (line !== "" && !/^(!|#)/.test(line)) {
-            if (funcArgs) {
-                let funcName = funcArgs.slice(0, -1).split(",")[0].trim();
-                let funcArgsNumber = funcArgs.split(", ").length - 1;
-                if (funcName) {
-                    if (!new RegExp(validFunctions.join("|")).test(funcName)) {
-                        found.push({
-                            from: CodeMirror.Pos(i, line.search(new RegExp("\\+js\\(" + funcName)) + 4),
-                            to: CodeMirror.Pos(i, line.search(new RegExp("\\+js\\(" + funcName)) + 4 + funcName.length),
-                            message: PCC_vAPI.i18n.getMessage("invalidFunction", new Array(funcName)),
-                            severity: 'warning'
-                        });
-                    }
-                    else if (
-                        (funcName == "addToStorage" && (funcArgsNumber) > 2) ||
-                        (funcName == "bakeCookie" && (funcArgsNumber) > 4) ||
-                        (new RegExp("redirect|click(Interactive|Complete|Timeout)").test(funcName) && (funcArgsNumber) > 3)
-                    ) {
-                        found.push({
-                            from: CodeMirror.Pos(i, line.search(new RegExp("\\+js\\(" + funcName)) + 4),
-                            to: CodeMirror.Pos(i, line.search(new RegExp("\\+js\\(" + funcName)) + 4 + funcArgs.length),
-                            message: PCC_vAPI.i18n.getMessage("tooManyArgs"),
-                            severity: 'warning'
-                        });
-                    }
-                    else if (
-                        (funcName == "addToStorage" && (funcArgsNumber) < 2) ||
-                        (funcName == "bakeCookie" && (funcArgsNumber) < 3) ||
-                        (funcName == "redirect" && (funcArgsNumber) < 2) ||
-                        (new RegExp("click(Interactive|Complete|Timeout)").test(funcName) && (funcArgsNumber) < 1)
-                    ) {
-                        found.push({
-                            from: CodeMirror.Pos(i, line.search(new RegExp("\\+js\\(" + funcName)) + 4),
-                            to: CodeMirror.Pos(i, line.search(new RegExp("\\+js\\(" + funcName)) + 4 + funcArgs.length),
-                            message: PCC_vAPI.i18n.getMessage("tooFewArgs"),
-                            severity: 'error'
-                        });
-                    }
-                }
-            }
-            else if (!/##\+js\(./.test(line)) {
-                found.push({
-                    from: CodeMirror.Pos(i, 0),
-                    to: CodeMirror.Pos(i, line.length),
-                    message: PCC_vAPI.i18n.getMessage("invalidEntry"),
-                    severity: 'error'
-                });
-            }
-        }
+  for (let i = 1; i <= doc.lines; i++) {
+    let lineInfo = doc.line(i);
+    let line = lineInfo.text;
+    if (!line || /^(!|#)/.test(line)) continue;
+
+    let match = line.match(/^.*##\+js\(([^)]*)\)/);
+    if (!match) {
+      found.push({
+        from: lineInfo.from,
+        to: lineInfo.to,
+        message: PCC_vAPI.i18n.getMessage("invalidEntry"),
+        severity: "error"
+      });
+      continue;
     }
-    return found;
+
+    let args = match[1].split(",");
+    let funcName = args[0];
+    let funcArgsNumber = args.length - 1;
+    let from = lineInfo.from + match.index + match[0].indexOf(funcName);
+
+    let funcConfig = validFunctions[funcName];
+    if (!funcConfig) {
+      found.push({
+        from,
+        to: from + funcName.length,
+        message: PCC_vAPI.i18n.getMessage("invalidFunction", [funcName]),
+        severity: "warning"
+      });
+      continue;
+    }
+
+    if (funcArgsNumber > funcConfig.max) {
+      found.push({
+        from: lineInfo.from,
+        to: lineInfo.to,
+        message: PCC_vAPI.i18n.getMessage("tooManyArgs"),
+        severity: "warning"
+      });
+    } else if (funcArgsNumber < funcConfig.min) {
+      found.push({
+        from: lineInfo.from,
+        to: lineInfo.to,
+        message: PCC_vAPI.i18n.getMessage("tooFewArgs"),
+        severity: "error"
+      });
+    }
+  }
+  return found;
 });
 
-CodeMirror.registerHelper("lint", "excludedList", function (text) {
-    let found = [];
-    let lines = text.split("\n");
-    let badEntry = /(^[^.]+$)|[^a-z0-9.\-_\[\]:]/;
-    for (let i = 0; i < lines.length; i++) {
-        let line = lines[i];
-        if (badEntry.test(line) && !/^(!|#)/.test(line)) {
-            found.push({
-                from: CodeMirror.Pos(i, 0),
-                to: CodeMirror.Pos(i, line.length),
-                message: PCC_vAPI.i18n.getMessage("invalidEntry"),
-                severity: 'error'
-            });
-        }
+let excludedListLinter = cm6.linter(view => {
+  let found = [];
+  let doc = view.state.doc;
+  let badEntry = /(^[^.]+$)|[^a-z0-9.\-_\[\]:]/;
+
+  for (let i = 1; i <= doc.lines; i++) {
+    let lineInfo = doc.line(i);
+    let line = lineInfo.text;
+
+    if (badEntry.test(line) && !/^(!|#)/.test(line)) {
+      found.push({
+        from: lineInfo.from,
+        to: lineInfo.to,
+        message: PCC_vAPI.i18n.getMessage("invalidEntry"),
+        severity: "error"
+      });
     }
-    return found;
+  }
+  return found;
 });

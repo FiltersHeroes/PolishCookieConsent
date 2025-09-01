@@ -19,16 +19,22 @@
 // Title
 document.querySelector("title").textContent = PCC_vAPI.i18n.getMessage("extensionName") + " - " + PCC_vAPI.i18n.getMessage("assetViewer");
 
-let assetEditor = new CodeMirror(document.querySelector('#content'), {
+let assetEditor = cm6.createEditor({
+    parent: document.querySelector('#content'),
     autofocus: true,
-    gutters: ['CodeMirror-linenumbers'],
-    lineNumbers: true,
-    lineWrapping: true,
-    matchBrackets: true,
-    mode: "filters",
-    readOnly: true,
-    maxScanLines: 1,
-    styleActiveLine: true
+    extensions: [
+        filtersMode,
+        cm6.lineNumbers(),
+        cm6.highlightActiveLine(),
+        cm6.highlightActiveLineGutter(),
+        cm6.drawSelection(),
+        cm6.bracketMatching(),
+        cm6.closeBrackets(),
+        cm6.highlightSelectionMatches(),
+        cm6.search(),
+        cm6.EditorState.readOnly.of(true),
+        cm6.EditorView.lineWrapping,
+    ],
 });
 
 let url = new URLSearchParams(window.location.search).get("url");
@@ -43,5 +49,12 @@ PCC_vAPI.storage.local.get(url).then(function (result) {
     } else {
         flContent = result;
     }
-    assetEditor.setValue(flContent);
+    cm6.setValue(assetEditor, flContent);
 });
+
+var searchInput = document.querySelector("#searchbar");
+var prevMatchBtn = document.querySelector("#prevMatchBtn");
+var nextMatchBtn = document.querySelector("#nextMatchBtn");
+var counter = document.querySelector('.cm-search-widget-count');
+
+cm6.initCustomSearch(assetEditor, searchInput, counter, nextMatchBtn, prevMatchBtn)

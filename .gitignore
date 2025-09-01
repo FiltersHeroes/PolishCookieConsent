@@ -5,3 +5,4 @@ src/web-ext-artifacts
 src_temp/*
 release_notes/release_notes.md
 artifacts/*
+node_modules/

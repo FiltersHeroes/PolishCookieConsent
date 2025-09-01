@@ -1,5 +1,5 @@
 /*******************************************************************************
-    Copyright (C) 2022 Filters Heroes
+    Copyright (C) 2025 Filters Heroes
     This file is part of Polish Cookie Consent.
 
     Polish Cookie Consent is free software: you can redistribute it and/or modify
@@ -18,54 +18,63 @@
 
 function restoreEditorValue(editorID, settingName) {
     PCC_vAPI.storage.local.get(settingName).then(function (result) {
+        var value = "";
         if (result) {
-            editorID.setValue(result);
+            value = result;
         }
-        else {
-            editorID.setValue("");
-        }
+        cm6.setValue(editorID, value);
     });
 }
 
 function refreshFocusEditor(editorID, tabID) {
-    document.querySelectorAll('[data-mui-controls="' + tabID + '"]').forEach((tabToggle) => {
+    document.querySelectorAll(`[data-mui-controls="${tabID}"]`).forEach((tabToggle) => {
         tabToggle.addEventListener('mui.tabs.showend', function () {
-            editorID.refresh();
+            editorID.requestMeasure();
             editorID.focus();
             if (editorID == userFilters) {
-                CodeMirror.commands.save = function () { saveEditorValue(userFilters, "userFilters", cachedValue, userFiltersApply, userFiltersRevert) };
+                cm6.onSave(editorID, () => {
+                    saveEditorValue(userFilters, "userFilters", cachedValue, userFiltersApply, userFiltersRevert);
+                });
             } else {
-                CodeMirror.commands.save = function () { saveEditorValue(userWhitelist, "whitelist", cachedValue, whitelistApply, whitelistRevert) };
+                cm6.onSave(editorID, () => {
+                    saveEditorValue(userWhitelist, "whitelist", cachedValue, whitelistApply, whitelistRevert);
+                });
             }
         });
     });
 }
 
+
 // Add user filters to textarea
-var userFilters = new CodeMirror(document.querySelector('#myFilters'), {
-    autoCloseBrackets: true,
-    autofocus: true,
-    extraKeys: {
-        "Ctrl-/": function (cm) {
-            cm.toggleComment();
-        },
-        'Ctrl-Space': 'autocomplete',
-    },
-    gutters: ['CodeMirror-lint-markers', 'CodeMirror-linenumbers'],
-    lineNumbers: true,
-    lineWrapping: true,
-    lint: true,
-    matchBrackets: true,
-    maxScanLines: 1,
-    mode: "filters",
-    styleActiveLine: true
+var userFilters = cm6.createEditor({
+    parent: document.querySelector("#myFilters"),
+    doc: "",
+    extensions: [
+        filtersMode,
+        filtersLinter,
+        cm6.lintGutter(),
+        cm6.lineNumbers(),
+        cm6.highlightActiveLine(),
+        cm6.highlightActiveLineGutter(),
+        cm6.drawSelection(),
+        cm6.commands.history(),
+        cm6.bracketMatching(),
+        cm6.closeBrackets(),
+        cm6.highlightSelectionMatches(),
+        cm6.keymap.of([
+            ...cm6.closeBracketsKeymap,
+            ...cm6.commands.defaultKeymap,
+            ...cm6.commands.historyKeymap,
+        ]),
+    ],
+    autofocus: true
 });
+
 restoreEditorValue(userFilters, "userFilters");
 refreshFocusEditor(userFilters, "my-filters-tab");
 
 // Define CodeMirror mode for excluded list
-CodeMirror.defineSimpleMode("excludedList", {
-    // The start state contains the rules that are initially used
+var excludedListMode = cm6.createSimpleMode({
     start: [
         {
             regex: /#.*/,
@@ -78,26 +87,34 @@ CodeMirror.defineSimpleMode("excludedList", {
             sol: true
         },
     ],
-    meta: {
-        lineComment: "#"
+    languageData: {
+      commentTokens: { line: "#" }
     }
 });
 
 // Add excluded list to textarea
-var userWhitelist = new CodeMirror(document.querySelector('#userWhitelist'), {
-    autofocus: true,
-    extraKeys: {
-        "Ctrl-/": function (cm) {
-            cm.toggleComment();
-        }
-    },
-    gutters: ['CodeMirror-lint-markers', 'CodeMirror-linenumbers'],
-    lineNumbers: true,
-    lineWrapping: true,
-    lint: true,
-    mode: "excludedList",
-    styleActiveLine: true
+var userWhitelist = cm6.createEditor({
+    doc: "",
+    extensions: [
+        excludedListMode,
+        excludedListLinter,
+        cm6.lintGutter(),
+        cm6.lineNumbers(),
+        cm6.highlightActiveLine(),
+        cm6.highlightActiveLineGutter(),
+        cm6.drawSelection(),
+        cm6.commands.history(),
+        cm6.bracketMatching(),
+        cm6.closeBrackets(),
+        cm6.highlightSelectionMatches(),
+        cm6.keymap.of([
+            ...cm6.commands.defaultKeymap,
+        ]),
+    ],
+    parent: document.querySelector("#userWhitelist"),
+    autofocus: true
 });
+
 restoreEditorValue(userWhitelist, "whitelist");
 refreshFocusEditor(userWhitelist, "excluded-list-tab");
 
@@ -108,11 +125,11 @@ function importText(textarea) {
         const file = fp.files[0];
         const fr = new FileReader();
         fr.onload = function (e) {
-            if (textarea.getValue().length > 0) {
-                textarea.setValue([...new Set((textarea.getValue() + "\n" + fr.result).split("\n"))].join("\n"));
+            if (cm6.getValue(textarea).length > 0) {
+                cm6.setValue(textarea, [...new Set((cm6.getValue(textarea) + "\n" + fr.result).split("\n"))].join("\n"));
             }
             else {
-                textarea.setValue(fr.result);
+                cm6.setValue(textarea, fr.result);
             }
         }
         fr.readAsText(file);
@@ -169,7 +186,7 @@ var cachedValue = {
 };
 
 function saveEditorValue(editor, settingName, cachedValue, applyBtn, revertBtn) {
-    cachedValue[settingName] = editor.getValue();
+    cachedValue[settingName] = editor.state.doc.toString();
     PCC_vAPI.storage.local.set(settingName, cachedValue[settingName]);
     applyBtn.disabled = true;
     revertBtn.disabled = true;
@@ -195,7 +212,7 @@ function toggleSubmitRevertBtn(applyBtn, revertBtn, editor, cachedValue, savedVa
             result = cachedValue[savedValue];
             cachedValue[savedValue] = '';
         }
-        if (editor.getValue() == result) {
+        if (editor.state.doc.toString() == result) {
             applyBtn.disabled = true;
             revertBtn.disabled = true;
         }
@@ -208,11 +225,11 @@ function toggleSubmitRevertBtn(applyBtn, revertBtn, editor, cachedValue, savedVa
 
 
 // Disable/enable submit and revert user filters buttons
-userFilters.on('changes', function () {
+cm6.onChange(userFilters, () => {
     toggleSubmitRevertBtn(userFiltersApply, userFiltersRevert, userFilters, cachedValue, "userFilters");
 });
 
 // Disable/enable submit and revert excluded list buttons
-userWhitelist.on('changes', function () {
+cm6.onChange(userWhitelist, () => {
     toggleSubmitRevertBtn(whitelistApply, whitelistRevert, userWhitelist, cachedValue, "whitelist");
 });

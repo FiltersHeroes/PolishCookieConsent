@@ -31,7 +31,7 @@ for f in os.listdir(webext_path):
     shutil.move(pj(webext_path, f), pn("./"))
 
 # Cleanup
-unnecessary_folders = [pn("./platform"), pn("./cookieBase")]
+unnecessary_folders = [pn("./platform"), pn("./cookieBase"), pn("./thirdparty/codemirror")]
 for u_f in unnecessary_folders:
     shutil.rmtree(u_f)
 

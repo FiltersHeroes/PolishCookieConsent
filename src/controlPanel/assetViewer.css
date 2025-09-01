@@ -33,18 +33,6 @@
     fill: var(--currentColor);
 }
 
-#infoPanel {
-    background: var(--infoPanelBg);
-    padding: 5px 5px;
-    border-bottom: 1px solid var(--cm-comment);
-    top: 0;
-    z-index: 1000;
-    position: sticky;
-}
-
-#infoPanel:not([data-query]) .cm-search-widget-count {
-    display: none;
-}
 
 .rightSide {
     position: absolute;
@@ -58,14 +46,12 @@
     margin-left: 5px;
 }
 
-#content.codeMirrorContainer {
-    height: 100vh;
-    width: 100vw;
+#infoPanel {
+  position: sticky;
+  top: 0;
+  background: var(--infoPanelBg);
+  z-index: 1000;
+  padding: 5px 5px;
+  border-bottom: 1px solid var(--cm-comment);
 }
 
-/* For when panels are used */
-.codeMirrorContainer > div:not([class^="CodeMirror"]) {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-}

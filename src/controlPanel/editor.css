@@ -1,5 +1,5 @@
 :root {
-    --cm-def: #af00db;
+    --cm-jsdef: #af00db;
     --cm-domain: #a31515;
     --cm-comment: #777;
     --cm-func: #795e26;
@@ -7,30 +7,19 @@
 }
 
 :root.dark {
-    --cm-def: #c586c0;
+    --cm-jsdef: #c586c0;
     --cm-domain: #ce9178;
     --cm-comment: #888;
     --cm-func: #dcdcaa;
     --cm-arg: #9cdcfe;
 }
 
-.codeMirrorContainer {
-    flex-grow: 1;
-    min-height: 2em;
-    position: relative;
-    overflow: hidden;
-}
-
-.CodeMirror {
-    height: 100%;
-}
-
-.cm-s-default .cm-comment {
+.cm-comment {
     color: var(--cm-comment);
 }
 
-.cm-s-default .cm-def {
-    color: var(--cm-def);
+.cm-jsdef {
+    color: var(--cm-jsdef);
 }
 
 .cm-domainPart {
@@ -45,8 +34,28 @@
     color: var(--cm-arg);
 }
 
-:root:not(.dark) div.CodeMirror span.CodeMirror-matchingbracket {
+:root:not(.dark) div.cm-editor span.cm-matchingBracket {
     color: inherit;
     background-color: #afa;
     font-weight: bold;
+}
+
+.codeMirrorContainer {
+    flex: 1 1 auto;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.cm-editor {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+}
+
+.cm-editor .cm-scroller {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow: auto;
 }
