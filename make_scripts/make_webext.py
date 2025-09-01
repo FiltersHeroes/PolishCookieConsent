@@ -25,10 +25,12 @@ shutil.copy(pn("./LICENSE"), pj(temp_path, "LICENSE.txt"))
 
 os.chdir(temp_path)
 
-webext_path = pn("./platform/webext")
 
-for f in os.listdir(webext_path):
-    shutil.move(pj(webext_path, f), pn("./"))
+webext_paths = [pn(f"./platform/webext/{sys.argv[1]}"), pn("./platform/webext")]
+
+for webext_path in webext_paths:
+    for f in os.listdir(webext_path):
+        shutil.move(pj(webext_path, f), pn("./"))
 
 # Cleanup
 unnecessary_folders = [pn("./platform"), pn("./cookieBase"), pn("./thirdparty/codemirror")]
