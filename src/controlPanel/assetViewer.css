@@ -55,3 +55,10 @@
   border-bottom: 1px solid var(--cm-comment);
 }
 
+#editorWrapper {
+    overflow: auto; 
+}
+
+.codeMirrorContainer {
+    height: 100vh;
+}

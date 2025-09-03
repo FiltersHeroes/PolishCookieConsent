@@ -20,7 +20,7 @@
 document.querySelector("title").textContent = PCC_vAPI.i18n.getMessage("extensionName") + " - " + PCC_vAPI.i18n.getMessage("assetViewer");
 
 let assetEditor = cm6.createEditor({
-    parent: document.querySelector('#content'),
+    parent: document.querySelector('#editorWrapper'),
     autofocus: true,
     extensions: [
         filtersMode,

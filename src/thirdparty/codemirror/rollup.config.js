@@ -20,7 +20,7 @@ export default {
 //////////////////////////
 /*
 Generate bundle with
-    npx rollup -c
+    pnpm rum build
 */
 `
   },

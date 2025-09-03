@@ -31,6 +31,7 @@ colorSchemeToggle.addEventListener('change', function () {
         }
     }
     PCC_vAPI.storage.local.set("colorScheme", colorScheme);
+    PCC_vAPI.storage.local.setCache("colorScheme", colorScheme);
     let colorEvent = new CustomEvent("colorSchemeChange", {
         detail: { currentColorScheme: colorScheme }
     });

@@ -31,7 +31,6 @@ UXP_path = pn("./platform/UXP")
 for f in os.listdir(UXP_path):
     shutil.move(pj(UXP_path, f), temp_path)
 
-shutil.rmtree(pn("./platform"))
 
 # Add info about locales and version to manifest files
 locales_dir = pn("./_locales")
@@ -80,7 +79,11 @@ unnecessary_f = [pn("./icons/icon96.png"),
 unnecessary_f += glob.glob(pn("./_locales/*/messages.json"))
 for u_f in unnecessary_f:
     os.remove(u_f)
-shutil.rmtree(pn("./cookieBase"))
+
+# Cleanup
+unnecessary_folders = [pn("./platform"), pn("./cookieBase"), pn("./thirdparty/codemirror")]
+for u_f in unnecessary_folders:
+    shutil.rmtree(u_f)
 
 # Place assets in correct place
 mkassets.run(main_path)

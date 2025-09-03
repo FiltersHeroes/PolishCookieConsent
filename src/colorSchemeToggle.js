@@ -17,28 +17,39 @@
 */
 
 // Apply dark theme
-let rootSelector = document.querySelector(":root");
-PCC_vAPI.storage.local.get("colorScheme").then(function (colorScheme) {
-    let condition;
-    if (colorScheme) {
-        condition = colorScheme == "dark";
-    } else {
-        condition = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    }
-    if (condition) {
+function applyColorScheme(mode) {
+    let rootSelector = document.documentElement;
+    if (mode === "dark") {
         rootSelector.classList.add("dark");
-        let darkThemeToggle = document.querySelector("#darkTheme_toggle");
-        if (darkThemeToggle) {
-            darkThemeToggle.checked = true;
-        }
+        document.addEventListener("DOMContentLoaded", () => {
+            let darkThemeToggle = document.querySelector("#darkTheme_toggle");
+            if (darkThemeToggle) {
+                darkThemeToggle.checked = true;
+            }
+        });
     } else {
-        if (rootSelectorclassList.contains("dark")) {
-            rootSelector.classList.remove("dark");
-        }
+        rootSelector.classList.remove("dark");
     }
-    let colorEvent = new CustomEvent("colorSchemeChange", {
-        detail: { currentColorScheme: colorScheme }
+    let colorSchemeEvent = new CustomEvent("colorSchemeChange", {
+        detail: { currentColorScheme: mode }
     });
-    document.dispatchEvent(colorEvent);
+    document.dispatchEvent(colorSchemeEvent);
+}
+
+var currentColorScheme = PCC_vAPI.storage.local.getCache("colorScheme");
+if (!currentColorScheme) {
+    currentColorScheme = "light";
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        currentColorScheme = "dark";
+    }
+}
+
+applyColorScheme(currentColorScheme);
+
+PCC_vAPI.storage.local.get("colorScheme").then(function (colorScheme) {
+    if (colorScheme && colorScheme !== currentColorScheme) {
+        currentColorScheme = colorScheme;
+        applyColorScheme(currentColorScheme);
+    }
 });
 

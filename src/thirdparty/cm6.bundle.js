@@ -6,7 +6,7 @@
 //////////////////////////
 /*
 Generate bundle with
-    npx rollup -c
+    pnpm rum build
 */
 
 var cm6 = (function (exports) {
@@ -26311,7 +26311,19 @@ var cm6 = (function (exports) {
 	  let lightTheme = EditorView.theme({}, {
 	    dark: false
 	  });
-	  let currentTheme = lightTheme;
+	  function getCurrentTheme(colorScheme) {
+	    let chosenTheme = lightTheme;
+	    if (colorScheme == "dark") {
+	      chosenTheme = gruvboxDark;
+	    }
+	    return chosenTheme;
+	  }
+	  let colorScheme = "light";
+	  let rootSelector = document.documentElement;
+	  if (rootSelector && rootSelector.classList.contains("dark")) {
+	    colorScheme = "dark";
+	  }
+	  let currentTheme = getCurrentTheme(colorScheme);
 	  var editorState = EditorState.create({
 	    doc: config.doc || "",
 	    extensions: [[...(config.extensions || []), themeCompartment.of(currentTheme)]]
@@ -26322,12 +26334,7 @@ var cm6 = (function (exports) {
 	    autofocus: config.autofocus !== false
 	  });
 	  document.addEventListener("colorSchemeChange", e => {
-	    let currentColorScheme = e.detail.currentColorScheme;
-	    if (currentColorScheme == "dark") {
-	      currentTheme = gruvboxDark;
-	    } else {
-	      currentTheme = lightTheme;
-	    }
+	    currentTheme = getCurrentTheme(e.detail.currentColorScheme);
 	    editorView.dispatch({
 	      effects: themeCompartment.reconfigure(currentTheme)
 	    });

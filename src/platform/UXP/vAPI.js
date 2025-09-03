@@ -112,7 +112,38 @@ var PCC_vAPI = {
                         reject(new Error(err));
                     });
                 });
-            }
+            },
+            getCache: (name) => {
+                var prefs = Components.classes["@mozilla.org/preferences-service;1"]
+                  .getService(Components.interfaces.nsIPrefBranch);
+                var fullName = "extensions." + PCC_vAPI.extensionID + "." + name;
+                if (!prefs.prefHasUserValue(fullName)) return "";
+
+                var type = prefs.getPrefType(fullName);
+
+                switch (type) {
+                    case prefs.PREF_STRING:
+                        return prefs.getCharPref(fullName);
+                    case prefs.PREF_INT:
+                        return prefs.getIntPref(fullName);
+                    case prefs.PREF_BOOL:
+                        return prefs.getBoolPref(fullName);
+                    default:
+                        return undefined;
+                }
+            },
+            setCache: (name, value) => {
+                var prefs = Components.classes["@mozilla.org/preferences-service;1"]
+                  .getService(Components.interfaces.nsIPrefBranch);
+                var fullName = "extensions." + PCC_vAPI.extensionID + "." + name;
+                if (typeof value === "string") {
+                    prefs.setCharPref(fullName, value);
+                } else if (typeof value === "number") {
+                    prefs.setIntPref(fullName, value);
+                } else if (typeof value === "boolean") {
+                    prefs.setBoolPref(fullName, value);
+                }
+            },
         }
     },
     onFirstRunOrUpdate: () => {
@@ -156,7 +187,7 @@ var PCC_vAPI = {
         reload: () => {
             const currentExtensionURL = location.href;
             const browserWindow = Components.classes["@mozilla.org/appshell/window-mediator;1"].getService(Components.interfaces.nsIWindowMediator).getMostRecentWindow("navigator:browser");
-            if(browserWindow.gBrowser.tabContainer.childNodes.length > 1) {
+            if (browserWindow.gBrowser.tabContainer.childNodes.length > 1) {
                 browserWindow.gBrowser.removeTab(browserWindow.gBrowser.selectedTab);
                 PCC_vAPI.tabs.create(currentExtensionURL);
             } else {

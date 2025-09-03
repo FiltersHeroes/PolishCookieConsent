@@ -21,7 +21,7 @@ var PCC_vAPI = PCC_vAPI || {};
 (function (global) {
     const api = PCC_vAPI;
 
-    const localStorage = chrome && chrome.storage && chrome.storage.local;
+    const storageLocal = chrome && chrome.storage && chrome.storage.local;
 
     api.isWebExtension = () => true;
 
@@ -42,10 +42,10 @@ var PCC_vAPI = PCC_vAPI || {};
         local: {
             set: (key, value) => {
                 return new Promise((resolve, reject) => {
-                    if (localStorage) {
+                    if (storageLocal) {
                         let obj = {};
                         obj[key] = value;
-                        localStorage.set(obj, () => {
+                        storageLocal.set(obj, () => {
                             if (chrome.runtime.lastError) {
                                 reject(new Error(chrome.runtime.lastError));
                             } else {
@@ -61,8 +61,8 @@ var PCC_vAPI = PCC_vAPI || {};
             },
             get: key => {
                 return new Promise((resolve, reject) => {
-                    if (localStorage) {
-                        localStorage.get(key, result => {
+                    if (storageLocal) {
+                        storageLocal.get(key, result => {
                             if (chrome.runtime.lastError) {
                                 reject(new Error(chrome.runtime.lastError));
                             } else {
@@ -78,8 +78,8 @@ var PCC_vAPI = PCC_vAPI || {};
             },
             remove: key => {
                 return new Promise((resolve, reject) => {
-                    if (localStorage) {
-                        localStorage.remove(key, () => {
+                    if (storageLocal) {
+                        storageLocal.remove(key, () => {
                             if (chrome.runtime.lastError) {
                                 reject(new Error(chrome.runtime.lastError));
                             } else {
@@ -92,6 +92,12 @@ var PCC_vAPI = PCC_vAPI || {};
                         reject(new Error("No storage available"));
                     }
                 });
+            },
+            getCache: key => {
+                return localStorage.getItem(key);
+            },
+            setCache: (key, value) => { 
+                return localStorage.setItem(key, value);
             }
         }
     };

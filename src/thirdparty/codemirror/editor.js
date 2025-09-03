@@ -105,7 +105,22 @@ export function createSimpleMode(states) {
 export function createEditor(config = {}) {
   let themeCompartment = new Compartment();
   let lightTheme = EditorView.theme({}, { dark: false });
-  let currentTheme = lightTheme;
+
+
+  function getCurrentTheme(colorScheme) {
+    let chosenTheme = lightTheme;
+    if (colorScheme == "dark") {
+      chosenTheme = darkTheme;
+    }
+    return chosenTheme;
+  }
+
+  let colorScheme = "light"
+  let rootSelector = document.documentElement;
+  if (rootSelector && rootSelector.classList.contains("dark")) {
+    colorScheme = "dark";
+  }
+  let currentTheme = getCurrentTheme(colorScheme);
 
   var editorState = EditorState.create({
     doc: config.doc || "",
@@ -121,13 +136,7 @@ export function createEditor(config = {}) {
     autofocus: config.autofocus !== false
   });
   document.addEventListener("colorSchemeChange", (e) => {
-    let currentColorScheme = e.detail.currentColorScheme;
-    if (currentColorScheme == "dark") {
-      currentTheme = darkTheme;
-    }
-    else {
-      currentTheme = lightTheme;
-    }
+    currentTheme = getCurrentTheme(e.detail.currentColorScheme);
     editorView.dispatch({ effects: themeCompartment.reconfigure(currentTheme) })
   });
   return editorView;
