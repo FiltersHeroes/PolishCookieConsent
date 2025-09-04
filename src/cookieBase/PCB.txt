@@ -1,6 +1,6 @@
 ! Polska Baza Ciasteczkowa
 ! Polish Cookie Database
-! Version: 2025.8.28.1
+! Version: 2025.9.4.0
 ! License: MIT (https://opensource.org/licenses/MIT)
 ! Copyright © 2025 Filters Heroes
 !
@@ -15,7 +15,6 @@ przystanki.bialystok.pl##+js(addToStorage, cookie-accepted, 1)
 !
 !
 ! Cookies
-!threads.com,threads.net##+js(bakeCookie, cb, 1_1970_01_01_2-3, 365)
 al.to,x-kom.pl##+js(bakeCookie, trackingPermissionConsentsValue, {%22cookies_analytics%22:true%2C%22cookies_personalization%22:true%2C%22cookies_advertisement%22:true}, 365)
 beltone-polska.pl##+js(bakeCookie, ckies_cookielaw, allow, 365)
 beltone-polska.pl##+js(bakeCookie, ckies_google_maps, allow, 365)
@@ -106,9 +105,8 @@ www.google.com,www.google.pl##+js(clickTimeout, [aria-label="Zanim przejdziesz d
 !
 !
 ! Click complete
-17bankow.com,abczdrowie.pl,allani.pl,audioteka.com,autocentrum.pl,autokult.pl,benchmark.pl,deliciousmagazine.pl,dobreprogramy.pl,domodi.pl,easygo.pl,extradom.pl,finansowysupermarket.pl,fotoblogia.pl,gadzetomania.pl,genialne.pl,homebook.pl,jastrzabpost.pl,kafeteria.pl,kafeteria.tv,kazimierzdolny.pl,komorkomania.pl,money.pl,nauka.rocks,nerwica.com,nocowanie.pl,o2.pl,open.fm,parenting.pl,polygamia.pl,pudelek.pl,pudelek.tv,pysznosci.pl,smaczneblogi.pl,so-magazyn.pl,superauto.pl,testwiedzy.pl,totalmoney.pl,vibez.pl,wakacje.pl,wp.pl##+js(clickComplete, button, 300, PRZECHODZ)
+17bankow.com,abczdrowie.pl,allani.pl,audioteka.com,autocentrum.pl,autokult.pl,benchmark.pl,deliciousmagazine.pl,dobreprogramy.pl,domodi.pl,easygo.pl,extradom.pl,finansowysupermarket.pl,fotoblogia.pl,gadzetomania.pl,genialne.pl,homebook.pl,ipolska24.pl,jastrzabpost.pl,kafeteria.pl,kafeteria.tv,kazimierzdolny.pl,komorkomania.pl,money.pl,nauka.rocks,nerwica.com,nocowanie.pl,o2.pl,open.fm,parenting.pl,polygamia.pl,pudelek.pl,pudelek.tv,pysznosci.pl,smaczneblogi.pl,so-magazyn.pl,superauto.pl,testwiedzy.pl,totalmoney.pl,vibez.pl,wakacje.pl,wirtualnemedia.pl,wp.pl##+js(clickComplete, button, 300, i przechodz)
 chrono24.pl##+js(clickComplete, button[data-label="accept-button"], 200, porządku)
-ipolska24.pl,wirtualnemedia.pl##+js(clickComplete, button[aria-label="Akceptuję i przechodzę do serwisu"], 300)
 www.instagram.com##+js(clickComplete, div[contains(@role,'dialog')]/div[contains(@style,'flex')]/button[1], 200, Zezwól na wszystkie pliki cookie)
 !
 !
