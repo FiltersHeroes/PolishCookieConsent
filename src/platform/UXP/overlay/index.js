@@ -58,13 +58,10 @@ var PCC_overlay = {
         // Run content script in the context of web pages
         let appcontent = browserWindow.document.getElementById("appcontent");
         if (appcontent) {
-            appcontent.addEventListener("DOMDocElementInserted", function (e) {
-                let win = e.originalTarget;
-                if (win.ownerDocument) {
-                    win = win.ownerDocument;
-                }
-                if (win.defaultView) {
-                    win = win.defaultView;
+            appcontent.addEventListener("DOMWindowCreated", function (e) {
+                let win = e.originalTarget.defaultView;
+                if (!win || !win.location || !/^https?:/.test(win.location.href)) {
+                    return;
                 }
                 let sandbox = Components.utils.Sandbox(browserWindow, {
                     sameZoneAs: win.top,
@@ -72,23 +69,14 @@ var PCC_overlay = {
                     wantXrays: true,
                     wantComponents: false,
                 });
-                var PCC_vAPI = {
+                const exposedMethods = {
                     storage: {
                         local: {
-                            get: function (name) {
-                                Components.utils.import('resource://gre/modules/osfile.jsm');
-                                const file = OS.Path.join(OS.Constants.Path.profileDir, "extension-data", "PolishCookieConsentExt@polishannoyancefilters.netlify.com.json");
-                                return new Promise(function (resolve, reject) {
-                                    OS.File.read(file, { encoding: "utf-8" }).then(function (data) {
-                                        const parsedD = JSON.parse(data, 'utf8');
-                                        resolve(parsedD[name]);
-                                    });
-                                });
-                            }
+                            get: PCC_vAPI.storage.local.get.bind(PCC_vAPI.storage.local),
                         }
                     }
                 };
-                sandbox.PCC_vAPI = Components.utils.cloneInto(PCC_vAPI, sandbox, { cloneFunctions: true });
+                sandbox.PCC_vAPI = Components.utils.cloneInto(exposedMethods, sandbox, { cloneFunctions: true });
                 Services.scriptloader.loadSubScript("chrome://PCC/content/content.js", sandbox);
             }, true);
         }
