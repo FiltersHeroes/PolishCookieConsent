@@ -1,5 +1,5 @@
 /*******************************************************************************
-    Copyright (C) 2021 Filters Heroes
+    Copyright (C) 2025 Filters Heroes
     This file is part of Polish Cookie Consent.
 
     Polish Cookie Consent is free software: you can redistribute it and/or modify
@@ -32,65 +32,63 @@ function setSwitch(url) {
     let tabURL = new URL(url);
     let hostname = tabURL.hostname.replace("www.", "");
     let protocol = tabURL.protocol;
-    if (protocol == "https:" || protocol == "http:") {
-        PCC_vAPI.storage.local.get('whitelist').then(function (resultWhitelist) {
-            var switchBtn = document.querySelector(".switch");
-            if (typeof resultWhitelist !== "undefined" && resultWhitelist != "") {
-                function addWhitelist(btn) {
-                    PCC_vAPI.storage.local.set("whitelist", resultWhitelist + "\n" + hostname);
-                    btn.textContent = PCC_vAPI.i18n.getMessage("popupEnable");
-                    btn.onclick = function () { removeWhitelist(btn); };
-                }
-                function removeWhitelist(btn) {
-                    PCC_vAPI.storage.local.set("whitelist", resultWhitelist.replace(hostname, "").replace(/^\s*[\r\n]/gm, "").trim());
-                    btn.textContent = PCC_vAPI.i18n.getMessage("popupDisable");
-                    btn.onclick = function () { addWhitelist(btn); };
-                }
-                function containsCommentSign(value) {
-                    return value.indexOf("!") && value.indexOf("#") && value != "";
-                }
-                var whitelist = resultWhitelist.split("\n").filter(containsCommentSign).join([separator = '|']);
-                if (whitelist.includes(hostname)) {
-                    switchBtn.textContent = PCC_vAPI.i18n.getMessage("popupEnable");
-                    switchBtn.onclick = function () { removeWhitelist(switchBtn); };
-                }
-                else {
-                    document.querySelector(".switch").textContent = PCC_vAPI.i18n.getMessage("popupDisable");
-                    switchBtn.onclick = function () { addWhitelist(switchBtn); };
-                }
-            }
-            else {
-                function addWhitelist(btn) {
-                    PCC_vAPI.storage.local.set("whitelist", hostname);
-                    btn.textContent = PCC_vAPI.i18n.getMessage("popupEnable");
-                    btn.onclick = function () { removeWhitelist(btn); };
-                }
-                function removeWhitelist(btn) {
-                    PCC_vAPI.storage.local.set("whitelist", "");
-                    btn.textContent = PCC_vAPI.i18n.getMessage("popupDisable");
-                    btn.onclick = function () { addWhitelist(btn); };
-                }
-                switchBtn.textContent = PCC_vAPI.i18n.getMessage("popupDisable");
-                switchBtn.onclick = function () { addWhitelist(switchBtn); };
-            }
-            document.querySelector(".wrapper-switch").style.display = "flex";
-            document.querySelector(".separator-switch").style.display = "block";
-            if (PCC_vAPI.isWebExtension() == false) {
-                PCC_vAPI.resizePopup();
-            }
-        });
-    }
-    else {
-        document.querySelector(".wrapper-switch").style.display = "none";
-        document.querySelector(".separator-switch").style.display = "none";
-        if (PCC_vAPI.isWebExtension() == false) {
+
+    let wrapperSwitch = document.querySelector(".wrapper-switch");
+    let separatorSwitch = document.querySelector(".separator-switch");
+    if (protocol !== "https:" && protocol !== "http:") {
+        wrapperSwitch.style.display = "none";
+        separatorSwitch.style.display = "none";
+        if (!PCC_vAPI.isWebExtension()) {
             PCC_vAPI.resizePopup();
         }
+        return;
     }
+    PCC_vAPI.storage.local.get('whitelist').then(function (resultWhitelist) {
+        var switchBtn = document.querySelector(".switch");
+        let whitelistValue = resultWhitelist || "";
+
+        function addWhitelist() {
+            var whitelistLines = whitelistValue.split("\n");
+            whitelistLines.push(hostname);
+            let newValue = whitelistLines.sort().join("\n");
+            PCC_vAPI.storage.local.set("whitelist", newValue);
+            switchBtn.textContent = PCC_vAPI.i18n.getMessage("popupEnable");
+            switchBtn.onclick = removeWhitelist;
+        }
+
+        function removeWhitelist() {
+            var whitelistLines = whitelistValue.split("\n").filter(line => line.trim() !== "" && line !== hostname).sort();
+            let newValue = whitelistLines.join("\n");
+            PCC_vAPI.storage.local.set("whitelist", newValue);
+            switchBtn.textContent = PCC_vAPI.i18n.getMessage("popupDisable");
+            switchBtn.onclick = addWhitelist;
+        }
+
+        function containsCommentSign(value) {
+            return value && value.indexOf("!") === -1 && value.indexOf("#") === -1;
+        }
+
+        let whitelist = whitelistValue.split("\n").filter(containsCommentSign).join('|');
+        if (whitelist.includes(hostname)) {
+            switchBtn.textContent = PCC_vAPI.i18n.getMessage("popupEnable");
+            switchBtn.onclick = removeWhitelist;
+        }
+        else {
+            switchBtn.textContent = PCC_vAPI.i18n.getMessage("popupDisable");
+            switchBtn.onclick = addWhitelist;
+        }
+
+        wrapperSwitch.style.display = "flex";
+        separatorSwitch.style.display = "block";
+        if (!PCC_vAPI.isWebExtension()) {
+            PCC_vAPI.resizePopup();
+        }
+    });
 }
 
+
 if (PCC_vAPI.isWebExtension() === true) {
-    chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
+    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
         setSwitch(tabs[0].url);
     });
 }

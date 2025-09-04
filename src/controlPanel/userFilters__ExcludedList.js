@@ -200,6 +200,9 @@ document.querySelector("#userFiltersApply").addEventListener("click", function (
 // Save excluded list
 var whitelistApply = document.getElementById("whitelistApply");
 document.querySelector("#whitelistApply").addEventListener("click", function () {
+    var excludedListValue = userWhitelist.state.doc.toString();
+    var sortedExcludedList = excludedListValue.split("\n").sort().join("\n");
+    cm6.setValue(userWhitelist, sortedExcludedList);
     saveEditorValue(userWhitelist, "whitelist", cachedValue, whitelistApply, whitelistRevert);
 });
 
