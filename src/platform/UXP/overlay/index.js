@@ -94,29 +94,73 @@ var PCC_overlay = {
         }
     },
     placePopup: () => {
-        let wm = Components.classes["@mozilla.org/appshell/window-mediator;1"].getService(Components.interfaces.nsIWindowMediator);
+        let wm = Components.classes["@mozilla.org/appshell/window-mediator;1"]
+            .getService(Components.interfaces.nsIWindowMediator);
         let browserWindow = wm.getMostRecentWindow("navigator:browser");
         let ebtn = browserWindow.document.querySelector("#PolishFiltersTeam_PCC_btn");
-        let epanel = browserWindow.document.querySelector("#PolishFiltersTeam_PCC_popup_panel");
-
-        if (!epanel || !ebtn) return;
-
-        if (epanel.hasAttribute("hidden")) {
-            epanel.removeAttribute("hidden");
+        if (!ebtn) {
+            return;
         }
-        epanel.openPopup(ebtn, "after_end", 0, 0, false, false);
 
-        PCC_vAPI.resizePopup();
+        let epanel = browserWindow.document.createElement("panel");
+        epanel.id = "PolishFiltersTeam_PCC_popup_panel";
+        epanel.setAttribute("hidden", "true");
+        epanel.style.opacity = "0";
 
-        epanel.addEventListener("popuphiding", function () {
-            ebtn.checked = false;
-            epanel.setAttribute("hidden", true);
+        let iframe = browserWindow.document.createElement("iframe");
+        iframe.id = "PolishFiltersTeam_PCC_popup_frame";
+        iframe.setAttribute("type", "content");
+        iframe.setAttribute("flex", "1");
+        iframe.setAttribute("src", "chrome://PCC/content/popup/index.html");
+
+        epanel.appendChild(iframe);
+        browserWindow.document.getElementById("mainPopupSet").appendChild(epanel);
+        epanel.removeAttribute("hidden");
+
+        let resizeTimer = null;
+        function resizePopupDelayed(attempts = 0) {
+            if (resizeTimer !== null) {
+                return;
+            }
+            attempts++;
+            if (attempts > 50) {
+                return;
+            }
+
+            resizeTimer = setTimeout(() => {
+                resizeTimer = null;
+
+                if (!iframe.contentDocument?.body || !iframe.contentWindow) {
+                    return;
+                }
+                let body = iframe.contentDocument.body;
+
+                try {
+                    iframe.contentWindow.setSwitch(browserWindow.gBrowser.currentURI.spec);
+                } catch (e) {
+                    console.error("setSwitch failed:", e);
+                }
+
+                if (iframe.clientHeight !== body.clientHeight || iframe.clientWidth !== body.clientWidth) {
+                    resizePopupDelayed(attempts);
+                }
+            }, 10);
+        }
+
+        epanel.addEventListener("popupshown", () => {
+            resizePopupDelayed();
         }, { once: true });
 
-        let iframe = browserWindow.document.getElementById("PolishFiltersTeam_PCC_popup_frame");
-        if (iframe && iframe.contentWindow && iframe.contentWindow.document.readyState === "complete") {
-            iframe.contentWindow.setSwitch(browserWindow.gBrowser.currentURI.spec);
-        }
+        epanel.addEventListener("popuphiding", () => {
+            ebtn.checked = false;
+            if (resizeTimer) {
+                clearTimeout(resizeTimer);
+                resizeTimer = null;
+            }
+            epanel.remove();
+        }, { once: true });
+
+        epanel.openPopup(ebtn, "after_end", 0, 0, false, false);
     }
 }
 

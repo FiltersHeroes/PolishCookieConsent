@@ -115,7 +115,7 @@ var PCC_vAPI = {
             },
             getCache: (name) => {
                 var prefs = Components.classes["@mozilla.org/preferences-service;1"]
-                  .getService(Components.interfaces.nsIPrefBranch);
+                    .getService(Components.interfaces.nsIPrefBranch);
                 var fullName = "extensions." + PCC_vAPI.extensionID + "." + name;
                 if (!prefs.prefHasUserValue(fullName)) return "";
 
@@ -134,7 +134,7 @@ var PCC_vAPI = {
             },
             setCache: (name, value) => {
                 var prefs = Components.classes["@mozilla.org/preferences-service;1"]
-                  .getService(Components.interfaces.nsIPrefBranch);
+                    .getService(Components.interfaces.nsIPrefBranch);
                 var fullName = "extensions." + PCC_vAPI.extensionID + "." + name;
                 if (typeof value === "string") {
                     prefs.setCharPref(fullName, value);
@@ -169,16 +169,27 @@ var PCC_vAPI = {
         epanel.hidePopup();
     },
     resizePopup: () => {
-        let wm = Components.classes["@mozilla.org/appshell/window-mediator;1"].getService(Components.interfaces.nsIWindowMediator);
+        let wm = Components.classes["@mozilla.org/appshell/window-mediator;1"]
+            .getService(Components.interfaces.nsIWindowMediator);
         let browserWindow = wm.getMostRecentWindow("navigator:browser");
-        let eframe = browserWindow.document.querySelector("#PolishFiltersTeam_PCC_popup_frame");
-        let eframeHeight = eframe.contentDocument.body.scrollHeight;
-        let eframeWidth = eframe.contentDocument.body.scrollWidth;
+
         let epanel = browserWindow.document.querySelector("#PolishFiltersTeam_PCC_popup_panel");
-        epanel.style.height = eframe.style.height + "px";
-        epanel.style.width = eframe.style.width + "px";
-        eframe.style.height = eframeHeight + "px";
-        eframe.style.width = eframeWidth + "px";
+        let iframe = browserWindow.document.querySelector("#PolishFiltersTeam_PCC_popup_frame");
+
+        if (!epanel || !iframe || !iframe.contentDocument || !iframe.contentDocument.body) {
+            return;
+        }
+        epanel.style.opacity = '0';
+        
+        let body = iframe.contentDocument.body;
+        let height = body.scrollHeight || body.clientHeight;
+        let width = body.scrollWidth || body.clientWidth;
+
+        iframe.style.height = height + "px";
+        iframe.style.width = width + "px";
+        epanel.style.height = height + "px";
+        epanel.style.width = width + "px";
+        epanel.style.opacity = '1';
     },
     runtime: {
         getURL: (path) => {

@@ -10,8 +10,5 @@
         <toolbarbutton id="PolishFiltersTeam_PCC_btn" class="toolbarbutton-1 chromeclass-toolbar-additional badged-button" label="PCC" oncommand="PCC_overlay.placePopup();" type="checkbox"/>
     </toolbarpalette>
     <window id="main-window">
-        <panel id="PolishFiltersTeam_PCC_popup_panel" hidden="true">
-            <iframe id="PolishFiltersTeam_PCC_popup_frame" src="chrome://PCC/content/popup/index.html" type="content"></iframe>
-        </panel>
     </window>
 </overlay>
