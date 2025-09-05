@@ -15,12 +15,51 @@
     You should have received a copy of the GNU General Public License
     along with Polish Cookie Consent. If not, see {http://www.gnu.org/licenses/}.
 */
+async function fetchWithRetry(url, retries = 2, delay = 1500) {
+    for (let attempt = 0; attempt <= retries; attempt++) {
+        try {
+            const response = await fetch(url);
+            if (!response.ok) {
+                throw {
+                    status: response.status,
+                    statusText: response.statusText,
+                    err: response.statusText
+                };
+            }
+            return response;
+        } catch (err) {
+            if (attempt < retries) {
+                console.warn(`[Polish Cookie Consent] Fetch failed (${url}), retry #${attempt + 1} in ${delay}ms`, err);
+                await new Promise(res => setTimeout(res, delay));
+                delay *= 2;
+            } else {
+                console.error(`[Polish Cookie Consent] Fetch failed after ${retries + 1} attempts: ${url}`, err);
+                throw err;
+            }
+        }
+    }
+}
+
+async function fetchFromCdns(urls, delay = 1500) {
+    if (!urls || urls.length === 0) {
+        throw new Error("[Polish Cookie Consent] No CDN URLs provided");
+    }
+    const shuffledUrls = [...urls].sort(() => Math.random() - 0.5);
+    for (let url of shuffledUrls) {
+        try {
+            const response = await fetchWithRetry(url);
+            return response;
+        } catch (err) {
+            console.warn(`[Polish Cookie Consent] CDN failed: ${url}`, err);
+            await new Promise(res => setTimeout(res, delay));
+        }
+    }
+    throw new Error("[Polish Cookie Consent] All CDNs failed");
+}
+
 
 function handleTextResponse(text, filterListID, updateNotification, flURL) {
-    const obj = {};
-    obj["content"] = text;
-    obj["sourceURL"] = flURL;
-
+    const obj = { content: text, sourceURL: flURL };
     const filterListLine = text.split("\n");
     for (var i = 0; i < filterListLine.length; i++) {
         if (filterListLine[i].match(/(!|#) Version/g)) {
@@ -36,23 +75,24 @@ function handleTextResponse(text, filterListID, updateNotification, flURL) {
         }
         PCC_vAPI.storage.local.set(filterListID, JSON.stringify(obj)).then(function () {
             console.log("[Polish Cookie Consent] Fetched " + filterListID);
-            if (updateNotification) {
-                if(oldVersion !== obj["version"]) {
-                    PCC_vAPI.storage.local.get("userSettings").then(function (userSettings) {
-                        if (userSettings) {
-                            if (JSON.parse(userSettings)["autoUpdateNotifications"]) {
-                                PCC_vAPI.notifications.create("autoUpdatePCC", PCC_vAPI.runtime.getURL("icons/icon48.png"), PCC_vAPI.i18n.getMessage("extensionName"), PCC_vAPI.i18n.getMessage("updateSuccess", new Array(PCC_vAPI.i18n.getMessage(filterListID))));
-                            }
-                        }
-                    });
-                }
+            if (updateNotification && oldVersion !== obj["version"]) {
+                PCC_vAPI.storage.local.get("userSettings").then(function (userSettings) {
+                    if (userSettings && JSON.parse(userSettings)["autoUpdateNotifications"]) {
+                        PCC_vAPI.notifications.create(
+                            "autoUpdatePCC",
+                            PCC_vAPI.runtime.getURL("icons/icon48.png"),
+                            PCC_vAPI.i18n.getMessage("extensionName"),
+                            PCC_vAPI.i18n.getMessage("updateSuccess", new Array(PCC_vAPI.i18n.getMessage(filterListID)))
+                        );
+                    }
+                });
             }
         });
     });
 }
 
 function setUpdateTime() {
-    var _updateTime = new Date().getTime() + 24 * 7 * 60 * 60 * 1000;
+    var _updateTime = Date.now() + 24 * 7 * 60 * 60 * 1000;
     PCC_vAPI.storage.local.set("updateTime", _updateTime).then(function () {
         updateCookieBase(_updateTime);
     });
@@ -60,156 +100,105 @@ function setUpdateTime() {
 
 function updateCookieBase(updateTime) {
     var interval = parseInt(updateTime) - Date.now();
-    if (interval) {
-        if (interval < 0) {
-            interval = 10;
-        }
-        PCC_vAPI.runLater(interval, function () {
-            PCC_vAPI.storage.local.get("userSettings").then(function (userSettingsResult) {
-                if (userSettingsResult) {
-                    const userSettings = JSON.parse(userSettingsResult);
-                    if (userSettings["autoUpdate"]) {
-                        PCC_vAPI.storage.local.get("assetsJSON").then(function (aJSONresult) {
-                            const aJSON = JSON.parse(aJSONresult);
-                            var randomNumber = Math.floor(Math.random() * aJSON["assets.json"].cdnURLs.length);
-                            fetch(aJSON["assets.json"].cdnURLs[randomNumber])
-                                .then(response => {
-                                    if (!response.ok) {
-                                        return Promise.reject({
-                                            status: response.status,
-                                            statusText: response.statusText,
-                                            err: response.statusText
-                                        })
-                                    }
-                                    return response.json();
-                                })
-                                .then(assetsJSON => {
-                                    PCC_vAPI.storage.local.set('assetsJSON', JSON.stringify(assetsJSON));
-                                    PCC_vAPI.storage.local.get("selectedFilterLists").then(function (sFLresult) {
-                                        const sFLnewResult = sFLresult.filter(item => item !== "userFilters");
-                                        sFLnewResult.reduce(async (seq, selectedFL) => {
-                                            await seq;
-                                            randomNumber = Math.floor(Math.random() * aJSON[selectedFL].cdnURLs.length);
-                                            const assetURL = assetsJSON[selectedFL].cdnURLs[randomNumber];
-                                            fetch(assetURL)
-                                                .then(response => {
-                                                    if (!response.ok) {
-                                                        return Promise.reject({
-                                                            status: response.status,
-                                                            statusText: response.statusText,
-                                                            err: response.statusText
-                                                        })
-                                                    }
-                                                    return response.text();
-                                                })
-                                                .then(text => {
-                                                    handleTextResponse(text, selectedFL, true, assetURL);
-                                                })
-                                                .catch(function (error) {
-                                                    console.log("[Polish Cookie Consent] " + error);
-                                                    if (userSettings["autoUpdateNotifications"]) {
-                                                        PCC_vAPI.notifications.create("autoUpdatePCC", PCC_vAPI.runtime.getURL("icons/icon48.png"), PCC_vAPI.i18n.getMessage("extensionName"), PCC_vAPI.i18n.getMessage("updateFail", new Array(PCC_vAPI.i18n.getMessage(selectedFL))));
-                                                    }
-                                                });
-                                            return await new Promise(res => setTimeout(res, 1000));
-                                        }, Promise.resolve());
-                                    });
-                                })
-                                .catch(function (error) {
-                                    console.log("[Polish Cookie Consent] " + error);
-                                });
-                        });
-                    }
-                }
-            }).then(function () {
-                setUpdateTime();
-            });
-        });
+    if (!interval) {
+        return;
     }
-}
+    if (interval < 0) {
+        interval = 10;
+    }
 
-function fetchLocalAssets() {
-    fetch(PCC_vAPI.runtime.getURL("assets/assets.json"))
-        .then(response => {
-            if (!response.ok) {
-                return Promise.reject({
-                    status: response.status,
-                    statusText: response.statusText,
-                    err: response.statusText
-                })
-            }
-            return response.json();
-        })
-        .then(assetsJSON => {
-            PCC_vAPI.storage.local.set('assetsJSON', JSON.stringify(assetsJSON)).then(function () {
-                const filerLists = Object.keys(assetsJSON).filter(item => item !== "assets.json");
-                filerLists.reduce(async (seq, localFL) => {
-                    await seq;
-                    fetch(PCC_vAPI.runtime.getURL(assetsJSON[localFL].localURL))
-                        .then(response => {
-                            if (!response.ok) {
-                                return Promise.reject({
-                                    status: response.status,
-                                    statusText: response.statusText,
-                                    err: response.statusText
-                                });
-                            }
-                            return response.text();
-                        })
-                        .then(text => {
-                            handleTextResponse(text, localFL, false, assetsJSON[localFL].contentURL);
-                        })
-                        .catch(error => console.log("[Polish Cookie Consent] " + error));
-                    return await new Promise(res => setTimeout(res, 1000));
-                }, Promise.resolve());
-            });
-        })
-        .catch(error => console.log("[Polish Cookie Consent] " + error));
-    setUpdateTime();
-}
-
-function setDefaultSettings() {
-    PCC_vAPI.storage.local.get("cookieBase").then(function (result) {
-        if (typeof result !== "undefined" || result) {
-            PCC_vAPI.storage.local.remove("cookieBase");
+    PCC_vAPI.runLater(interval, async function () {
+        const userSettingsResult = await PCC_vAPI.storage.local.get("userSettings");
+        if (!userSettingsResult) {
+            return;
         }
-    }).then(function () {
-        fetch(PCC_vAPI.runtime.getURL("controlPanel/defaultSettings.json"))
-            .then(response => {
-                if (!response.ok) {
-                    return Promise.reject({
-                        status: response.status,
-                        statusText: response.statusText,
-                        err: response.statusText
-                    })
+        const userSettings = JSON.parse(userSettingsResult);
+        if (!userSettings["autoUpdate"]) {
+            return;
+        }
+
+        try {
+            const aJSONresult = await PCC_vAPI.storage.local.get("assetsJSON");
+            const aJSON = JSON.parse(aJSONresult);
+
+            const response = await fetchFromCdns(aJSON["assets.json"].cdnURLs);
+            const assetsJSON = await response.json();
+            await PCC_vAPI.storage.local.set('assetsJSON', JSON.stringify(assetsJSON));
+
+            const sFLresult = await PCC_vAPI.storage.local.get("selectedFilterLists");
+            const sFLnewResult = sFLresult.filter(item => item !== "userFilters");
+
+            for (let selectedFL of sFLnewResult) {
+                try {
+                    const flResponse = await fetchFromCdns(assetsJSON[selectedFL].cdnURLs);
+                    const text = await flResponse.text();
+                    handleTextResponse(text, selectedFL, true, flResponse.url);
+                } catch (error) {
+                    console.log(`[Polish Cookie Consent] Filterlist: ${selectedFL} Error: ${error}`);
                 }
-                return response.json();
-            }).then(defaultSettings => {
-                PCC_vAPI.storage.local.get("selectedFilterLists").then(function (sFLvalue) {
-                    if (typeof sFLvalue == "undefined" || !sFLvalue) {
-                        PCC_vAPI.storage.local.set("selectedFilterLists", defaultSettings["selectedFilterLists"]).then(function () {
-                            PCC_vAPI.storage.local.get("userSettings").then(function (sValue) {
-                                if (typeof sValue == "undefined" || !sValue) {
-                                    PCC_vAPI.storage.local.set("userSettings", JSON.stringify(defaultSettings["userSettings"])).then(function () {
-                                        fetchLocalAssets();
-                                    });
-                                }
-                            })
-                        });
-                    } else {
-                        fetchLocalAssets();
-                    }
-                });
-            })
-            .catch(function (error) {
-                console.log("[Polish Cookie Consent] " + error);
-            });
+                await new Promise(res => setTimeout(res, 1000));
+            }
+        } catch (error) {
+            console.log(`[Polish Cookie Consent] ${error}`);
+            if (userSettings["autoUpdateNotifications"]) {
+                PCC_vAPI.notifications.create(
+                    "autoUpdatePCC",
+                    PCC_vAPI.runtime.getURL("icons/icon48.png"),
+                    PCC_vAPI.i18n.getMessage("extensionName"),
+                    PCC_vAPI.i18n.getMessage("updateFail")
+                );
+            }
+        }
+        setUpdateTime();
     });
 }
 
-PCC_vAPI.onFirstRunOrUpdate().then(function (result) {
-    if (result == "install" || result == "update") {
-        setDefaultSettings();
+async function fetchLocalAssets() {
+    try {
+        const response = await fetchWithRetry(PCC_vAPI.runtime.getURL("assets/assets.json"));
+        const assetsJSON = await response.json();
+        await PCC_vAPI.storage.local.set('assetsJSON', JSON.stringify(assetsJSON));
+
+        const filterLists = Object.keys(assetsJSON).filter(item => item !== "assets.json");
+        for (let localFL of filterLists) {
+            try {
+                const flResponse = await fetchWithRetry(PCC_vAPI.runtime.getURL(assetsJSON[localFL].localURL));
+                const text = await flResponse.text();
+                handleTextResponse(text, localFL, false, assetsJSON[localFL].contentURL);
+            } catch (error) {
+                console.log(`[Polish Cookie Consent] ${error}`);
+            }
+            await new Promise(res => setTimeout(res, 1000));
+        }
+    } catch (error) {
+        console.log(`[Polish Cookie Consent] ${error}`);
+    }
+    setUpdateTime();
+}
+
+async function setDefaultSettings() {
+    const result = await PCC_vAPI.storage.local.get("cookieBase");
+    if (typeof result !== "undefined" || result) {
+        PCC_vAPI.storage.local.remove("cookieBase");
+    }
+
+    const response = await fetchWithRetry(PCC_vAPI.runtime.getURL("controlPanel/defaultSettings.json"));
+    const defaultSettings = await response.json();
+
+    const sFLvalue = await PCC_vAPI.storage.local.get("selectedFilterLists");
+    if (typeof sFLvalue == "undefined" || !sFLvalue) {
+        await PCC_vAPI.storage.local.set("selectedFilterLists", defaultSettings["selectedFilterLists"]);
+        const sValue = await PCC_vAPI.storage.local.get("userSettings");
+        if (typeof sValue == "undefined" || !sValue) {
+            await PCC_vAPI.storage.local.set("userSettings", JSON.stringify(defaultSettings["userSettings"]));
+        }
+    }
+    await fetchLocalAssets();
+}
+
+PCC_vAPI.onFirstRunOrUpdate().then(async function (result) {
+    if (result === "install" || result === "update") {
+        await setDefaultSettings();
     }
 });
 

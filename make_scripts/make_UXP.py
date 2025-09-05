@@ -56,7 +56,7 @@ for locale in sorted(os.listdir(locales_dir)):
             with open(pn("./locales.manifest"), "a", encoding='utf-8') as l_m:
                 l_m.write("locale PCC "+locale+" ./_locales/"+locale+"/\n")
 
-ext_version = "dev-build"
+ext_version = "1.47.0"
 if "PCC_VERSION" in os.environ:
     ext_version = os.environ.get("PCC_VERSION")
 elif len(sys.argv) >= 2:

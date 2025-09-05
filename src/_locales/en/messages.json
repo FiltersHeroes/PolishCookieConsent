@@ -162,13 +162,7 @@
     }
   },
   "updateFail": {
-    "message": "An error occurred while updating $filterList$.",
-    "placeholders": {
-      "filterList": {
-        "content": "$1",
-        "example": "Polish Cookie Database"
-      }
-    }
+    "message": "An error occurred while updating filterlists."
   },
   "helpTranslation": {
     "message": "Help with translation"

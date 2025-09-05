@@ -96,9 +96,11 @@ document.querySelectorAll('.database input[type="checkbox"]').forEach((filterlis
     });
 });
 PCC_vAPI.storage.local.get("selectedFilterLists").then(function (result) {
-    result.forEach((filterList) => {
-        document.querySelector('#' + filterList + ' input[type="checkbox"]').checked = true;
-    });
+    if (result) {
+        result.forEach((filterList) => {
+            document.querySelector('#' + filterList + ' input[type="checkbox"]').checked = true;
+        });
+    }
 });
 
 

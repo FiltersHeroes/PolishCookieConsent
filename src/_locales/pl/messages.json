@@ -162,13 +162,7 @@
     }
   },
   "updateFail": {
-    "message": "Wystąpił błąd w trakcie aktualizacji listy $filterList$.",
-    "placeholders": {
-      "filterList": {
-        "content": "$1",
-        "example": "Polish Cookie Database"
-      }
-    }
+    "message": "Wystąpił błąd w trakcie aktualizacji list filtrów."
   },
   "helpTranslation": {
     "message": "Pomóż w tłumaczeniu"
