@@ -1,4 +1,5 @@
 import './vAPI.js';
+import "./updateHelpers.js";
 import './update.js';
 chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
     if(msg.type === "getStorage") {

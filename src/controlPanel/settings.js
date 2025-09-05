@@ -130,65 +130,41 @@ function updateDetails() {
 }
 
 // Manual update of filter lists
-document.querySelector("#updateCookieBase").addEventListener("click", function () {
+document.querySelector("#updateCookieBase").addEventListener("click", async function () {
     var updateBtn = document.querySelector("button#updateCookieBase");
     updateBtn.classList.add("active");
 
-    PCC_vAPI.storage.local.get('assetsJSON').then(function (resultAssets) {
-        if (resultAssets) {
-            const localAssetsJSON = JSON.parse(resultAssets);
-            const jsonURL = localAssetsJSON["assets.json"].contentURL;
-            fetch(jsonURL)
-                .then(response => {
-                    if (!response.ok) {
-                        return Promise.reject({
-                            status: response.status,
-                            statusText: response.statusText,
-                            err: text
-                        })
+    var resultAssets = await PCC_vAPI.storage.local.get('assetsJSON');
+    if (resultAssets) {
+        const localAssetsJSON = JSON.parse(resultAssets);
+        const jsonURLs = localAssetsJSON["assets.json"].cdnURLs;
+        const response = await fetchFromCdns(jsonURLs);
+        const assetsJSON = await response.json();
+        await PCC_vAPI.storage.local.set('assetsJSON', JSON.stringify(assetsJSON));
+        const neededFilterLists = getSelectedFilterLists().filter(item => item !== "userFilters");
+        for (let neededFilterList of neededFilterLists) {
+            try {
+                const filterlistResponse = await fetchFromCdns(assetsJSON[neededFilterList].cdnURLs);
+                const text = await filterlistResponse.text();
+                const obj = {};
+                obj["content"] = text;
+                obj["sourceURL"] = filterlistResponse.url;
+                const filterListLine = text.split("\n");
+                for (var i = 0; i < filterListLine.length; i++) {
+                    if (filterListLine[i].match(/(!|#) Version/g)) {
+                        obj["version"] = filterListLine[i].split(":")[1].trim();
+                        break;
                     }
-                    return response.json();
-                })
-                .then(assetsJSON => {
-                    PCC_vAPI.storage.local.set('assetsJSON', JSON.stringify(assetsJSON));
-                    const selectedFilterLists = getSelectedFilterLists().filter(item => item !== "userFilters");
-                    selectedFilterLists.reduce(async (seq, selectedFL) => {
-                        await seq;
-                        const assetURL = assetsJSON[selectedFL].contentURL;
-                        fetch(assetURL)
-                            .then(response => {
-                                if (!response.ok) {
-                                    return Promise.reject({
-                                        status: response.status,
-                                        statusText: response.statusText,
-                                        err: text
-                                    })
-                                }
-                                return response.text();
-                            })
-                            .then(text => {
-                                const obj = {};
-                                obj["content"] = text;
-                                obj["sourceURL"] = assetURL;
-                                const filterListLine = text.split("\n");
-                                for (var i = 0; i < filterListLine.length; i++) {
-                                    if (filterListLine[i].match(/(!|#) Version/g)) {
-                                        obj["version"] = filterListLine[i].split(":")[1].trim();
-                                        break;
-                                    }
-                                }
-                                PCC_vAPI.storage.local.set(selectedFL, JSON.stringify(obj)).then(function () {
-                                    updateBtn.classList.remove("active");
-                                    updateDetails();
-                                });
-                            })
-                            .catch(error => console.log(error));
-                        return await new Promise(res => setTimeout(res, 1000));
-                    }, Promise.resolve());
-                })
-                .catch(error => console.log(error));
+                }
+                await PCC_vAPI.storage.local.set(neededFilterList, JSON.stringify(obj));
+            } catch (error) {
+                console.log(`[Polish Cookie Consent] Filterlist: ${neededFilterList} Error: ${error}`);
+            }
+            await new Promise(res => setTimeout(res, 1000));
         }
-    });
+        updateBtn.classList.remove("active");
+        updateDetails();
+    }
 });
 
 // Create a backup
