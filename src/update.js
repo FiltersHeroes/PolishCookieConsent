@@ -125,7 +125,6 @@ async function fetchLocalAssets() {
             } catch (error) {
                 console.log(`[Polish Cookie Consent] ${error}`);
             }
-            await new Promise(res => setTimeout(res, 1000));
         }
     } catch (error) {
         console.log(`[Polish Cookie Consent] ${error}`);
