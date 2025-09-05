@@ -208,30 +208,32 @@ document.querySelector("#whitelistApply").addEventListener("click", function () 
 
 
 // Disable/enable submit and revert buttons
-function toggleSubmitRevertBtn(applyBtn, revertBtn, editor, cachedValue, savedValue) {
-    PCC_vAPI.storage.local.get(savedValue).then(function (result) {
-        if (cachedValue[savedValue] !== '') {
-            result = cachedValue[savedValue];
-            cachedValue[savedValue] = '';
-        }
-        if (editor.state.doc.toString() == result) {
-            applyBtn.disabled = true;
-            revertBtn.disabled = true;
-        }
-        else {
-            applyBtn.disabled = false;
-            revertBtn.disabled = false;
-        }
-    })
+async function toggleSubmitRevertBtn(applyBtn, revertBtn, editor, cachedValue, savedValue) {
+    var result = await PCC_vAPI.storage.local.get(savedValue);
+    if (cachedValue[savedValue] !== '') {
+        result = cachedValue[savedValue];
+        cachedValue[savedValue] = '';
+    }
+    if (result === undefined) {
+        result = "";
+    }
+    if (editor.state.doc.toString() == result) {
+        applyBtn.disabled = true;
+        revertBtn.disabled = true;
+    }
+    else {
+        applyBtn.disabled = false;
+        revertBtn.disabled = false;
+    }
 }
 
 
 // Disable/enable submit and revert user filters buttons
-cm6.onChange(userFilters, () => {
-    toggleSubmitRevertBtn(userFiltersApply, userFiltersRevert, userFilters, cachedValue, "userFilters");
+cm6.onChange(userFilters, async () => {
+    await toggleSubmitRevertBtn(userFiltersApply, userFiltersRevert, userFilters, cachedValue, "userFilters");
 });
 
 // Disable/enable submit and revert excluded list buttons
-cm6.onChange(userWhitelist, () => {
-    toggleSubmitRevertBtn(whitelistApply, whitelistRevert, userWhitelist, cachedValue, "whitelist");
+cm6.onChange(userWhitelist, async () => {
+    await toggleSubmitRevertBtn(whitelistApply, whitelistRevert, userWhitelist, cachedValue, "whitelist");
 });
