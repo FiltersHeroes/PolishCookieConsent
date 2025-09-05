@@ -107,21 +107,21 @@ function getTranslatedMessage(messageName, substitutions) {
 function innerTranslateTextNodes(parent, translatedMessage, subsContainer) {
     const splitTranslatedMessage = translatedMessage.split(UNIQUE_REPLACEMENT_SPLIT);
 
-    console.log("Replacing text nodes for", parent, ", message:", translatedMessage, "detected elements:", subsContainer);
+    // console.log("Replacing text nodes for", parent, ", message:", translatedMessage, "detected elements:", subsContainer);
 
     // sanity check whether all translations were used
     // We also trigger for =, because we assume we have at least one text node, which
     // is also returned in splitTranslatedMessage
     if (splitTranslatedMessage.length <= subsContainer.substitutions.length) {
-        console.warn(
-            "You used only", splitTranslatedMessage.length, "message blocks, altghough you could use",
-            subsContainer.substitutions.length, "substitutions. Possibly you did not include all substitutions in your translation?",
-            "Check for typos in the placeholder name e.g.",
-            {
-                translationObject: splitTranslatedMessage,
-                intendedSubstitutions: subsContainer.substitutions
-            }
-        );
+        // console.warn(
+        //     "You used only", splitTranslatedMessage.length, "message blocks, altghough you could use",
+        //     subsContainer.substitutions.length, "substitutions. Possibly you did not include all substitutions in your translation?",
+        //     "Check for typos in the placeholder name e.g.",
+        //     {
+        //         translationObject: splitTranslatedMessage,
+        //         intendedSubstitutions: subsContainer.substitutions
+        //     }
+        // );
     }
 
     // create iterator out of arrays
