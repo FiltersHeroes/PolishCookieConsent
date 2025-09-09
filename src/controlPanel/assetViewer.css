@@ -62,3 +62,12 @@
 .codeMirrorContainer {
     height: 100vh;
 }
+
+.dark:root {
+    --currentColor: rgba(255, 255, 255, 0.87);
+}
+
+#searchbar {
+    width: initial;
+    height: initial;
+}

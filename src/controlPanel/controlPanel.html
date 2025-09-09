@@ -6,9 +6,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title></title>
-    <link rel="stylesheet" href="../thirdparty/mui.css" />
-    <link rel="stylesheet" href="../thirdparty/mui-colors.css" />
-    <link rel="stylesheet" href="../thirdparty/icheck-material.css" />
+    <link rel="stylesheet" href="../thirdparty/materialize.css" />
+    <link rel="stylesheet" href="./material-colors.css" />
     <link rel="stylesheet" href="common.css" />
     <link rel="stylesheet" href="controlPanel.css" />
     <link rel="stylesheet" href="editor.css" />
@@ -18,52 +17,40 @@
 </head>
 
 <body>
-    <nav>
-        <div class="mui--bg-color-brown-600 appbar">
-            <a class="sidedrawer-toggle mui--hidden-md mui--hidden-lg mui--hidden-xl js-show-sidedrawer mui--pull-left">
-                <svg class="icon">
-                    <use href="../thirdparty/octicons16.svg#three-bars"></use>
-                </svg>
-            </a>
-            <a class="sidedrawer-toggle mui--hidden-md mui--hidden-lg mui--hidden-xl js-hide-sidedrawer mui--pull-left">
-                <svg class="icon">
-                    <use href="../thirdparty/octicons16.svg#three-bars"></use>
-                </svg>
-            </a>
-            <span class="mui--text-title mui--visible-xs-inline-block mui--visible-sm-inline-block"
-                data-i18n="__MSG_extensionShortName__"></span>
-            <div class="brand-logo mui--pull-right">
-                <img src="../icons/icon48.png">
-            </div>
-            <div class="mui-container-fluid">
-                <ul class="mui-tabs__bar mui--visible-md-block mui--visible-lg-block mui--visible-xl-block">
-                    <li>
-                        <a data-mui-toggle="tab" data-mui-controls="settings-tab">
-                            <svg class="icon">
+    <div class="hide-on-med-and-down mb-3">
+        <nav class="nav navbar nav-extended brown darken-2 pl-3">
+            <div class="nav-content">
+                <ul class="tabs transparent">
+                    <div class="brand-logo right">
+                        <img src="../icons/icon48.png">
+                    </div>
+                    <li class="tab">
+                        <a href="#settings-tab">
+                            <svg class="icon mr-1">
                                 <use href="../thirdparty/octicons24.svg#tasklist"></use>
                             </svg>
                             <span data-i18n="__MSG_settings__"></span>
                         </a>
                     </li>
-                    <li>
-                        <a data-mui-toggle="tab" data-mui-controls="my-filters-tab">
-                            <svg class="icon">
+                    <li class="tab">
+                        <a href="#my-filters-tab">
+                            <svg class="icon mr-1">
                                 <use href="../thirdparty/octicons24.svg#filter"></use>
                             </svg>
                             <span data-i18n="__MSG_myFilters__"></span>
                         </a>
                     </li>
-                    <li>
-                        <a data-mui-toggle="tab" data-mui-controls="excluded-list-tab">
-                            <svg class="icon">
+                    <li class="tab">
+                        <a href="#excluded-list-tab">
+                            <svg class="icon mr-1">
                                 <use href="../thirdparty/octicons16.svg#diff-ignored"></use>
                             </svg>
                             <span data-i18n="__MSG_whitelist__"></span>
                         </a>
                     </li>
-                    <li>
-                        <a data-mui-toggle="tab" data-mui-controls="about-tab">
-                            <svg class="icon">
+                    <li class="tab">
+                        <a href="#about-tab">
+                            <svg class="icon mr-1">
                                 <use href="../thirdparty/octicons24.svg#info"></use>
                             </svg>
                             <span data-i18n="__MSG_about__"></span>
@@ -71,349 +58,349 @@
                     </li>
                 </ul>
             </div>
-        </div>
-    </nav>
-
-    <div id="sidedrawer" class="mui--no-user-select mui--bg-color-brown-700">
-        <ul>
-            <ul class="mobileMenu">
-                <li>
-                    <a data-mui-toggle="tab" data-mui-controls="settings-tab">
-                        <svg class="icon mui--pull-left">
-                            <use href="../thirdparty/octicons24.svg#tasklist"></use>
-                        </svg>
-                        <span data-i18n="__MSG_settings__"></span>
-                    </a>
-                </li>
-                <li>
-                    <a data-mui-toggle="tab" data-mui-controls="my-filters-tab">
-                        <svg class="icon mui--pull-left">
-                            <use href="../thirdparty/octicons24.svg#filter"></use>
-                        </svg>
-                        <span data-i18n="__MSG_myFilters__"></span>
-                    </a>
-                </li>
-                <li>
-                    <a data-mui-toggle="tab" data-mui-controls="excluded-list-tab">
-                        <svg class="icon mui--pull-left">
-                            <use href="../thirdparty/octicons16.svg#diff-ignored"></use>
-                        </svg>
-                        <span data-i18n="__MSG_whitelist__"></span>
-                    </a>
-                </li>
-                <li>
-                    <a data-mui-toggle="tab" data-mui-controls="about-tab">
-                        <svg class="icon mui--pull-left">
-                            <use href="../thirdparty/octicons24.svg#info"></use>
-                        </svg>
-                        <span data-i18n="__MSG_about__"></span>
-                    </a>
-                </li>
-            </ul>
-        </ul>
+        </nav>
+    </div>
+    <div class="navbar-fixed hide-on-large-only mb-3">
+        <nav class="brown darken-2 py-1 nav navbar">
+            <div class="nav-wrapper">
+                <span class="brand-logo brand-name" data-i18n="__MSG_extensionShortName__"></span>
+                <a href="#" data-target="nav-mobile" class="sidenav-trigger">
+                    <svg class="icon">
+                        <use href="../thirdparty/octicons16.svg#three-bars"></use>
+                    </svg>
+                </a>
+                <div class="brand-logo right">
+                    <img src="../icons/icon48.png" />
+                </div>
+            </div>
+        </nav>
     </div>
 
-    <div id="settings-tab" class="mui-tabs__pane">
-        <div class="mui-container-fluid">
-            <div class="mui-col-xs-12 mui-col-md-12">
-                <div id="darkTheme" class="setting">
-                    <div class="icheck-material-brown">
-                        <input type="checkbox" id="darkTheme_toggle">
-                        <label for="darkTheme_toggle" data-i18n="__MSG_darkTheme__">
-                        </label>
-                    </div>
+    <ul class="sidenav sidenav-fixed hide-on-large-only brown darken-3" id="nav-mobile">
+        <li class="tab">
+            <a href="#settings-tab">
+                <div class="valign-wrapper">
+                    <svg class="icon mr-1">
+                        <use href="../thirdparty/octicons24.svg#tasklist"></use>
+                    </svg>
+                    <span data-i18n="__MSG_settings__"></span>
                 </div>
-                <div id="autoUpdate" class="setting">
-                    <div class="icheck-material-brown">
-                        <input type="checkbox" id="autoUpdate_toggle">
-                        <label for="autoUpdate_toggle" data-i18n="__MSG_autoUpdate__">
-                        </label>
-                    </div>
+            </a>
+        </li>
+        <li class="tab">
+            <a href="#my-filters-tab">
+                <div class="valign-wrapper">
+                    <svg class="icon mr-1">
+                        <use href="../thirdparty/octicons24.svg#filter"></use>
+                    </svg>
+                    <span data-i18n="__MSG_myFilters__"></span>
                 </div>
-                <div id="notificationsUpdate" class="setting">
-                    <div class="icheck-material-brown">
-                        <input type="checkbox" id="notificationsUpdate_toggle">
-                        <label for="notificationsUpdate_toggle" data-i18n="__MSG_notificationsUpdate__">
-                        </label>
-                    </div>
+            </a>
+        </li>
+        <li class="tab">
+            <a href="#excluded-list-tab">
+                <div class="valign-wrapper">
+                    <svg class="icon mr-1">
+                        <use href="../thirdparty/octicons16.svg#diff-ignored"></use>
+                    </svg>
+                    <span data-i18n="__MSG_whitelist__"></span>
                 </div>
-                <hr>
-                <div id="filterLists" class="settingsHeader" data-i18n="__MSG_filterLists__"
-                    data-opt-i18n-keep-children>
-                    <div id="userFilters" class="database">
-                        <div class="icheck-material-brown">
-                            <input type="checkbox" id="userFilters_toggle">
-                            <label for="userFilters_toggle">
-                                <div id="title" data-i18n="__MSG_myFilters__" data-opt-i18n-keep-children>
-                                    <a href="assetViewer.html?url=userFilters" target="_blank" data-i18n
-                                        data-i18n-title="__MSG_viewContent__" data-opt-i18n-keep-children>
-                                        <svg class="settingsIcon">
-                                            <use href="../thirdparty/octicons24.svg#eye"></use>
-                                        </svg>
-                                    </a>
-                                </div>
-                            </label>
-                        </div>
-                    </div>
-                    <div id="plCDB" class="database">
-                        <div class="icheck-material-brown">
-                            <input type="checkbox" id="plCDB_toggle">
-                            <label for="plCDB_toggle">
-                                <div id="title" data-i18n="__MSG_plCDB__" data-opt-i18n-keep-children>
-                                    <a id="supportEmail" href data-i18n data-i18n-title="__MSG_email__"
-                                        data-opt-i18n-keep-children hidden>
-                                        <svg class="settingsIcon">
-                                            <use href="../thirdparty/octicons24.svg#mail"></use>
-                                        </svg>
-                                    </a>
-                                    <a id="supportURL" href target="_blank" data-i18n
-                                        data-i18n-title="__MSG_reportIssue__" data-opt-i18n-keep-children>
-                                        <svg class="settingsIcon">
-                                            <use href="../thirdparty/octicons24.svg#report"></use>
-                                        </svg>
-                                    </a>
-                                    <a href="assetViewer.html?url=plCDB" target="_blank" data-i18n
-                                        data-i18n-title="__MSG_viewContent__" data-opt-i18n-keep-children>
-                                        <svg class="settingsIcon">
-                                            <use href="../thirdparty/octicons24.svg#eye"></use>
-                                        </svg>
-                                    </a>
-                                </div>
-                                <div id="version" data-i18n="__MSG_version__"></div>
-                            </label>
-                        </div>
-                    </div>
-                    <div id="euCDB" class="database">
-                        <div class="icheck-material-brown">
-                            <input type="checkbox" id="euCDB_toggle">
-                            <label for="euCDB_toggle">
-                                <div id="title" data-i18n="__MSG_euCDB__" data-opt-i18n-keep-children>
-                                    <a id="supportEmail" href data-i18n data-i18n-title="__MSG_email__"
-                                        data-opt-i18n-keep-children hidden>
-                                        <svg class="settingsIcon">
-                                            <use href="../thirdparty/octicons24.svg#mail"></use>
-                                        </svg>
-                                    </a>
-                                    <a id="supportURL" href target="_blank" data-i18n
-                                        data-i18n-title="__MSG_reportIssue__" data-opt-i18n-keep-children>
-                                        <svg class="settingsIcon">
-                                            <use href="../thirdparty/octicons24.svg#report"></use>
-                                        </svg>
-                                    </a>
-                                    <a href="assetViewer.html?url=euCDB" target="_blank" data-i18n
-                                        data-i18n-title="__MSG_viewContent__" data-opt-i18n-keep-children>
-                                        <svg class="settingsIcon">
-                                            <use href="../thirdparty/octicons24.svg#eye"></use>
-                                        </svg>
-                                    </a>
-                                </div>
-                                <div id="version" data-i18n="__MSG_version__"></div>
-                            </label>
-                        </div>
-                    </div>
+            </a>
+        </li>
+        <li class="tab">
+            <a href="#about-tab">
+                <div class="valign-wrapper">
+                    <svg class="icon mr-1">
+                        <use href="../thirdparty/octicons24.svg#info"></use>
+                    </svg>
+                    <span data-i18n="__MSG_about__"></span>
                 </div>
+            </a>
+        </li>
+    </ul>
 
-                <button class="mui-btn mui--bg-color-brown-600" id="updateCookieBase">
-                    <span data-i18n="__MSG_update__"></span>
+    <div id="settings-tab" class="col s12 px-4">
+        <div id="darkTheme" class="mb-1">
+            <label>
+                <input type="checkbox" id="darkTheme_toggle" class="filled-in">
+                <span data-i18n="__MSG_darkTheme__"></span>
+            </label>
+        </div>
+        <div id="autoUpdate" class="mb-1">
+            <label>
+                <input type="checkbox" id="autoUpdate_toggle" class="filled-in">
+                <span data-i18n="__MSG_autoUpdate__"></span>
+            </label>
+        </div>
+        <div id="notificationsUpdate" class="mb-1">
+            <label>
+                <input type="checkbox" id="notificationsUpdate_toggle" class="filled-in">
+                <span data-i18n="__MSG_notificationsUpdate__"></span>
+            </label>
+        </div>
+        <div class="divider my-5"></div>
+        <div id="filterLists">
+            <span class="settingsHeader" data-i18n="__MSG_filterLists__"></span>
+            <div id="userFilters" class="database pt-2">
+                <label>
+                    <input type="checkbox" id="userFilters_toggle" class="filled-in" />
+                    <span>
+                        <div id="title" data-i18n="__MSG_myFilters__" data-opt-i18n-keep-children>
+                            <a href="assetViewer.html?url=userFilters" target="_blank" data-i18n
+                                data-i18n-title="__MSG_viewContent__" data-opt-i18n-keep-children>
+                                <svg class="settingsIcon">
+                                    <use href="../thirdparty/octicons24.svg#eye"></use>
+                                </svg>
+                            </a>
+                        </div>
+                    </span>
+                </label>
+            </div>
+            <div id="plCDB" class="database pt-2">
+                <label>
+                    <input type="checkbox" id="plCDB_toggle" class="filled-in" />
+                    <span>
+                        <div id="title" data-i18n="__MSG_plCDB__" data-opt-i18n-keep-children>
+                            <a id="supportEmail" href data-i18n data-i18n-title="__MSG_email__"
+                                data-opt-i18n-keep-children hidden>
+                                <svg class="settingsIcon">
+                                    <use href="../thirdparty/octicons24.svg#mail"></use>
+                                </svg>
+                            </a>
+                            <a id="supportURL" href target="_blank" data-i18n data-i18n-title="__MSG_reportIssue__"
+                                data-opt-i18n-keep-children>
+                                <svg class="settingsIcon">
+                                    <use href="../thirdparty/octicons24.svg#report"></use>
+                                </svg>
+                            </a>
+                            <a href="assetViewer.html?url=plCDB" target="_blank" data-i18n
+                                data-i18n-title="__MSG_viewContent__" data-opt-i18n-keep-children>
+                                <svg class="settingsIcon">
+                                    <use href="../thirdparty/octicons24.svg#eye"></use>
+                                </svg>
+                            </a>
+                        </div>
+                        <div id="version" data-i18n="__MSG_version__"></div>
+                    </span>
+                </label>
+            </div>
+            <div id="euCDB" class="database pt-2">
+                <label>
+                    <input type="checkbox" id="euCDB_toggle" class="filled-in" />
+                    <span>
+                        <div id="title" data-i18n="__MSG_euCDB__" data-opt-i18n-keep-children>
+                            <a id="supportEmail" href data-i18n data-i18n-title="__MSG_email__"
+                                data-opt-i18n-keep-children hidden>
+                                <svg class="settingsIcon">
+                                    <use href="../thirdparty/octicons24.svg#mail"></use>
+                                </svg>
+                            </a>
+                            <a id="supportURL" href target="_blank" data-i18n data-i18n-title="__MSG_reportIssue__"
+                                data-opt-i18n-keep-children>
+                                <svg class="settingsIcon">
+                                    <use href="../thirdparty/octicons24.svg#report"></use>
+                                </svg>
+                            </a>
+                            <a href="assetViewer.html?url=euCDB" target="_blank" data-i18n
+                                data-i18n-title="__MSG_viewContent__" data-opt-i18n-keep-children>
+                                <svg class="settingsIcon">
+                                    <use href="../thirdparty/octicons24.svg#eye"></use>
+                                </svg>
+                            </a>
+                        </div>
+                        <div id="version" data-i18n="__MSG_version__"></div>
+                    </span>
+                </label>
+            </div>
+        </div>
+
+        <button class="btn filled mt-4" id="updateCookieBase">
+            <span data-i18n="__MSG_update__"></span>
+            <svg class="icon">
+                <use href="../thirdparty/octicons24.svg#sync"></use>
+            </svg>
+        </button>
+
+        <div class="divider my-5"></div>
+
+        <div>
+            <div id="lastBackupPrompt" class="pb-2" hidden="true"></div>
+            <div class="btn-group">
+                <button class="btn filled" id="createBackup">
+                    <span data-i18n="__MSG_createBackup__"></span>
                     <svg class="icon">
-                        <use href="../thirdparty/octicons24.svg#sync"></use>
+                        <use href="../thirdparty/octicons24.svg#upload"></use>
                     </svg>
                 </button>
-
-                <hr>
-
-                <div>
-                    <div id="lastBackupPrompt" hidden="true"></div>
-                    <button class="mui-btn mui--bg-color-brown-600" id="createBackup">
-                        <span data-i18n="__MSG_createBackup__"></span>
-                        <svg class="icon">
-                            <use href="../thirdparty/octicons24.svg#upload"></use>
-                        </svg>
-                    </button>
-                    <button class="mui-btn mui--bg-color-brown-600" id="restoreSettings">
-                        <span data-i18n="__MSG_restoreSettings__"></span>
-                        <svg class="icon">
-                            <use href="../thirdparty/octicons24.svg#download"></use>
-                        </svg>
-                    </button>
-                    <button class="mui-btn mui--bg-color-brown-600" id="factoryReset">
-                        <span data-i18n="__MSG_factoryReset__"></span>
-                        <svg class="icon">
-                            <use href="../thirdparty/octicons24.svg#history"></use>
-                        </svg>
-                    </button>
-                </div>
+                <button class="btn filled" id="restoreSettings">
+                    <span data-i18n="__MSG_restoreSettings__"></span>
+                    <svg class="icon">
+                        <use href="../thirdparty/octicons24.svg#download"></use>
+                    </svg>
+                </button>
+                <button class="btn filled" id="factoryReset">
+                    <span data-i18n="__MSG_factoryReset__"></span>
+                    <svg class="icon">
+                        <use href="../thirdparty/octicons24.svg#history"></use>
+                    </svg>
+                </button>
             </div>
         </div>
     </div>
 
-    <div id="my-filters-tab" class="mui-tabs__pane">
-        <div class="mui-container-fluid">
-            <form class="mui-col-xs-12 mui-col-md-12 mui-form">
-                <p>
-                    <label class="tip" data-i18n="__MSG_mfHelp__" data-opt-i18n-keep-children>
-                        <a class="syntax"
-                            href="https://polishannoyancefilters.netlify.app/en/PolishCookieConsent/syntax/"
-                            target="_blank" data-i18n="__MSG_mfHelpPCCsyntax__"></a>
-                        <a class="keyboardS"
-                            href="https://polishannoyancefilters.netlify.app/en/PolishCookieConsent/keyboard-shortcuts/"
-                            target="_blank"><svg class="tipIcon">
-                                <use href="../thirdparty/octicons16.svg#question"></use>
-                            </svg>
-                        </a>
-                    </label>
-                </p>
-                <div id="myFilters" class="codeMirrorContainer"></div>
-                <p class="buttons">
-                    <button id="userFiltersApply" class="mui-btn mui--bg-color-brown-600" type="button" disabled="true">
-                        <span data-i18n="__MSG_apply__"></span>
-                        <svg class="icon">
-                            <use href="../thirdparty/octicons24.svg#check"></use>
-                        </svg>
-                    </button>
-                    <button id="userFiltersRevert" class="mui-btn mui--bg-color-brown-600" type="button"
-                        disabled="true">
-                        <span data-i18n="__MSG_revert__"></span>
-                        <svg class="icon">
-                            <use href="../thirdparty/octicons24.svg#history"></use>
-                        </svg>
-                    </button>
-                    <button id="userFiltersImport" class="mui-btn mui--bg-color-brown-600" type="button">
-                        <span data-i18n="__MSG_import__"></span>
-                        <svg class="icon">
-                            <use href="../thirdparty/octicons24.svg#download"></use>
-                        </svg>
-                    </button>
-                    <button id="userFiltersExport" class="mui-btn mui--bg-color-brown-600" type="button">
-                        <span data-i18n="__MSG_export__"></span>
-                        <svg class="icon">
-                            <use href="../thirdparty/octicons24.svg#upload"></use>
-                        </svg>
-                    </button>
-                </p>
-            </form>
-        </div>
-    </div>
 
-
-    <div id="excluded-list-tab" class="mui-tabs__pane">
-        <div class="mui-container-fluid">
-            <form class="mui-col-xs-12 mui-col-md-12 mui-form">
-                <p>
-                    <label class="tip" data-i18n="__MSG_whitelistHelp__" data-opt-i18n-keep-children>
-                        <a class="keyboardS"
-                            href="https://polishannoyancefilters.netlify.app/en/PolishCookieConsent/keyboard-shortcuts/"
-                            target="_blank"><svg class="tipIcon">
-                                <use href="../thirdparty/octicons16.svg#question"></use>
-                            </svg>
-                        </a>
-                    </label>
-                </p>
-                <div id="userWhitelist" class="codeMirrorContainer"></div>
-                <p class="buttons">
-                    <button id="whitelistApply" class="mui-btn mui--bg-color-brown-600" type="button" disabled="true">
-                        <span data-i18n="__MSG_apply__"></span>
-                        <svg class="icon">
-                            <use href="../thirdparty/octicons24.svg#check"></use>
+    <div id="my-filters-tab" class="col s12 px-4">
+        <form>
+            <div class="pb-2">
+                <label class="tip" data-i18n="__MSG_mfHelp__" data-opt-i18n-keep-children>
+                    <a class="syntax" href="https://polishannoyancefilters.netlify.app/en/PolishCookieConsent/syntax/"
+                        target="_blank" data-i18n="__MSG_mfHelpPCCsyntax__"></a>
+                    <a class="keyboardS"
+                        href="https://polishannoyancefilters.netlify.app/en/PolishCookieConsent/keyboard-shortcuts/"
+                        target="_blank"><svg class="tipIcon">
+                            <use href="../thirdparty/octicons16.svg#question"></use>
                         </svg>
-                    </button>
-                    <button id="whitelistRevert" class="mui-btn mui--bg-color-brown-600" type="button" disabled="true">
-                        <span data-i18n="__MSG_revert__"></span>
-                        <svg class="icon">
-                            <use href="../thirdparty/octicons24.svg#history"></use>
-                        </svg>
-                    </button>
-                    <button id="whitelistImport" class="mui-btn mui--bg-color-brown-600" type="button">
-                        <span data-i18n="__MSG_import__"></span>
-                        <svg class="icon">
-                            <use href="../thirdparty/octicons24.svg#download"></use>
-                        </svg>
-                    </button>
-                    <button id="whitelistExport" class="mui-btn mui--bg-color-brown-600" type="button">
-                        <span data-i18n="__MSG_export__"></span>
-                        <svg class="icon">
-                            <use href="../thirdparty/octicons24.svg#upload"></use>
-                        </svg>
-                    </button>
-                </p>
-            </form>
-        </div>
-    </div>
-
-    <div id="about-tab" class="mui-tabs__pane">
-        <div class="mui-container-fluid">
-            <div class="mui-col-xs-12 mui-col-md-12">
-                <p class="extensionInfo"></p>
-                <p>
-                    Copyright © 2025 Filters Heroes
-                </p>
-                <p>
-                    <i class="aboutIcon">
-                        <svg class="aboutIcon">
-                            <use href="../thirdparty/octicons24.svg#file-diff"></use>
-                        </svg>
-                    </i>
-                    <a data-i18n="__MSG_changelog__" id="changelog"
-                        href="https://github.com/FiltersHeroes/PolishCookieConsent/releases" target="_blank"></a>
-                </p>
-                <p>
-                    <i class="aboutIcon">
-                        <svg class="aboutIcon">
-                            <use href="../thirdparty/octicons24.svg#checklist"></use>
-                        </svg>
-                    </i>
-                    <a data-i18n="__MSG_privacyPolicy__" class="privacyPolicy"
-                        href="https://polishannoyancefilters.netlify.app/en/PolishCookieConsent/privacy-policy/"
-                        target="_blank"></a>
-                </p>
-                <p>
-                    <i class="aboutIcon">
-                        <svg class="aboutIcon">
-                            <use href="../thirdparty/octicons24.svg#book"></use>
-                        </svg>
-                    </i>
-                    <a data-i18n="__MSG_license__" href="../LICENSE.txt" target="_blank"></a>
-                </p>
-                <p>
-                    <a data-i18n="__MSG_sourceCode__" href="https://github.com/FiltersHeroes/PolishCookieConsent"
-                        target="_blank">
                     </a>
-                    <svg class="aboutIcon">
-                        <use href="../thirdparty/octicons24.svg#code-square"></use>
+                </label>
+            </div>
+            <div id="myFilters" class="codeMirrorContainer"></div>
+            <p class="btn-group">
+                <button id="userFiltersApply" class="btn filled" type="button" disabled="true">
+                    <span data-i18n="__MSG_apply__"></span>
+                    <svg class="icon">
+                        <use href="../thirdparty/octicons24.svg#check"></use>
                     </svg>
-                </p>
-                <div class="list" data-i18n="__MSG_externalDepends__" data-opt-i18n-keep-children>
-                    <svg class="aboutIcon">
-                        <use href="../thirdparty/octicons24.svg#package-dependencies"></use>
+                </button>
+                <button id="userFiltersRevert" class="btn filled" type="button" disabled="true">
+                    <span data-i18n="__MSG_revert__"></span>
+                    <svg class="icon">
+                        <use href="../thirdparty/octicons24.svg#history"></use>
                     </svg>
-                    <ul class="browser-default">
-                        <li data-i18n="__MSG_by__" data-opt-i18n-keep-children>
-                            <a href="https://www.muicss.com/" target="_blank">MUI</a>
-                            <a href="https://github.com/muicss" target="_blank">MUI</a>
-                        </li>
-                        <li data-i18n="__MSG_by__" data-opt-i18n-keep-children>
-                            <a href="https://bantikyan.github.io/icheck-material/" target="_blank">icheck-material</a>
-                            <a href="https://github.com/bantikyan" target="_blank">Hovhannes Bantikyan</a>
-                        </li>
-                        <li data-i18n="__MSG_by__" data-opt-i18n-keep-children>
-                            <a href="https://codemirror.net/" target="_blank">CodeMirror</a>
-                            <a href="https://marijnhaverbeke.nl/" target="_blank">Marijn Haverbeke</a>
-                        </li>
-                        <li data-opt-i18n-keep-children data-i18n="__MSG_byAnd__">
-                            <a href="https://github.com/TinyWebEx/Localizer" target="_blank">Localizer</a>
-                            <a href="https://github.com/rugk" target="_blank">rugk</a>
-                            <a data-i18n="__MSG_contributors__"
-                                href="https://raw.githubusercontent.com/TinyWebEx/Localizer/master/CONTRIBUTORS"
-                                target="_blank"></a>
-                        </li>
-                        <li data-i18n="__MSG_by__" data-opt-i18n-keep-children>
-                            <a href="https://github.com/primer/octicons" target="_blank">Octicons</a>
-                            <a href="https://github.com/primer" target="_blank">GitHub Inc.</a>
-                        </li>
-                    </ul>
-                </div>
+                </button>
+                <button id="userFiltersImport" class="btn filled" type="button">
+                    <span data-i18n="__MSG_import__"></span>
+                    <svg class="icon">
+                        <use href="../thirdparty/octicons24.svg#download"></use>
+                    </svg>
+                </button>
+                <button id="userFiltersExport" class="btn filled" type="button">
+                    <span data-i18n="__MSG_export__"></span>
+                    <svg class="icon">
+                        <use href="../thirdparty/octicons24.svg#upload"></use>
+                    </svg>
+                </button>
+            </p>
+        </form>
+    </div>
+
+    <div id="excluded-list-tab" class="col s12 px-4">
+        <form>
+            <div class="pb-2">
+                <label class="tip" data-i18n="__MSG_whitelistHelp__" data-opt-i18n-keep-children>
+                    <a class="keyboardS"
+                        href="https://polishannoyancefilters.netlify.app/en/PolishCookieConsent/keyboard-shortcuts/"
+                        target="_blank"><svg class="tipIcon">
+                            <use href="../thirdparty/octicons16.svg#question"></use>
+                        </svg>
+                    </a>
+                </label>
+            </div>
+            <div id="userWhitelist" class="codeMirrorContainer"></div>
+            <p class="btn-group">
+                <button id="whitelistApply" class="btn filled" type="button" disabled="true">
+                    <span data-i18n="__MSG_apply__"></span>
+                    <svg class="icon">
+                        <use href="../thirdparty/octicons24.svg#check"></use>
+                    </svg>
+                </button>
+                <button id="whitelistRevert" class="btn filled" type="button" disabled="true">
+                    <span data-i18n="__MSG_revert__"></span>
+                    <svg class="icon">
+                        <use href="../thirdparty/octicons24.svg#history"></use>
+                    </svg>
+                </button>
+                <button id="whitelistImport" class="btn filled" type="button">
+                    <span data-i18n="__MSG_import__"></span>
+                    <svg class="icon">
+                        <use href="../thirdparty/octicons24.svg#download"></use>
+                    </svg>
+                </button>
+                <button id="whitelistExport" class="btn filled" type="button">
+                    <span data-i18n="__MSG_export__"></span>
+                    <svg class="icon">
+                        <use href="../thirdparty/octicons24.svg#upload"></use>
+                    </svg>
+                </button>
+            </p>
+        </form>
+    </div>
+
+    <div id="about-tab" class="col s12 px-4">
+        <p class="extensionInfo"></p>
+        <p>
+            Copyright © 2025 Filters Heroes
+        </p>
+        <p class="valign-wrapper">
+            <svg class="aboutIcon">
+                <use href="../thirdparty/octicons24.svg#file-diff"></use>
+            </svg>
+            <a data-i18n="__MSG_changelog__" id="changelog"
+                href="https://github.com/FiltersHeroes/PolishCookieConsent/releases" target="_blank"></a>
+        </p>
+        <p class="valign-wrapper">
+            <svg class="aboutIcon">
+                <use href="../thirdparty/octicons24.svg#checklist"></use>
+            </svg>
+            <a data-i18n="__MSG_privacyPolicy__" class="privacyPolicy"
+                href="https://polishannoyancefilters.netlify.app/en/PolishCookieConsent/privacy-policy/"
+                target="_blank"></a>
+        </p>
+        <p class="valign-wrapper">
+            <svg class="aboutIcon">
+                <use href="../thirdparty/octicons24.svg#book"></use>
+            </svg>
+            <a data-i18n="__MSG_license__" href="../LICENSE.txt" target="_blank"></a>
+        </p>
+        <p class="valign-wrapper">
+            <svg class="aboutIcon">
+                <use href="../thirdparty/octicons24.svg#code-square"></use>
+            </svg>
+            <a data-i18n="__MSG_sourceCode__" href="https://github.com/FiltersHeroes/PolishCookieConsent"
+                target="_blank">
+            </a>
+        </p>
+        <div>
+            <div class="valign-wrapper">
+                <svg class="aboutIcon">
+                    <use href="../thirdparty/octicons24.svg#package-dependencies"></use>
+                </svg>
+                <span data-i18n="__MSG_externalDepends__"></span>
+            </div>
+            <div>
+                <ul>
+                    <li data-i18n="__MSG_by__" data-opt-i18n-keep-children>
+                        <a href="https://materializeweb.com" target="_blank">Materialize</a>
+                        <a href="https://github.com/materializecss/materialize" target="_blank">Materialize</a>
+                    </li>
+                    <li data-i18n="__MSG_by__" data-opt-i18n-keep-children>
+                        <a href="https://codemirror.net/" target="_blank">CodeMirror</a>
+                        <a href="https://marijnhaverbeke.nl/" target="_blank">Marijn Haverbeke</a>
+                    </li>
+                    <li data-opt-i18n-keep-children data-i18n="__MSG_byAnd__">
+                        <a href="https://github.com/TinyWebEx/Localizer" target="_blank">Localizer</a>
+                        <a href="https://github.com/rugk" target="_blank">rugk</a>
+                        <a data-i18n="__MSG_contributors__"
+                            href="https://raw.githubusercontent.com/TinyWebEx/Localizer/master/CONTRIBUTORS"
+                            target="_blank"></a>
+                    </li>
+                    <li data-i18n="__MSG_by__" data-opt-i18n-keep-children>
+                        <a href="https://github.com/primer/octicons" target="_blank">Octicons</a>
+                        <a href="https://github.com/primer" target="_blank">GitHub Inc.</a>
+                    </li>
+                </ul>
             </div>
         </div>
+
     </div>
 
     <input id="importFilePicker" accept="text/plain" type="file" hidden="true">
@@ -421,7 +408,7 @@
 
     <script src="../thirdparty/cm6.bundle.js"></script>
     <script src="../thirdparty/Localizer.js"></script>
-    <script src="../thirdparty/mui.js"></script>
+    <script src="../thirdparty/materialize.js"></script>
     <script src="linters.js"></script>
     <script src="filtersMode.js"></script>
     <script src="controlPanel.js"></script>

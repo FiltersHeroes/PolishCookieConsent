@@ -24,11 +24,13 @@ colorSchemeToggle.addEventListener('change', function () {
     if (this.checked) {
         colorScheme = "dark";
         rootH.classList.add("dark");
+        rootH.setAttribute("theme", "dark");
     } else {
         colorScheme = "light";
         if (rootH.classList.contains("dark")) {
             rootH.classList.remove("dark");
         }
+        rootH.setAttribute("theme", "light");
     }
     PCC_vAPI.storage.local.set("colorScheme", colorScheme);
     PCC_vAPI.storage.local.setCache("colorScheme", colorScheme);
@@ -59,6 +61,7 @@ autoUpdateToggle.addEventListener('change', function () {
         }
     });
 });
+
 // Are auto-update notifications enabled?
 autoUpdateNotificationsToggle.addEventListener('change', function () {
     PCC_vAPI.storage.local.get("userSettings").then(function (resultUS) {

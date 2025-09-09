@@ -1,68 +1,13 @@
-:root {
-    --tipColor: rgba(0, 0, 0, 0.54);
-}
-
-:root.dark {
-    --tipColor: rgba(255, 255, 255, 0.64);
-}
-
-:root.dark .aboutIcon {
-    fill: var(--currentColor);
-}
-
-svg.icon {
-    fill: white;
-}
-
-.apply {
-    background-image: url(../thirdparty/check.svg);
-}
-
-.aboutIcon {
-    float: left;
-    margin-right: 5px;
-}
-
-.settingsIcon {
-    float: right;
-    margin-left: 5px;
-}
-
-.mui-tabs__bar > li:not(.mui--is-active) > a {
-    color: white !important;
-}
-
-.mui-tabs__bar > li.mui--is-active {
-    border-color: #d8ad6a !important;
-}
-
-.mui-tabs__bar > li.mui--is-active > a {
-    color: #d8ad6a !important;
-}
-
-button {
-    color: white !important;
-}
-
-.appbar {
-    margin-bottom: 15px;
-    min-height: 52px;
-}
-
-.mui-textfield > input:focus,
-.mui-textfield > textarea:focus {
-    border-color: #d8ad6a !important;
-}
-
-.mui-textfield > input:focus ~ label,
-.mui-textfield > textarea:focus ~ label {
-    color: initial !important;
-}
-
 button .icon {
     position: relative;
     left: 10px;
     bottom: 1px;
+}
+
+.tipIcon {
+    width: 16px;
+    height: 16px;
+    margin-left: 0.5rem;
 }
 
 button .icon,
@@ -73,139 +18,9 @@ button .icon,
     height: 20px;
 }
 
-.mui-tabs__bar .icon {
-    margin-right: 8px;
-}
-
-.mui-tabs__bar .icon,
-.sidedrawer-toggle .icon {
-    width: 24px;
-    height: 24px;
-}
-
-.mui-tabs__bar {
-    overflow-x: unset !important;
-}
-
-.mui-textfield textarea {
-    padding-top: 5px !important;
-    overflow: hidden !important;
-    resize: none !important;
-}
-
-nav a {
-    color: white;
-}
-
-#sidedrawer-brand {
-    padding-left: 20px;
-}
-
-#sidedrawer ul {
-    list-style: none;
-}
-
-#sidedrawer > ul {
-    padding-left: 0px;
-}
-
-#sidedrawer > ul > li:first-child {
-    padding-top: 15px;
-}
-
-#sidedrawer {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    width: 200px;
-    left: -200px;
-    overflow: auto;
-    z-index: 2;
-    background-color: #fff;
-    transition: transform 0.2s;
-    border-right: 1px solid black;
-}
-
-body:not(.hide-sidedrawer) #sidedrawer.active {
-    transform: translate(200px);
-}
-
-body.mui-scroll-lock {
-    margin-left: 200px;
-}
-
-body.mui-scroll-lock .js-show-sidedrawer,
-body:not(.mui-scroll-lock) .js-hide-sidedrawer {
-    display: none !important;
-}
-
-#sidedrawer ul {
-    padding-left: 0px;
-}
-
-.mobileMenu li a {
-    display: block;
-    padding: 15px 22px;
-    cursor: pointer;
-    text-decoration: none !important;
-    color: white !important;
-}
-
-.mobileMenu li a:hover,
-.mobileMenu li.mui--is-active {
-    background-color: #e0e0e0;
-}
-
-.mui-form label {
-    white-space: normal !important;
-}
-
-@media only screen and (max-width: 650px) {
-    textarea {
-        margin-top: 15px !important;
-    }
-}
-
-@media only screen and (max-width: 767px) {
-    .appbar {
-        display: flex;
-        align-items: center;
-    }
-
-    .sidedrawer-toggle {
-        margin-left: 15px;
-        margin-right: 15px;
-    }
-
-    .mui--text-title {
-        color: white;
-        margin-bottom: 5px;
-    }
-
-    .brand-logo {
-        position: absolute;
-        right: 0;
-    }
-
-    body.mui-scroll-lock .mui-container-fluid {
-        padding-left: 5px !important;
-    }
-
-    body.mui-scroll-lock .mui-container-fluid .mui-col-xs-12 {
-        padding: 0 !important;
-    }
-}
-
-#sidedrawer .icon {
-    margin-right: 10px;
-}
-
-.mui-scroll-lock textarea {
-    margin-top: 15px !important;
-}
-
-body.mui-scroll-lock .mui-btn {
-    height: 40px;
+.aboutIcon {
+    float: left;
+    margin-right: 5px;
 }
 
 @keyframes spin {
@@ -226,25 +41,18 @@ button#updateCookieBase.active .icon {
     transform-origin: 50%;
 }
 
-.mui-tabs__bar > li > a {
-    display: flex !important;
-    align-items: center;
+.settingsHeader {
+    font-weight: 600;
+    letter-spacing: 0.5px;
 }
 
-.mobileMenu li a:hover, .mobileMenu li.mui--is-active {
-    background-color: #795548 !important;
+.settingsIcon {
+    float: right;
+    margin-left: 5px;
 }
 
-.mui-tabs__bar > li:not(.mui--is-active):hover {
-    background-color: #5D4037;
-    border-bottom: 2px solid #5D4037;
-}
-
-.mui-tabs__pane .mui-btn {
-    display: inline-flex;
-    align-items: center;
-    white-space: normal;
-    line-height: inherit;
+.apply {
+    background-image: url(../thirdparty/check.svg);
 }
 
 .exportFrame {
@@ -253,53 +61,155 @@ button#updateCookieBase.active .icon {
     height: 0;
 }
 
-.mui-form {
+.navbar ul:not(.dropdown-content) > li.tab > a:not(.active) {
+    color: var(--md-sys-color-on-primary-light);
+}
+.navbar ul:not(.dropdown-content) > li.tab > a.active {
+    background-color: transparent;
+}
+
+.nav .tab { 
+    text-transform: uppercase;
+}
+
+.tab .icon {
+    width: 24px;
+    height: 24px;
+    position: relative;
+    vertical-align: middle;
+}
+
+.tabs .tab .icon {
+    top: -2px;
+}
+
+.tab a.active .icon {
+    fill: var(--md-sys-color-primary-dark);
+}
+
+[type="checkbox"] + span:not(.lever) {
+    padding-left: 30px;
+    line-height: 20px;
+}
+
+.d-inline-flex {
+    display: inline-flex !important;
+}
+
+.settingsIcon:hover,
+.tipIcon:hover {
+    fill: var(--md-sys-color-primary-dark);
+}
+
+.database #version {
+    color: var(--md-sys-color-outline);
+}
+
+.tabs .tab a.active, .tabs .tab a:focus, .tabs .tab a:hover {
+    color: var(--md-sys-color-primary-dark);
+}
+
+.tabs .indicator {
+    background-color: var(--md-sys-color-primary-dark);
+}
+
+.tabs .tab a:focus {
+    background-color: var(--md-sys-color-on-primary-dark);
+}
+
+
+.btn.filled {
+    fill: var(--md-sys-color-on-primary);
+    white-space: normal;
+}
+
+.navbar svg, #nav-mobile svg {
+    fill: var(--md-sys-color-on-background-dark);
+}
+
+.aboutIcon, .settingsIcon, .tipIcon {
+   fill: var(--md-sys-color-on-surface-variant);
+}
+
+.tab a.active span {
+    font-weight: bold;
+}
+
+.btn.filled[disabled] {
+    opacity: 0.6;
+    background-color: var(--md-sys-color-primary) ;
+    color: var(--md-sys-color-on-primary);
+}
+
+label {
+    font-size: 0.9rem;
+}
+
+ul {
+    margin: 2px;
+}
+
+ul li {
+    margin-bottom: 2px;
+}
+
+form {
     display: flex;
     flex-flow: column;
     max-height: calc(100vh - 82px);
 }
 
-.buttons {
-    margin-top: 5px;
+.sidenav-trigger .icon {
+   width: 24px;
+   height: var(--navbar-height-mobile);
 }
 
-.tip {
-    color: var(--tipColor);
+.navbar.brown .brand-name {
+    color: var(--md-sys-color-on-background);
 }
 
-.database #version{
-    color: var(--cm-comment);
+.sidenav li.tab span { 
+    color: var(--md-sys-color-on-secondary-container-dark);
 }
 
-.database title {
-    font-weight: 600;
+.btn-group .btn:not(:last-child) {
+    margin-bottom: 0.5rem !important;
+    margin-right: 1rem !important;
 }
 
-.settingsIcon,
-.tipIcon {
-    fill: var(--cm-comment);
+a:hover:not(.tab a), a:focus:not(.tab a) {
+    text-decoration: underline;
 }
 
-.settingsIcon:hover,
-.tipIcon:hover {
-    fill: var(--currentColor);
+.sidenav .tab .active {
+    background-color: var(--md-sys-color-on-primary-dark) !important;
 }
 
-.database:not(:last-child), .setting:not(:last-child) {
-    padding-bottom: 1px;
+.btn.filled:hover, 
+.filled.btn-small:hover, 
+.filled.btn-large:hover {
+    background-color: #BB7B35;
 }
 
-.tipIcon {
-    width: 16px;
-    height: 16px;
-    margin-left: 5px;
+.btn.filled:focus, 
+.filled.btn-small:focus, 
+.filled.btn-large:focus {
+    background-color: #B67732;
+    outline: 2px solid var(--md-sys-color-on-primary-dark);
+    outline-offset: 2px;
 }
 
-.settingsHeader {
-    font-weight: 600;
-    letter-spacing: 0.5px;
+a {
+  color: var(--md-sys-color-primary);
+  transition: outline 0.2s;
 }
 
-:root.dark hr {
-    background-color: rgba(255, 255, 255, 0.12);
+a:focus {
+  color: var(--md-sys-color-primary);
+  outline: 2px solid var(--md-sys-color-on-primary);
+  outline-offset: 2px;
+}
+
+a:visited {
+    color: var(--md-ref-palette-primary50);
 }

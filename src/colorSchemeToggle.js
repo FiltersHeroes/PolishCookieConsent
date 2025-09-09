@@ -21,6 +21,7 @@ function applyColorScheme(mode) {
     let rootSelector = document.documentElement;
     if (mode === "dark") {
         rootSelector.classList.add("dark");
+        rootSelector.setAttribute("theme", "dark");
         document.addEventListener("DOMContentLoaded", () => {
             let darkThemeToggle = document.querySelector("#darkTheme_toggle");
             if (darkThemeToggle) {
@@ -29,6 +30,7 @@ function applyColorScheme(mode) {
         });
     } else {
         rootSelector.classList.remove("dark");
+        rootSelector.setAttribute("theme", "light")
     }
     let colorSchemeEvent = new CustomEvent("colorSchemeChange", {
         detail: { currentColorScheme: mode }
