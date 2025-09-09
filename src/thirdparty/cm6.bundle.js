@@ -26320,7 +26320,7 @@ var cm6 = (function (exports) {
 	  }
 	  let colorScheme = "light";
 	  let rootSelector = document.documentElement;
-	  if (rootSelector && rootSelector.classList.contains("dark")) {
+	  if (rootSelector && rootSelector.getAttribute("theme") == "dark") {
 	    colorScheme = "dark";
 	  }
 	  let currentTheme = getCurrentTheme(colorScheme);

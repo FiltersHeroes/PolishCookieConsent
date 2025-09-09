@@ -1,0 +1,3 @@
+[submodule "thirdparty_buildable/materialize"]
+	path = thirdparty_buildable/materialize
+	url = https://github.com/FiltersHeroes/materialize.git

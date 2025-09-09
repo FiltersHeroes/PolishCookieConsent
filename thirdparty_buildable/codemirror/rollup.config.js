@@ -9,7 +9,7 @@ const cm6Version = (pkg.dependencies["@codemirror/view"]).replace(/^[\^~]/, "");
 export default {
   input: "editor.js",
   output: {
-    file: "../cm6.bundle.js",
+    file: "../../src/thirdparty/cm6.bundle.js",
     format: "iife",
     name: "cm6",
     banner: `/*!
