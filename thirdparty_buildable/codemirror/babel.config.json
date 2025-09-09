@@ -9,7 +9,7 @@
             "chrome 109"
           ]
         },
-        "useBuiltIns": "usage",
+        "useBuiltIns": false,
         "corejs": 3,
         "modules": false
       }
