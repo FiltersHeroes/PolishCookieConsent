@@ -206,8 +206,17 @@
   "lastBackupPrompt": {
     "message": "Last backup:"
   },
+  "colorMode": {
+    "message": "Color mode"
+  },
   "darkTheme": {
-    "message": "Use a dark theme"
+    "message": "Dark"
+  },
+  "lightTheme": {
+    "message": "Light"
+  },
+  "systemTheme": {
+    "message": "Auto"
   },
   "forum": {
     "message": "Forum"

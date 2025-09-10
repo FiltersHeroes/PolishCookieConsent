@@ -19,39 +19,32 @@
 // Apply dark theme
 function applyColorScheme(mode) {
     let rootSelector = document.documentElement;
+    let chosenTheme = "light";
     if (mode === "dark") {
-        rootSelector.classList.add("dark");
-        rootSelector.setAttribute("theme", "dark");
-        document.addEventListener("DOMContentLoaded", () => {
-            let darkThemeToggle = document.querySelector("#darkTheme_toggle");
-            if (darkThemeToggle) {
-                darkThemeToggle.checked = true;
-            }
-        });
-    } else {
-        rootSelector.classList.remove("dark");
-        rootSelector.setAttribute("theme", "light")
+        chosenTheme = mode;
     }
+    rootSelector.setAttribute("theme", chosenTheme);
     let colorSchemeEvent = new CustomEvent("colorSchemeChange", {
         detail: { currentColorScheme: mode }
     });
     document.dispatchEvent(colorSchemeEvent);
 }
 
-var currentColorScheme = PCC_vAPI.storage.local.getCache("colorScheme");
-if (!currentColorScheme) {
-    currentColorScheme = "light";
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        currentColorScheme = "dark";
-    }
+let currentColorScheme = "light";
+if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    currentColorScheme = "dark";
 }
-
+applyColorScheme(currentColorScheme);
+let savedCurrentColorScheme = PCC_vAPI.storage.local.getCache("colorScheme");
+if (savedCurrentColorScheme && savedCurrentColorScheme != "auto") {
+    currentColorScheme = savedCurrentColorScheme;
+}
 applyColorScheme(currentColorScheme);
 
+
 PCC_vAPI.storage.local.get("colorScheme").then(function (colorScheme) {
-    if (colorScheme && colorScheme !== currentColorScheme) {
+    if (colorScheme && colorScheme !== currentColorScheme && colorScheme != "auto") {
         currentColorScheme = colorScheme;
-        applyColorScheme(currentColorScheme);
+        applyColorScheme(currentColorScheme, true);
     }
 });
-

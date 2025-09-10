@@ -213,3 +213,11 @@ a:focus {
 a:visited {
     color: var(--md-ref-palette-primary50);
 }
+
+.dropdown-content li:not(.disabled):hover, .dropdown-content li.active {
+    background-color: #f5eee9;
+}
+
+:root[theme="dark"] .dropdown-content li:not(.disabled):hover, .dropdown-content li.active {
+    background-color: #302B26;
+}

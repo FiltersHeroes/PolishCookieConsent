@@ -206,8 +206,17 @@
   "lastBackupPrompt": {
     "message": "Ostatnia kopia zapasowa:"
   },
+  "colorMode": {
+    "message": "Tryb koloru"
+  },
   "darkTheme": {
-    "message": "Używaj ciemnego motywu"
+    "message": "Ciemny"
+  },
+  "lightTheme": {
+    "message": "Jasny"
+  },
+  "systemTheme": {
+    "message": "Automatyczny"
   },
   "forum": {
     "message": "Forum"

@@ -1,7 +1,8 @@
 {
     "userSettings": {
         "autoUpdate": true,
-        "autoUpdateNotifications": true
+        "autoUpdateNotifications": true,
+        "colorScheme": "auto"
     },
     "selectedFilterLists": [
         "userFilters",

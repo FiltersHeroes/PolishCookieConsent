@@ -120,12 +120,15 @@
     </ul>
 
     <div id="settings-tab" class="col s12 px-4">
-        <div id="darkTheme" class="mb-1">
-            <label>
-                <input type="checkbox" id="darkTheme_toggle" class="filled-in">
-                <span data-i18n="__MSG_darkTheme__"></span>
-            </label>
+        <div class="mb-3 valign-wrapper">
+        <label for="darkTheme_toggle" class="mr-2" data-i18n="__MSG_colorMode__"></label>
+            <select id="darkTheme_toggle">
+                <option value="auto" data-i18n="__MSG_systemTheme__"></option>
+                <option value="dark" data-i18n="__MSG_darkTheme__"></option>
+                <option value="light" data-i18n="__MSG_lightTheme__"></option>
+            </select>
         </div>
+
         <div id="autoUpdate" class="mb-1">
             <label>
                 <input type="checkbox" id="autoUpdate_toggle" class="filled-in">

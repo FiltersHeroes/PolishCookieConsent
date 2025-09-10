@@ -16,24 +16,32 @@
     along with Polish Cookie Consent. If not, see {http://www.gnu.org/licenses/}.
 */
 
-// Save color scheme choice
+// Load and save color scheme choice
 let colorSchemeToggle = document.querySelector("#darkTheme_toggle");
-let rootH = document.querySelector(":root");
+
+let currentColorScheme = "auto";
+let savedColorScheme = await PCC_vAPI.storage.local.get("colorScheme");
+if (savedColorScheme) {
+    console.log(savedColorScheme);
+    currentColorScheme = savedColorScheme;
+}
+colorSchemeToggle.value = currentColorScheme;
+
+M.FormSelect.init(colorSchemeToggle);
+
 colorSchemeToggle.addEventListener('change', function () {
-    let colorScheme;
-    if (this.checked) {
-        colorScheme = "dark";
-        rootH.classList.add("dark");
-        rootH.setAttribute("theme", "dark");
-    } else {
-        colorScheme = "light";
-        if (rootH.classList.contains("dark")) {
-            rootH.classList.remove("dark");
-        }
-        rootH.setAttribute("theme", "light");
+    let colorSchemeValue = this.value;
+    let colorScheme = "light";
+    if (colorSchemeValue != "auto") {
+        colorScheme = colorSchemeValue;
     }
-    PCC_vAPI.storage.local.set("colorScheme", colorScheme);
-    PCC_vAPI.storage.local.setCache("colorScheme", colorScheme);
+    else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        colorScheme = "dark";
+    }
+    let rootH = document.querySelector(":root");
+    rootH.setAttribute("theme", colorScheme);
+    PCC_vAPI.storage.local.set("colorScheme", colorSchemeValue);
+    PCC_vAPI.storage.local.setCache("colorScheme", colorSchemeValue);
     let colorEvent = new CustomEvent("colorSchemeChange", {
         detail: { currentColorScheme: colorScheme }
     });
