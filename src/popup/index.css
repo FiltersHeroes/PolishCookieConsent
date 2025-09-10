@@ -4,7 +4,7 @@
     --wrapperHoverColor: #d8ad6a;
 }
 
-:root.dark {
+:root[theme="dark"] {
     --currentColor: rgba(255, 255, 255, 0.87);
     --currentBgColor: rgba(0, 0, 0, 0.87);
     --wrapperHoverColor: #5D4037;
@@ -67,6 +67,6 @@ body {
     display: none;
 }
 
-:root.dark svg {
+:root[theme="dark"] svg {
     fill: var(--currentColor);
 }

@@ -42,9 +42,13 @@ if (savedCurrentColorScheme && savedCurrentColorScheme != "auto") {
 applyColorScheme(currentColorScheme);
 
 
-PCC_vAPI.storage.local.get("colorScheme").then(function (colorScheme) {
-    if (colorScheme && colorScheme !== currentColorScheme && colorScheme != "auto") {
-        currentColorScheme = colorScheme;
-        applyColorScheme(currentColorScheme, true);
+PCC_vAPI.storage.local.get("userSettings").then(function (resultUS) {
+    if (resultUS) {
+        const userSettings = JSON.parse(resultUS);
+        let colorScheme = userSettings["colorScheme"];
+        if (colorScheme && colorScheme != "auto" && colorScheme !== currentColorScheme) {
+            currentColorScheme = colorScheme;
+            applyColorScheme(currentColorScheme, true);
+        }
     }
 });

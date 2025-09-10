@@ -1,9 +1,10 @@
 :root {
     --sBgColor: #ffffff;
     --infoPanelBg: #e8e8ed;
+    --currentColor: rgba(255, 255, 255, 0.87);
 }
 
-:root.dark {
+:root[theme="dark"] {
     --sBgColor: #262626;
     --infoPanelBg: #333;
 }
@@ -61,10 +62,6 @@
 
 .codeMirrorContainer {
     height: 100vh;
-}
-
-.dark:root {
-    --currentColor: rgba(255, 255, 255, 0.87);
 }
 
 #searchbar {

@@ -6,7 +6,7 @@
     --cm-arg: #001080;
 }
 
-:root.dark {
+:root[theme="dark"] {
     --cm-jsdef: #c586c0;
     --cm-domain: #ce9178;
     --cm-comment: #888;
@@ -34,7 +34,7 @@
     color: var(--cm-arg);
 }
 
-:root:not(.dark) div.cm-editor span.cm-matchingBracket {
+:root:not([theme="dark"]) div.cm-editor span.cm-matchingBracket {
     color: inherit;
     background-color: #afa;
     font-weight: bold;
