@@ -1,1 +1,4 @@
-
+body {
+  font-size: inherit;
+  font-family: inherit;
+}
