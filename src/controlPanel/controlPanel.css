@@ -195,19 +195,14 @@ a:hover:not(.tab a), a:focus:not(.tab a) {
 .filled.btn-small:focus, 
 .filled.btn-large:focus {
     background-color: #B67732;
-    outline: 2px solid var(--md-sys-color-on-primary-dark);
-    outline-offset: 2px;
 }
 
 a {
   color: var(--md-sys-color-primary);
-  transition: outline 0.2s;
 }
 
 a:focus {
   color: var(--md-sys-color-primary);
-  outline: 2px solid var(--md-sys-color-on-primary);
-  outline-offset: 2px;
 }
 
 a:visited {
