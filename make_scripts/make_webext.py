@@ -48,8 +48,6 @@ elif len(sys.argv) >= 3:
 
 with open(pj(temp_path, "manifest.json"), "r", encoding='utf-8') as m_f:
     manifest = json.load(m_f)
-    if sys.argv[1] == "chromium":
-        del manifest['browser_specific_settings']
     manifest['version'] = ext_version
     with open(pj(temp_path, "manifest.json"), "w", encoding='utf-8') as m_f:
         json.dump(manifest, m_f, indent=2)

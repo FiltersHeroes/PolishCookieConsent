@@ -78,7 +78,7 @@ function updateCookieBase(updateTime) {
             const aJSONresult = await PCC_vAPI.storage.local.get("assetsJSON");
             const aJSON = JSON.parse(aJSONresult);
 
-            const response = await fetchFromCdns(aJSON["assets.json"].cdnURLs);
+            const response = await PCC_updateHelpers.fetchFromCdns(aJSON["assets.json"].cdnURLs);
             const assetsJSON = await response.json();
             await PCC_vAPI.storage.local.set('assetsJSON', JSON.stringify(assetsJSON));
 
@@ -87,7 +87,7 @@ function updateCookieBase(updateTime) {
 
             for (let selectedFL of sFLnewResult) {
                 try {
-                    const flResponse = await fetchFromCdns(assetsJSON[selectedFL].cdnURLs);
+                    const flResponse = await PCC_updateHelpers.fetchFromCdns(assetsJSON[selectedFL].cdnURLs);
                     const text = await flResponse.text();
                     handleTextResponse(text, selectedFL, true, flResponse.url);
                 } catch (error) {
@@ -112,14 +112,14 @@ function updateCookieBase(updateTime) {
 
 async function fetchLocalAssets() {
     try {
-        const response = await fetchWithRetry(PCC_vAPI.runtime.getURL("assets/assets.json"));
+        const response = await PCC_updateHelpers.fetchWithRetry(PCC_vAPI.runtime.getURL("assets/assets.json"));
         const assetsJSON = await response.json();
         await PCC_vAPI.storage.local.set('assetsJSON', JSON.stringify(assetsJSON));
 
         const filterLists = Object.keys(assetsJSON).filter(item => item !== "assets.json");
         for (let localFL of filterLists) {
             try {
-                const flResponse = await fetchWithRetry(PCC_vAPI.runtime.getURL(assetsJSON[localFL].localURL));
+                const flResponse = await PCC_updateHelpers.fetchWithRetry(PCC_vAPI.runtime.getURL(assetsJSON[localFL].localURL));
                 const text = await flResponse.text();
                 handleTextResponse(text, localFL, false, assetsJSON[localFL].contentURL);
             } catch (error) {
@@ -138,7 +138,7 @@ async function setDefaultSettings() {
         PCC_vAPI.storage.local.remove("cookieBase");
     }
 
-    const response = await fetchWithRetry(PCC_vAPI.runtime.getURL("controlPanel/defaultSettings.json"));
+    const response = await PCC_updateHelpers.fetchWithRetry(PCC_vAPI.runtime.getURL("controlPanel/defaultSettings.json"));
     const defaultSettings = await response.json();
 
     const sFLvalue = await PCC_vAPI.storage.local.get("selectedFilterLists");

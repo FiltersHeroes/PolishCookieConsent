@@ -141,13 +141,13 @@ document.querySelector("#updateCookieBase").addEventListener("click", async func
     if (resultAssets) {
         const localAssetsJSON = JSON.parse(resultAssets);
         const jsonURLs = localAssetsJSON["assets.json"].cdnURLs;
-        const response = await fetchFromCdns(jsonURLs);
+        const response = await PCC_updateHelpers.fetchFromCdns(jsonURLs);
         const assetsJSON = await response.json();
         await PCC_vAPI.storage.local.set('assetsJSON', JSON.stringify(assetsJSON));
         const neededFilterLists = getSelectedFilterLists().filter(item => item !== "userFilters");
         for (let neededFilterList of neededFilterLists) {
             try {
-                const filterlistResponse = await fetchFromCdns(assetsJSON[neededFilterList].cdnURLs);
+                const filterlistResponse = await PCC_updateHelpers.fetchFromCdns(assetsJSON[neededFilterList].cdnURLs);
                 const text = await filterlistResponse.text();
                 const obj = {};
                 obj["content"] = text;

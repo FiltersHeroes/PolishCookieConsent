@@ -21,12 +21,7 @@
       "32": "icons/icon32.png"
     }
   },
-   "browser_specific_settings": {
-    "gecko": {
-      "id": "PolishCookieConsentExt@polishannoyancefilters.netlify.com",
-      "strict_min_version": "109.0"
-    }
-  },
+  "minimum_chrome_version": "109.0",
   "content_scripts": [
     {
       "matches": [
