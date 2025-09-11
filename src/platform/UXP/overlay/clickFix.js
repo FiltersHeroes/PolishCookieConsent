@@ -1,4 +1,4 @@
-// Fix Pale Moon nasty bug with other mouse button working as left click (supposedly related with https://forum.palemoon.org/viewtopic.php?t=30469)
+// Fix Pale Moon "bug" with other mouse button working as left click (https://repo.palemoon.org/MoonchildProductions/UXP/issues/2515)
 window.addEventListener("DOMContentLoaded", (e) => {
     let doc = e.target;
     if (doc.nodeType === Node.DOCUMENT_NODE &&

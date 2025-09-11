@@ -156,21 +156,18 @@ var PCC_vAPI = {
         let browserWindow = wm.getMostRecentWindow("navigator:browser");
 
         let epanel = browserWindow.document.querySelector("#PolishFiltersTeam_PCC_popup_panel");
-        let iframe = browserWindow.document.querySelector("#PolishFiltersTeam_PCC_popup_frame");
+        let eframe = browserWindow.document.querySelector("#PolishFiltersTeam_PCC_popup_frame");
 
-        if (!epanel || !iframe || !iframe.contentDocument || !iframe.contentDocument.body) {
+        if (!epanel || !eframe?.contentDocument?.body) {
             return;
         }
-        epanel.style.opacity = '0';
-        
-        let body = iframe.contentDocument.body;
-        let height = body.scrollHeight || body.clientHeight;
-        let width = body.scrollWidth || body.clientWidth;
 
-        iframe.style.height = height + "px";
-        iframe.style.width = width + "px";
-        epanel.style.height = height + "px";
-        epanel.style.width = width + "px";
+        let ebody = eframe.contentDocument.body;
+        let eheight = ebody.scrollHeight || ebody.clientHeight;
+        let ewidth = ebody.scrollWidth || ebody.clientWidth;
+
+        eframe.style.height = eheight + "px";
+        eframe.style.width = ewidth + "px";
         epanel.style.opacity = '1';
     },
     runtime: {
