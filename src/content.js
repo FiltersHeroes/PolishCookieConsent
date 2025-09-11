@@ -26,7 +26,7 @@
     }
 
     function clickInteractive(element, cookieNameOrMaxCount, text) {
-        document.onreadystatechange = function () {
+        document.addEventListener("readystatechange", () => {
             if (document.readyState === "interactive") {
                 var condition;
                 var counter = 0;
@@ -55,11 +55,11 @@
                     }
                 })()
             }
-        }
+        });
     }
 
     function clickComplete(element, cookieNameOrMaxCount, text) {
-        document.onreadystatechange = function () {
+        document.addEventListener("readystatechange", () => {
             if (document.readyState === "complete") {
                 var condition;
                 var counter = 0;
@@ -88,7 +88,7 @@
                     }
                 })()
             }
-        }
+        });
     }
 
     function clickTimeout(element, cookieNameOrMaxCount, text) {
