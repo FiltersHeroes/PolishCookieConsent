@@ -136,8 +136,14 @@
     }
 
     function addToStorage(storageKey, storageValue) {
-        if (localStorage.getItem(storageKey) === undefined || localStorage.getItem(storageKey) === null) {
+        if (localStorage.getItem(storageKey) === null) {
             localStorage.setItem(storageKey, storageValue);
+        }
+    }
+
+    function addToSessionStorage(storageKey, storageValue) {
+        if (sessionStorage.getItem(storageKey) === null) {
+            sessionStorage.setItem(storageKey, storageValue);
         }
     }
 
@@ -193,11 +199,19 @@
                             clickComplete(element, cookieNameOrMaxCount, text);
                         }
                     }
-                    else if (jsfunc == "addToStorage") {
+                    else if (jsfunc == "addToStorage" || jsfunc == "addToSessionStorage") {
                         if (arglen == 2) {
                             var storageKey = arg;
                             var storageValue = arg2;
-                            addToStorage(storageKey, storageValue);
+                            if (storageValue.includes("$now$")) {
+                                storageValue = storageValue.replace("$now$", Date.now());
+                            }
+                            if (jsfunc == "addToStorage") {
+                                addToStorage(storageKey, storageValue);
+                            }
+                            else {
+                                addToSessionStorage(storageKey, storageValue);
+                            }
                         }
                     }
                     else if (jsfunc == "bakeCookie") {
