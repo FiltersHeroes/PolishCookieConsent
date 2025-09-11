@@ -22,7 +22,7 @@ Basilisk Add-ons: [![Basilisk Add-ons version](https://img.shields.io/badge/BA-v
 Crowdin: [![Crowdin](https://badges.crowdin.net/polish-cookie-consent/localized.svg)](https://crowdin.com/project/polish-cookie-consent)
 
 ## **Jak zainstalować?**
-### **I. ![Firefox][Firefox]Firefox/![Waterfox][Waterfox]Waterfox (Classic i G5)**
+### **I. ![Firefox][Firefox]Firefox/![Waterfox][Waterfox]Waterfox (6.x)**/![Floorp][Floorp]Floorp
 1. Zainstaluj najnowszą wersję rozszerzenia z [AMO](https://addons.mozilla.org/pl/firefox/addon/polish-cookie-consent?utm_source=git) (kliknij dwukrotnie **dodaj**).
 2. Gotowe :tada: !
 
@@ -63,7 +63,7 @@ Crowdin: [![Crowdin](https://badges.crowdin.net/polish-cookie-consent/localized.
 2. Gotowe :tada: !
 
 
-### Mobilne bazujące na Firefox 79.0-120.0:
+### Mobilne bazujące na Firefox 113.0-120.0:
 
 ### **VI. ![Iceraven][Iceraven][Iceraven](https://github.com/fork-maintainers/iceraven-browser)**
 1. Wejdź w Ustawienia -> Dostosuj i zjeżdżaj w dół, aż znajdziesz `Set custom add-ons account`.
@@ -83,7 +83,7 @@ Crowdin: [![Crowdin](https://badges.crowdin.net/polish-cookie-consent/localized.
 >
 > Nie wiadomo kiedy ruszy to spod adresu dedykowanego dla Androida (t.j. https://addons.mozilla.org/android/addon/polish-cookie-consent/ &mdash; wydaje się działać z wydaniem 140).
 
-<details> <summary> mechanizmem własnej kolekcji  (Firefox 79 - 118 / Fennec) </summary>
+<details> <summary> mechanizmem własnej kolekcji  (Firefox 113 - 118 / Fennec) </summary>
 
 1. Wejdź w Ustawienia -> O programie Fennec/Firefox Nightly.
 2. Dotknij 5 razy w szybkim tempie logo programu - aby odblokować tryb developera.
@@ -101,7 +101,8 @@ Crowdin: [![Crowdin](https://badges.crowdin.net/polish-cookie-consent/localized.
 
 [Firefox]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/73.0.0/firefox/firefox_24x24.png "Mozilla Firefox"
 [Firefox-Beta]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/73.0.0/firefox-beta/firefox-beta_24x24.png "Mozilla Firefox Beta"
-[Waterfox]: https://raw.githubusercontent.com/WaterfoxCo/Waterfox/current-esr91/browser/branding/waterfox/default24.png "Waterfox"
+[Waterfox]: https://raw.githubusercontent.com/WaterfoxCo/Waterfox/current/waterfox/browser/branding/default24.png "Waterfox"
+[Floorp]: https://raw.githubusercontent.com/Floorp-Projects/Floorp/main/gecko/branding/floorp-official/default24.png "Floorp"
 [Fennec]: https://i.imgur.com/CBLmX7q.png?1 "Fennec F-Droid"
 [Iceraven]: https://i.imgur.com/jpbS8lO.png?1 "Iceraven"
 [Nightly]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/73.0.0/firefox-nightly/firefox-nightly_24x24.png "Firefox Nightly"

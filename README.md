@@ -24,7 +24,7 @@ Crowdin: [![Crowdin](https://badges.crowdin.net/polish-cookie-consent/localized.
 
 ## **How to install it?**<a name="jak-zainstalowac"></a><a name="jak-zainstalować"></a>
 
-### **I. ![Firefox][Firefox]Firefox/![Waterfox][Waterfox]Waterfox (Classic and G5)**
+### **I. ![Firefox][Firefox]Firefox/![Waterfox][Waterfox]Waterfox (6.x)**/![Floorp][Floorp]Floorp
 1. Install latest extension version from [AMO](https://addons.mozilla.org/en-US/firefox/addon/polish-cookie-consent?utm_source=git) (just double click **add**).
 2. Ready :tada: !
 
@@ -62,7 +62,7 @@ Crowdin: [![Crowdin](https://badges.crowdin.net/polish-cookie-consent/localized.
 2. Ready :tada: !
 
 
-### Mobile based on Firefox 79.0-120.0:
+### Mobile based on Firefox 113.0-120.0:
 
 ### **VI. ![Iceraven][Iceraven][Iceraven](https://github.com/fork-maintainers/iceraven-browser)**
 1. Go to Settings -> Customize and scroll down, till you find `Set custom add-ons account`.
@@ -83,7 +83,7 @@ Crowdin: [![Crowdin](https://badges.crowdin.net/polish-cookie-consent/localized.
 > It is not known when it will launch from under the address dedicated for Android (https://addons.mozilla.org/android/addon/polish-cookie-consent/ &mdash; seems to be working with the release 140).
 
 
-<details> <summary> by custom collection mechanism (Firefox 79 - 118 / Fennec) </summary>
+<details> <summary> by custom collection mechanism (Firefox 113 - 118 / Fennec) </summary>
 
 1. Tap on the three dot menu and select Settings => About Fennec/Firefox Nightly.
 2. Tap the app logo five times until the “Debug menu enabled” notification appears.
@@ -101,7 +101,8 @@ Crowdin: [![Crowdin](https://badges.crowdin.net/polish-cookie-consent/localized.
 
 [Firefox]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/73.0.0/firefox/firefox_24x24.png "Mozilla Firefox"
 [Firefox-Beta]:https://cdnjs.cloudflare.com/ajax/libs/browser-logos/73.0.0/firefox-beta/firefox-beta_24x24.png "Mozilla Firefox Beta"
-[Waterfox]: https://raw.githubusercontent.com/WaterfoxCo/Waterfox/current-esr91/browser/branding/waterfox/default24.png "Waterfox"
+[Waterfox]: https://raw.githubusercontent.com/WaterfoxCo/Waterfox/current/waterfox/browser/branding/default24.png "Waterfox"
+[Floorp]: https://raw.githubusercontent.com/Floorp-Projects/Floorp/main/gecko/branding/floorp-official/default24.png "Floorp"
 [Fennec]: https://i.imgur.com/CBLmX7q.png?1 "Fennec F-Droid"
 [Iceraven]: https://i.imgur.com/jpbS8lO.png?1 "Iceraven"
 [Nightly]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/73.0.0/firefox-nightly/firefox-nightly_24x24.png "Firefox Nightly"
@@ -127,6 +128,6 @@ Polish Cookie Consent extension uses open-source code from following projects (a
 
 * [Localizer](https://github.com/TinyWebEx/Localizer)
 
-* [MUI](https://github.com/muicss/mui)
+* [Materialize](https://materializeweb.com/)
 
 * [Octicons](https://github.com/primer/octicons/)
