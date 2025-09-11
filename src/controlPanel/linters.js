@@ -16,7 +16,7 @@ let filtersLinter = cm6.linter(view => {
     let line = lineInfo.text;
     if (!line || /^(!|#)/.test(line)) continue;
 
-    let match = line.match(/^.*##\+js\(([^)]*)\)$/);
+    let match = line.match(/[^#]+##\+js\(([^)]*)\)$/);
     if (!match) {
       found.push({
         from: lineInfo.from,
@@ -27,7 +27,7 @@ let filtersLinter = cm6.linter(view => {
       continue;
     }
 
-    let args = match[1].split(",");
+    let args = match[1].split(", ");
     let funcName = args[0];
     let funcArgsNumber = args.length - 1;
     let from = lineInfo.from + match.index + match[0].indexOf(funcName);
