@@ -7,6 +7,7 @@
     <script src="chrome://PCC/content/updateHelpers.js"/>
     <script src="chrome://PCC/content/update.js"/>
     <script src="chrome://PCC/content/overlay/index.js"/>
+    <script src="chrome://PCC/content/overlay/clickFix.js"/>
     <toolbarpalette id="BrowserToolbarPalette">
         <toolbarbutton id="PolishFiltersTeam_PCC_btn" class="toolbarbutton-1 chromeclass-toolbar-additional" label="PCC" oncommand="PCC_overlay.placePopup();" type="checkbox"/>
     </toolbarpalette>

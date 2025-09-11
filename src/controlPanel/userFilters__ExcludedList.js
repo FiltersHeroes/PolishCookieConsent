@@ -8,24 +8,6 @@ function restoreEditorValue(editorID, settingName) {
     });
 }
 
-function refreshFocusEditor(editorID, tabID) {
-    document.querySelectorAll(`[data-mui-controls="${tabID}"]`).forEach((tabToggle) => {
-        tabToggle.addEventListener('mui.tabs.showend', function () {
-            editorID.requestMeasure();
-            editorID.focus();
-            if (editorID == userFilters) {
-                cm6.onSave(editorID, () => {
-                    saveEditorValue(userFilters, "userFilters", cachedValue, userFiltersApply, userFiltersRevert);
-                });
-            } else {
-                cm6.onSave(editorID, () => {
-                    saveEditorValue(userWhitelist, "whitelist", cachedValue, whitelistApply, whitelistRevert);
-                });
-            }
-        });
-    });
-}
-
 // Add user filters to textarea
 var userFilters = cm6.createEditor({
     parent: document.querySelector("#myFilters"),
@@ -52,7 +34,6 @@ var userFilters = cm6.createEditor({
 });
 
 restoreEditorValue(userFilters, "userFilters");
-refreshFocusEditor(userFilters, "my-filters-tab");
 
 // Define CodeMirror mode for excluded list
 var excludedListMode = cm6.createSimpleMode({
@@ -97,7 +78,24 @@ var userWhitelist = cm6.createEditor({
 });
 
 restoreEditorValue(userWhitelist, "whitelist");
-refreshFocusEditor(userWhitelist, "excluded-list-tab");
+
+// Focus editor and set correct cursor position
+document.addEventListener('tabVisible', function (e) {
+    let currentEditor = "";
+    if (e.detail.id == "excluded-list-tab") {
+        currentEditor = userWhitelist
+    }
+    else if (e.detail.id == "my-filters-tab") {
+        currentEditor = userFilters;
+    }
+    if (currentEditor != "") {
+        currentEditor.dispatch({
+            selection: { anchor: currentEditor.state.doc.length }
+        });
+        currentEditor.requestMeasure();
+        currentEditor.focus();
+    }
+});
 
 // Import user filters and excluded list
 function importText(textarea) {
@@ -178,6 +176,10 @@ var userFiltersApply = document.getElementById("userFiltersApply");
 document.querySelector("#userFiltersApply").addEventListener("click", function () {
     saveEditorValue(userFilters, "userFilters", cachedValue, userFiltersApply, userFiltersRevert);
 });
+cm6.onSave(userFilters, () => {
+    saveEditorValue(userFilters, "userFilters", cachedValue, userFiltersApply, userFiltersRevert);
+});
+
 
 // Save excluded list
 var whitelistApply = document.getElementById("whitelistApply");
@@ -185,6 +187,9 @@ document.querySelector("#whitelistApply").addEventListener("click", function () 
     var excludedListValue = userWhitelist.state.doc.toString();
     var sortedExcludedList = excludedListValue.split("\n").sort().join("\n");
     cm6.setValue(userWhitelist, sortedExcludedList);
+    saveEditorValue(userWhitelist, "whitelist", cachedValue, whitelistApply, whitelistRevert);
+});
+cm6.onSave(userWhitelist, () => {
     saveEditorValue(userWhitelist, "whitelist", cachedValue, whitelistApply, whitelistRevert);
 });
 

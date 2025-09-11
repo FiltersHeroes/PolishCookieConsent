@@ -1,6 +1,19 @@
+// Notify about visible tabs
+function notifyTabVisible(tabContent) {
+    document.dispatchEvent(new CustomEvent('tabVisible', { detail: { id: tabContent.id } }));
+}
+
 var sidenavInstance = M.Sidenav.init(document.querySelector(".sidenav"));
-var mobileTabsInstance = M.Tabs.init(document.querySelector(".sidenav")); 
-var tabsInstance = M.Tabs.init(document.querySelector(".tabs")); 
+var mobileTabsInstance = M.Tabs.init(document.querySelector(".sidenav"), {
+    onShow: function (tabContent) {
+        notifyTabVisible(tabContent);
+    }
+});
+var tabsInstance = M.Tabs.init(document.querySelector(".tabs"), {
+    onShow: function (tabContent) {
+        notifyTabVisible(tabContent);
+    }
+}); 
 
 // Title
 document.querySelector("title").textContent = PCC_vAPI.i18n.getMessage("extensionName") + " - " + PCC_vAPI.i18n.getMessage("controlPanel");
