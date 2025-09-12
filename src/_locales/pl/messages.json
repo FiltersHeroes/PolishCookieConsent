@@ -238,5 +238,8 @@
   },
   "privacyPolicy": {
     "message": "Polityka prywatności"
+  },
+  "consentMessage": {
+    "message": "Zgoda buduje, a niezgoda rujnuje."
   }
 }

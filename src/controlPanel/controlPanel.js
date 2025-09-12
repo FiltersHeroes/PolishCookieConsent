@@ -67,3 +67,13 @@ if (PCC_vAPI.i18n.getUILanguage() == "pl") {
 const version = PCC_vAPI.getVersion();
 document.querySelector("#about-tab .extensionInfo").textContent = PCC_vAPI.i18n.getMessage("extensionName") + " " + version;
 document.querySelector("#changelog").href += "/v" + version;
+
+
+let clickCount = 0;
+document.querySelector(".brand-logo img").addEventListener("click", () => {
+    clickCount++;
+    if (clickCount == 10) {
+        alert(PCC_vAPI.i18n.getMessage("consentMessage"));
+        clickCount = 0;
+    }
+})

@@ -160,75 +160,71 @@
     }
 
     function initArgs(filter) {
-        if (filter != "" && !filter.match(/^!|^#/)) {
-            let urlArg = filter.split('##+js')[0];
+        if (filter) {
+            let funcArgs = filter.split("##+js(")[1]?.slice(0, -1)?.split(", ");
+            if (funcArgs && funcArgs.length > 1) {
+                let jsfunc = funcArgs[0];
 
-            if (urlArg && getUrlCondition(urlArg)) {
-                let funcArgs = filter.split("##+js(")[1]?.slice(0, -1)?.split(", ");
-                if (funcArgs && funcArgs.length > 1) {
-                    let jsfunc = funcArgs[0];
+                let arglen = funcArgs.length - 1;
 
-                    let arglen = funcArgs.length - 1;
+                let arg = funcArgs[1];
+                let arg2 = "";
+                let arg3 = "";
+                let arg4 = "";
 
-                    let arg = funcArgs[1];
-                    let arg2 = "";
-                    let arg3 = "";
-                    let arg4 = "";
+                if (arglen >= 2) {
+                    arg2 = funcArgs[2];
+                }
 
-                    if (arglen >= 2) {
-                        arg2 = funcArgs[2];
+                if (arglen >= 3) {
+                    arg3 = funcArgs[3];
+                }
+
+                if (arglen == 4) {
+                    arg4 = funcArgs[4];
+                }
+
+                var element = arg;
+                if (jsfunc == "clickInteractive" || jsfunc == "clickTimeout" || jsfunc == "clickComplete") {
+                    var cookieNameOrMaxCount = arg2;
+                    var text = arg3;
+                    if (jsfunc == "clickInteractive") {
+                        clickInteractive(element, cookieNameOrMaxCount, text);
+                    } else if (jsfunc == "clickTimeout") {
+                        clickTimeout(element, cookieNameOrMaxCount, text);
+                    } else if (jsfunc == "clickComplete") {
+                        clickComplete(element, cookieNameOrMaxCount, text);
                     }
-
-                    if (arglen >= 3) {
-                        arg3 = funcArgs[3];
-                    }
-
-                    if (arglen == 4) {
-                        arg4 = funcArgs[4];
-                    }
-
-                    var element = arg;
-                    if (jsfunc == "clickInteractive" || jsfunc == "clickTimeout" || jsfunc == "clickComplete") {
-                        var cookieNameOrMaxCount = arg2;
-                        var text = arg3;
-                        if (jsfunc == "clickInteractive") {
-                            clickInteractive(element, cookieNameOrMaxCount, text);
-                        } else if (jsfunc == "clickTimeout") {
-                            clickTimeout(element, cookieNameOrMaxCount, text);
-                        } else if (jsfunc == "clickComplete") {
-                            clickComplete(element, cookieNameOrMaxCount, text);
+                }
+                else if (jsfunc == "addToStorage" || jsfunc == "addToSessionStorage") {
+                    if (arglen == 2) {
+                        var storageKey = arg;
+                        var storageValue = arg2;
+                        if (storageValue.includes("$now$")) {
+                            storageValue = storageValue.replace("$now$", Date.now());
+                        }
+                        if (jsfunc == "addToStorage") {
+                            addToStorage(storageKey, storageValue);
+                        }
+                        else {
+                            addToSessionStorage(storageKey, storageValue);
                         }
                     }
-                    else if (jsfunc == "addToStorage" || jsfunc == "addToSessionStorage") {
-                        if (arglen == 2) {
-                            var storageKey = arg;
-                            var storageValue = arg2;
-                            if (storageValue.includes("$now$")) {
-                                storageValue = storageValue.replace("$now$", Date.now());
-                            }
-                            if (jsfunc == "addToStorage") {
-                                addToStorage(storageKey, storageValue);
-                            }
-                            else {
-                                addToSessionStorage(storageKey, storageValue);
-                            }
-                        }
+                }
+                else if (jsfunc == "bakeCookie") {
+                    var cookieName = arg;
+                    var cookieValue = arg2;
+                    var expiresDays = arg3;
+                    var domain = arg4;
+                    if (!isNaN(expiresDays) && expiresDays > 0) {
+                        bakeCookie(cookieName, cookieValue, expiresDays, domain);
                     }
-                    else if (jsfunc == "bakeCookie") {
-                        var cookieName = arg;
-                        var cookieValue = arg2;
-                        var expiresDays = arg3;
-                        var domain = arg4;
-                        if (!isNaN(expiresDays) && expiresDays > 0) {
-                            bakeCookie(cookieName, cookieValue, expiresDays, domain);
-                        }
-                    }
-                    else if (jsfunc == "redirect") {
-                        var redirectPoint = arg;
-                        var path = arg2;
-                        var cookieName = arg3;
-                        redirect(redirectPoint, path, cookieName);
-                    }
+                }
+                else if (jsfunc == "redirect") {
+                    var redirectPoint = arg;
+                    var path = arg2;
+                    var cookieName = arg3;
+                    redirect(redirectPoint, path, cookieName);
                 }
             }
         }
@@ -237,7 +233,7 @@
     async function runFilterLists() {
         var resultExcludedlist = await PCC_vAPI.storage.local.get('whitelist');
         function containsCommentSign(value) {
-            return value.indexOf("!") && value.indexOf("#") && value != "";
+            return value !== "" && (value.startsWith("!") || value.startsWith("#"));
         }
         if (resultExcludedlist) {
             var excludedlist = resultExcludedlist.split("\n").filter(containsCommentSign).join(',');
@@ -263,7 +259,29 @@
             }
         }
         if (allFilters.length > 0) {
+            allFilters = [...new Set(allFilters)];
+
+            let excludeFilters = new Set();
+
+            for (let i = allFilters.length - 1; i >= 0; i--) {
+                if (containsCommentSign(allFilters[i])) {
+                    allFilters.splice(i, 1);
+                    continue;
+                }
+                if (allFilters[i].includes("#@#+js")) {
+                    excludeFilters.add(allFilters[i].replace("#@#+js", "##+js"));
+                    continue;
+                }
+                let urlArg = allFilters[i].split('##+js')[0];
+                if (!urlArg || !getUrlCondition(urlArg)) {
+                    allFilters.splice(i, 1);
+                }
+            }
+            
             for (let i = 0; i < allFilters.length; i++) {
+                if (excludeFilters.has(allFilters[i])) {
+                    continue;
+                }
                 initArgs(allFilters[i]);
             }
         }

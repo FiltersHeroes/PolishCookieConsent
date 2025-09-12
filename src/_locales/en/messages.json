@@ -238,5 +238,8 @@
   },
   "privacyPolicy": {
     "message": "Privacy policy"
+  },
+  "consentMessage": {
+    "message": "Consent builds, and disagreement ruins."
   }
 }
