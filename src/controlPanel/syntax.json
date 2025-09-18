@@ -1,0 +1,92 @@
+{
+  "functions": {
+    "addToStorage": {
+      "args": [
+        {
+          "name": "storageKey"
+        },
+        {
+          "name": "storageValue"
+        }
+      ]
+    },
+    "addToSessionStorage": {
+      "args": [
+        {
+          "name": "storageKey"
+        },
+        {
+          "name": "storageValue"
+        }
+      ]
+    },
+    "bakeCookie": {
+      "args": [
+        {
+          "name": "cookieName"
+        },
+        {
+          "name": "cookieValue"
+        },
+        {
+          "name": "expiresDays"
+        },
+        {
+          "name": "domain"
+        }
+      ]
+    },
+    "clickInteractive": {
+      "args": [
+        {
+          "name": "element"
+        },
+        {
+          "name": "cookieNameOrMaxCount"
+        },
+        {
+          "name": "text"
+        }
+      ]
+    },
+    "clickTimeout": {
+      "args": [
+        {
+          "name": "element"
+        },
+        {
+          "name": "cookieNameOrMaxCount"
+        },
+        {
+          "name": "text"
+        }
+      ]
+    },
+    "clickComplete": {
+      "args": [
+        {
+          "name": "element"
+        },
+        {
+          "name": "cookieNameOrMaxCount"
+        },
+        {
+          "name": "text"
+        }
+      ]
+    },
+    "redirect": {
+      "args": [
+        {
+          "name": "redirectPoint"
+        },
+        {
+          "name": "path"
+        },
+        {
+          "name": "cookieNameOptional"
+        }
+      ]
+    }
+  }
+}

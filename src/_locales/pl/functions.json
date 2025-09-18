@@ -1,0 +1,21 @@
+{
+  "addToStorageFunction": "dodaje wartości do local storage",
+  "addToSessionStorageFunction": "dodaje wartości do session storage",
+  "storageKeyArg": "klucz",
+  "storageValueArg": "wartość (możesz wpisać `$now$`, by ustawić aktualny czas uniksowy)",
+  "bakeCookieFunction": "wypieka smakowite 🍪",
+  "cookieNameArg": "nazwa ciasteczka",
+  "cookieValueArg": "wartość ciasteczka (możesz wpisać `$now$`, by ustawić aktualny czas uniksowy)",
+  "expiresDaysArg": "liczba dni, po których ciasteczko wygasa",
+  "domainArg": "niestandardowa domena (opcjonalnie)",
+  "clickInteractiveFunction": "klika element, jeżeli dokument został już załadowany, ale sub-zasoby takie jak obrazy, arkusze stylów i ramki jeszcze nie",
+  "elementArg": "selektor CSS (w przypadku wpisania ostatniego argumentu, należy podać selektor xpath",
+  "cookieNameOrMaxCountArg": "nazwa ciasteczka lub maksymalna wartość licznika (opcjonalnie)",
+  "textArg": "tekst znajdujący się w elemencie (opcjonalnie)",
+  "clickTimeoutFunction": "klika element, gdy już będzie dostępny",
+  "clickCompleteFunction": "klika element, jeżeli strona została już w pełni załadowana",
+  "redirectFunction": "przekierowuje z danej strony (jeżeli ma być to dokładny adres strony, to z przodu adresu należy dopisać znak równości) na daną podstronę",
+  "redirectPointArg": "cel przekierowania",
+  "pathArg": "jeżeli do celu przekierowania niezbędna jest ścieżka, która jest inna dla każdej z podstron, to wtedy wpisujemy `true`, w przeciwnym przypadku możemy pominąć",
+  "cookieNameOptionalArg": "nazwa ciasteczka (opcjonalnie)"
+}

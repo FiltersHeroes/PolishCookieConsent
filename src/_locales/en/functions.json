@@ -1,0 +1,21 @@
+{
+  "addToStorageFunction": "add values to local storage",
+  "addToSessionStorageFunction": "add values to session storage",
+  "storageKeyArg": "key",
+  "storageValueArg": "value (you can type `$now$`, to set current timestamp)",
+  "bakeCookieFunction": "bake delicious 🍪",
+  "cookieNameArg": "cookie name",
+  "cookieValueArg": "cookie value (you can type `$now$`, to set current timestamp)",
+  "expiresDaysArg": "numbers of days after cookie expires",
+  "domainArg": "custom domain (optional)",
+  "clickInteractiveFunction": "click element, if the document has finished loading and the document has been parsed but sub-resources such as scripts, images, stylesheets and frames are still loading",
+  "elementArg": "CSS selector (if you enter the last argument, you'll need to specify XPath selector)",
+  "cookieNameOrMaxCountArg": "cookie name or max value of counter (optional)",
+  "textArg": "text in the element (optional)",
+  "clickTimeoutFunction": "click element, when it will be available",
+  "clickCompleteFunction": "click element, when the website will be fully loaded",
+  "redirectFunction": "redirect from specific site (if this should be exact URL, then on the front of URL you'll need to write equality mark) to a given subpage",
+  "redirectPointArg": "target of redirection",
+  "pathArg": "if the redirect target requires a path that is different for each subpage, then enter `true`, otherwise you can skip it",
+  "cookieNameOptionalArg": "cookie name (optional)"
+}

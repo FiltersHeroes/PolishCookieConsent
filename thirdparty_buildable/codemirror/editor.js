@@ -1,6 +1,6 @@
 // Core
 import { EditorState, StateEffect, EditorSelection, Compartment } from '@codemirror/state';
-import { EditorView, lineNumbers, highlightActiveLine, highlightActiveLineGutter, drawSelection, keymap } from '@codemirror/view';
+import { EditorView, lineNumbers, highlightActiveLine, highlightActiveLineGutter, drawSelection, keymap, hoverTooltip } from '@codemirror/view';
 
 // Commands / history
 import * as commands from "@codemirror/commands"
@@ -17,7 +17,7 @@ import { lintGutter, linter } from "@codemirror/lint";
 import { highlightSelectionMatches, getSearchQuery, setSearchQuery, SearchCursor, RegExpCursor, SearchQuery, search, findPrevious, findNext } from '@codemirror/search';
 
 // Autocomplete / Brackets
-import { closeBrackets, closeBracketsKeymap } from "@codemirror/autocomplete";
+import { closeBrackets, closeBracketsKeymap, autocompletion, completionKeymap } from "@codemirror/autocomplete";
 
 import { gruvboxDark as darkTheme } from '@uiw/codemirror-theme-gruvbox-dark';
 
@@ -254,6 +254,7 @@ export {
   highlightActiveLineGutter,
   drawSelection,
   keymap,
+  hoverTooltip,
 
   // Commands / history
   commands,
@@ -278,5 +279,7 @@ export {
 
   // Autocomplete / Brackets
   closeBrackets,
-  closeBracketsKeymap
+  closeBracketsKeymap,
+  autocompletion,
+  completionKeymap
 };

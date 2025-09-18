@@ -25,13 +25,17 @@ var userFilters = cm6.createEditor({
         cm6.closeBrackets(),
         cm6.highlightSelectionMatches(),
         cm6.keymap.of([
+            ...cm6.completionKeymap,
             ...cm6.closeBracketsKeymap,
             ...cm6.commands.defaultKeymap,
             ...cm6.commands.historyKeymap,
         ]),
+        cm6.autocompletion({ override: [pccCompletion] }),
+        pccHoverTooltip
     ],
     autofocus: true
 });
+
 
 restoreEditorValue(userFilters, "userFilters");
 
@@ -69,12 +73,10 @@ var userWhitelist = cm6.createEditor({
         cm6.bracketMatching(),
         cm6.closeBrackets(),
         cm6.highlightSelectionMatches(),
-        cm6.keymap.of([
-            ...cm6.commands.defaultKeymap,
-        ]),
+        cm6.keymap.of([...cm6.commands.defaultKeymap]),
     ],
     parent: document.querySelector("#userWhitelist"),
-    autofocus: true
+    autofocus: true,
 });
 
 restoreEditorValue(userWhitelist, "whitelist");
