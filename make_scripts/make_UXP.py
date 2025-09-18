@@ -81,7 +81,7 @@ for u_f in unnecessary_f:
     os.remove(u_f)
 
 # Cleanup
-unnecessary_folders = [pn("./platform"), pn("./cookieBase")]
+unnecessary_folders = [pn("./platform")]
 for u_f in unnecessary_folders:
     shutil.rmtree(u_f)
 
