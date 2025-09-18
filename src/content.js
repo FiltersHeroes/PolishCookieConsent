@@ -125,6 +125,9 @@
             var d = new Date();
             d.setTime(d.getTime() + (expiresDays * 24 * 60 * 60 * 1000));
             var expires = "expires=" + d.toUTCString();
+            if (cookieValue.includes("$now$")) {
+                cookieValue = cookieValue.replace("$now$", Date.now());
+            }
             if (domain) {
                 document.cookie = cookieName + "=" + cookieValue + ";" + expires + ";" + "domain=" + domain + ";path=/";
             }
