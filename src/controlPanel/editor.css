@@ -6,31 +6,23 @@
     --cm-arg: #001080;
 }
 
-:root[theme="dark"] {
-    --cm-jsdef: #c586c0;
-    --cm-domain: #ce9178;
-    --cm-comment: #888;
-    --cm-func: #dcdcaa;
-    --cm-arg: #9cdcfe;
-}
-
-.cm-comment {
+:root:not([theme="dark"]) .tok-comment {
     color: var(--cm-comment);
 }
 
-.cm-jsdef {
-    color: var(--cm-jsdef);
-}
-
-.cm-domainPart {
+:root:not([theme="dark"]) .tok-string {
     color: var(--cm-domain);
 }
 
-.cm-func {
+:root:not([theme="dark"]) .tok-keyword {
+    color: var(--cm-jsdef);
+}
+
+:root:not([theme="dark"]) .tok-definition {
     color: var(--cm-func);
 }
 
-.cm-arg {
+:root:not([theme="dark"]) .tok-variableName:not(.tok-definition) {
     color: var(--cm-arg);
 }
 

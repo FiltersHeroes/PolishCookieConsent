@@ -1,24 +1,35 @@
 // Define CodeMirror mode for filters
-var filtersMode = cm6.createSimpleMode({
-    start: [
-      { regex: /#.*/, token: 'comment', sol: true },
-      { regex: /!.*/, token: 'comment', sol: true },
-      { regex: /([a-zA-Z0-9-]{0,}[a-zA-Z0-9-]\.)+[a-zA-Z0-9\.\/]{0,}/, token: 'domainPart', sol: true },
-      { regex: /#@?#\+js/, token: 'jsdef', next: 'jsfunc' },
-      { regex: /\/.*\//, token: 'domainPart', sol: true }
-    ],
-    jsfunc: [
-      { regex: /\w[^,\(]*/, token: 'func', next: 'funcArgs' }
-    ],
-    funcArgs: [
-      { regex: /\)(.*)$/, token: null, next: 'start' },
-      { regex: /[^,\)]+/, token: 'arg' },
-      { regex: /,/, token: null }
-    ],
-    languageData: {
-      commentTokens: { line: "#" }
+var filtersMode = cm6.createSimpleMode(
+    {
+        start: [
+            { regex: /#.*/, token: "comment", sol: true },
+            { regex: /!.*/, token: "comment", sol: true },
+            {
+                regex: /([a-zA-Z0-9-]{0,}[a-zA-Z0-9-]\.)+[a-zA-Z0-9\.\/]{0,}/,
+                token: "domainPart",
+                sol: true,
+            },
+            { regex: /#@?#\+js/, token: "jsdef", next: "jsfunc" },
+            { regex: /\/.*\//, token: "domainPart", sol: true },
+        ],
+        jsfunc: [{ regex: /\w[^,\(]*/, token: "func", next: "funcArgs" }],
+        funcArgs: [
+            { regex: /\)(.*)$/, token: null, next: "start" },
+            { regex: /[^,\)]+/, token: "arg" },
+            { regex: /,/, token: null },
+        ],
+        languageData: {
+            commentTokens: { line: "#" },
+        },
+    },
+    {
+        comment: cm6.tags.lineComment,
+        domainPart: cm6.tags.string,
+        jsdef: cm6.tags.keyword,
+        func: cm6.tags.function(cm6.tags.definition(cm6.tags.variableName)),
+        arg: cm6.tags.variableName,
     }
-});
+);
 
 // Autocomplete
 let functions = {};
@@ -67,7 +78,34 @@ function parseJsBlockLine(lineText, lineFrom, cursorPos, forHover = false) {
     return { funcName, funcStart, funcEnd, args };
 }
 
+function renderFunctionInfo(name, data) {
+    const dom = document.createElement("div");
+
+    const sig = document.createElement("div");
+    sig.textContent = `${name}(${data.args.map((a) => a.name).join(", ")})`;
+    sig.classList.add("mb-2");
+    sig.style.fontWeight = "600";
+
+    const desc = document.createElement("div");
+    desc.textContent = functions.translations[name + "Function"];
+
+    dom.appendChild(sig);
+    dom.appendChild(desc);
+    return dom;
+}
+
+function renderArgInfo(argData) {
+    const dom = document.createElement("div");
+    dom.textContent = `${argData.name} - ${
+        functions.translations[argData.name + "Arg"]
+    }`;
+    return dom;
+}
+
 function pccCompletion(context) {
+    if (window.matchMedia("(max-width: 600px)").matches) {
+        return;
+    }
     const word = context.matchBefore(/\w*/);
     const from = word ? word.from : context.pos;
     const pos = context.pos;
@@ -81,14 +119,14 @@ function pccCompletion(context) {
     const hasLetter = word && word.text.length > 0;
 
     if (context.explicit && jsMatch) {
-        const options = Object.entries(functions.syntax.functions).map(([name, data]) => ({
-            label: name,
-            type: "function",
-            info: `${name}(${data.args.map((a) => a.name).join(", ")}) - ${
-                functions.translations[name + "Function"]
-            }`,
-            apply: name,
-        }));
+        const options = Object.entries(functions.syntax.functions).map(
+            ([name, data]) => ({
+                label: name,
+                type: "function",
+                apply: name,
+                info: () => ({ dom: renderFunctionInfo(name, data) }),
+            })
+        );
         if (options.length) return { from, options, validFor: /^\w*$/ };
         return null;
     }
@@ -99,10 +137,8 @@ function pccCompletion(context) {
             .map(([name, data]) => ({
                 label: name,
                 type: "function",
-                info: `${name}(${data.args.map((a) => a.name).join(", ")}) - ${
-                    functions.translations[name + "Function"]
-                }`,
                 apply: name,
+                iinfo: () => ({ dom: renderFunctionInfo(name, data) }),
             }));
         if (options.length) return { from, options, validFor: /^\w*$/ };
         return null;
@@ -136,6 +172,9 @@ function pccCompletion(context) {
 
 // Hover tips
 const pccHoverTooltip = cm6.hoverTooltip((view, pos) => {
+    if (window.matchMedia("(max-width: 600px)").matches) {
+        return;
+    }
     const line = view.state.doc.lineAt(pos);
     const info = parseJsBlockLine(line.text, line.from, pos, true);
     if (!info) return null;
@@ -144,15 +183,17 @@ const pccHoverTooltip = cm6.hoverTooltip((view, pos) => {
 
     if (pos >= funcStart && pos <= funcEnd) {
         if (!functions.syntax.functions[funcName]) return null;
-        const argsSig = functions.syntax.functions[funcName].args.map((a) => a.name).join(", ");
         return {
             pos: funcStart,
             end: funcEnd,
             above: true,
             create() {
-                const dom = document.createElement("div");
-                dom.textContent = `${funcName}(${argsSig}) - ${functions.translations[funcName + "Function"]}`;
-                return { dom };
+                return {
+                    dom: renderFunctionInfo(
+                        funcName,
+                        functions.syntax.functions[funcName]
+                    ),
+                };
             },
         };
     }
@@ -160,7 +201,10 @@ const pccHoverTooltip = cm6.hoverTooltip((view, pos) => {
     for (let i = 0; i < args.length; i++) {
         const arg = args[i];
         if (pos >= arg.from && pos <= arg.to) {
-            if (!functions.syntax.functions[funcName] || !functions.syntax.functions[funcName].args[i])
+            if (
+                !functions.syntax.functions[funcName] ||
+                !functions.syntax.functions[funcName].args[i]
+            )
                 return null;
             const argData = functions.syntax.functions[funcName].args[i];
             return {
@@ -168,9 +212,7 @@ const pccHoverTooltip = cm6.hoverTooltip((view, pos) => {
                 end: arg.to,
                 above: true,
                 create() {
-                    const dom = document.createElement("div");
-                    dom.textContent = `${argData.name} - ${functions.translations[argData.name + "Arg"]}`;
-                    return { dom };
+                    return { dom: renderArgInfo(argData) };
                 },
             };
         }

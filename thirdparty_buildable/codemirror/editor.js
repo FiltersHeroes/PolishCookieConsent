@@ -6,15 +6,15 @@ import { EditorView, lineNumbers, highlightActiveLine, highlightActiveLineGutter
 import * as commands from "@codemirror/commands"
 
 // Language system
-import { bracketMatching, StreamLanguage, HighlightStyle, LanguageSupport, syntaxHighlighting } from '@codemirror/language';
-import { Tag } from '@lezer/highlight';
+import { bracketMatching, StreamLanguage, LanguageSupport, syntaxHighlighting } from '@codemirror/language';
+import { tags, classHighlighter } from "@lezer/highlight";
 import { simpleMode } from '@codemirror/legacy-modes/mode/simple-mode';
 
 // Linter
 import { lintGutter, linter } from "@codemirror/lint";
 
 // Search
-import { highlightSelectionMatches, getSearchQuery, setSearchQuery, SearchCursor, RegExpCursor, SearchQuery, search, findPrevious, findNext } from '@codemirror/search';
+import { highlightSelectionMatches, SearchCursor, RegExpCursor, search } from '@codemirror/search';
 
 // Autocomplete / Brackets
 import { closeBrackets, closeBracketsKeymap, autocompletion, completionKeymap } from "@codemirror/autocomplete";
@@ -64,40 +64,22 @@ export function onSave(editor, callback) {
   });
 }
 
-export function createSimpleMode(states) {
+export function createSimpleMode(states, tokenToTag = {}) {
   const { languageData = {}, ...pureStates } = states;
 
-  const tokenNames = new Set();
-  for (const stateName in pureStates) {
-    const rules = pureStates[stateName];
-    if (Array.isArray(rules)) {
-      rules.forEach(r => {
-        if (typeof r.token === "string") tokenNames.add(r.token);
-      });
-    }
-  }
-
   const tokenTable = {};
-  tokenNames.forEach(name => {
-    tokenTable[name] = Tag.define();
-  });
+  for (const token in tokenToTag) {
+    tokenTable[token] = tokenToTag[token];
+  }
 
   const simpleModeDef = simpleMode({
     ...pureStates,
-    languageData
+    languageData,
   });
   simpleModeDef.tokenTable = tokenTable;
 
   const language = StreamLanguage.define(simpleModeDef);
-
-  const highlighter = syntaxHighlighting(
-    HighlightStyle.define(
-      Array.from(tokenNames).map(name => ({
-        tag: tokenTable[name],
-        class: `cm-${name}`
-      }))
-    )
-  );
+  const highlighter = syntaxHighlighting(classHighlighter);
 
   return new LanguageSupport(language, [highlighter]);
 }
@@ -171,11 +153,11 @@ export function initCustomSearch(editorView, searchInput, counter, nextBtn, prev
       const options = { ignoreCase: !query.caseSensitive };
       const from = 0;
       const to = state.doc.length;
-      cursor = new cm6.RegExpCursor(state.doc, query.searchText, options, from, to);
+      cursor = new RegExpCursor(state.doc, query.searchText, options, from, to);
     } else {
       const from = 0;
       const to = state.doc.length;
-      cursor = new cm6.SearchCursor(state.doc, query.searchText, from, to);
+      cursor = new SearchCursor(state.doc, query.searchText, from, to);
     }
 
     while (!cursor.next().done) {
@@ -261,6 +243,7 @@ export {
 
   // Language system
   bracketMatching,
+  tags,
 
   // Linter
   linter,
@@ -268,14 +251,7 @@ export {
 
   // Search
   highlightSelectionMatches,
-  getSearchQuery,
-  setSearchQuery,
-  SearchCursor,
-  RegExpCursor,
-  SearchQuery,
   search,
-  findPrevious,
-  findNext,
 
   // Autocomplete / Brackets
   closeBrackets,

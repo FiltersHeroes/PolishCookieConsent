@@ -17438,7 +17438,7 @@ var cm6 = (function (exports) {
   * [`definition`](#highlight.tags.definition)[`(propertyName)`](#highlight.tags.propertyName)
     to `"tok-propertyName tok-definition"`
   */
-  tagHighlighter([
+  const classHighlighter = tagHighlighter([
       { tag: tags.link, class: "tok-link" },
       { tag: tags.heading, class: "tok-heading" },
       { tag: tags.emphasis, class: "tok-emphasis" },
@@ -18518,6 +18518,50 @@ var cm6 = (function (exports) {
   const treeHighlighter = /*@__PURE__*/Prec.high(/*@__PURE__*/ViewPlugin.fromClass(TreeHighlighter, {
       decorations: v => v.decorations
   }));
+  /**
+  A default highlight style (works well with light themes).
+  */
+  /*@__PURE__*/HighlightStyle.define([
+      { tag: tags.meta,
+          color: "#404740" },
+      { tag: tags.link,
+          textDecoration: "underline" },
+      { tag: tags.heading,
+          textDecoration: "underline",
+          fontWeight: "bold" },
+      { tag: tags.emphasis,
+          fontStyle: "italic" },
+      { tag: tags.strong,
+          fontWeight: "bold" },
+      { tag: tags.strikethrough,
+          textDecoration: "line-through" },
+      { tag: tags.keyword,
+          color: "#708" },
+      { tag: [tags.atom, tags.bool, tags.url, tags.contentSeparator, tags.labelName],
+          color: "#219" },
+      { tag: [tags.literal, tags.inserted],
+          color: "#164" },
+      { tag: [tags.string, tags.deleted],
+          color: "#a11" },
+      { tag: [tags.regexp, tags.escape, /*@__PURE__*/tags.special(tags.string)],
+          color: "#e40" },
+      { tag: /*@__PURE__*/tags.definition(tags.variableName),
+          color: "#00f" },
+      { tag: /*@__PURE__*/tags.local(tags.variableName),
+          color: "#30a" },
+      { tag: [tags.typeName, tags.namespace],
+          color: "#085" },
+      { tag: tags.className,
+          color: "#167" },
+      { tag: [/*@__PURE__*/tags.special(tags.variableName), tags.macroName],
+          color: "#256" },
+      { tag: /*@__PURE__*/tags.definition(tags.propertyName),
+          color: "#00c" },
+      { tag: tags.comment,
+          color: "#940" },
+      { tag: tags.invalid,
+          color: "#f00" }
+  ]);
 
   const baseTheme$3 = /*@__PURE__*/EditorView.baseTheme({
       "&.cm-focused .cm-matchingBracket": { backgroundColor: "#328c8252" },
@@ -22648,13 +22692,6 @@ var cm6 = (function (exports) {
       },
       provide: f => showPanel.from(f, val => val.panel)
   });
-  /**
-  Get the current search query from an editor state.
-  */
-  function getSearchQuery(state) {
-      let curState = state.field(searchState, false);
-      return curState ? curState.query.spec : defaultQuery(state);
-  }
   class SearchState {
       constructor(query, panel) {
           this.query = query;
@@ -25095,34 +25132,22 @@ var cm6 = (function (exports) {
       }]))
     });
   }
-  function createSimpleMode(states) {
+  function createSimpleMode(states, tokenToTag = {}) {
     const {
       languageData = {},
       ...pureStates
     } = states;
-    const tokenNames = new Set();
-    for (const stateName in pureStates) {
-      const rules = pureStates[stateName];
-      if (Array.isArray(rules)) {
-        rules.forEach(r => {
-          if (typeof r.token === "string") tokenNames.add(r.token);
-        });
-      }
-    }
     const tokenTable = {};
-    tokenNames.forEach(name => {
-      tokenTable[name] = Tag.define();
-    });
+    for (const token in tokenToTag) {
+      tokenTable[token] = tokenToTag[token];
+    }
     const simpleModeDef = simpleMode({
       ...pureStates,
       languageData
     });
     simpleModeDef.tokenTable = tokenTable;
     const language = StreamLanguage.define(simpleModeDef);
-    const highlighter = syntaxHighlighting(HighlightStyle.define(Array.from(tokenNames).map(name => ({
-      tag: tokenTable[name],
-      class: `cm-${name}`
-    }))));
+    const highlighter = syntaxHighlighting(classHighlighter);
     return new LanguageSupport(language, [highlighter]);
   }
   function createEditor(config = {}) {
@@ -25190,11 +25215,11 @@ var cm6 = (function (exports) {
         };
         const from = 0;
         const to = state.doc.length;
-        cursor = new cm6.RegExpCursor(state.doc, query.searchText, options, from, to);
+        cursor = new RegExpCursor(state.doc, query.searchText, options, from, to);
       } else {
         const from = 0;
         const to = state.doc.length;
-        cursor = new cm6.SearchCursor(state.doc, query.searchText, from, to);
+        cursor = new SearchCursor(state.doc, query.searchText, from, to);
       }
       while (!cursor.next().done) {
         results.push({
@@ -25260,9 +25285,6 @@ var cm6 = (function (exports) {
   exports.EditorSelection = EditorSelection;
   exports.EditorState = EditorState;
   exports.EditorView = EditorView;
-  exports.RegExpCursor = RegExpCursor;
-  exports.SearchCursor = SearchCursor;
-  exports.SearchQuery = SearchQuery;
   exports.autocompletion = autocompletion;
   exports.bracketMatching = bracketMatching;
   exports.closeBrackets = closeBrackets;
@@ -25272,9 +25294,6 @@ var cm6 = (function (exports) {
   exports.createEditor = createEditor;
   exports.createSimpleMode = createSimpleMode;
   exports.drawSelection = drawSelection;
-  exports.findNext = findNext;
-  exports.findPrevious = findPrevious;
-  exports.getSearchQuery = getSearchQuery;
   exports.getValue = getValue;
   exports.highlightActiveLine = highlightActiveLine;
   exports.highlightActiveLineGutter = highlightActiveLineGutter;
@@ -25288,8 +25307,8 @@ var cm6 = (function (exports) {
   exports.onChange = onChange;
   exports.onSave = onSave;
   exports.search = search;
-  exports.setSearchQuery = setSearchQuery;
   exports.setValue = setValue;
+  exports.tags = tags;
 
   return exports;
 
