@@ -7,7 +7,6 @@ var filtersMode = cm6.createSimpleMode(
             {
                 regex: /([a-zA-Z0-9-]{0,}[a-zA-Z0-9-]\.)+[a-zA-Z0-9\.\/]{0,}/,
                 token: "domainPart",
-                sol: true,
             },
             { regex: /#@?#\+js/, token: "jsdef", next: "jsfunc" },
             { regex: /\/.*\//, token: "domainPart", sol: true },
