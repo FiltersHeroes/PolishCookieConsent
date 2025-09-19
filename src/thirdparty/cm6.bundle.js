@@ -1,8 +1,22 @@
 /*!
+ * @codemirror/autocomplete 6.18.7
+ * @codemirror/commands 6.8.1
+ * @codemirror/language 6.11.3
+ * @codemirror/legacy-modes 6.5.1
+ * @codemirror/lint 6.8.5
+ * @codemirror/search 6.5.11
+ * @codemirror/state 6.5.2
  * @codemirror/view 6.38.2
+ * @lezer/highlight 1.2.1
  * Copyright (C) 2018 by Marijn Haverbeke <marijn@haverbeke.berlin>, Adrian Heine <mail@adrianheine.de>, and others
  * Released under MIT License
  */
+//////////////////////////
+/*
+ * @uiw/codemirror-theme-okaidia 4.25.2
+ * Copyright (c) 2021 uiw
+ * Released under MIT License
+*/
 //////////////////////////
 /*
 Generate bundle with
