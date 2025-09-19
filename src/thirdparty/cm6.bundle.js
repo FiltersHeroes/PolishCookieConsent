@@ -24981,19 +24981,17 @@ var cm6 = (function (exports) {
     });
     return editorView;
   }
-  function initCustomSearch(editorView, searchInput, counter, nextBtn, prevBtn) {
+  function initCustomSearch(editorView, searchInput, counter, nextBtn, prevBtn, caseBtn) {
     let matches = [];
     let currentIndex = -1;
-    function createSearchQuery(text) {
+    let caseSensitive = false;
+    function createSearchQuery(text, caseSensitive) {
       let isRegexp = false;
       let searchText = text;
-      let caseSensitive = true;
       const regexMatch = text.match(/^\/(.+)\/([a-z]*)$/);
       if (regexMatch) {
         isRegexp = true;
         searchText = regexMatch[1];
-        const flags = regexMatch[2] || "";
-        caseSensitive = !flags.includes("i");
       }
       return {
         searchText,
@@ -25009,13 +25007,13 @@ var cm6 = (function (exports) {
         const options = {
           ignoreCase: !query.caseSensitive
         };
-        const from = 0;
-        const to = state.doc.length;
-        cursor = new RegExpCursor(state.doc, query.searchText, options, from, to);
+        cursor = new RegExpCursor(state.doc, query.searchText, options, 0, state.doc.length);
       } else {
-        const from = 0;
-        const to = state.doc.length;
-        cursor = new SearchCursor(state.doc, query.searchText, from, to);
+        let normalize = undefined;
+        if (!query.caseSensitive) {
+          normalize = s => s.toLowerCase();
+        }
+        cursor = new SearchCursor(state.doc, query.searchText, 0, state.doc.length, normalize);
       }
       while (!cursor.next().done) {
         results.push({
@@ -25055,7 +25053,7 @@ var cm6 = (function (exports) {
         counter.textContent = "";
         return;
       }
-      const query = createSearchQuery(queryText);
+      const query = createSearchQuery(queryText, caseSensitive);
       matches = collectMatches(editorView.state, query);
       if (matches.length > 0) {
         currentIndex = 0;
@@ -25063,18 +25061,36 @@ var cm6 = (function (exports) {
       }
       updateCounter();
     }
-    searchInput.addEventListener("input", e => updateSearch(e.target.value));
-    nextBtn.addEventListener("click", () => {
-      if (matches.length === 0) return;
+    function goToNextMatch() {
+      if (!matches.length) return;
       currentIndex = (currentIndex + 1) % matches.length;
       scrollToMatch();
       updateCounter();
+    }
+    searchInput.addEventListener("input", e => updateSearch(e.target.value));
+    searchInput.addEventListener("keydown", e => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        goToNextMatch();
+      }
     });
+    nextBtn.addEventListener("click", goToNextMatch);
     prevBtn.addEventListener("click", () => {
       if (matches.length === 0) return;
       currentIndex = (currentIndex - 1 + matches.length) % matches.length;
       scrollToMatch();
       updateCounter();
+    });
+    caseBtn.addEventListener("click", () => {
+      caseSensitive = !caseSensitive;
+      caseBtn.classList.toggle("active", caseSensitive);
+      updateSearch(searchInput.value);
+    });
+    document.addEventListener("keydown", e => {
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "f") {
+        e.preventDefault();
+        searchInput.focus();
+      }
     });
   }
 

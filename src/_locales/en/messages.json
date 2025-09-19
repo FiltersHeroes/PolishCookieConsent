@@ -227,6 +227,9 @@
   "find": {
     "message": "Find"
   },
+  "matchCase": {
+    "message": "Match case"
+  },
   "prevMatch": {
     "message": "Previous match"
   },

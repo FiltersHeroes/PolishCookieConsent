@@ -227,6 +227,9 @@
   "find": {
     "message": "Znajdź"
   },
+  "matchCase": {
+    "message": "Uwzględnij wielkość liter"
+  },
   "prevMatch": {
     "message": "Poprzednie dopasowanie"
   },

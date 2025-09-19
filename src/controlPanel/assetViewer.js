@@ -38,6 +38,10 @@ PCC_vAPI.storage.local.get(url).then(function (result) {
 var searchInput = document.querySelector("#searchbar");
 var prevMatchBtn = document.querySelector("#prevMatchBtn");
 var nextMatchBtn = document.querySelector("#nextMatchBtn");
+var caseToggleBtn = document.querySelector("#caseToggleBtn");
+var findSelectionBtn = document.querySelector("#findSelectionBtn");
 var counter = document.querySelector('.cm-search-widget-count');
 
-cm6.initCustomSearch(assetEditor, searchInput, counter, nextMatchBtn, prevMatchBtn)
+
+searchInput.value = "";
+cm6.initCustomSearch(assetEditor, searchInput, counter, nextMatchBtn, prevMatchBtn, caseToggleBtn, findSelectionBtn)

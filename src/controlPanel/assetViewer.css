@@ -1,7 +1,14 @@
+#editorWrapper {
+    overflow: auto;
+}
+
+.codeMirrorContainer {
+    height: 100vh;
+}
+
 :root {
     --sBgColor: #ffffff;
     --infoPanelBg: #e8e8ed;
-    --currentColor: rgba(255, 255, 255, 0.87);
 }
 
 :root[theme="dark"] {
@@ -9,15 +16,21 @@
     --infoPanelBg: #333;
 }
 
-#searchbar {
-    color: var(--currentColor);
+.infoPanel input[type="search"] {
+    color: var(--md-sys-color-on-background);
     background-color: var(--sBgColor);
     border: 2px solid transparent;
     padding-left: 2px;
+    width: initial;
+    height: initial;
 }
 
-#searchbar:focus {
-    border: 2px solid var(--cm-comment);
+.infoPanel input[type="search"]::selection {
+    background-color: var(--md-sys-color-primary-container);
+}
+
+.infoPanel input[type="search"]:focus {
+    border: 2px solid var(--md-sys-color-primary-container);
 }
 
 .panelIcon {
@@ -31,40 +44,45 @@
 }
 
 .panelIcon:hover:not(#searchIcon) {
-    fill: var(--currentColor);
-}
-
-
-.rightSide {
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    margin-right: 5px;
+    fill: var(--md-ref-palette-primary50);
 }
 
 .leftSide {
     margin-left: 5px;
 }
 
-#infoPanel {
-  position: sticky;
-  top: 0;
-  background: var(--infoPanelBg);
-  z-index: 1000;
-  padding: 5px 5px;
-  border-bottom: 1px solid var(--cm-comment);
+
+.infoPanel {
+    display: flex;
+    position: sticky;
+    top: 0;
+    background: var(--infoPanelBg);
+    z-index: 1000;
+    padding: 5px 5px;
+    border-bottom: 1px solid var(--cm-comment);
 }
 
-#editorWrapper {
-    overflow: auto; 
+.caseToggleBtn {
+    border: none;
+    background-color: var(--md-sys-color-background);
+    color: var(--md-sys-color-on-background);
+    outline: none;
 }
 
-.codeMirrorContainer {
-    height: 100vh;
+.caseToggleBtn:hover,
+.caseToggleBtn.active {
+    border: 2px solid var(--md-ref-palette-primary50);
+    outline: none;
 }
 
-#searchbar {
-    width: initial;
-    height: initial;
+.infoPanel .leftSide,
+.infoPanel .rightSide {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    flex-wrap: wrap;
+}
+
+.infoPanel .rightSide {
+    margin-left: auto;
 }
