@@ -24823,131 +24823,50 @@ var cm6 = (function (exports) {
     return extension;
   };
 
-  var defaultSettingsGruvboxDark = {
-    background: '#282828',
-    foreground: '#ebdbb2',
-    caret: '#ebdbb2',
-    selection: '#b99d555c',
-    selectionMatch: '#b99d555c',
-    lineHighlight: '#baa1602b',
-    gutterBackground: '#282828',
-    gutterForeground: '#7c6f64'
+  var defaultSettingsOkaidia = {
+    background: '#272822',
+    foreground: '#FFFFFF',
+    caret: '#FFFFFF',
+    selection: '#49483E',
+    selectionMatch: '#49483E',
+    gutterBackground: '#272822',
+    gutterForeground: '#FFFFFF70',
+    lineHighlight: '#0000003b'
   };
-  var gruvboxDarkStyle = [{
-    tag: tags.keyword,
-    color: '#fb4934'
+  var okaidiaDarkStyle = [{
+    tag: [tags.comment, tags.documentMeta],
+    color: '#8292a2'
   }, {
-    tag: [tags.name, tags.deleted, tags.character, tags.propertyName, tags.macroName],
-    color: '#8ec07c'
+    tag: [tags.number, tags.bool, tags.null, tags.atom],
+    color: '#ae81ff'
+  }, {
+    tag: [tags.attributeValue, tags.className, tags.name],
+    color: '#e6db74'
+  }, {
+    tag: [tags.propertyName, tags.attributeName],
+    color: '#a6e22e'
   }, {
     tag: [tags.variableName],
-    color: '#83a598'
-  }, {
-    tag: [tags.function(tags.variableName)],
-    color: '#b8bb26',
-    fontStyle: 'bold'
-  }, {
-    tag: [tags.labelName],
-    color: '#ebdbb2'
-  }, {
-    tag: [tags.color, tags.constant(tags.name), tags.standard(tags.name)],
-    color: '#d3869b'
-  }, {
-    tag: [tags.definition(tags.name), tags.separator],
-    color: '#ebdbb2'
-  }, {
-    tag: [tags.brace],
-    color: '#ebdbb2'
-  }, {
-    tag: [tags.annotation],
-    color: '#fb4934d'
-  }, {
-    tag: [tags.number, tags.changed, tags.annotation, tags.modifier, tags.self, tags.namespace],
-    color: '#d3869b'
-  }, {
-    tag: [tags.typeName, tags.className],
-    color: '#fabd2f'
-  }, {
-    tag: [tags.operator, tags.operatorKeyword],
-    color: '#fb4934'
-  }, {
-    tag: [tags.tagName],
-    color: '#8ec07c',
-    fontStyle: 'bold'
+    color: '#9effff'
   }, {
     tag: [tags.squareBracket],
-    color: '#fe8019'
+    color: '#bababa'
   }, {
-    tag: [tags.angleBracket],
-    color: '#83a598'
+    tag: [tags.string, tags.special(tags.brace)],
+    color: '#e6db74'
   }, {
-    tag: [tags.attributeName],
-    color: '#8ec07c'
+    tag: [tags.regexp, tags.className, tags.typeName, tags.definition(tags.typeName)],
+    color: '#66d9ef'
   }, {
-    tag: [tags.regexp],
-    color: '#8ec07c'
-  }, {
-    tag: [tags.quote],
-    color: '#928374'
-  }, {
-    tag: [tags.string],
-    color: '#ebdbb2'
-  }, {
-    tag: tags.link,
-    color: '#a89984',
-    textDecoration: 'underline',
-    textUnderlinePosition: 'under'
-  }, {
-    tag: [tags.url, tags.escape, tags.special(tags.string)],
-    color: '#d3869b'
-  }, {
-    tag: [tags.meta],
-    color: '#fabd2f'
-  }, {
-    tag: [tags.comment],
-    color: '#928374',
-    fontStyle: 'italic'
-  }, {
-    tag: tags.strong,
-    fontWeight: 'bold',
-    color: '#fe8019'
-  }, {
-    tag: tags.emphasis,
-    fontStyle: 'italic',
-    color: '#b8bb26'
-  }, {
-    tag: tags.strikethrough,
-    textDecoration: 'line-through'
-  }, {
-    tag: tags.heading,
-    fontWeight: 'bold',
-    color: '#b8bb26'
-  }, {
-    tag: [tags.heading1, tags.heading2],
-    fontWeight: 'bold',
-    color: '#b8bb26'
-  }, {
-    tag: [tags.heading3, tags.heading4],
-    fontWeight: 'bold',
-    color: '#fabd2f'
-  }, {
-    tag: [tags.heading5, tags.heading6],
-    color: '#fabd2f'
-  }, {
-    tag: [tags.atom, tags.bool, tags.special(tags.variableName)],
-    color: '#d3869b'
-  }, {
-    tag: [tags.processingInstruction, tags.inserted],
-    color: '#83a598'
-  }, {
-    tag: [tags.contentSeparator],
-    color: '#fb4934'
-  }, {
-    tag: tags.invalid,
-    color: '#fe8019',
-    borderBottom: "1px dotted #fb4934d"
+    tag: [tags.definition(tags.variableName), tags.definition(tags.propertyName), tags.function(tags.variableName)],
+    color: '#fd971f'
+  },
+  // { tag: t.keyword, color: '#f92672' },
+  {
+    tag: [tags.keyword, tags.definitionKeyword, tags.modifier, tags.tagName, tags.angleBracket],
+    color: '#f92672'
   }];
-  var gruvboxDarkInit = options => {
+  var okaidiaInit = options => {
     var {
       theme = 'dark',
       settings = {},
@@ -24955,148 +24874,11 @@ var cm6 = (function (exports) {
     } = {};
     return createTheme({
       theme: theme,
-      settings: _extends({}, defaultSettingsGruvboxDark, settings),
-      styles: [...gruvboxDarkStyle, ...styles]
+      settings: _extends({}, defaultSettingsOkaidia, settings),
+      styles: [...okaidiaDarkStyle, ...styles]
     });
   };
-  var gruvboxDark = gruvboxDarkInit();
-  var defaultSettingsGruvboxLight = {
-    background: '#fbf1c7',
-    foreground: '#3c3836',
-    caret: '#af3a03',
-    selection: '#bdae9391',
-    selectionMatch: '#bdae9391',
-    lineHighlight: '#a37f2238',
-    gutterBackground: '#ebdbb2',
-    gutterForeground: '#665c54',
-    gutterBorder: 'transparent'
-  };
-  var gruvboxLightInit = options => {
-    var {
-      theme = 'light',
-      settings = {},
-      styles = []
-    } = {};
-    return createTheme({
-      theme: theme,
-      settings: _extends({}, defaultSettingsGruvboxLight, settings),
-      styles: [{
-        tag: tags.keyword,
-        color: '#9d0006'
-      }, {
-        tag: [tags.name, tags.deleted, tags.character, tags.propertyName, tags.macroName],
-        color: '#427b58'
-      }, {
-        tag: [tags.variableName],
-        color: '#076678'
-      }, {
-        tag: [tags.function(tags.variableName)],
-        color: '#79740e',
-        fontStyle: 'bold'
-      }, {
-        tag: [tags.labelName],
-        color: '#3c3836'
-      }, {
-        tag: [tags.color, tags.constant(tags.name), tags.standard(tags.name)],
-        color: '#8f3f71'
-      }, {
-        tag: [tags.definition(tags.name), tags.separator],
-        color: '#3c3836'
-      }, {
-        tag: [tags.brace],
-        color: '#3c3836'
-      }, {
-        tag: [tags.annotation],
-        color: '#9d0006'
-      }, {
-        tag: [tags.number, tags.changed, tags.annotation, tags.modifier, tags.self, tags.namespace],
-        color: '#8f3f71'
-      }, {
-        tag: [tags.typeName, tags.className],
-        color: '#b57614'
-      }, {
-        tag: [tags.operator, tags.operatorKeyword],
-        color: '#9d0006'
-      }, {
-        tag: [tags.tagName],
-        color: '#427b58',
-        fontStyle: 'bold'
-      }, {
-        tag: [tags.squareBracket],
-        color: '#af3a03'
-      }, {
-        tag: [tags.angleBracket],
-        color: '#076678'
-      }, {
-        tag: [tags.attributeName],
-        color: '#427b58'
-      }, {
-        tag: [tags.regexp],
-        color: '#427b58'
-      }, {
-        tag: [tags.quote],
-        color: '#928374'
-      }, {
-        tag: [tags.string],
-        color: '#3c3836'
-      }, {
-        tag: tags.link,
-        color: '#7c6f64',
-        textDecoration: 'underline',
-        textUnderlinePosition: 'under'
-      }, {
-        tag: [tags.url, tags.escape, tags.special(tags.string)],
-        color: '#8f3f71'
-      }, {
-        tag: [tags.meta],
-        color: '#b57614'
-      }, {
-        tag: [tags.comment],
-        color: '#928374',
-        fontStyle: 'italic'
-      }, {
-        tag: tags.strong,
-        fontWeight: 'bold',
-        color: '#af3a03'
-      }, {
-        tag: tags.emphasis,
-        fontStyle: 'italic',
-        color: '#79740e'
-      }, {
-        tag: tags.strikethrough,
-        textDecoration: 'line-through'
-      }, {
-        tag: tags.heading,
-        fontWeight: 'bold',
-        color: '#79740e'
-      }, {
-        tag: [tags.heading1, tags.heading2],
-        fontWeight: 'bold',
-        color: '#79740e'
-      }, {
-        tag: [tags.heading3, tags.heading4],
-        fontWeight: 'bold',
-        color: '#b57614'
-      }, {
-        tag: [tags.heading5, tags.heading6],
-        color: '#b57614'
-      }, {
-        tag: [tags.atom, tags.bool, tags.special(tags.variableName)],
-        color: '#8f3f71'
-      }, {
-        tag: [tags.processingInstruction, tags.inserted],
-        color: '#076678'
-      }, {
-        tag: [tags.contentSeparator],
-        color: '#9d0006'
-      }, {
-        tag: tags.invalid,
-        color: '#af3a03',
-        borderBottom: "1px dotted #9d0006"
-      }, ...styles]
-    });
-  };
-  gruvboxLightInit();
+  var okaidia = okaidiaInit();
 
   // Core
 
@@ -25158,7 +24940,7 @@ var cm6 = (function (exports) {
     function getCurrentTheme(colorScheme) {
       let chosenTheme = lightTheme;
       if (colorScheme == "dark") {
-        chosenTheme = gruvboxDark;
+        chosenTheme = okaidia;
       }
       return chosenTheme;
     }

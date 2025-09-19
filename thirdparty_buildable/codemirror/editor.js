@@ -19,7 +19,7 @@ import { highlightSelectionMatches, SearchCursor, RegExpCursor, search } from '@
 // Autocomplete / Brackets
 import { closeBrackets, closeBracketsKeymap, autocompletion, completionKeymap } from "@codemirror/autocomplete";
 
-import { gruvboxDark as darkTheme } from '@uiw/codemirror-theme-gruvbox-dark';
+import { okaidia as darkTheme } from '@uiw/codemirror-theme-okaidia';
 
 // ================= Helpers =================
 export function setValue(editor, value) {
