@@ -4,8 +4,8 @@ api_token_env: CROWDIN_TOKEN
 preserve_hierarchy: false
 files: [
   {
-    "source": "/src/_locales/en/*",
-    "translation": "/src/_locales/%locale_with_underscore%/%original_file_name%",
+    "source": "/src/_locales/en/messages.json",
+    "translation": "/src/_locales/%locale_with_underscore%/messages.json",
     "escape_quotes": 3,
     "escape_special_characters": 0,
     "update_option": "update_as_unapproved"

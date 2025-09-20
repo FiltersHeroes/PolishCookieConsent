@@ -128,6 +128,12 @@
             if (cookieValue.includes("$now$")) {
                 cookieValue = cookieValue.replace("$now$", Date.now());
             }
+            if (cookieValue.includes("$currentDate$")) {
+                cookieValue = cookieValue.replace("$currentDate$", new Date().toGMTString());
+            }
+            if (cookieValue.includes("$currentISODate$")) {
+                cookieValue = cookieValue.replace("$currentISODate$", new Date().toISOString());
+            }
             if (domain) {
                 document.cookie = cookieName + "=" + cookieValue + ";" + expires + ";" + "domain=" + domain + ";path=/";
             }
@@ -205,6 +211,12 @@
                         var storageValue = arg2;
                         if (storageValue.includes("$now$")) {
                             storageValue = storageValue.replace("$now$", Date.now());
+                        }
+                        if (storageValue.includes("$currentDate$")) {
+                            storageValue = storageValue.replace("$currentDate$", new Date().toGMTString());
+                        }
+                        if (storageValue.includes("$currentISODate$")) {
+                            storageValue = storageValue.replace("$currentISODate$", new Date().toISOString());
                         }
                         if (jsfunc == "addToStorage") {
                             addToStorage(storageKey, storageValue);
