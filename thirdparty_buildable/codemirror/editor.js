@@ -243,6 +243,17 @@ export function initCustomSearch(editorView, searchInput, counter, nextBtn, prev
   });
 }
 
+export const commonExtensions = [
+  lineNumbers(),
+  highlightActiveLine(),
+  highlightActiveLineGutter(),
+  drawSelection(),
+  bracketMatching(),
+  closeBrackets(),
+  highlightSelectionMatches(),
+  EditorView.lineWrapping,
+]
+
 export {
   // Core
   EditorState,

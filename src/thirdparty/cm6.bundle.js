@@ -25093,6 +25093,7 @@ var cm6 = (function (exports) {
       }
     });
   }
+  const commonExtensions = [lineNumbers(), highlightActiveLine(), highlightActiveLineGutter(), drawSelection(), bracketMatching(), closeBrackets(), highlightSelectionMatches(), EditorView.lineWrapping];
 
   exports.EditorSelection = EditorSelection;
   exports.EditorState = EditorState;
@@ -25102,6 +25103,7 @@ var cm6 = (function (exports) {
   exports.closeBrackets = closeBrackets;
   exports.closeBracketsKeymap = closeBracketsKeymap;
   exports.commands = index;
+  exports.commonExtensions = commonExtensions;
   exports.completionKeymap = completionKeymap;
   exports.createEditor = createEditor;
   exports.createSimpleMode = createSimpleMode;

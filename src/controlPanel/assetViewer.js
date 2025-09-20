@@ -5,17 +5,10 @@ let assetEditor = cm6.createEditor({
     parent: document.querySelector('#editorWrapper'),
     autofocus: true,
     extensions: [
+        ...cm6.commonExtensions,
         filtersMode,
-        cm6.lineNumbers(),
-        cm6.highlightActiveLine(),
-        cm6.highlightActiveLineGutter(),
-        cm6.drawSelection(),
-        cm6.bracketMatching(),
-        cm6.closeBrackets(),
-        cm6.highlightSelectionMatches(),
         cm6.search(),
         cm6.EditorState.readOnly.of(true),
-        cm6.EditorView.lineWrapping,
     ],
 });
 
