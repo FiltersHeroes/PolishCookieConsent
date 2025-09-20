@@ -13,11 +13,12 @@ Addons.mozilla.org: [![Moz://a AMO version](https://img.shields.io/amo/v/polish-
 
 <!-- bug "not found" Chrome Web Store: [![Chrome Web Store version](https://img.shields.io/chrome-web-store/v/bniijddcmabghibaojbkbnngbedopbno.svg?label=CWS "Chrome Web Store version")](https://chromewebstore.google.com/detail/polska-ciasteczkowa-zgoda/bniijddcmabghibaojbkbnngbedopbno?hl=pl "Chrome Web Store version") ![Chromium users](https://img.shields.io/chrome-web-store/users/bniijddcmabghibaojbkbnngbedopbno.svg?label=użytkowników "Chromium users") -->
 
-Chrome Web Store: [v.1.45.1](https://chromewebstore.google.com/detail/polish-cookie-consent/bniijddcmabghibaojbkbnngbedopbno?hl=pl "wersja z Chrome Web Store"), około 1000-1548 użytkowników
+Chrome Web Store: [![Chrome Web Store version](https://img.shields.io/badge/CWS-v1.45.1-%23007ec6.svg "Chrome Web Store version")](https://chromewebstore.google.com/detail/polish-cookie-consent/bniijddcmabghibaojbkbnngbedopbno?hl=pl)
 
-Pale Moon Add-ons: [![Pale Moon Add-ons version](https://img.shields.io/badge/PMA-v1.45.1-%23007ec6.svg "Pale Moon Add-ons version")](https://addons.palemoon.org/addon/pcc/ "Pale Moon Add-ons version")
 
-Basilisk Add-ons: [![Basilisk Add-ons version](https://img.shields.io/badge/BA-v1.45.1-%23007ec6.svg "Basilisk Add-ons version")](https://addons.basilisk-browser.org/addon/pcc/ "Basilisk Add-ons version")
+Pale Moon Add-ons: [![Pale Moon Add-ons version](https://img.shields.io/badge/PMA-v1.47.0-%23007ec6.svg "Pale Moon Add-ons version")](https://addons.palemoon.org/addon/pcc/ "Pale Moon Add-ons version")
+
+Basilisk Add-ons: [![Basilisk Add-ons version](https://img.shields.io/badge/BA-v1.47.0-%23007ec6.svg "Basilisk Add-ons version")](https://addons.basilisk-browser.org/addon/pcc/ "Basilisk Add-ons version")
 
 Crowdin: [![Crowdin](https://badges.crowdin.net/polish-cookie-consent/localized.svg)](https://crowdin.com/project/polish-cookie-consent)
 
@@ -26,12 +27,6 @@ Crowdin: [![Crowdin](https://badges.crowdin.net/polish-cookie-consent/localized.
 1. Zainstaluj najnowszą wersję rozszerzenia z [AMO](https://addons.mozilla.org/pl/firefox/addon/polish-cookie-consent?utm_source=git) (kliknij dwukrotnie **dodaj**).
 2. Gotowe :tada: !
 
-<ol>
-  
-> [!TIP]
-> Firefox 120.1.0+ dodał obługę instalacji na Androidzie dodatku z tego samego linku co dla komputerów (patrz krok pierwszy), nie wiadomo kiedy ruszy to spod adresu dedykowanego dla Androida (t.j. https://addons.mozilla.org/android/addon/polish-cookie-consent/ &mdash; wydaje się działać z wydaniem 140).
-
-</ol>
 
 ### **II. ![Chrome][Chrome]Chrome/![Chromium][Chromium]Chromium/![Brave][Brave]Brave/![Vivaldi][Vivaldi]Vivaldi/![Cent][Cent]Cent/![Lemur][Lemur]Lemur/![Whale][Whale]NAVER Whale/![Edge][Edge](Chrom)Edge/![Opera][Opera](Chr)Opera 76+**<a name="ii-chromiumandlemurs"></a><a name="ii-chromechromiumvivaldicentyandexkiwinaver-whalechromedge"></a><a name="iii-chropera"></a><a name="ii-chromechromiumbravevivaldicentlemurkiwinaver-whalechromedgechropera-76"></a>
 1. Zainstaluj najnowszą wersję rozszerzenia z [CWS](https://chromewebstore.google.com/detail/polska-ciasteczkowa-zgoda/bniijddcmabghibaojbkbnngbedopbno?hl=pl) (kliknij dwukrotnie **dodaj**).
@@ -61,42 +56,6 @@ Crowdin: [![Crowdin](https://badges.crowdin.net/polish-cookie-consent/localized.
 ### **V. ![Basilisk][Basilisk]Basilisk**
 1. Zainstaluj najnowszą wersję rozszerzenia z [BA](https://addons.basilisk-browser.org/addon/pcc/).
 2. Gotowe :tada: !
-
-
-### Mobilne bazujące na Firefox 113.0-120.0:
-
-### **VI. ![Iceraven][Iceraven][Iceraven](https://github.com/fork-maintainers/iceraven-browser)**
-1. Wejdź w Ustawienia -> Dostosuj i zjeżdżaj w dół, aż znajdziesz `Set custom add-ons account`.
-2. Dotknij `Set custom add-ons account`, wpisz `12377843` i `OK`.
-3. Dotknij `Set custom add-ons collection`, wpisz `Moje-rekomendacje` i `OK`.
-4. Wróć do głównych ustawień, zjedź w dół i dotknij `Dodatki`.
-5. Dotknij `+` przy PCZ i `Dodaj`.
-6. Gotowe :tada: !
-
-### **VII. ![Fennec][Fennec][Fennec F-Droid](https://f-droid.org/en/packages/org.mozilla.fennec_fdroid/)/![Firefox-Beta][Firefox-Beta]Firefox [Beta](https://play.google.com/store/apps/details?id=org.mozilla.firefox_beta)/![Nightly][Nightly][Firefox Nightly (Android)](https://play.google.com/store/apps/details?id=org.mozilla.fenix)**<a name="vii-fennec-f-droidfirefox-nightly-android"></a>
-
-<ol>
-
-> [!TIP]
-> Wydanie 119 bety/nocne Firefox zezwala na instalację dodatku spod strony dla PC: https://addons.mozilla.org/pl/firefox/addon/polish-cookie-consent/ <br>
-> Mechanizm ten może wymagać dezaktywacji własnej kolekcji.
->
-> Nie wiadomo kiedy ruszy to spod adresu dedykowanego dla Androida (t.j. https://addons.mozilla.org/android/addon/polish-cookie-consent/ &mdash; wydaje się działać z wydaniem 140).
-
-<details> <summary> mechanizmem własnej kolekcji  (Firefox 113 - 118 / Fennec) </summary>
-
-1. Wejdź w Ustawienia -> O programie Fennec/Firefox Nightly.
-2. Dotknij 5 razy w szybkim tempie logo programu - aby odblokować tryb developera.
-3. Wróć do głównych ustawień programu -> Inna kolekcja dodatków.
-4. Dotknij `Właściciel kolekcji (identyfikator)` i wpisz `12377843`.
-5. Dotknij `Nazwa kolekcji`, wpisz `Moje-rekomendacje` i kliknij `OK`.
-6. Przeglądarka zamknie się w celu zastosowania kolekcji `Moje-rekomendacje`, więc uruchom ją ponownie ręcznie.
-7. Wejdź w `Dodatki`.
-8. Dotknij `+` przy PCZ i `Dodaj`.
-9. Gotowe :tada: !
-10. Listę reszty dopuszczonych dodatków przez Moz://ę znajdziesz pod adresem: [https://addons.mozilla.org/](https://addons.mozilla.org/), rozwijając rekomendowane (od Firefox 85 część dodatków można ponownie instalować bezpośrednio z poziomu sklepu dodatków Moz://a). Jeśli strona nie zezwala na instalację wąskiej grupy dodatków, można rozważyć wyłączenie dodanej tymczasowo kolekcji.
-
-</details></ol>
 
 
 [Firefox]: https://cdnjs.cloudflare.com/ajax/libs/browser-logos/73.0.0/firefox/firefox_24x24.png "Mozilla Firefox"
