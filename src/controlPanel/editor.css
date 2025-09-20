@@ -51,3 +51,7 @@
     min-height: 0;
     overflow: auto;
 }
+
+:root[theme="dark"] .codeMirrorContainer .cm-selectionLayer .cm-selectionBackground {
+  background: var(--md-ref-palette-primary35) !important;
+}
