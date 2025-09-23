@@ -128,6 +128,18 @@
   "tooManyArgs": {
     "message": "Podano zbyt dużo argumentów."
   },
+  "missingDomain": {
+    "message": "Brak domeny lub wyrażenia regularnego."
+  },
+  "invalidDomain": {
+    "message": "Domena $domain$ jest nieprawidłowa.",
+    "placeholders": {
+      "function": {
+        "content": "$1",
+        "example": "example.com"
+      }
+    }
+  },
   "plCDB": {
     "message": "Polska Baza Ciasteczkowa"
   },

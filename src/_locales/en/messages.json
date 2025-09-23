@@ -128,6 +128,18 @@
   "tooManyArgs": {
     "message": "Too many arguments were given."
   },
+  "missingDomain": {
+    "message": "No domain or regex."
+  },
+  "invalidDomain": {
+    "message": "Domain $domain$ is invalid.",
+    "placeholders": {
+      "domain": {
+        "content": "$1",
+        "example": "example.com"
+      }
+    }
+  },
   "plCDB": {
     "message": "Polish Cookie Database"
   },

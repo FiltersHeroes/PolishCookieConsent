@@ -1,45 +1,93 @@
-let filtersLinter = cm6.linter(view => {
-  let validFunctions = {
+let filtersLinter = cm6.linter((view) => {
+  const validFunctions = {
     addToStorage: { min: 2, max: 2 },
     addToSessionStorage: { min: 2, max: 2 },
     bakeCookie: { min: 3, max: 4 },
     clickInteractive: { min: 1, max: 3 },
     clickTimeout: { min: 1, max: 3 },
     clickComplete: { min: 1, max: 3 },
-    redirect: { min: 2, max: 3 }
+    redirect: { min: 2, max: 3 },
+  };
+
+  const domainRegex = /^=?[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?)*\.[a-zA-Z]{2,}(?:\/[^\s]*)?$/;
+
+  const isValidDomainOrRegex = (d) => {
+    const trimmed = d.trim();
+    return domainRegex.test(trimmed) || /^\/.{3,}\/$/.test(trimmed);
   };
 
   let found = [];
-  let doc = view.state.doc;
+  const doc = view.state.doc;
 
   for (let i = 1; i <= doc.lines; i++) {
-    let lineInfo = doc.line(i);
-    let line = lineInfo.text;
-    if (!line || /^(!|#)/.test(line)) continue;
+    const lineInfo = doc.line(i);
+    const line = lineInfo.text;
 
-    let match = line.match(/[^#]+#@?#\+js\(([^)]*)\)$/);
-    if (!match) {
+    if (!line || /^(!|#[^#])/.test(line)) continue;
+
+    const parts = line.split(/#@?#\+js/);
+    const domainPart = parts[0].trim();
+
+    if (!domainPart) {
       found.push({
         from: lineInfo.from,
         to: lineInfo.to,
-        message: PCC_vAPI.i18n.getMessage("invalidEntry"),
-        severity: "error"
+        message: PCC_vAPI.i18n.getMessage("missingDomain"),
+        severity: "error",
       });
       continue;
     }
 
-    let args = match[1].split(", ");
-    let funcName = args[0];
-    let funcArgsNumber = args.length - 1;
-    let from = lineInfo.from + match.index + match[0].indexOf(funcName);
+    const domains = domainPart.split(",");
+    const invalidDomain = domains.find((d) => !isValidDomainOrRegex(d));
 
-    let funcConfig = validFunctions[funcName];
+    if (invalidDomain === "" && domains.length > 1) {
+      found.push({
+        from: lineInfo.from,
+        to: lineInfo.to,
+        message: PCC_vAPI.i18n.getMessage("invalidDomain", [
+          domains[domains.length - 2].trim(),
+        ]),
+        severity: "error",
+      });
+      continue;
+    } else if (invalidDomain) {
+      found.push({
+        from: lineInfo.from,
+        to: lineInfo.to,
+        message: PCC_vAPI.i18n.getMessage("invalidDomain", [
+          invalidDomain.trim(),
+        ]),
+        severity: "error",
+      });
+      continue;
+    }
+
+    const jsMatch = line.match(/#@?#\+js\((.*)\)$/);
+    if (!jsMatch) {
+      found.push({
+        from: lineInfo.from,
+        to: lineInfo.to,
+        message: PCC_vAPI.i18n.getMessage("invalidEntry"),
+        severity: "error",
+      });
+      continue;
+    }
+
+    const args = jsMatch[1].split(", ");
+    const funcName = args[0];
+    const funcArgsNumber = args.length - 1;
+    const from = lineInfo.from + line.indexOf(funcName);
+
+    const funcConfig = validFunctions[funcName];
     if (!funcConfig) {
       found.push({
         from,
         to: from + funcName.length,
-        message: PCC_vAPI.i18n.getMessage("invalidFunction", [funcName]),
-        severity: "warning"
+        message: PCC_vAPI.i18n.getMessage("invalidFunction", [
+          funcName,
+        ]),
+        severity: "warning",
       });
       continue;
     }
@@ -49,21 +97,21 @@ let filtersLinter = cm6.linter(view => {
         from: lineInfo.from,
         to: lineInfo.to,
         message: PCC_vAPI.i18n.getMessage("tooManyArgs"),
-        severity: "warning"
+        severity: "warning",
       });
     } else if (funcArgsNumber < funcConfig.min) {
       found.push({
         from: lineInfo.from,
         to: lineInfo.to,
         message: PCC_vAPI.i18n.getMessage("tooFewArgs"),
-        severity: "error"
+        severity: "error",
       });
     }
   }
   return found;
 });
 
-let excludedListLinter = cm6.linter(view => {
+let excludedListLinter = cm6.linter((view) => {
   let found = [];
   let doc = view.state.doc;
   let badEntry = /(^[^.]+$)|[^a-z0-9.\-_\[\]:]/;
@@ -77,7 +125,7 @@ let excludedListLinter = cm6.linter(view => {
         from: lineInfo.from,
         to: lineInfo.to,
         message: PCC_vAPI.i18n.getMessage("invalidEntry"),
-        severity: "error"
+        severity: "error",
       });
     }
   }
