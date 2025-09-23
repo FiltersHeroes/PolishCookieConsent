@@ -52,6 +52,7 @@
     overflow: auto;
 }
 
-:root[theme="dark"] .codeMirrorContainer .cm-selectionLayer .cm-selectionBackground {
+:root[theme="dark"] .codeMirrorContainer .cm-selectionLayer .cm-selectionBackground,
+:root[theme="dark"] .codeMirrorContainer .cm-selectionMatch {
   background: var(--md-ref-palette-primary35) !important;
 }
