@@ -17,12 +17,13 @@
 }
 
 .infoPanel input[type="search"] {
-    color: var(--md-sys-color-on-background);
     background-color: var(--sBgColor);
     border: 2px solid transparent;
     padding-left: 2px;
-    width: initial;
-    height: initial;
+    width: auto;
+    height: auto;
+    line-height: 24px;
+    box-sizing: border-box;
 }
 
 .infoPanel input[type="search"]::selection {

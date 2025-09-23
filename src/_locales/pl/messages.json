@@ -134,7 +134,7 @@
   "invalidDomain": {
     "message": "Domena $domain$ jest nieprawidłowa.",
     "placeholders": {
-      "function": {
+      "domain": {
         "content": "$1",
         "example": "example.com"
       }
