@@ -44,9 +44,20 @@ let currentLang = PCC_vAPI.i18n.getUILanguage();
         PCC_vAPI.runtime.getURL("controlPanel/syntax.json")
     );
     functions.syntax = await funcResponse.json();
-    let functionsTrResponse = await fetch(
-        PCC_vAPI.runtime.getURL("_locales/" + currentLang + "/functions.json")
-    );
+
+    let langShort = currentLang.split('-')[0];
+    let functionsTrResponse;
+
+    try {
+        let res = await fetch(PCC_vAPI.runtime.getURL(`_locales/${langShort}/functions.json`));
+        if (!res.ok) {
+            throw new Error('File not found');
+        }
+        functionsTrResponse = res;
+    } catch (e) {
+        let res = await fetch(PCC_vAPI.runtime.getURL(`_locales/en/functions.json`));
+        functionsTrResponse = res;
+    }
     functions.translations = await functionsTrResponse.json();
 })();
 
