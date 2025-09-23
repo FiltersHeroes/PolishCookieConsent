@@ -114,7 +114,7 @@
     "message": "This entry is invalid."
   },
   "invalidFunction": {
-    "message": "The function $function$ couldn't be found.",
+    "message": "The $function$ function couldn't be found.",
     "placeholders": {
       "function": {
         "content": "$1",
@@ -132,7 +132,7 @@
     "message": "No domain or regex."
   },
   "invalidDomain": {
-    "message": "Domain $domain$ is invalid.",
+    "message": "The $domain$ domain is invalid.",
     "placeholders": {
       "domain": {
         "content": "$1",
