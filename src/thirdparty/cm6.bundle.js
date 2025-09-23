@@ -6,7 +6,7 @@
  * @codemirror/lint 6.8.5
  * @codemirror/search 6.5.11
  * @codemirror/state 6.5.2
- * @codemirror/view 6.38.2
+ * @codemirror/view 6.38.3
  * @lezer/highlight 1.2.1
  * Copyright (C) 2018 by Marijn Haverbeke <marijn@haverbeke.berlin>, Adrian Heine <mail@adrianheine.de>, and others
  * Released under MIT License
@@ -6085,13 +6085,14 @@ var cm6 = (function (exports) {
                       this.textOff = 0;
                   }
               }
-              let take = Math.min(this.text.length - this.textOff, length, 512 /* T.Chunk */);
+              let remaining = Math.min(this.text.length - this.textOff, length);
+              let take = Math.min(remaining, 512 /* T.Chunk */);
               this.flushBuffer(active.slice(active.length - openStart));
               this.getLine().append(wrapMarks(new TextView(this.text.slice(this.textOff, this.textOff + take)), active), openStart);
               this.atCursorPos = true;
               this.textOff += take;
               length -= take;
-              openStart = 0;
+              openStart = remaining <= take ? 0 : active.length;
           }
       }
       span(from, to, active, openStart) {
@@ -7905,14 +7906,13 @@ var cm6 = (function (exports) {
           }
           else if (doc.caretRangeFromPoint) {
               let range = doc.caretRangeFromPoint(x, y);
-              if (range) {
+              if (range)
                   ({ startContainer: node, startOffset: offset } = range);
-                  if (!view.contentDOM.contains(node) ||
-                      browser.safari && isSuspiciousSafariCaretResult(node, offset, x) ||
-                      browser.chrome && isSuspiciousChromeCaretResult(node, offset, x))
-                      node = undefined;
-              }
           }
+          if (node && (!view.contentDOM.contains(node) ||
+              browser.safari && isSuspiciousSafariCaretResult(node, offset, x) ||
+              browser.chrome && isSuspiciousChromeCaretResult(node, offset, x)))
+              node = undefined;
           // Chrome will return offsets into <input> elements without child
           // nodes, which will lead to a null deref below, so clip the
           // offset to the node size.
@@ -7948,11 +7948,7 @@ var cm6 = (function (exports) {
       let content = view.state.sliceDoc(block.from, block.to);
       return block.from + findColumn(content, into, view.state.tabSize);
   }
-  // In case of a high line height, Safari's caretRangeFromPoint treats
-  // the space between lines as belonging to the last character of the
-  // line before. This is used to detect such a result so that it can be
-  // ignored (issue #401).
-  function isSuspiciousSafariCaretResult(node, offset, x) {
+  function isEndOfLineBefore(node, offset, x) {
       let len, scan = node;
       if (node.nodeType != 3 || offset != (len = node.nodeValue.length))
           return false;
@@ -7972,10 +7968,17 @@ var cm6 = (function (exports) {
       }
       return textRange(node, len - 1, len).getBoundingClientRect().right > x;
   }
+  // In case of a high line height, Safari's caretRangeFromPoint treats
+  // the space between lines as belonging to the last character of the
+  // line before. This is used to detect such a result so that it can be
+  // ignored (issue #401).
+  function isSuspiciousSafariCaretResult(node, offset, x) {
+      return isEndOfLineBefore(node, offset, x);
+  }
   // Chrome will move positions between lines to the start of the next line
   function isSuspiciousChromeCaretResult(node, offset, x) {
       if (offset != 0)
-          return false;
+          return isEndOfLineBefore(node, offset, x);
       for (let cur = node;;) {
           let parent = cur.parentNode;
           if (!parent || parent.nodeType != 1 || parent.firstChild != cur)
@@ -8401,8 +8404,20 @@ var cm6 = (function (exports) {
       return true;
   }
   function applyDefaultInsert(view, change, newSel) {
-      let tr, startState = view.state, sel = startState.selection.main;
-      if (change.from >= sel.from && change.to <= sel.to && change.to - change.from >= (sel.to - sel.from) / 3 &&
+      let tr, startState = view.state, sel = startState.selection.main, inAtomic = -1;
+      if (change.from == change.to && change.from < sel.from || change.from > sel.to) {
+          let side = change.from < sel.from ? -1 : 1, pos = side < 0 ? sel.from : sel.to;
+          let moved = skipAtomicRanges(startState.facet(atomicRanges).map(f => f(view)), pos, side);
+          if (change.from == moved)
+              inAtomic = moved;
+      }
+      if (inAtomic > -1) {
+          tr = {
+              changes: change,
+              selection: EditorSelection.cursor(change.from + change.insert.length, -1)
+          };
+      }
+      else if (change.from >= sel.from && change.to <= sel.to && change.to - change.from >= (sel.to - sel.from) / 3 &&
           (!newSel || newSel.main.empty && newSel.main.from == change.from + change.insert.length) &&
           view.inputState.composing < 0) {
           let before = sel.from < change.from ? startState.sliceDoc(sel.from, change.from) : "";
@@ -13380,6 +13395,8 @@ var cm6 = (function (exports) {
                   old = next;
               }
               this.drawn = markers;
+              if (browser.ios) // Issue #1600
+                  this.dom.style.display = this.dom.firstChild ? "" : "none";
           }
       }
       destroy() {

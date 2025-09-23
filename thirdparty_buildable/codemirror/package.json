@@ -10,14 +10,14 @@
     "@codemirror/lint": "^6.8.5",
     "@codemirror/search": "^6.5.11",
     "@codemirror/state": "^6.5.2",
-    "@codemirror/view": "^6.38.2",
+    "@codemirror/view": "^6.38.3",
     "@lezer/highlight": "^1.2.1",
     "@rollup/plugin-babel": "^6.0.4",
     "@rollup/plugin-commonjs": "^28.0.6",
     "@rollup/plugin-node-resolve": "^16.0.1",
     "@uiw/codemirror-theme-okaidia": "^4.25.2",
     "core-js": "^3.45.1",
-    "rollup": "^4.50.2"
+    "rollup": "^4.52.2"
   },
   "scripts": {
     "build": "rollup -c"
