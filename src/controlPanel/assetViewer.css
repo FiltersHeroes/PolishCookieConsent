@@ -16,6 +16,10 @@
     --infoPanelBg: #333;
 }
 
+input::placeholder {
+  opacity: 0.5;
+}
+
 .infoPanel input[type="search"] {
     background-color: var(--sBgColor);
     border: 2px solid transparent;
