@@ -170,7 +170,7 @@
 
     function initArgs(filter) {
         if (filter) {
-            let funcArgs = filter.split("##+js(")[1]?.slice(0, -1)?.split(", ");
+            let funcArgs = filter.split("##+js(")[1]?.slice(0, -1)?.split(/\s*,\s*/);
             if (funcArgs && funcArgs.length > 1) {
                 let jsfunc = funcArgs[0];
 

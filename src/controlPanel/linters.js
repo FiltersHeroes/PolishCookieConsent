@@ -74,7 +74,7 @@ let filtersLinter = cm6.linter((view) => {
       continue;
     }
 
-    const args = jsMatch[1].split(", ");
+    const args = jsMatch[1].split(/\s*,\s*/);
     const funcName = args[0];
     const funcArgsNumber = args.length - 1;
     const from = lineInfo.from + line.indexOf(funcName);
