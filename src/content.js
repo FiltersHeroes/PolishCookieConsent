@@ -251,7 +251,7 @@
             return value !== "" && (value.startsWith("!") || value.startsWith("#"));
         }
         if (resultExcludedlist) {
-            var excludedlist = resultExcludedlist.split("\n").filter(containsCommentSign).join(',');
+            var excludedlist = resultExcludedlist.split("\n").filter(line => !containsCommentSign(line)).join(',');
             if (getUrlCondition(excludedlist)) {
                 return;
             }
