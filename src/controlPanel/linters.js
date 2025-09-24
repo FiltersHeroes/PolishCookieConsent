@@ -64,7 +64,7 @@ let filtersLinter = cm6.linter((view) => {
     }
 
     const jsMatch = line.match(/#@?#\+js\((.*)\)$/);
-    if (!jsMatch) {
+    if (!jsMatch || !jsMatch[1].includes(", ")) {
       found.push({
         from: lineInfo.from,
         to: lineInfo.to,
