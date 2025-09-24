@@ -9,7 +9,7 @@ let filtersLinter = cm6.linter((view) => {
     redirect: { min: 2, max: 3 },
   };
 
-  const domainRegex = /^=?[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?)*\.[a-zA-Z]{2,}(?:\/[^\s]*)?$/;
+  const domainRegex = /[a-zA-Z0-9][\w-]*(?:\.[a-zA-Z0-9][\w-]*)+(?:\/[a-zA-Z0-9\-._~!$&'()*+,;=:@%/]*)*/;
 
   const isValidDomainOrRegex = (d) => {
     const trimmed = d.trim();

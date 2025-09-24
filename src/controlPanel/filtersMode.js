@@ -6,7 +6,7 @@ var filtersMode = cm6.createSimpleMode(
             { regex: /!.*/, token: "comment", sol: true },
             { regex: /\/.*\//, token: "domainPart", sol: true },
             {
-                regex: /([a-zA-Z0-9-]{0,}[a-zA-Z0-9-]\.)+[a-zA-Z0-9\.\/]{0,}/,
+                regex: /[a-zA-Z0-9][\w-]*(?:\.[a-zA-Z0-9][\w-]*)+(?:\/[\w\-.\/]*)*/,
                 token: "domainPart",
             },
             {
