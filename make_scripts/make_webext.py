@@ -40,7 +40,7 @@ for u_f in unnecessary_folders:
     shutil.rmtree(u_f)
 
 # Set correct version for extension and cleanup manifest
-ext_version = "1.47.0"
+ext_version = "1.47.1"
 if "PCC_VERSION" in os.environ:
     ext_version = os.environ.get("PCC_VERSION")
 elif len(sys.argv) >= 3:
