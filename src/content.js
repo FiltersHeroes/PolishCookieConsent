@@ -170,22 +170,7 @@
 
     function initArgs(filter) {
         if (filter) {
-            let rawArgs = filter.split("##+js(")[1]?.slice(0, -1)?.split(/\s*,\s*/);
-            let funcArgs = [];
-            let buffer = "";
-            for (let part of rawArgs) {
-                if (buffer) {
-                    buffer += "," + part;
-                }
-                else {
-                    buffer = part;
-                }
-                if (buffer.startsWith("{") && !buffer.endsWith("}")) {
-                    continue;
-                }
-                funcArgs.push(buffer.trim());
-                buffer = "";
-            }
+            let funcArgs = filter.split("##+js(")[1]?.slice(0, -1)?.split(/\s*,\s*/);
             if (funcArgs && funcArgs.length > 1) {
                 let jsfunc = funcArgs[0];
 

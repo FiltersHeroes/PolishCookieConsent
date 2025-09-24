@@ -74,24 +74,7 @@ let filtersLinter = cm6.linter((view) => {
       continue;
     }
 
-
-    let rawArgs = jsMatch[1].split(/\s*,\s*/);
-    let args = [];
-    let buffer = "";
-    for (let part of rawArgs) {
-      if (buffer) {
-        buffer += "," + part;
-      }
-      else {
-        buffer = part;
-      }
-      if (buffer.startsWith("{") && !buffer.endsWith("}")) 
-      {
-        continue;
-      }
-      args.push(buffer.trim());
-      buffer = "";
-    }
+    const args = jsMatch[1].split(/\s*,\s*/);
     const funcName = args[0];
     const funcArgsNumber = args.length - 1;
     const from = lineInfo.from + line.indexOf(funcName);
