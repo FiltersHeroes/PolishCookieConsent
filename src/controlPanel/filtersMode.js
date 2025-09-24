@@ -119,9 +119,6 @@ function renderArgInfo(argData) {
 }
 
 function pccCompletion(context) {
-    if (window.matchMedia("(max-width: 600px)").matches) {
-        return;
-    }
     const word = context.matchBefore(/\w*/);
     const from = word ? word.from : context.pos;
     const pos = context.pos;
