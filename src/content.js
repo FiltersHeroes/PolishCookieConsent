@@ -284,7 +284,12 @@
                     continue;
                 }
                 if (allFilters[i].includes("#@#+js")) {
-                    excludeFilters.add(allFilters[i].replace("#@#+js", "##+js"));
+                    let [urlPart, scriptPart] = allFilters[i].split("#@#+js");
+                    let domains = urlPart.split(',');
+                    for (let domain of domains) {
+                        excludeFilters.add(`${domain}##+js${scriptPart}`);
+                    }
+                    allFilters.splice(i, 1);
                     continue;
                 }
                 let urlArg = allFilters[i].split('##+js')[0];
@@ -292,9 +297,27 @@
                     allFilters.splice(i, 1);
                 }
             }
-            
+
             for (let i = 0; i < allFilters.length; i++) {
-                if (excludeFilters.has(allFilters[i])) {
+                let [urlPart, scriptPart] = allFilters[i].split("##+js");
+                let domains = urlPart.split(',');
+
+                let newDomains = [];
+                for (let domain of domains) {
+                    if (!excludeFilters.has(`${domain}##+js${scriptPart}`)) {
+                        newDomains.push(domain);
+                    }
+                }
+
+                domains = newDomains;
+
+                if (domains.length === 0) {
+                    allFilters.splice(i, 1);
+                } else {
+                    allFilters[i] = domains.join(',') + "##+js" + scriptPart;
+                }
+
+                if (!getUrlCondition(domains)) {
                     continue;
                 }
                 initArgs(allFilters[i]);
