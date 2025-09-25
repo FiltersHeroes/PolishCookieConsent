@@ -124,13 +124,12 @@ function todayDate() {
 }
 
 function exportText(field, fileNamePart) {
-    // We need an iframe to workaround bug in Waterfox Classic/Firefox<63 on Linux (https://discourse.mozilla.org/t/bug-exporting-files-via-javascript/13116)
-    var a = document.querySelector('iframe[src="exportFile.html"]').contentWindow.document.getElementById("download");
-    a.href = "data:text/plain;charset=utf-8," + encodeURIComponent(cm6.getValue(field));
+    const blob = new Blob([cm6.getValue(field)], { type: "text/plain;charset=utf-8" });
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
     a.download = PCC_vAPI.i18n.getMessage("extensionShortName") + "-" + PCC_vAPI.i18n.getMessage(fileNamePart).replace(" ", "-").toLowerCase() + "_" + todayDate() + ".txt";
     a.click();
-    a.href = "";
-    a.download = "";
+    URL.revokeObjectURL(a.href);
 }
 document.querySelector('#userFiltersExport').addEventListener('click', function () {
     exportText(userFilters, "myFilters");

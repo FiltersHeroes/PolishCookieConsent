@@ -188,13 +188,13 @@
             obj["whitelist"] = resultEL;
         }
 
-        // We need an iframe to workaround bug in Waterfox Classic/Firefox<63 on Linux (https://discourse.mozilla.org/t/bug-exporting-files-via-javascript/13116)
-        var a = document.querySelector('iframe[src="exportFile.html"]').contentWindow.document.getElementById("download");
-        a.href = "data:text/plain;charset=utf-8," + encodeURIComponent(JSON.stringify(obj, null, 2));
+        const blob = new Blob([JSON.stringify(obj, null, 2)], { type: "text/plain;charset=utf-8" });
+        const a = document.createElement("a");
+        a.href = URL.createObjectURL(blob);
         a.download = PCC_vAPI.i18n.getMessage("backupFilename", new Array(todayDate())) + ".json";
         a.click();
-        a.href = "";
-        a.download = "";
+        URL.revokeObjectURL(a.href);
+
         await PCC_vAPI.storage.local.set("lastBackupTime", tStamp);
         await showLastBackupTime();
     });
