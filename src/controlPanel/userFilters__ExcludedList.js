@@ -48,7 +48,7 @@ var excludedListMode = cm6.createSimpleMode({
         },
     ],
     languageData: {
-      commentTokens: { line: "#" }
+        commentTokens: { line: "#" }
     }
 });
 
