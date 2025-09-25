@@ -314,13 +314,14 @@
 
                 domains = newDomains;
 
+                let domainsString = domains.join(',')
                 if (domains.length === 0) {
                     allFilters.splice(i, 1);
                 } else {
-                    allFilters[i] = domains.join(',') + "##+js" + scriptPart;
+                    allFilters[i] = domainsString + "##+js" + scriptPart;
                 }
 
-                if (!getUrlCondition(domains)) {
+                if (!getUrlCondition(domainsString)) {
                     continue;
                 }
                 initArgs(allFilters[i]);
