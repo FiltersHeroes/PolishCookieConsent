@@ -86,12 +86,10 @@ Crowdin: [![Crowdin](https://badges.crowdin.net/polish-cookie-consent/localized.
 
 Polska Ciasteczkowa Zgoda korzysta z otwartoźródłowego kodu następujących projektów (wg. kolejności alfabetycznej):
 
-* [CodeMirror](https://github.com/codemirror/codemirror)
-
-* [icheck-material](https://github.com/bantikyan/icheck-material)
+* [CodeMirror](https://github.com/codemirror/view)
 
 * [Localizer](https://github.com/TinyWebEx/Localizer)
 
-* [MUI](https://github.com/muicss/mui)
+* [Materialize](https://materializeweb.com/)
 
 * [Octicons](https://github.com/primer/octicons/)
