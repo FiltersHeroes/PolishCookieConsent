@@ -231,6 +231,9 @@
                     var cookieValue = arg2;
                     var expiresDays = arg3;
                     var domain = arg4;
+                    if (!expiresDays) {
+                        expiresDays = 365;
+                    }
                     if (!isNaN(expiresDays) && expiresDays > 0) {
                         bakeCookie(cookieName, cookieValue, expiresDays, domain);
                     }

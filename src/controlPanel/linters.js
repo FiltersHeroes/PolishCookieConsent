@@ -2,7 +2,7 @@ let filtersLinter = cm6.linter((view) => {
   const validFunctions = {
     addToStorage: { min: 2, max: 2 },
     addToSessionStorage: { min: 2, max: 2 },
-    bakeCookie: { min: 3, max: 4 },
+    bakeCookie: { min: 2, max: 4 },
     clickInteractive: { min: 1, max: 3 },
     clickTimeout: { min: 1, max: 3 },
     clickComplete: { min: 1, max: 3 },
