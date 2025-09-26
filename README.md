@@ -19,9 +19,9 @@ Addons.mozilla.org: [![Moz://a AMO version](https://img.shields.io/amo/v/polish-
 
 Chrome Web Store: [![Chrome Web Store version](https://img.shields.io/badge/CWS-v1.47.0-%23007ec6.svg "Chrome Web Store version")](https://chromewebstore.google.com/detail/polish-cookie-consent/bniijddcmabghibaojbkbnngbedopbno?hl=en)
 
-Pale Moon Add-ons: [![Pale Moon Add-ons version](https://img.shields.io/badge/PMA-v1.47.0-%23007ec6.svg)](https://addons.palemoon.org/addon/pcc/ "Pale Moon Add-ons version")
+Pale Moon Add-ons: [![Pale Moon Add-ons version](https://img.shields.io/badge/PMA-v1.47.1-%23007ec6.svg)](https://addons.palemoon.org/addon/pcc/ "Pale Moon Add-ons version")
 
-Basilisk Add-ons: [![Basilisk Add-ons version](https://img.shields.io/badge/BA-v1.47.0-%23007ec6.svg)](https://addons.basilisk-browser.org/addon/pcc/ "Basilisk Add-ons version")
+Basilisk Add-ons: [![Basilisk Add-ons version](https://img.shields.io/badge/BA-v1.47.1-%23007ec6.svg)](https://addons.basilisk-browser.org/addon/pcc/ "Basilisk Add-ons version")
 
 Crowdin: [![Crowdin](https://badges.crowdin.net/polish-cookie-consent/localized.svg)](https://crowdin.com/project/polish-cookie-consent)
 
