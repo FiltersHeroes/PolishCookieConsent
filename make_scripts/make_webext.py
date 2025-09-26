@@ -58,9 +58,9 @@ mkassets.run(main_path)
 # Send extension to browser's store
 if os.environ.get("TEST_MODE") != "true" and os.environ.get("CI") == "true":
     if sys.argv[1] == "chromium":
-        subprocess.run(["pnpm", "dlx", "chrome-webstore-upload-cli"], check=True)
+        subprocess.run(["pnpm", "dlx", "chrome-webstore-upload-cli"], text=True, check=False)
     elif sys.argv[1] == "firefox":
-        subprocess.run(["pnpm", "dlx", "web-ext", "sign", "--channel", "listed"], check=True)
+        subprocess.run(["pnpm", "dlx", "web-ext", "sign", "--channel", "listed"], text=True, check=False)
 
     # Cleanup
     we_artifacts_path = pn("./web-ext-artifacts")
