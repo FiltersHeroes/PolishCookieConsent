@@ -24,9 +24,9 @@ jobs:
           WEB_EXT_APPROVAL_TIMEOUT: ${{ vars.WEB_EXT_APPROVAL_TIMEOUT }}
           WEB_EXT_API_KEY: ${{ secrets.WEB_EXT_API_KEY }}
           WEB_EXT_API_SECRET: ${{ secrets.WEB_EXT_API_SECRET }}
-          CLIENT_ID: ${{ secrets.CLIENT_ID }}
-          CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
-          REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
+          CLIENT_ID: ${{ secrets.CHROMIUM_CLIENT_ID }}
+          CLIENT_SECRET: ${{ secrets.CHROMIUM_CLIENT_SECRET }}
+          REFRESH_TOKEN: ${{ secrets.CHROMIUM_REFRESH_TOKEN }}
           EXTENSION_ID: ${{ vars.CHROMIUM_EXTENSION_ID }}
         run: |
           sudo apt-get update && sudo apt-get install -y software-properties-common python3-requests
