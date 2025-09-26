@@ -1,0 +1,41 @@
+name: Publish new version
+
+on:
+  push:
+    tags:
+      - /.*/
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: latest
+      - name: Build
+        shell: bash
+        env:
+          TEST_MODE: ${{ vars.TEST_MODE }}
+          WEB_EXT_APPROVAL_TIMEOUT: ${{ vars.WEB_EXT_APPROVAL_TIMEOUT }}
+          WEB_EXT_API_KEY: ${{ secrets.WEB_EXT_API_KEY }}
+          WEB_EXT_API_SECRET: ${{ secrets.WEB_EXT_API_SECRET }}
+          CLIENT_ID: ${{ secrets.CLIENT_ID }}
+          CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
+          REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
+          EXTENSION_ID: ${{ vars.CHROMIUM_EXTENSION_ID }}
+        run: |
+          sudo apt-get update && sudo apt-get install -y software-properties-common python3-requests
+          PCC_VERSION="$(echo "$GITHUB_REF_NAME" | sed 's/^v//')"
+          export PCC_VERSION
+          ./make_scripts/make_UXP.py
+          pnpm install web-ext chrome-webstore-upload-cli && ./make_scripts/make_webext.py firefox && ./make_scripts/make_webext.py chromium || true
+      - name: Add to releases
+        uses: softprops/action-gh-release@v2
+        with:
+          files: ./artifacts/*
+          generate_release_notes: true
