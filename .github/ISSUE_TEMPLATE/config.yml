@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: New page(s) to address 🌐
+    url: https://github.com/FiltersHeroes/PCCassets/issues/new?template=address.yml
+    about: Please submit new page(s) for addressing via the PCCassets repository. 🙂
