@@ -17,7 +17,7 @@ Addons.mozilla.org: [![Moz://a AMO version](https://img.shields.io/amo/v/polish-
 
 
 
-Chrome Web Store: [![Chrome Web Store version](https://img.shields.io/badge/CWS-v1.47.0-%23007ec6.svg "Chrome Web Store version")](https://chromewebstore.google.com/detail/polish-cookie-consent/bniijddcmabghibaojbkbnngbedopbno?hl=en)
+Chrome Web Store: [![Chrome Web Store version](https://img.shields.io/badge/CWS-v1.47.1-%23007ec6.svg "Chrome Web Store version")](https://chromewebstore.google.com/detail/polish-cookie-consent/bniijddcmabghibaojbkbnngbedopbno?hl=en)
 
 Pale Moon Add-ons: [![Pale Moon Add-ons version](https://img.shields.io/badge/PMA-v1.47.1-%23007ec6.svg)](https://addons.palemoon.org/addon/pcc/ "Pale Moon Add-ons version")
 
