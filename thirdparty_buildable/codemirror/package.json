@@ -17,7 +17,7 @@
     "@rollup/plugin-node-resolve": "^16.0.1",
     "@uiw/codemirror-theme-okaidia": "^4.25.2",
     "core-js": "^3.45.1",
-    "rollup": "^4.52.2"
+    "rollup": "^4.59.0"
   },
   "scripts": {
     "build": "rollup -c"
