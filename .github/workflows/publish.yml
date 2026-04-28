@@ -35,7 +35,7 @@ jobs:
           ./make_scripts/make_UXP.py
           pnpm install web-ext chrome-webstore-upload-cli && ./make_scripts/make_webext.py firefox && ./make_scripts/make_webext.py chromium || true
       - name: Add to releases
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           files: ./artifacts/*
           generate_release_notes: true
