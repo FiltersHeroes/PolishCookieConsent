@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "@babel/core": "^7.29.0",
+    "@babel/core": "^7.29.6",
     "@babel/preset-env": "^7.29.2",
     "@babel/runtime": "^7.29.2",
     "@codemirror/autocomplete": "^6.20.1",
