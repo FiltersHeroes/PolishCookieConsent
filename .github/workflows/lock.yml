@@ -3,12 +3,14 @@ name: 'Ochroniarz'
 on:
   schedule:
     - cron: '0 0 27 * *'
+  workflow_dispatch:
 
 jobs:
   lock:
     runs-on: ubuntu-latest
     permissions:
       issues: write
+      discussions: write
     steps:
       - uses: dessant/lock-threads@v6
         with:
@@ -25,4 +27,9 @@ jobs:
           add-pr-labels: ''
           pr-comment: ''
           pr-lock-reason: 'resolved'
-          process-only: 'issues'
+          process-only: 'issues, discussions'
+          discussion-inactive-days: '40'
+          exclude-discussion-created-before: ''
+          exclude-any-discussion-labels: ''
+          add-discussion-labels: ''
+          discussion-comment: 'Ta dyskusja została automatycznie zablokowana z powodu braku aktywności. Proszę otworzyć nową dyskusję dla powiązanych problemów.'
