@@ -845,13 +845,8 @@ packages:
     peerDependencies:
       '@babel/core': ^7.4.0 || ^8.0.0-0 <8.0.0
 
-  baseline-browser-mapping@2.10.12:
-    resolution: {integrity: sha512-qyq26DxfY4awP2gIRXhhLWfwzwI+N5Nxk6iQi8EFizIaWIjqicQTE4sLnZZVdeKPRcVNoJOkkpfzoIYuvCKaIQ==}
-    engines: {node: '>=6.0.0'}
-    hasBin: true
-
-  baseline-browser-mapping@2.10.38:
-    resolution: {integrity: sha512-31/02mVB4yuQU6adKk5SlY6m+mxDwUq5KZkyYgnLrrKl7TEm1+3PyDtDBz2kOv/wxZz41GHsvV1A/u6RmiyBvw==}
+  baseline-browser-mapping@2.11.39:
+    resolution: {integrity: sha512-Q9buOYhr2ggrEZpImICecZTJHCCd8yXkRUokFlUEQ8uiD6oP82F4W4jWnhOHZYV+wlvrC51V7Wy0ULyWjil5Wg==}
     engines: {node: '>=6.0.0'}
     hasBin: true
 
@@ -1977,13 +1972,11 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  baseline-browser-mapping@2.10.12: {}
-
-  baseline-browser-mapping@2.10.38: {}
+  baseline-browser-mapping@2.11.39: {}
 
   browserslist@4.28.1:
     dependencies:
-      baseline-browser-mapping: 2.10.12
+      baseline-browser-mapping: 2.11.39
       caniuse-lite: 1.0.30001781
       electron-to-chromium: 1.5.328
       node-releases: 2.0.36
@@ -1991,7 +1984,7 @@ snapshots:
 
   browserslist@4.28.4:
     dependencies:
-      baseline-browser-mapping: 2.10.38
+      baseline-browser-mapping: 2.11.39
       caniuse-lite: 1.0.30001799
       electron-to-chromium: 1.5.376
       node-releases: 2.0.48
